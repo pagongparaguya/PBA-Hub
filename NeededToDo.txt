@@ -1,0 +1,1 @@
+1.) Correct html structure for team_page.php player_page.php coach_page.php search.php, view user profile, view team/player/coach profiles.
