@@ -51,7 +51,7 @@
     <div class="row row-content">
       <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
         <?php foreach($notification as $notif):?>
-          <div class="panel">
+          <div class="panel" style="width:800px;">
             <h4><?php echo $notif->MESSAGE;?> <?php echo $notif->TIMESTAMP;?></h4>
           </div>
         <?php endforeach;?>
@@ -116,6 +116,7 @@
 		$("#answerButton").click(function(){
 			$.getJSON("<?php echo base_url();?>account_controller/check_answer/"+$("#answer").val(),success=function(data){
 				if(data=="1"){
+          $("#notif").html("");
 					$('#editProfileModal').foundation('reveal', 'open');
 				}else{
 					$("#notif").html("Wrong Answer!");
