@@ -1,5 +1,5 @@
 <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">
-  <h1>STARTING WITH LETTER:</h1>
+  <!--<h1>STARTING WITH LETTER:</h1>
   <div class="small-3 small-centered medium-3 medium-centered large-3 large-centered columns">
     <select id="letters">
       <option value="ALL"selected>ALL</option>
@@ -30,7 +30,8 @@
       <option value="Y">Y</option>
       <option value="Z">Z</option>
     </select>
-  </div>
+  </div>-->
+  <h1>PLAYER SEARCH</h1>
     <table id="searchTable" class="display" cellspacing="0">
       <thead>
       <tr>
@@ -51,7 +52,7 @@ $(document).ready(function(){
   $("#tbody").append(cur);
   $('#searchTable').dataTable();
 
-  $("#letters").change(function(){
+/*  $("#letters").change(function(){
     if($(this).val()=="ALL"){
       $("#tbody").html("");
       $("#tbody").append(cur);
@@ -65,6 +66,6 @@ $(document).ready(function(){
         $("#tbody").append(value);
       });
     }
-  });
+  });*/
 });
 </script>

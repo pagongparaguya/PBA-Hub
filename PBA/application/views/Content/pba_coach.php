@@ -77,14 +77,20 @@
             <p>Coach Playoff Appear:<?php echo $info->COACH_PLAYOFF_APPEAR;?></p>
             <p>Coach Finals Appear:<?php echo $info->COACH_FINALS_APPEAR;?></p>
 
+            <?php if(!empty($award)){?>
             <b>Award:</b>
+            <?php }?>
+
             <?php foreach($award as $award):?>
       			<p><?php echo $award->AWARD_NAME;?><br/>
       			Year: <?php echo $award->YEAR_AWARDED;?></p>
       			<?php endforeach;?>
 
 
+            <?php if(!empty($champ)){?>
             <b>Championship:</b>
+            <?php }?>
+            
       			<?php foreach($champ as $champ):?>
       			<p>League: <?php echo $champ->LEAGUE_NAME;?><br/>
       			Year: <?php echo $champ->YEAR_WON;?></p>

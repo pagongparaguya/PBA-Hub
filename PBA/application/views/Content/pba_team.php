@@ -86,7 +86,11 @@
           <li>
       			<p>Number of Playoff Appearance:<?php echo $info->TEAM_PLAYOFF_APPEAR?></p>
       			<p>Number of Finals Appearance:<?php echo $info->TEAM_FINALS_APPEAR;?></p>
-            <b>Championship:</b>
+
+            <?php if(!empty($champ)){?>
+              <b>Championship:</b>
+            <?php }?>
+            
             <?php foreach($champ as $champ):?>
             <p>League: <?php echo $champ->LEAGUE_NAME;?><br/>
             Year: <?php echo $champ->YEAR_WON;?></p>
