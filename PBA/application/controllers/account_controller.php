@@ -192,6 +192,7 @@ class Account_controller extends CI_Controller{
 		if(!empty($this->session->userdata('username'))){
 			$data['title']=$this->session->userdata('username')."'s Profile";
 			$data['info']=$this->pba_model->get_user($this->session->userdata('username'));
+			$data['notification']=$this->pba_model->get_notifications($this->session->userdata('username'));
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/user_profile',$data);
 			$this->load->view('Template/footer');

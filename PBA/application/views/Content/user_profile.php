@@ -49,7 +49,12 @@
       </div>
     </div>
     <div class="row row-content">
-      <ul class="team-row small-block-grid-4 medium-block-grid-4 large-block-grid-4 teams">
+      <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
+        <?php foreach($notification as $notif):?>
+          <div class="panel">
+            <h4><?php echo $notif->MESSAGE;?> <?php echo $notif->TIMESTAMP;?></h4>
+          </div>
+        <?php endforeach;?>
       </ul>
     </div>
     <!--- END USER NOTIFICATIONS-->

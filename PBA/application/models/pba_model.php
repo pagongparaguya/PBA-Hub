@@ -56,6 +56,13 @@ class Pba_model extends CI_Model{
 		return $d->row();
 	}
 
+	public function get_notifications($user){
+		$this->db->where('USERNAME',$user);
+		$this->db->order_by('TIMESTAMP','desc');
+		$d=$this->db->get('notification');
+		return $d->result();
+	}
+
 	//players
 	public function get_allPlayers(){
 		$d=$this->db->get('player');

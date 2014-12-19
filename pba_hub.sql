@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2014 at 11:05 AM
+-- Generation Time: Dec 19, 2014 at 09:39 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -109,6 +109,26 @@ CREATE TABLE IF NOT EXISTS `coach_championship_won` (
 INSERT INTO `coach_championship_won` (`COACH_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
 (0, 'NBA', 2014),
 (1, 'NBA', 2014);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE IF NOT EXISTS `notification` (
+  `USERNAME` varchar(20) NOT NULL,
+  `MESSAGE` varchar(100) NOT NULL,
+  `TIMESTAMP` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUES
+('Hi', 'Hi you just won everything!', '2014-12-19 11:36:41'),
+('Hi', 'Hello Hi you are incredible', '2014-12-19 18:32:24');
 
 -- --------------------------------------------------------
 
@@ -358,16 +378,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`USER_ID`),
   UNIQUE KEY `USERNAME` (`USERNAME`),
   UNIQUE KEY `EMAIL_ADDRESS` (`EMAIL_ADDRESS`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
-(1, '3', '3', '3', '', '3', '2014-11-13', 'Who is your favorite PBA team?', 'IDK', '1', '1', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/default123.jpg'),
-(2, 'Irvin', 'Abellanosa', '123', 'asda@yahoo.com', '1', '2014-12-30', 'Who is your favorite PBA player?', 'a', 'hi', '49f68a5c8493ec2c0bf489821c21fc3b', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/default123.jpg'),
-(4, 'Kobe', 'Bryant', '09228456886', 'now_imo@yahoo.com', 'ab@yahoo.com', '2010-12-31', 'Who is your favorite PBA player?', 'KB', '123', '202cb962ac59075b964b07152d234b70', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/123.jpg');
+(1, 'Irvin', 'Abellanosa', '09228456886', 'asda@yahoo.com', 'hello hello', '2014-12-31', 'Who is your favorite PBA player?', 'KB', 'Hi', '49f68a5c8493ec2c0bf489821c21fc3b', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/default123.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
