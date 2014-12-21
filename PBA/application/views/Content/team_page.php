@@ -31,12 +31,12 @@
       <option value="Z">Z</option>
     </select>
   </div>-->
-  <h1>TEAM SEARCH</h1>
+  <h1>THE PBA TEAMS</h1>
     <table id="searchTable" class="display" cellspacing="0">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Type</th>
+        <th class="table-content">TEAM</th>
+        <th class="table-content">YEAR STARTED</th>
       </tr>
       </thead>
       <tbody id="tbody">
@@ -47,7 +47,7 @@
 $(document).ready(function(){
   var cur="";
   <?php foreach($team as $team):?>
-    cur+="<tr onclick=\"document.location ='<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>'\"><td><?php echo $team->TEAM_NAME;?></td><td>Team</td></tr>";
+    cur+="<tr onclick=\"document.location ='<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>'\"> <td class='table-content'><img src='<?php echo base_url();?>assets/img/team/<?php echo $team->TEAM_LOGO?>' width='70'/><?php echo $team->TEAM_NAME;?></td><td class='table-content'><?php echo $team->TEAM_YEARSTARTED;?></td></tr>";
   <?php endforeach;?>
   $("#tbody").append(cur);
   $('#searchTable').dataTable();

@@ -3,7 +3,7 @@ class Account_controller extends CI_Controller{
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('pba_model');
+		$this->load->model('account_model');
 	}
 
 	public function index(){
@@ -69,7 +69,7 @@ class Account_controller extends CI_Controller{
 		if(empty($this->session->userdata('username'))){
 			$user=$this->input->post('user');
 			$pass=do_hash($this->input->post('pass'),'md5');
-			$result=$this->pba_model->login_check($user,$pass);
+			$result=$this->account_model->login_check($user,$pass);
 			if(!empty($result)){
 				if($result->STATUS!='Active'){
 					$data['title']='Login';
@@ -101,7 +101,7 @@ class Account_controller extends CI_Controller{
 	public function check_code(){
 		$code=$this->input->post('code');
 		$user=$this->input->post('user');
-		$result=$this->pba_model->code_check($user,$code);
+		$result=$this->account_model->code_check($user,$code);
 		if(empty($result)){
 			$data['title']='Login';
 			$data['status']='check_code';
@@ -113,7 +113,7 @@ class Account_controller extends CI_Controller{
 			$this->load->view('Template/login_footer');
 		}else{
 			$data=array('STATUS'=>'Active');
-			$this->pba_model->update_status($data,$user,$code);
+			$this->account_model->update_status($data,$user,$code);
 			$this->session->set_userdata('username',$user);
 			redirect('account_controller/view_user_profile');
 		}
@@ -149,17 +149,17 @@ class Account_controller extends CI_Controller{
 						'PASSWORD'=>$pass,
 						'STATUS'=>$code,
 						'USER_IMAGE'=>$image);
-			if($this->pba_model->add_user($data)){
+			if($this->account_model->add_user($data)){
 				//uploading
 				if(!empty($_FILES['userfile']['name'])){
 					if(!$this->upload->do_upload()){
-						$this->pba_model->delete_user($user);
+						$this->account_model->delete_user($user);
 						redirect('account_controller/view_register2');
 					}else{
 						$file_data=$this->upload->data();
 						$image=base_url().'assets/user_images/'.$file_data['file_name'];
 						$dat=array('USER_IMAGE'=>$image);
-						$this->pba_model->update_image($dat,$user);
+						$this->account_model->update_image($dat,$user);
 					}
 				}
 				$this->sendmail($email,$code);
@@ -191,11 +191,11 @@ class Account_controller extends CI_Controller{
 	public function view_user_profile(){
 		if(!empty($this->session->userdata('username'))){
 			$data['title']=$this->session->userdata('username')."'s Profile";
-			$data['info']=$this->pba_model->get_user($this->session->userdata('username'));
-			$data['notification']=$this->pba_model->get_notifications($this->session->userdata('username'));
+			$data['info']=$this->account_model->get_user($this->session->userdata('username'));
+			$data['notification']=$this->account_model->get_notifications($this->session->userdata('username'));
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/user_profile',$data);
-			$this->load->view('Template/footer');
+			$this->load->view('Template/login_footer');
 		}else{
 			redirect('pages_controller/view_home');
 		}
@@ -203,7 +203,7 @@ class Account_controller extends CI_Controller{
 
 
 	public function check_answer($answer){
-		$d=$this->pba_model->answer_check($this->session->userdata('username'),$answer);
+		$d=$this->account_model->answer_check($this->session->userdata('username'),$answer);
 		$value="1";
 		if(empty($d)){
 			$value="0";
@@ -215,14 +215,32 @@ class Account_controller extends CI_Controller{
 	//image nalang kuwang
 	public function edit_user(){
 		if($this->input->post('fname')){
+			//upload config
+			$config['upload_path']="./assets/user_images/";
+			$config['allowed_types']='jpg|jpeg|png';
+			$config['file_name']=$this->session->userdata('username');
+			$config['overwrite'] = TRUE;
+			$this->load->library('upload',$config);
 			$pass=do_hash($this->input->post('pass'),'md5');
 			$data=array('FIRST_NAME'=>$this->input->post('fname'),
 				'LAST_NAME'=>$this->input->post('lname'),
 				'CONTACT_NUMBER'=>$this->input->post('contact'),
 				'ADDRESS'=>$this->input->post('address'),
 				'PASSWORD'=>$pass);
-			$this->pba_model->update_user($this->session->userdata('username'),$data);
-			echo "<script>alert('Successfully Made Changes!');</script>";
+			$this->account_model->update_user($this->session->userdata('username'),$data);
+			if(!empty($_FILES['userfile']['name'])){
+				if(!$this->upload->do_upload()){
+					echo "<script>alert('Successfully Changed Your profile except the image(Not an image file)!');</script>";
+				}else{
+						$file_data=$this->upload->data();
+						$image=base_url().'assets/user_images/'.$file_data['file_name'];
+						$dat=array('USER_IMAGE'=>$image);
+						$this->account_model->update_image($dat,$this->session->userdata('username'));
+						echo "<script>alert('Successfully Made Changes!');</script>";
+				}
+			}else{
+				echo "<script>alert('Successfully Made Changes!');</script>";
+			}
 		}	
 		$this->view_user_profile();
 	}

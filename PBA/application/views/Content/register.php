@@ -12,6 +12,7 @@
                             <input type="text" name="contact" placeholder="Contact Number" <?php if(!empty($contact)){?>value="<?php echo $contact?>" <?php } ?> aria-label="Contact Number" required maxlength="11"/>
                             <input type="email" name="email" placeholder="Email Address" <?php if(!empty($email)){?>value="<?php echo $email?>" <?php } ?> aria-label="Email Address" required maxlength="50"/>
                             <input type="text" name="address" placeholder="Address" <?php if(!empty($address)){?>value="<?php echo $address?>" <?php } ?> aria-label=" Address" required maxlength="100"/>
+                            <label>Birthday:</label>
                             <div class="panel">
                                 <input type="date" name="birthday" class="span2" <?php if(!empty($birthday)){?>value="<?php echo $birthday?>" <?php } ?> placeholder="mm-dd-yyyy" id="dp1" />
                             </div>
@@ -25,6 +26,7 @@
                               </select>
                             </label>
                             <input type="text" name="answer" placeholder="Answer to Question" <?php if(!empty($answer)){?>value="<?php echo $answer?>" <?php } ?> aria-label="Answer to Question" required maxlength="20"/>
+                            <label style="color:white;">Profile Photo File:</label>
                             <input type="file" name="userfile" value="Upload Photo" class="extend form-button button [tiny small large]"/>
                         </div>
 

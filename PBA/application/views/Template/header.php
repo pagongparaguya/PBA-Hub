@@ -37,7 +37,6 @@
                                             <li><a href="<?php echo base_url();?>pages_controller/view_coachPage">Coaches</a></li>
                                             <li><a href="<?php echo base_url();?>pages_controller/view_teamPage">Teams</a></li>
                                             <li><a href="#">Products</a></li>
-                                            <li><a href="<?php echo base_url();?>pages_controller/view_search">Search</a></li>
                                             <li class="has-dropdown">                                                                              
                                                   <?php if(empty($this->session->userdata('username'))){?> 
                                                           <a href="#">Account</a>
