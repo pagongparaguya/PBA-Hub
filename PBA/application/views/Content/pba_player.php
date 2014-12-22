@@ -54,7 +54,7 @@
       			<p>Player Jersey No:<?php echo $info->PLAYER_JERSEY_NO;?></p>
       			<p>Current Team:</p>
       			<p id="currentTeam"></p>
-      			<p><?php echo $info->PLAYER_TEAMTIME;?></p>
+      			<p id="teamTime"></p>
           </li>
           <li>
             <p>Player Position:<?php echo $info->PLAYER_POSITION;?></p>
@@ -145,6 +145,7 @@
 	$(document).ready(function(){
     var past="";
     var present="";
+    var presentTime="";
 		$(".achievement-block").click(function(){
 			$(".achievement").slideToggle(2000);
 		});
@@ -157,11 +158,13 @@
     <?php foreach($team_bridge as $team):?>
       <?php if($team->TYPE=='PRESENT'){?>
         present+='<a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
+        presentTime='<?php echo $team->YEAR.'-'.$team->TYPE;?>';
       <?php }else if($team->TYPE=='PAST'){?>
         past+='<li><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" alt="past team"/></a><header class="team-name">Year:<?php echo $team->YEAR;?></header></li>';
       <?php }?>
     <?php endforeach;?>
     $("#pastTeam").append(past);
+    $("#teamTime").append(presentTime);
     $("#currentTeam").append(present);
 	});
 	</script>

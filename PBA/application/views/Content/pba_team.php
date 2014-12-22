@@ -159,12 +159,13 @@
       $(".notableplayers-team").slideToggle(2000);
     });
     <?php foreach($player_bridge as $player_bridge):?>
+    <?php $teamplayer=$this->page_model->get_playerInfo($player_bridge->PLAYER_ID);?>
       <?php if($player_bridge->TYPE=='PRESENT'){?>
-        present+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name">Year:<?php echo $player_bridge->YEAR;?></header></li>';
+        present+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR,'-PRESENT';?></span></li>';
       <?php }else if($player_bridge->TYPE=='PAST'){?>
-        past+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name">Year:<?php echo $player_bridge->YEAR;?></header></li>';
+        past+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR;?></span></li>';
       <?php }else if($player_bridge->TYPE=='NOTABLE'){?>
-        notable+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name">Year:<?php echo $player_bridge->YEAR;?></header></li>';
+        notable+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR;?></span></li>';
       <?php }?>
     <?php endforeach;?>
 

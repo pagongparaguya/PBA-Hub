@@ -58,11 +58,11 @@ class Page_model extends CI_Model{
 		return $d->row();
 	}
 
-	public function get_playerLetter($letter){
-		$this->db->LIKE('PLAYER_FULLNAME',$letter,'after');
-		$d=$this->db->get('player');
-		return $d->result();
-	}
+	//public function get_playerLetter($letter){
+	//	$this->db->LIKE('PLAYER_FULLNAME',$letter,'after');
+	//	$d=$this->db->get('player');
+	//	return $d->result();
+	//}
 	//teams
 	public function get_allTeams(){
 		$d=$this->db->get('team');
@@ -99,11 +99,11 @@ class Page_model extends CI_Model{
 		return $d->row();
 	}
 
-	public function get_teamLetter($letter){
-		$this->db->LIKE('TEAM_NAME',$letter,'after');
-		$d=$this->db->get('team');
-		return $d->result();
-	}
+	//public function get_teamLetter($letter){
+	//	$this->db->LIKE('TEAM_NAME',$letter,'after');
+	//	$d=$this->db->get('team');
+	//	return $d->result();
+	//}
 	//coaches
 	public function get_allCoaches(){
 		$d=$this->db->get('coach');
@@ -138,11 +138,11 @@ class Page_model extends CI_Model{
 		return $d->result();
 	}
 
-	public function get_coachLetter($letter){
-		$this->db->LIKE('COACH_FULLNAME',$letter,'after');
-		$d=$this->db->get('coach');
-		return $d->result();
-	}
+	//public function get_coachLetter($letter){
+	//	$this->db->LIKE('COACH_FULLNAME',$letter,'after');
+	//	$d=$this->db->get('coach');
+	//	return $d->result();
+	//}
 
 }
 
