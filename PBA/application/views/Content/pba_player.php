@@ -163,7 +163,11 @@
         past+='<li><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" alt="past team"/></a><header class="team-name">Year:<?php echo $team->YEAR;?></header></li>';
       <?php }?>
     <?php endforeach;?>
-    $("#pastTeam").append(past);
+    
+    if(past==''){
+      past='<h1>No Data To Display</h1>';
+    }
+    $("#pastTeam").html(past);
     $("#teamTime").append(presentTime);
     $("#currentTeam").append(present);
 	});

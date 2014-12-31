@@ -1,36 +1,36 @@
 <!--- START OF SLIDER -->
-       <div class="row row-content">
-         <div class="small-12 medium-12 large-12 columns">
-               <ul data-orbit>
-                <li>
-                  <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 1" />
-                  <div class="orbit-caption">
-                  </div>
-                </li>
-                <li class="active">
-                  <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 2" />
-                  <div class="orbit-caption">
-                  </div>
-                </li>
-                <li>
-                  <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 3" />
-                  <div class="orbit-caption">
-                  </div>
-                </li>
-                <li>
-                  <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 4" />
-                  <div class="orbit-caption">
-                  </div>
-                </li>
-                <li>
-                  <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE5;?>" alt="slide 5" />
-                  <div class="orbit-caption">
-                  </div>
-                </li>
-              </ul>
-         </div>
-       </div>
-    <!--- END OF SLIDER -->   
+   <div class="row row-content">
+     <div class="small-12 medium-12 large-12 columns">
+           <ul data-orbit>
+            <li>
+              <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 1" />
+              <div class="orbit-caption">
+              </div>
+            </li>
+            <li class="active">
+              <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 2" />
+              <div class="orbit-caption">
+              </div>
+            </li>
+            <li>
+              <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 3" />
+              <div class="orbit-caption">
+              </div>
+            </li>
+            <li>
+              <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 4" />
+              <div class="orbit-caption">
+              </div>
+            </li>
+            <li>
+              <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE5;?>" alt="slide 5" />
+              <div class="orbit-caption">
+              </div>
+            </li>
+          </ul>
+     </div>
+   </div>
+<!--- END OF SLIDER -->   
 
     <!--- START OF TEAM NAME CONTENT -->
     <div class="row">
@@ -172,17 +172,28 @@
     <?php foreach($coach_bridge as $coach_bridge):?>
       <?php if($coach_bridge->TYPE=='PRESENT'){?>
         coachID=<?php echo $coach_bridge->COACH_ID;?>;
+        $.getJSON("<?php echo base_url();?>pages_controller/get_coachName/"+coachID,success=function(data){
+          coach='<a href="<?php echo base_url();?>pages_controller/view_coach/'+coachID+'">'+data+'</a>';
+          $("#currentCoach").append(coach);
+        });
       <?php }?>
     <?php endforeach;?>
 
-    $.getJSON("<?php echo base_url();?>pages_controller/get_coachName/"+coachID,success=function(data){
-      coach='<a href="<?php echo base_url();?>pages_controller/view_coach/'+coachID+'">'+data+'</a>';
-      $("#currentCoach").append(coach);
-    });
+    if(notable==''){
+      notable='<h1>No Data To Display</h1>';
+    }
+
+    if(past==''){
+      past='<h1>No Data To Display</h1>';
+    }
+
+    if(present==''){
+      present='<h1>No Data To Display</h1>';
+    }
     
-    $("#currentplayers").append(present);
-    $("#pastplayers").append(past);
-    $("#notableplayers").append(notable);
+    $("#currentplayers").html(present);
+    $("#pastplayers").html(past);
+    $("#notableplayers").html(notable);
   });
 	</script>
      

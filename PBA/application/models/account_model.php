@@ -32,7 +32,11 @@ class Account_model extends CI_Model{
 
 	public function update_user($user,$data){
 		$this->db->where('USERNAME',$user);
-		$this->db->update('user',$data);
+		if($this->db->update('user',$data)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	public function update_status($data,$user,$code){
 		$this->db->where('STATUS',$code);
@@ -56,11 +60,31 @@ class Account_model extends CI_Model{
 		return $d->row();
 	}
 
+	public function get_user2($userid){
+		$this->db->where('USER_ID',$userid);
+		$d=$this->db->get('user');
+		return $d->row();
+	}
+
 	public function get_notifications($user){
 		$this->db->where('USERNAME',$user);
 		$this->db->order_by('TIMESTAMP','desc');
 		$d=$this->db->get('notification');
 		return $d->result();
 	}
+
+	public function get_allUsers($user){
+		$this->db->where('USERNAME !=',$user);
+		$d=$this->db->get('user');
+		return $d->result();
+	}
+
+	public function getUserProducts($userid){
+		$this->db->where('USER_ID',$userid);
+		$this->db->order_by('PROD_ID','desc');
+		$d=$this->db->get('product');
+		return $d->result();
+	}
+
 }
 ?>

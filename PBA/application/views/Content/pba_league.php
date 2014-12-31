@@ -112,7 +112,7 @@
                 <span>Since 1986</span>
               </li>
               <li>
-                <a href="#"><img src="<?php echo base_url();?>assets/img/team/2.png" alt="Alaska Logo"></a>
+                <a href="<?php echo base_url();?>pages_controller/view_team/2"><img src="<?php echo base_url();?>assets/img/team/2.png" alt="Alaska Logo"></a>
                 <header class="team-name">Barako Bull Energy</header>
                 <span>Since 2002 from the 1999 Tanduay Rhum Masters</span>
                 </li>

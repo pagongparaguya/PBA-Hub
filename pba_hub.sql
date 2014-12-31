@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2014 at 04:52 PM
+-- Generation Time: Dec 31, 2014 at 10:02 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -123,14 +123,6 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `TIMESTAMP` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUES
-('hihi', 'hi', '2014-12-21 06:23:13'),
-('hihi', 'haha', '2014-12-26 12:47:37');
-
 -- --------------------------------------------------------
 
 --
@@ -238,6 +230,43 @@ CREATE TABLE IF NOT EXISTS `player_championship_won` (
 INSERT INTO `player_championship_won` (`PLAYER_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
 (1, 'NBA', 2011),
 (1, 'NBA', 2012);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE IF NOT EXISTS `product` (
+  `PROD_ID` int(6) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(6) NOT NULL,
+  `START_BID` double NOT NULL,
+  `PROD_NAME` varchar(40) NOT NULL,
+  `PROD_CAT` varchar(11) NOT NULL,
+  `PROD_DES` varchar(200) NOT NULL,
+  `PROD_AGE_NAME` varchar(10) NOT NULL,
+  `PROD_AGE_VAL` smallint(5) NOT NULL,
+  `PROD_STAT` varchar(10) NOT NULL DEFAULT 'Pending',
+  `IMAGE1` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
+  `IMAGE2` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
+  `IMAGE3` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
+  `IMAGE4` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
+  `IMAGE5` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
+  PRIMARY KEY (`PROD_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `product_comment` (
+  `PROD_ID` int(6) NOT NULL,
+  `USER_ID` int(6) NOT NULL,
+  `COMMENT` varchar(100) NOT NULL,
+  `TIMESTAMP` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -363,7 +392,7 @@ INSERT INTO `team_player_bridge` (`TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEAR`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `USER_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(6) NOT NULL AUTO_INCREMENT,
   `FIRST_NAME` varchar(40) NOT NULL,
   `LAST_NAME` varchar(30) NOT NULL,
   `CONTACT_NUMBER` varchar(11) NOT NULL,
@@ -376,19 +405,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `PASSWORD` varchar(50) NOT NULL,
   `STATUS` varchar(10) DEFAULT 'Inactive',
   `ACCOUNT_TYPE` varchar(10) NOT NULL DEFAULT 'Normal',
-  `USER_IMAGE` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/user_images/default123.jpg',
+  `USER_IMAGE` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/user_images/defaultuser12345.jpg',
   PRIMARY KEY (`USER_ID`),
   UNIQUE KEY `USERNAME` (`USERNAME`),
   UNIQUE KEY `EMAIL_ADDRESS` (`EMAIL_ADDRESS`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
-(1, 'Irvin5', 'Abellanosa', '09228456886', 'asda@yahoo.com', 'hello hello', '2014-12-31', 'Who is your favorite PBA player?', 'KB', 'Hi', 'c4ca4238a0b923820dcc509a6f75849b', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/Hi.jpg'),
-(4, 'Irvin1', 'Abellanosa1', '0912312', 'tae@yahoo.com', 'asdsa', '2014-12-30', 'Who is your favorite PBA player?', 'KB', 'hihi', 'e9f5713dec55d727bb35392cec6190ce', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/hihi.jpg');
+(4, 'Abcdef', 'Defe123', '09123123222', 'tae@yahoo.com', 'asdsa', '2014-12-30', 'Who is your favorite PBA player?', 'KB', 'hihi', 'e9f5713dec55d727bb35392cec6190ce', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/hihi.jpg'),
+(5, 'Irvin', 'Abellanosa', '09123121231', 'asda@yahoo.com', '102 kaon kaon', '2012-12-31', 'Who is your favorite PBA team?', 'IDK', 'Irvin', '42eb1adfd359c55f86ed4b56b93eb17f', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/Irvin.jpg'),
+(7, 'Samsam', 'Abellanosa', '02321312312', 'asda1@yahoo.com', '12312 12asda ', '2014-07-02', 'Who is your favorite PBA player?', 'KB', 'Sam1', '490bd89bcdc4e9f01d1a33899736f7a3', 'Deleted', 'Admin', 'http://localhost/PBA/assets/user_images/defaultuser12345.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

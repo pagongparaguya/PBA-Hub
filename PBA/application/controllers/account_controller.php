@@ -4,6 +4,10 @@ class Account_controller extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('account_model');
+		$this->load->model('auction_model');
+		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+		header("Cache-Control: post-check=0, pre-check=0", false);
+		header("Pragma: no-cache");
 	}
 
 	public function index(){
@@ -63,6 +67,30 @@ class Account_controller extends CI_Controller{
 			redirect('pages_controller/view_home');
 		}
 	}
+
+	public function view_adminUsers(){
+		if(empty($this->session->userdata('admin'))){
+			redirect('account_controller/view_user_profile');
+		}else{
+			$data['title']='Admin User Panel';
+			$data['users']=$this->account_model->get_allUsers($this->session->userdata('username'));
+			$this->load->view('Template/header',$data);
+			$this->load->view('Content/admin_users',$data);
+			$this->load->view('Template/login_footer');
+		}
+	}
+
+	public function view_adminProducts(){
+		if(empty($this->session->userdata('admin'))){
+			redirect('account_controller/view_user_profile');
+		}else{
+			$data['title']='Admin Product Panel';
+			$data['products']=$this->auction_model->getAllProducts();
+			$this->load->view('Template/header',$data);
+			$this->load->view('Content/admin_products',$data);
+			$this->load->view('Template/login_footer');
+		}
+	}
 	
 
 	public function login(){
@@ -71,7 +99,7 @@ class Account_controller extends CI_Controller{
 			$pass=do_hash($this->input->post('pass'),'md5');
 			$result=$this->account_model->login_check($user,$pass);
 			if(!empty($result)){
-				if($result->STATUS!='Active'){
+				if($result->STATUS!='Active'&&$result->STATUS!='Deleted'){
 					$data['title']='Login';
 					$data['status']='check_code';
 					$data['user']=$user;
@@ -80,7 +108,17 @@ class Account_controller extends CI_Controller{
 					$this->load->view('Template/header',$data);
 					$this->load->view('Content/login',$data);
 					$this->load->view('Template/login_footer');
+				}else if($result->STATUS=='Deleted'){
+					$data['title']='Login';
+					$data['status']='no_check';
+					$data['message']='Your Account has been blocked, please email pba.hub@gmail.com for information.';
+					$this->load->view('Template/header',$data);
+					$this->load->view('Content/login',$data);
+					$this->load->view('Template/login_footer');
 				}else{
+					if($result->ACCOUNT_TYPE=='Admin'){
+						$this->session->set_userdata('admin',$result->USER_ID);
+					}
 					$this->session->set_userdata('username',$user);
 					redirect('account_controller/view_user_profile');
 				}
@@ -135,7 +173,7 @@ class Account_controller extends CI_Controller{
 			$this->load->library('upload',$config);
 			
 			//image default value
-			$image="http://localhost/PBA/assets/user_images/default123.jpg";
+			$image="http://localhost/PBA/assets/user_images/defaultuser12345.jpg";
 			$data=array(
 						'FIRST_NAME'=>$this->input->post('fname'),
 						'LAST_NAME'=>$this->input->post('lname'),
@@ -192,6 +230,7 @@ class Account_controller extends CI_Controller{
 		if(!empty($this->session->userdata('username'))){
 			$data['title']=$this->session->userdata('username')."'s Profile";
 			$data['info']=$this->account_model->get_user($this->session->userdata('username'));
+			$data['products']=$this->account_model->getUserProducts($data['info']->USER_ID);
 			$data['notification']=$this->account_model->get_notifications($this->session->userdata('username'));
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/user_profile',$data);
@@ -201,6 +240,22 @@ class Account_controller extends CI_Controller{
 		}
 	}
 
+	public function view_otherUser($userid){
+		if(!empty($this->session->userdata('username'))){
+			$data['info']=$this->account_model->get_user2($userid);
+			if(!empty($data['info'])){
+				$data['title']=$data['info']->USERNAME."'s Profile";
+				$data['products']=$this->account_model->getUserProducts($data['info']->USER_ID);
+				$this->load->view('Template/header',$data);
+				$this->load->view('Content/other_user',$data);
+				$this->load->view('Template/login_footer');
+			}else{
+				redirect('auction_controller/view_products');
+			}
+		}else{
+			redirect('pages_controller/view_home');
+		}
+	}
 
 	public function check_answer($answer){
 		$d=$this->account_model->answer_check($this->session->userdata('username'),$answer);
@@ -212,9 +267,8 @@ class Account_controller extends CI_Controller{
 	}
 
 
-	//image nalang kuwang
 	public function edit_user(){
-		if($this->input->post('fname')){
+		if(!empty($this->session->userdata('username'))&&$this->input->post('fname')){
 			//upload config
 			$config['upload_path']="./assets/user_images/";
 			$config['allowed_types']='jpg|jpeg|png';
@@ -232,17 +286,36 @@ class Account_controller extends CI_Controller{
 				if(!$this->upload->do_upload()){
 					echo "<script>alert('Successfully Changed Your profile except the image(Not an image file)!');</script>";
 				}else{
-						$file_data=$this->upload->data();
-						$image=base_url().'assets/user_images/'.$file_data['file_name'];
-						$dat=array('USER_IMAGE'=>$image);
-						$this->account_model->update_image($dat,$this->session->userdata('username'));
-						echo "<script>alert('Successfully Made Changes!');</script>";
+					$file_data=$this->upload->data();
+					$image=base_url().'assets/user_images/'.$file_data['file_name'];
+					$dat=array('USER_IMAGE'=>$image);
+					$this->account_model->update_image($dat,$this->session->userdata('username'));
+					echo "<script>alert('Successfully Made Changes!');</script>";
 				}
 			}else{
 				echo "<script>alert('Successfully Made Changes!');</script>";
 			}
+			echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+			//$this->view_user_profile();
+		}else{
+			redirect('account_controller/view_user_profile');
 		}	
-		$this->view_user_profile();
+	}
+
+	public function edit_otherUser(){
+		if(!empty($this->session->userdata('admin')&&$this->input->post('type'))){
+			$data=array('ACCOUNT_TYPE'=>$this->input->post('type'),'STATUS'=>$this->input->post('status'));
+			$user=$this->input->post('user');
+			if($this->account_model->update_user($user,$data)){
+				echo "<script>alert('Successfully changed information');</script>";
+			}else{
+				echo "<script>alert('Failed to change information');</script>";
+			}
+			echo "<script>window.location='".base_url()."account_controller/view_adminUsers'</script>";
+			//$this->view_adminUsers();
+		}else{
+			redirect('account_controller/view_user_profile');
+		}
 	}
 
 	//Destroys session and logs out

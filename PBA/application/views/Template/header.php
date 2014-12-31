@@ -1,4 +1,4 @@
-    <!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/foundation.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/app.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/DataTable/media/css/dataTables.foundation.css"/>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/js/slick/slick.css"/>
     <script src="<?php echo base_url();?>assets/js/vendor/modernizr.js"></script>
     <script src="<?php echo base_url();?>assets/js/vendor/jquery.js"></script>
     <script src="<?php echo base_url();?>assets/js/foundation.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/slick/slick.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/slick/jquery-migrate.js"></script>
     <script src="<?php echo base_url();?>assets/js/DataTable/media/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/DataTable/media/js/dataTables.foundation.js"></script>
+    <script src="<?php echo base_url();?>assets/js/foundation/foundation.dropdown.js"></script>
   </head>
 
   <body>
@@ -36,7 +40,16 @@
                                             <li><a href="<?php echo base_url();?>pages_controller/view_playerPage">Players</a></li>
                                             <li><a href="<?php echo base_url();?>pages_controller/view_coachPage">Coaches</a></li>
                                             <li><a href="<?php echo base_url();?>pages_controller/view_teamPage">Teams</a></li>
-                                            <li><a href="#">Products</a></li>
+                                            <li><a href="<?php echo base_url();?>auction_controller/view_products">Products</a></li>
+                                            <?php if(!empty($this->session->userdata('admin'))){?>
+                                              <li class="has-dropdown">
+                                                <a href="#">Admin</a>
+                                                <ul class="dropdown">
+                                                  <li><a href="<?php echo base_url();?>account_controller/view_adminUsers">Users</a></li>
+                                                  <li><a href="<?php echo base_url();?>account_controller/view_adminProducts">Products</a></li>
+                                                </ul>
+                                              </li>
+                                            <?php }?>
                                             <li class="has-dropdown">                                                                              
                                                   <?php if(empty($this->session->userdata('username'))){?> 
                                                           <a href="#">Account</a>
