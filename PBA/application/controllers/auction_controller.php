@@ -111,7 +111,7 @@ class Auction_controller extends CI_Controller{
 					}
 					echo json_encode("1");
 				}else{
-					echo json_encode("2");
+					echo json_encode("0");
 				}
 			}else{
 				echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
@@ -132,7 +132,7 @@ class Auction_controller extends CI_Controller{
 					}
 					echo json_encode("1");
 				}else{
-					echo json_encode("2");
+					echo json_encode("0");
 				}
 			}else{
 				echo "<script>window.location='".base_url()."account_controller/view_adminProducts'</script>";

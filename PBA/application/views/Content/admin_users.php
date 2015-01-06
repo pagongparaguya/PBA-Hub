@@ -26,13 +26,13 @@
       <input type="hidden" name="user" id="user" value="" />
       <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
         <li><span style="color:blue;text-shadow:none;">TYPE: </span>
-          <select name="type">
+          <select name="type" id="userType">
             <option id="1" value="Admin">Admin</option>
             <option id="2" value="Normal">Normal</option>
           </select>
         </li>
         <li><span style="color:blue;text-shadow:none;">STATUS: </span>
-          <select name="status">
+          <select name="status" id="userStatus">
             <option id="3" value="Active">Active</option>
             <option id="4" value="Deleted">Deleted</option>
           </select>
@@ -63,17 +63,8 @@ $(document).ready(function(){
     $('#user').val(name);
     $('#name').html("Changing "+name+"'s Account Details");
     
-    if(type=='Admin'){
-      $("#1").attr("selected","true");
-    }else{
-      $("#2").attr("selected","true");
-    }
-
-    if(status=='Active'){
-      $("#3").attr("selected","true");
-    }else{
-      $("#4").attr("selected","true");
-    }
+    $("#userType").val(type);
+    $("#userStatus").val(status);
   });
 
   $("#change").click(function(event){

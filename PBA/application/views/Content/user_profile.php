@@ -182,7 +182,7 @@
 	<script>
   $(document).ready(function(){
     $('#answerButton').click(function(){
-      $.getJSON("<?php echo base_url();?>account_controller/check_answer/"+$("#answer").val(),success=function(data){
+      $.getJSON("<?php echo base_url();?>account_controller/check_answer/",{answer:$("#answer").val()},success=function(data){
         if(data=="1"){
           $("#notif").html("");
           $('#editProfileModal').foundation('reveal', 'open');
@@ -206,7 +206,7 @@
     $(".deleteProduct").click(function(){
       if(confirm("Delete Product "+$(this).parent().siblings(".productName").text()+"?") == true) {
         $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings("#prod_id").val(),success=function(data){
-          if(data==1){
+          if(data=="1"){
             alert("Delete Product Successful!");
           }else{
             alert("Delete Product Failed!");

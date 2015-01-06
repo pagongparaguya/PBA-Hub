@@ -44,11 +44,6 @@ class Account_model extends CI_Model{
 		$this->db->update('user',$data);
 	}
 
-	public function update_image($data,$user){
-		$this->db->where('USERNAME',$user);
-		$this->db->update('user',$data);
-	}
-
 	public function delete_user($user){
 		$this->db->where('USERNAME',$user);
 		$this->db->delete('user');
@@ -62,6 +57,12 @@ class Account_model extends CI_Model{
 
 	public function get_user2($userid){
 		$this->db->where('USER_ID',$userid);
+		$d=$this->db->get('user');
+		return $d->row();
+	}
+
+	public function get_user3($email){
+		$this->db->where('EMAIL_ADDRESS',$email);
 		$d=$this->db->get('user');
 		return $d->row();
 	}

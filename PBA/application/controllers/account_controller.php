@@ -137,23 +137,27 @@ class Account_controller extends CI_Controller{
 
 
 	public function check_code(){
-		$code=$this->input->post('code');
-		$user=$this->input->post('user');
-		$result=$this->account_model->code_check($user,$code);
-		if(empty($result)){
-			$data['title']='Login';
-			$data['status']='check_code';
-			$data['user']=$user;
-			$data['message']='';
-			$data['verification']='Verification is invalid, please recheck your email!';
-			$this->load->view('Template/header',$data);
-			$this->load->view('Content/login',$data);
-			$this->load->view('Template/login_footer');
+		if(empty($this->session->userdata('username'))&&$this->input->post('code')){
+			$code=$this->input->post('code');
+			$user=$this->input->post('user');
+			$result=$this->account_model->code_check($user,$code);
+			if(empty($result)){
+				$data['title']='Login';
+				$data['status']='check_code';
+				$data['user']=$user;
+				$data['message']='';
+				$data['verification']='Verification is invalid, please recheck your email!';
+				$this->load->view('Template/header',$data);
+				$this->load->view('Content/login',$data);
+				$this->load->view('Template/login_footer');
+			}else{
+				$data=array('STATUS'=>'Active');
+				$this->account_model->update_status($data,$user,$code);
+				$this->session->set_userdata('username',$user);
+				redirect('account_controller/view_user_profile');
+			}
 		}else{
-			$data=array('STATUS'=>'Active');
-			$this->account_model->update_status($data,$user,$code);
-			$this->session->set_userdata('username',$user);
-			redirect('account_controller/view_user_profile');
+			redirect('account_controller/view_login');
 		}
 	}
 
@@ -189,18 +193,20 @@ class Account_controller extends CI_Controller{
 						'USER_IMAGE'=>$image);
 			if($this->account_model->add_user($data)){
 				//uploading
-				if(!empty($_FILES['userfile']['name'])){
-					if(!$this->upload->do_upload()){
+				if(!empty($_FILES['userfile']['name'])){//if na add ang user then naay file
+					if(!$this->upload->do_upload()){//if not image ang file
 						$this->account_model->delete_user($user);
 						redirect('account_controller/view_register2');
-					}else{
+					}else{//if image ang file
 						$file_data=$this->upload->data();
 						$image=base_url().'assets/user_images/'.$file_data['file_name'];
 						$dat=array('USER_IMAGE'=>$image);
-						$this->account_model->update_image($dat,$user);
+						$this->account_model->update_user($user,$dat);
+						$this->sendmail($email,$code);
 					}
+				}else{//if na add ang user then walay image
+					$this->sendmail($email,$code);
 				}
-				$this->sendmail($email,$code);
 				redirect('account_controller/view_login2');
 			}else{
 				$data = array(
@@ -257,13 +263,18 @@ class Account_controller extends CI_Controller{
 		}
 	}
 
-	public function check_answer($answer){
-		$d=$this->account_model->answer_check($this->session->userdata('username'),$answer);
-		$value="1";
-		if(empty($d)){
-			$value="0";
+
+	public function check_answer(){
+		if(!empty($this->session->userdata('username'))&&$this->input->get("answer",true)){
+			$d=$this->account_model->answer_check($this->session->userdata('username'),$this->input->get("answer",true));
+			$value="1";
+			if(empty($d)){
+				$value="0";
+			}
+			echo json_encode($value);
+		}else{
+			redirect('account_controller/view_login');
 		}
-		echo json_encode($value);
 	}
 
 
@@ -337,7 +348,25 @@ class Account_controller extends CI_Controller{
 		$this->email->from('pba.hub@gmail.com','PBA HUB MESSENGER');
 		$this->email->to($email);
 		$this->email->subject('Verification Code');
-		$this->email->message('Verify your account with the six letter verification code"'.$code.'" to gain access in PBA HUB.');
+		$this->email->message('Verify your account with the six letter verification code "'.$code.'" to gain access in PBA HUB.');
+		$this->email->send();
+		return $this->email->print_debugger();
+	}
+
+	//Sends mail through gmail
+	public function sendPassword($email,$pass){
+		$config = array(
+	        'protocol' => 'smtp',
+	        'smtp_host' => 'ssl://smtp.googlemail.com',
+	        'smtp_port' => 465,
+	        'smtp_user' => 'pba.hub@gmail.com',
+	        'smtp_pass' => '123456789Ten'
+    	);
+    	$this->load->library('email',$config);
+		$this->email->from('pba.hub@gmail.com','PBA HUB MESSENGER');
+		$this->email->to($email);
+		$this->email->subject('New Password');
+		$this->email->message('Login your account with the six letter password "'.$pass.'" to gain access in PBA HUB and change it directly.');
 		$this->email->send();
 		return $this->email->print_debugger();
 	}
@@ -358,6 +387,23 @@ class Account_controller extends CI_Controller{
 		return $img['image'];
 	}
 
+	public function forgot_password(){
+		if($this->input->post('email')){
+			$res=$this->account_model->get_user3($this->input->post('email'));
+			if(empty($res)){
+				echo "<script>alert('No Such Email!');</script>";
+			}else{
+				$pass=random_string('alnum',6);
+				$this->sendPassword($this->input->post('email'),$pass);
+				$data=array('PASSWORD'=>do_hash($pass,'md5'));
+				$this->account_model->update_user($res->USERNAME,$data);
+				echo "<script>alert('Email Sent!');</script>";
+			}
+			echo "<script>window.location='".base_url()."account_controller/view_login'</script>";
+		}else{
+			redirect('account_controller/view_login');
+		}
+	}
 
 }
 ?>

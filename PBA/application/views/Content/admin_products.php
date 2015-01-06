@@ -36,7 +36,7 @@ $(document).ready(function(){
   $(".del").click(function(){
     if(confirm("Delete Product '"+$(this).parent().siblings("#productName").text()+"' ?") == true) {
         $.getJSON("<?php echo base_url();?>auction_controller/delProductAdmin/"+$(this).parent().siblings("#prod_id").val(),success=function(data){
-          if(data==1){
+          if(data=="1"){
             alert("Delete Product Successful!");
           }else{
             alert("Delete Product Failed!");
