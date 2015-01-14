@@ -68,7 +68,7 @@
     <!--- START COACH ACHIEVEMENTS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams achievement-block" style="background-color:blue;color:white;">ACHIEVEMENTS</h1>
+          <h1 class="current-teams achievement-block" style="background-color:#4A5052;color:white;">ACHIEVEMENTS</h1>
       </div>
     </div>
     <div class="row row-content achievement">
@@ -103,7 +103,7 @@
 	<!--- START COACH PAST TEAMS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams pastteam-block" style="background-color:blue;color:white;">PAST TEAMS</h1>
+          <h1 class="current-teams pastteam-block" style="background-color:#4A5052;color:white;">PAST TEAMS</h1>
       </div>
     </div>
     <div class="row row-content pastteam">

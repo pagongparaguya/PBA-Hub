@@ -41,7 +41,13 @@
               <a href="<?php echo base_url().'auction_controller/view_product/'.$product->PROD_ID;?>"><img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/></a>
               <h4 id="productName"><?php echo $product->PROD_NAME;?></h4>
               <button class="button tiny disabled round">Starting Bid:<?php echo $product->START_BID;?></button>
-              <button class="button tiny disabled round">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php if($product->PROD_STAT=='Closed'){?>
+               <button class="button tiny round alert disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }else if($product->PROD_STAT=='On-going'){?>
+                <button class="button tiny round success disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }else{?>
+                <button class="button tiny round disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }?>
             </div>
           <?php endforeach; echo "</div>";}?>
         </div>

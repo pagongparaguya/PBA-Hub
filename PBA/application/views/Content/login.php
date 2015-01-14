@@ -54,7 +54,7 @@
             <legend style="color:blue;">Forgot Password?</legend> 
             <center><span style="color:red;" id="notif"></span></center>
             <br> 
-            <input type="text" name="email" id="email" placeholder="Email" maxlength="50" required aria-label="Username">
+            <input type="email" name="email" id="email" placeholder="Email" maxlength="50" required aria-label="Username">
           </fieldset>
         </center>
         <div class="forgot-btn">

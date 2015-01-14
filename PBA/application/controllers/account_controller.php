@@ -177,7 +177,7 @@ class Account_controller extends CI_Controller{
 			$this->load->library('upload',$config);
 			
 			//image default value
-			$image="http://localhost/PBA/assets/user_images/defaultuser12345.jpg";
+			$image="http://localhost/PBA/assets/default_images/defaultuser12345.jpg";
 			$data=array(
 						'FIRST_NAME'=>$this->input->post('fname'),
 						'LAST_NAME'=>$this->input->post('lname'),
@@ -240,7 +240,7 @@ class Account_controller extends CI_Controller{
 			$data['notification']=$this->account_model->get_notifications($this->session->userdata('username'));
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/user_profile',$data);
-			$this->load->view('Template/login_footer');
+			$this->load->view('Template/footer');
 		}else{
 			redirect('pages_controller/view_home');
 		}

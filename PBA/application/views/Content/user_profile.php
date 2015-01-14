@@ -22,9 +22,9 @@
             </div>
         </div>
     </div>
-          <!--- END USER INFO-->
+<!--- END USER INFO-->
     
-          <!--- START USER PRODUCTS-->
+      <!--- START USER PRODUCTS-->
       <div class="row">
         <div class="large-12 columns header">     
             <h1 class="header-content">
@@ -39,24 +39,30 @@
             <h1>No Products To Display</h1>                
           <?php }else{ echo "<div class='panel' id='productPanel'>"; foreach($products as $product):?>
             <div id="individualProduct" style="border:1px solid black;text-align:center;height:255px;">
-              <input type="hidden" id="prod_id" value="<?php echo $product->PROD_ID;?>"/>
+              <input type="hidden" class="prod_id" value="<?php echo $product->PROD_ID;?>"/>
               <div style="height:120px;">
                 <img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/>
               </div>
               <h4 class="productName"><?php echo $product->PROD_NAME;?></h4>
               <button class="button tiny disabled round">Starting Bid:<?php echo $product->START_BID;?></button>
-              <button class="button tiny disabled round">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php if($product->PROD_STAT=='Closed'){?>
+               <button class="button tiny round alert disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }else if($product->PROD_STAT=='On-going'){?>
+                <button class="button tiny round success disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }else{?>
+                <button class="button tiny round disabled">Status:<?php echo $product->PROD_STAT;?></button>
+              <?php }?>
               <div>
                 <button onclick="window.location='<?php echo base_url().'auction_controller/view_product/'.$product->PROD_ID;?>'" class="button tiny">View</button>
-                <button class="button tiny alert deleteProduct">Delete</button>
+                <button class="button tiny alert deleteProduct" data-reveal-id="deleteProdModal">Delete</button>
               </div>
             </div>
           <?php endforeach; echo "</div>";}?>
         </div>
       </div>
-          <!-- END USER PRODUCTS-->
+      <!-- END USER PRODUCTS-->
     
-          <!--- START USER NOTIFICATIONS-->
+      <!--- START USER NOTIFICATIONS-->
       <div class="row">
         <div class="large-12 columns header">     
             <h1 class="header-content">
@@ -76,23 +82,19 @@
           <?php endforeach;}?>
         </div>
       </div>
-          <!--- END USER NOTIFICATIONS-->
+      <!--- END USER NOTIFICATIONS-->
   </div>
 </div>      
 
-
-
   <!--- START QUESTON USER-->
-   <div id="questionProfileModal" class="reveal-modal" data-reveal>
+   <div id="questionProfileModal" class="reveal-modal small" data-reveal>
     <h2>Answer Of Your Secret Question <?php echo $this->session->userdata('username');?>!</h2>
-    <div class="small-6 large-centered columns">
+    <div class="small-8 large-centered columns">
           <center> 
-            <fieldset>
-              <legend style="color:blue;"><?php echo $info->SECRET_QUESTION;?></legend> 
+              <h5><?php echo $info->SECRET_QUESTION;?></h5> 
               <center><span style="color:red;" id="notif"></span></center>
               <br> 
               <input type="text" id="answer" name="answer" placeholder="Answer" aria-label="Answer" maxlength="20" required>
-            </fieldset>
           </center>
           <div class="verify-btn">
             <button id="answerButton" class="expand button [tiny small large]">Answer</button>
@@ -107,28 +109,26 @@
   <form action="<?php echo base_url();?>account_controller/edit_user" method="post" enctype='multipart/form-data'>      
     <fieldset>
       <legend style="color:blue;">Edit Profile</legend>  
-      <br>
       <div class="small-12 large-6 medium-6 columns">
         <h2>Personal Information</h2>
         <b>First Name: </b><input type="text" name="fname" value="<?php echo $info->FIRST_NAME;?>" aria-label="First Name" required pattern=".{4,40}" title="4 to 40 Characters" maxlength="40"/>
         <b>Last Name: </b><input type="text" name="lname" value="<?php echo $info->LAST_NAME;?>" aria-label="Last Name" required pattern=".{4,30}" title="4 to 30 Characters" maxlength="30"/>
         <b>Contact Number: </b><input type="text" name="contact" value="<?php echo $info->CONTACT_NUMBER;?>" aria-label="Contact Number" required pattern=".{11}" title="11 Characters" maxlength="11"/>
         <b>Address: </b><input type="text" name="address" value="<?php echo $info->ADDRESS;?>" aria-label=" Address" required maxlength="100"/>
-        <label style="color:black;font-weight:700;font-size:16px;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
-        <input type="file" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
       </div>
       <div class="small-12 large-6 medium-6 columns signup-account-info">
         <h2>Account Information</h2>
         <b>New Password: </b><input type="password" name="pass" id="pass" placeholder="New Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
         <b>Confirm Password: </b><input type="password" name="cpass" id="cpass" placeholder="Confirm Password" aria-label="Confirm Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <label style="color:black;font-weight:700;font-size:16px;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
+        <input type="file" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
       </div>                      
     </fieldset>
-    
     <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-        <div class="submit-btn">
-            <button type="submit" class="expand form-button button [tiny small large]">Submit</button>  
-        </div>  
-    </div>          
+      <div class="submit-btn">
+        <button type="submit" class="expand form-button button [tiny small large]">Submit</button>  
+      </div>   
+    </div>       
   </form>
   <a class="close-reveal-modal">&#215;</a>
 </div>
@@ -136,50 +136,58 @@
 
 <!--- START ADD PRODUCT-->
 <div id="addProductModal" class="reveal-modal" data-reveal>
-  <form action="<?php echo base_url();?>auction_controller/addProduct" method="post" enctype='multipart/form-data'>      
-    <fieldset>
-      <legend style="color:blue;">Add Product</legend>  
-      <br>
-      <div class="small-12 large-12 medium-12 columns">
-        <h2>Product Information</h2>
-        <b>Product Name: </b><input type="text" name="pname" required maxlength="40"/>
-        <b>Description: </b><textarea name="pdesc" required maxlength="200" rows="4" cols="20"></textarea>
-        <b>Category: </b>
-        <select name="pcat">
-          <option value="Jersey">Jersey</option>
-          <option value="Shoes">Shoes</option>
-          <option value="Shorts">Shorts</option>
-          <option value="Socks">Socks</option>
-          <option value="Accessories">Accessories</option>
-        </select>
-        <b>Age Of Product: </b><input type="number" name="page" required min="1"/>
-        <select name="pagename">
-          <option value="Day">Day/s</option>
-          <option value="Week">Week/s</option>
-          <option value="Month">Month/s</option>
-          <option value="Year">Year/s</option>
-        </select>
-        <b>Starting Bid: </b><input type="number" name="pbid" required min="1"/>
-        <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files: (Only Accepts jpeg/jpg/png files)</label>
-        <input type="file" name="userfile[]" multiple class="extend form-button button [tiny small large]"/>
-      </div>                   
-    </fieldset>
-    
-    <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-        <div class="add-btn">
-          <button type="submit" class="expand form-button button [tiny small large]">Add</button> 
-        </div>  
-        <div class="cancel-btn">
-          <button id="cancelButton" class="expand button [tiny small large]">Cancel</button>  
-        </div> 
-    </div>          
+  <form action="<?php echo base_url();?>auction_controller/addProduct" method="post" enctype='multipart/form-data'>
+    <h2>Product Information</h2>
+    <div class="small-12 large-6 medium-6 columns">
+      <b>Product Name: </b><input type="text" name="pname" required maxlength="40" pattern=".{4,40}" title="4 to 40 Characters"/>
+      <b>Description: </b><textarea name="pdesc" required maxlength="200" rows="5"></textarea>
+      <b>Category: </b>
+      <select name="pcat">
+        <option value="Jersey">Jersey</option>
+        <option value="Shoes">Shoes</option>
+        <option value="Shorts">Shorts</option>
+        <option value="Socks">Socks</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+    </div>
+    <div class="small-12 large-6 medium-6 columns">
+      <b>Age Of Product: </b><input type="number" name="page" required min="1"/>
+      <select name="pagename">
+        <option value="Day">Day/s</option>
+        <option value="Week">Week/s</option>
+        <option value="Month">Month/s</option>
+        <option value="Year">Year/s</option>
+      </select>
+      <b>Starting Bid: </b><input type="number" name="pbid" required min="1"/>
+      <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files: (Only Accepts jpeg/jpg/png files)</label>
+      <input type="file" name="userfile[]" multiple class="extend form-button button [tiny small large]"/>
+    </div>  
+    <div class="small-12 large-12 medium-12 columns">
+      <center> 
+        <button type="submit" class="round form-button button [tiny small large] add-btn">Add</button> 
+        <button id="cancelButton" class="round alert button [tiny small large] cancel-btn">Cancel</button>  
+      </center>
+    </div>
   </form>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 <!--- END ADD PRODUCT -->
 
+  <!--- START QUESTON USER DELETE PRODUCT-->
+  <div id="deleteProdModal" class="reveal-modal tiny" data-reveal>
+    <div class="small-8 large-centered columns">
+      <input type="hidden" name="prodIdModal" id="prodIdModal"/>
+      <center> 
+        <h5>Delete Product <b id="delProdName"> </b>?</h5> 
+        <button id="yesButton" class="button tiny">Yes</button>
+        <button id="noButton" class="button tiny alert">No</button>
+      </center>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+  <!--- END QUESTION USER DELETE PRODUCT-->
 
-	<script>
+  <script>
   $(document).ready(function(){
     $('#answerButton').click(function(){
       $.getJSON("<?php echo base_url();?>account_controller/check_answer/",{answer:$("#answer").val()},success=function(data){
@@ -203,19 +211,41 @@
       $('#addProductModal').foundation('reveal', 'close');
     });
 
-    $(".deleteProduct").click(function(){
+    /*
+      $("#productPanel").on('click','.deleteProduct',function(){
       if(confirm("Delete Product "+$(this).parent().siblings(".productName").text()+"?") == true) {
-        $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings("#prod_id").val(),success=function(data){
+        $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings(".prod_id").val(),success=function(data){
           if(data=="1"){
             alert("Delete Product Successful!");
           }else{
             alert("Delete Product Failed!");
           }
-          window.location="<?php echo base_url();?>account_controller/view_user_profile";
+          //window.location="<?php echo base_url();?>account_controller/view_user_profile";
+          window.location.reload(true);
         });
       }
     });
+    */
 
+    $("#productPanel").on('click','.deleteProduct',function(){
+      $("#delProdName").text($(this).parent().siblings(".productName").text());
+      $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
+    });
+
+    $("#noButton").click(function(){
+      $('#deleteProdModal').foundation('reveal', 'close');
+    });
+
+    $("#yesButton").click(function(){
+      $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings("#prodIdModal").val(),success=function(data){
+        if(data=="1"){
+          alert("Delete Product Successful!");
+        }else{
+          alert("Delete Product Failed!");
+        }
+        window.location.reload(true);
+      });
+    });
 
     $('#productPanel').slick({
       slidesToShow: 3,

@@ -18,7 +18,7 @@
 </div> 
 
 <!--Admin Modal-->
-<div id="adminModal" class="reveal-modal" data-reveal>
+<div id="adminModal" class="reveal-modal small" data-reveal>
   <h2 id="name"></h2>
   <hr/>
   <div>
@@ -49,17 +49,17 @@
 $(document).ready(function(){
   var users="";
   <?php foreach($users as $users):?>
-    users+="<tr><td class='table-content' id='username'><img src='<?php echo $users->USER_IMAGE;?>' width='70'/><br/><?php echo $users->USERNAME;?></td><td class='table-content'><?php echo $users->FIRST_NAME.' '.$users->LAST_NAME;?></td><td class='table-content' id='aType'><?php echo $users->ACCOUNT_TYPE;?></td><td class='table-content' id='aStatus'><?php echo $users->STATUS;?></td><td class='table-content'><?php echo $users->EMAIL_ADDRESS;?></td><td class='table-content'><?php echo $users->CONTACT_NUMBER;?></td><td><button class='button tiny edit' data-reveal-id='adminModal'>EDIT</button></td></tr>";
+    users+="<tr><td class='table-content username' onclick=\"window.location ='<?php echo base_url().'account_controller/view_otherUser/'.$users->USER_ID;?>'\"><img src='<?php echo $users->USER_IMAGE;?>' width='70'/><br/><?php echo $users->USERNAME;?></td><td class='table-content'><?php echo $users->FIRST_NAME.' '.$users->LAST_NAME;?></td><td class='table-content aType' ><?php echo $users->ACCOUNT_TYPE;?></td><td class='table-content aStatus'><?php echo $users->STATUS;?></td><td class='table-content'><?php echo $users->EMAIL_ADDRESS;?></td><td class='table-content'><?php echo $users->CONTACT_NUMBER;?></td><td><button class='button tiny edit' data-reveal-id='adminModal'>EDIT</button></td></tr>";
   <?php endforeach;?>
   $("#tbody").append(users);
   $('#searchTable').dataTable({
     "order": [ 1, 'asc' ]
   });
 
-  $(".edit").click(function(){
-    var name = $(this).parent().siblings("#username").text();
-    var type = $(this).parent().siblings("#aType").text();
-    var status = $(this).parent().siblings("#aStatus").text();
+  $("#tbody").on('click','.edit',function(){
+    var name = $(this).parent().siblings(".username").text();
+    var type = $(this).parent().siblings(".aType").text();
+    var status = $(this).parent().siblings(".aStatus").text();
     $('#user').val(name);
     $('#name').html("Changing "+name+"'s Account Details");
     

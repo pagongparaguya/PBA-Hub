@@ -61,7 +61,7 @@
     <!--- START OF HISTORY CONTENT -->
       <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams history-block" style="background-color:blue;color:white;">HISTORY</h1>
+          <h1 class="current-teams history-block" style="background-color:#4A5052;color:white;">HISTORY</h1>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
       <div class="small-12 columns">
           <div class="panel">
             <p><?php echo $info->TEAM_HISTORY;?></p>
-            </div>
+          </div>
       </div>
     </div>
     <!--- END OF HISTORY CONTENT -->
@@ -77,7 +77,7 @@
 	<!--- START TEAM ACHIEVEMENTS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams achievement-block" style="background-color:blue;color:white;">ACHIEVEMENT</h1>
+          <h1 class="current-teams achievement-block" style="background-color:#4A5052;color:white;">ACHIEVEMENT</h1>
       </div>
     </div>
 
@@ -103,7 +103,7 @@
 	<!--- START TEAM CURRENT PLAYERS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams currentplayers-block" style="background-color:blue;color:white;">CURRENT PLAYERS</h1>
+          <h1 class="current-teams currentplayers-block" style="background-color:#4A5052;color:white;">CURRENT PLAYERS</h1>
       </div>
     </div>
     <div class="row row-content currentplayers-team">
@@ -115,7 +115,7 @@
   <!--- START TEAM PAST PLAYERS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams pastplayers-block" style="background-color:blue;color:white;">PAST PLAYERS</h1>
+          <h1 class="current-teams pastplayers-block" style="background-color:#4A5052;color:white;">PAST PLAYERS</h1>
       </div>
     </div>
     <div class="row row-content pastplayers-team">
@@ -127,7 +127,7 @@
   <!--- START TEAM NOTABLE PLAYERS-->
     <div class="row">
       <div class="large-12 columns">
-          <h1 class="current-teams notableplayers-block" style="background-color:blue;color:white;">NOTABLE PLAYERS</h1>
+          <h1 class="current-teams notableplayers-block" style="background-color:#4A5052;color:white;">NOTABLE PLAYERS</h1>
       </div>
     </div>
     <div class="row row-content notableplayers-team">

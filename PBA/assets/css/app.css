@@ -80,7 +80,8 @@ h1, h2 {
 }
 
 .topbar-content, .topbar-content li a, .footer {
-	background-color: #009ACD !important;
+	background-color: #2D3030 !important;
+	/*background-color: #009ACD !important;*/
 }
 
 /*----- PANEL -----*/
@@ -214,7 +215,7 @@ fieldset {
 }
 
 
-.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team{
+.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment{
 	display:none;
 }
 
@@ -250,7 +251,8 @@ fieldset {
 /* CONTENT HEADER */
 .header {
 	display: flex;
-	background-color: #008cce;
+	background-color: #4A5052;
+	/*008cce*/
 	height: 50px;
 }
 
@@ -263,3 +265,6 @@ fieldset {
 	.header-img {
 		width: 24px;	
 	}
+textarea{
+	resize:none;
+}

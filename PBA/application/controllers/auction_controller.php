@@ -23,11 +23,7 @@ class Auction_controller extends CI_Controller{
 			$this->load->view('Template/login_footer');
 		}else{
 			echo "<script>alert('Login First!');</script>";
-			$data['title']='Home';
-			$data['message']='';
-			$this->load->view('Template/header',$data);
-			$this->load->view('Content/login',$data);
-			$this->load->view('Template/login_footer');
+			echo "<script>window.location='".base_url()."account_controller/view_login'</script>";
 		}
 	}
 
@@ -37,14 +33,16 @@ class Auction_controller extends CI_Controller{
 			if(!empty($data['product'])){
 				$data['title']=$data['product']->PROD_NAME;
 				$data['user']=$this->account_model->get_user2($data['product']->USER_ID);
+				$data['bid']=$this->auction_model->getBid($productid);
+				$data['comment']=$this->auction_model->getComment($productid);
 				$this->load->view('Template/header',$data);
 				$this->load->view('Content/specific_product_page',$data);
-				$this->load->view('Template/login_footer');
+				$this->load->view('Template/footer');
 			}else{
 				redirect('auction_controller/view_products');
 			}
 		}else{
-			redirect('pages_controller/view_home');
+			redirect('account_controller/view_login');
 		}
 	}
 
@@ -106,9 +104,12 @@ class Auction_controller extends CI_Controller{
 				$product=$this->auction_model->getProductInfo($prodid);
 				$arr=array($product->IMAGE1,$product->IMAGE2,$product->IMAGE3,$product->IMAGE4,$product->IMAGE5);
 				if($this->auction_model->deleteProduct($prodid,$user->USER_ID)){
+					$this->auction_model->deleteComment($prodid);
+					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));
 					}
+					//send notification to bidders
 					echo json_encode("1");
 				}else{
 					echo json_encode("0");
@@ -127,9 +128,12 @@ class Auction_controller extends CI_Controller{
 				$product=$this->auction_model->getProductInfo($prodid);
 				$arr=array($product->IMAGE1,$product->IMAGE2,$product->IMAGE3,$product->IMAGE4,$product->IMAGE5);
 				if($this->auction_model->deleteProductAdmin($prodid)){
+					$this->auction_model->deleteComment($prodid);
+					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));
 					}
+					//send notification to bidders
 					echo json_encode("1");
 				}else{
 					echo json_encode("0");
@@ -153,6 +157,113 @@ class Auction_controller extends CI_Controller{
 		date_default_timezone_set('Asia/Singapore');
 		$data=array('USERNAME'=>$username,'MESSAGE'=>$message,'TIMESTAMP'=>date("Y-m-d H:i:s"));
 		$this->auction_model->set_notifications($data);
+	}
+
+	public function changeOngoing(){
+		if(!empty($this->session->userdata('username'))){
+			$user=$this->account_model->get_user($this->session->userdata('username'));
+			$prodid=$this->input->post('id');
+			if(!empty($this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID))){
+				$d=$this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID);
+				if($d->PROD_STAT=='Pending'){
+					$data=array("PROD_STAT"=>'On-going');
+					if($this->auction_model->updateProduct($data,$prodid)){
+						print "Change to On-going Successful!";
+					}else{
+						print "Change to On-going Failure!";
+					}
+				}else{
+					print "Change to On-going Failure!!";
+				}
+			}else{
+				echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+			}
+		}else{
+			redirect('pages_controller/view_home');
+		}
+	}
+
+	public function changeClosed(){
+		if(!empty($this->session->userdata('username'))){
+			$user=$this->account_model->get_user($this->session->userdata('username'));
+			$prodid=$this->input->post('id');
+			if(!empty($this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID))){
+				$d=$this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID);
+				if($d->PROD_STAT=='On-going'){
+					$data=array("PROD_STAT"=>'Closed');
+					if($this->auction_model->updateProduct($data,$prodid)){
+						//send notification to bidders (winner and losers)
+						echo "Change to Closed Successful!";
+					}else{
+						echo "Change to Closed Failure!";
+					}
+				}else{
+					echo "Change to Closed Failure!!";
+				}
+			}else{
+				echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+			}
+		}else{
+			redirect('pages_controller/view_home');
+		}
+	}
+
+	public function getMaximumBid(){
+		if(!empty($this->session->userdata('username'))&&$this->input->post('id')){
+			$bid=$this->auction_model->getMaxBid($this->input->post('id'));
+			echo $bid->BID_AMT;
+		}else{
+			redirect('account_controller/view_user_profile');
+		}
+	}
+
+	public function addBid(){
+		if(!empty($this->session->userdata('username'))&&$this->input->post('prodId')){//user should be logged in
+			$product=$this->auction_model->getProductInfo($this->input->post('prodId'));
+			if(!empty($product)&&$product->PROD_STAT=='On-going'){//if the product exist and the product should be on going to place a bid
+				$bid=$this->auction_model->getMaxBid($product->PROD_ID);
+				if($bid->BID_AMT==''){
+					$max=$product->START_BID-1;
+				}else{
+					$max=$bid->BID_AMT;
+				}
+				if($this->input->post('bidValue')>$max){//bid should be greater than the latest bid
+					date_default_timezone_set('Asia/Singapore');
+					$user=$this->account_model->get_user($this->session->userdata('username'));
+					$data=array("PROD_ID"=>$product->PROD_ID,"USER_ID"=>$user->USER_ID,"BID_AMT"=>$this->input->post('bidValue'),"DATE_TIME_ADDED"=>date("Y-m-d H:i:s"));
+					$this->auction_model->insertBid($data);
+					echo "<script>alert('Bid Successful!');</script>";
+				}else{//if bid is not greater than the latest bid
+					echo "<script>alert('Cant bid lower than latest/starting bid please refresh.');</script>";
+				}
+				echo "<script>window.location='".base_url()."auction_controller/view_product/".$product->PROD_ID."'</script>";
+			}else{//if there is no product or is not ongoing
+				echo "<script>alert('Cant add bid because it is not bidding time or product is already deleted.');</script>";
+			}
+			echo "<script>window.location='".base_url()."auction_controller/view_products/'</script>";
+		}else{
+			redirect('account_controller/view_user_profile');
+		}
+	}
+
+	public function deleteBid(){
+		if(!empty($this->session->userdata('username'))&&$this->input->post('id')){
+			$user=$this->account_model->get_user($this->session->userdata('username'));
+			$bid=$this->auction_model->getSpecificBid($this->input->post('id'));
+			if(!empty($bid)&&$bid->USER_ID==$user->USER_ID){//if the bid is there and the bid is the user's
+				$product=$this->auction_model->getProductInfo($bid->PROD_ID);
+				if(!empty($product)&&$product->PROD_STAT=='On-going'){//if the product exist and is on going
+					$this->auction_model->deleteSpecificBid($bid->BID_ID);
+					echo "Delete Bid Successful!";
+				}else{
+					echo "Cant delete bid because it is not bidding time or product is already deleted.";	
+				}
+			}else{
+				echo "Your Bid doesn't exist.";
+			}
+		}else{
+			redirect('account_controller/view_user_profile');
+		}
 	}
 }
 ?>
