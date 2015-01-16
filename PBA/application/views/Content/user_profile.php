@@ -211,22 +211,6 @@
       $('#addProductModal').foundation('reveal', 'close');
     });
 
-    /*
-      $("#productPanel").on('click','.deleteProduct',function(){
-      if(confirm("Delete Product "+$(this).parent().siblings(".productName").text()+"?") == true) {
-        $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings(".prod_id").val(),success=function(data){
-          if(data=="1"){
-            alert("Delete Product Successful!");
-          }else{
-            alert("Delete Product Failed!");
-          }
-          //window.location="<?php echo base_url();?>account_controller/view_user_profile";
-          window.location.reload(true);
-        });
-      }
-    });
-    */
-
     $("#productPanel").on('click','.deleteProduct',function(){
       $("#delProdName").text($(this).parent().siblings(".productName").text());
       $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
@@ -237,13 +221,14 @@
     });
 
     $("#yesButton").click(function(){
-      $.getJSON("<?php echo base_url();?>auction_controller/delProduct/"+$(this).parent().siblings("#prodIdModal").val(),success=function(data){
-        if(data=="1"){
-          alert("Delete Product Successful!");
-        }else{
-          alert("Delete Product Failed!");
+      $.ajax({
+        url:'<?php echo base_url();?>auction_controller/delProduct/',
+        type:'post',
+        data:{'id':$(this).parent().siblings("#prodIdModal").val()},
+        success:function(data,status){
+          alert(data);
+          window.location.reload(true);
         }
-        window.location.reload(true);
       });
     });
 

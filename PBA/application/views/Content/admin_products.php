@@ -35,15 +35,16 @@ $(document).ready(function(){
 
   $("#tbody").on('click','.del',function(){
     if(confirm("Delete Product '"+$(this).parent().siblings(".productName").text()+"' ?") == true) {
-        $.getJSON("<?php echo base_url();?>auction_controller/delProductAdmin/"+$(this).parent().siblings(".prod_id").val(),success=function(data){
-          if(data=="1"){
-            alert("Delete Product Successful!");
-          }else{
-            alert("Delete Product Failed!");
-          }
-          window.location="<?php echo base_url();?>account_controller/view_adminProducts";
-        });
-      }
+      $.ajax({
+        url:'<?php echo base_url();?>auction_controller/delProductAdmin/',
+        type:'post',
+        data:{'id':$(this).parent().siblings(".prod_id").val()},
+        success:function(data,status){
+          alert(data);
+          window.location.reload(true);
+        }
+      });
+    }
   });
 });
 </script>

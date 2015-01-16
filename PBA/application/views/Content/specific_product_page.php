@@ -67,7 +67,7 @@
     <!--- START PRODUCT BID-->
     <div class="row">
       <div class="large-12 columns">
-        <?php if($product->PROD_STAT=='On-going'){?>
+        <?php if($product->PROD_STAT=='On-going'&&$user->USERNAME!=$this->session->userdata('username')){?>
         <button class="success addBid">Add Bid</button>
         <form action="<?php echo base_url();?>auction_controller/addBid" method="post">
           <input type="hidden" name="prodId" id="forMax" value="<?php echo $product->PROD_ID;?>"/>
@@ -82,12 +82,15 @@
       <div class="large-12 columns">
         <?php if(empty($bid)){?>
           <h1>No Bid To Display</h1>
-        <?php }else{ echo "<div class='panel' id='bidPanel' style='height:130px;'>"; $count=0; foreach($bid as $bid):
+        <?php }else{ echo "<div class='panel' id='bidPanel' style='height:16  0px;'>"; $count=0; foreach($bid as $bid):
           $userBid=$this->account_model->get_user2($bid->USER_ID);
           $count++;
         ?>
           <div id="individualProductBid" style="border:1px solid black;text-align:center;">
             <input type="hidden" class="bid_id" value="<?php echo $bid->BID_ID;?>"/>
+            <center>
+              <a href="<?php echo base_url().'account_controller/view_otherUser/'.$userBid->USER_ID;?>"><img src="<?php echo $userBid->USER_IMAGE;?>" width="70"/></a>
+            </center>
             <h4 class="userName">Bidder <?php echo $count;?>:<?php echo $userBid->USERNAME;?></h4>
             <button class="button tiny disabled round">Bid:<b class="bidAmount"><?php echo $bid->BID_AMT;?></b></button>
             <?php if($userBid->USERNAME==$this->session->userdata('username')&&$product->PROD_STAT=='On-going'){?>
@@ -265,35 +268,6 @@
     $("#noClButton").click(function(){
       $('#changeStatClModal').foundation('reveal', 'close');
     });
-    /*$(".startBid").click(function(){
-      var to="On-going";
-      if(confirm("Change status of "+$(this).siblings(".productName").text()+" to '"+to+"'?")==true){
-        $.ajax({
-          url: '<?php echo base_url();?>auction_controller/changeOngoing/',
-          type: 'post',
-          data: {'id': $(this).siblings(".prod_id").val()},
-          success: function(data, status) {
-            alert(data);
-            window.location.reload(true);
-          }
-        });
-      }
-    });
-
-    $(".closeBid").click(function(){
-      var to="Closed";
-      if(confirm("Change status of "+$(this).siblings(".productName").text()+" to '"+to+"'?")==true){
-        $.ajax({
-          url: '<?php echo base_url();?>auction_controller/changeClosed/',
-          type: 'post',
-          data: {'id': $(this).siblings(".prod_id").val()},
-          success: function(data, status) {
-            alert(data);
-            window.location.reload(true);
-          }
-        });
-      }
-    });*/
 
     $('.imageProduct').slick({
       dots: true,
