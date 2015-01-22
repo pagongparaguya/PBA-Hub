@@ -168,7 +168,9 @@ class Auction_controller extends CI_Controller{
 					if(!empty($users)){
 						foreach($users as $use){
 							if($use!=$owner->USERNAME){
-								$this->sendNotification($use,"The product '".$product->PROD_NAME."' you had a bid on has been deleted by the administrator.");
+								if($product->PROD_STAT=='On-going'){
+									$this->sendNotification($use,"The product '".$product->PROD_NAME."' you had a bid on has been deleted by the administrator.");
+								}
 							}else{
 								$this->sendNotification($use,"Your product '".$product->PROD_NAME."' has been deleted by the administrator.");
 							}
