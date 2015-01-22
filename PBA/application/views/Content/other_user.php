@@ -39,7 +39,14 @@
             <div id="individualProduct" style="border:1px solid black;text-align:center;">
               <input type="hidden" id="prod_id" value="<?php echo $product->PROD_ID;?>"/>
               <a href="<?php echo base_url().'auction_controller/view_product/'.$product->PROD_ID;?>"><img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/></a>
-              <h4 id="productName"><?php echo $product->PROD_NAME;?></h4>
+              <h5 id="productName">
+                <?php
+                  $append="";
+                  if(strlen($product->PROD_NAME)>25){
+                    $append="...";
+                  }
+                  echo substr($product->PROD_NAME, 0,25).$append;?>
+              </h5>
               <button class="button tiny disabled round">Starting Bid:<?php echo $product->START_BID;?></button>
               <?php if($product->PROD_STAT=='Closed'){?>
                <button class="button tiny round alert disabled">Status:<?php echo $product->PROD_STAT;?></button>

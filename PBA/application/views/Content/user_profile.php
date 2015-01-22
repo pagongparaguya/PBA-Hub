@@ -43,7 +43,14 @@
               <div style="height:120px;">
                 <img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/>
               </div>
-              <h4 class="productName"><?php echo $product->PROD_NAME;?></h4>
+              <h5 class="productName">
+                <?php
+                  $append="";
+                  if(strlen($product->PROD_NAME)>25){
+                    $append="...";
+                  }
+                echo substr($product->PROD_NAME, 0,25).$append;?>
+              </h5>
               <button class="button tiny disabled round">Starting Bid:<?php echo $product->START_BID;?></button>
               <?php if($product->PROD_STAT=='Closed'){?>
                <button class="button tiny round alert disabled">Status:<?php echo $product->PROD_STAT;?></button>

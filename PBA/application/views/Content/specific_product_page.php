@@ -37,9 +37,9 @@
             if($product->PROD_STAT=='Closed'){?>
               <button class="button tiny round alert disabled">Status:Closed</button>
             <?php }else if($product->PROD_STAT=='On-going'){?>
-              <button class="button tiny round success disabled">On-going</button>
+              <button class="button tiny round success disabled">On going, place your bid.</button>
             <?php }else{//pending?>
-              <button class="button tiny round disabled">Not Ready</button>
+              <button class="button tiny round alert disabled">Not Ready</button>
             <?php }?>
           <?php }?>
       </div>
@@ -82,11 +82,11 @@
       <div class="large-12 columns">
         <?php if(empty($bid)){?>
           <h1>No Bid To Display</h1>
-        <?php }else{ echo "<div class='panel' id='bidPanel' style='height:16  0px;'>"; $count=0; foreach($bid as $bid):
+        <?php }else{ echo "<div class='panel' id='bidPanel' style='height:190px;'>"; $count=0; foreach($bid as $bid):
           $userBid=$this->account_model->get_user2($bid->USER_ID);
           $count++;
         ?>
-          <div id="individualProductBid" style="border:1px solid black;text-align:center;">
+          <div id="individualProductBid" style="border:1px solid black;text-align:center;height:150px;">
             <input type="hidden" class="bid_id" value="<?php echo $bid->BID_ID;?>"/>
             <center>
               <a href="<?php echo base_url().'account_controller/view_otherUser/'.$userBid->USER_ID;?>"><img src="<?php echo $userBid->USER_IMAGE;?>" width="70"/></a>
@@ -221,8 +221,6 @@
     
 
 
-
-
     $(".startBid").click(function(){
       $("#prodOnName").text($(this).siblings(".productName").text());
       $("#prodIdOnModal").val($(this).siblings(".prod_id").val());
@@ -243,8 +241,6 @@
     $("#noOnButton").click(function(){
       $('#changeStatOnModal').foundation('reveal', 'close');
     });
-
-
 
 
 
@@ -270,14 +266,11 @@
     });
 
     $('.imageProduct').slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
     });
-
 
     $('#bidPanel').slick({
       dots: true,

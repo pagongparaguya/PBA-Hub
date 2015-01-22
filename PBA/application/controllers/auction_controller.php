@@ -68,6 +68,7 @@ class Auction_controller extends CI_Controller{
 					        $_FILES['userfile']['error']= $files['userfile']['error'][$i];
 					        $_FILES['userfile']['size']= $files['userfile']['size'][$i];
 
+					        
 						    if($this->upload->do_upload()){
 						    	$dat = $this->upload->data();
 						    	$arr[$count]=base_url().'assets/product_images/'.$dat['file_name'];
@@ -77,13 +78,13 @@ class Auction_controller extends CI_Controller{
 						    }
 					    }else{
 					    	echo "<script>alert('More than 5 files selected');</script>";
+					    	$i=$cpt;
 					    }
 				    }
 
 			    	$img=array('IMAGE1'=>$arr[0],'IMAGE2'=>$arr[1],'IMAGE3'=>$arr[2],'IMAGE4'=>$arr[3],'IMAGE5'=>$arr[4]);
 			    	$this->auction_model->insertImage($img,$prodID);
 				}
-
 				echo "<script>alert('Add Product Successful!');</script>";
 			}else{
 				echo "<script>alert('Add Product Failed!');</script>";
@@ -103,13 +104,30 @@ class Auction_controller extends CI_Controller{
 			if(!empty($this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID))){
 				$product=$this->auction_model->getProductInfo($prodid);
 				$arr=array($product->IMAGE1,$product->IMAGE2,$product->IMAGE3,$product->IMAGE4,$product->IMAGE5);
+
+				$bids=$this->auction_model->getBid($product->PROD_ID);
+				$users=array();
+				foreach($bids as $bids){
+					$bidder=$this->account_model->get_user2($bids->USER_ID);
+					if(!in_array($bidder->USERNAME,$users)){
+						array_push($users,$bidder->USERNAME);
+					}
+				}
+
 				if($this->auction_model->deleteProduct($prodid,$user->USER_ID)){
 					$this->auction_model->deleteComment($prodid);
 					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));
 					}
-					//send notification to bidders
+					//send notification to bidders if product still on-going
+					if($product->PROD_STAT=='On-going'){
+						if(!empty($users)){
+							foreach($users as $use){
+								$this->sendNotification($use,"The product '".$product->PROD_NAME."' you had a bid on has been deleted by the owner.");
+							}
+						}
+					}
 					print "Delete Product Successful!";
 				}else{
 					print "Delete Product Failed!";
@@ -128,13 +146,34 @@ class Auction_controller extends CI_Controller{
 			if(!empty($this->auction_model->getProductInfo($prodid))){
 				$product=$this->auction_model->getProductInfo($prodid);
 				$arr=array($product->IMAGE1,$product->IMAGE2,$product->IMAGE3,$product->IMAGE4,$product->IMAGE5);
+
+				$owner=$this->account_model->get_user2($product->USER_ID);
+				$bids=$this->auction_model->getBid($product->PROD_ID);
+				$users=array($owner->USERNAME);
+				foreach($bids as $bids){
+					$bidder=$this->account_model->get_user2($bids->USER_ID);
+					if(!in_array($bidder->USERNAME,$users)){
+						array_push($users,$bidder->USERNAME);
+					}
+				}
+
+
 				if($this->auction_model->deleteProductAdmin($prodid)){
 					$this->auction_model->deleteComment($prodid);
 					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));
 					}
-					//send notification to bidders
+					//send notification to bidders and owner
+					if(!empty($users)){
+						foreach($users as $use){
+							if($use!=$owner->USERNAME){
+								$this->sendNotification($use,"The product '".$product->PROD_NAME."' you had a bid on has been deleted by the administrator.");
+							}else{
+								$this->sendNotification($use,"Your product '".$product->PROD_NAME."' has been deleted by the administrator.");
+							}
+						}
+					}
 					print "Delete Product Successful!";
 				}else{
 					print "Delete Product Failed!";
@@ -153,6 +192,7 @@ class Auction_controller extends CI_Controller{
 			unlink($path);
 		}
 	}
+
 
 	public function sendNotification($username,$message){
 		date_default_timezone_set('Asia/Singapore');
@@ -192,10 +232,11 @@ class Auction_controller extends CI_Controller{
 				$d=$this->auction_model->getProductInfoWithUserId($prodid,$user->USER_ID);
 				if($d->PROD_STAT=='On-going'){
 					$bid=$this->auction_model->getMaxBid($d->PROD_ID);
-					if($bid->BID_AMT!=''){//cant close a product when there is still no bet
+					if($bid->BID_AMT!=''){//cant close a product when there is still no bid
 						$data=array("PROD_STAT"=>'Closed');
 						if($this->auction_model->updateProduct($data,$d->PROD_ID)){
 							//send notification to bidders (winner and losers)
+							$this->sendWinnerLoser($d,$user);
 							print "Change to Closed Successful!";
 						}else{
 							print "Change to Closed Failure!";
@@ -211,6 +252,30 @@ class Auction_controller extends CI_Controller{
 			}
 		}else{
 			redirect('account_controller/view_user_profile');
+		}
+	}
+
+	public function sendWinnerLoser($product,$owner){
+		$bids=$this->auction_model->getBid($product->PROD_ID);
+		$max=$this->auction_model->getMaxBidder($product->PROD_ID);
+		$maxbidder=$this->account_model->get_user2($max->USER_ID);
+		$users=array();
+		$this->sendNotification($owner->USERNAME,"Your product '".$product->PROD_NAME."' has successfully been auctioned and the winner is ".$maxbidder->USERNAME." with the # of ".$maxbidder->CONTACT_NUMBER.".");
+		foreach($bids as $bids){
+			$bidder=$this->account_model->get_user2($bids->USER_ID);
+			if(!in_array($bidder->USERNAME,$users)){
+				array_push($users,$bidder->USERNAME);
+			}
+		}
+
+		if(!empty($users)){
+			foreach($users as $use){
+				if($maxbidder->USERNAME==$use){
+					$this->sendNotification($use,"The product '".$product->PROD_NAME."' auction finished and you won, please contact ".$owner->USERNAME." with the # of ".$owner->CONTACT_NUMBER.".");
+				}else{
+					$this->sendNotification($use,"The product '".$product->PROD_NAME."' auction finished but your bid is not the highest.");
+				}
+			}
 		}
 	}
 

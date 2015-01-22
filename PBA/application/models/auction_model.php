@@ -89,6 +89,14 @@ class Auction_model extends CI_Model{
 		return $d->row();
 	}
 
+	public function getMaxBidder($prodid){
+		$d=$this->getMaxBid($prodid);
+		$this->db->where('BID_AMT',$d->BID_AMT);
+		$this->db->where('PROD_ID',$prodid);
+		$ret=$this->db->get('product_bid');
+		return $ret->row();
+	}
+
 	public function getComment($prodid){
 		$this->db->where('PROD_ID',$prodid);
 		$this->db->order_by('TIMESTAMP','desc');

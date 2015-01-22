@@ -32,7 +32,7 @@ class Account_controller extends CI_Controller{
 	public function view_login2(){
 		if(empty($this->session->userdata('username'))){
 			$data['title']='Login';	
-			$data['message']='Successfully Registered';
+			$data['message']='Successfully Registered!';
 			$data['status']='no_check';
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/login',$data);

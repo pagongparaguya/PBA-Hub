@@ -1,1 +1,11 @@
-1.) Correct html structure for team_page.php player_page.php coach_page.php search.php, view user profile, view team/player/coach profiles.
+1.) Accepting file input like rar
+-Registration
+-Add product
+
+2.) Add/edit/delete comment
+
+3.) Crop image sizes
+-Profile ->250 width
+-Product ->400 width
+
+after ani then more or less mana nata sa functionalities mga platsa2 nalang
