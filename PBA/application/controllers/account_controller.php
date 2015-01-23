@@ -286,15 +286,17 @@ class Account_controller extends CI_Controller{
 			$config['file_name']=$this->session->userdata('username');
 			$config['overwrite'] = TRUE;
 			$this->load->library('upload',$config);
-			$data=array('FIRST_NAME'=>$this->input->post('fname'),
-				'LAST_NAME'=>$this->input->post('lname'),
-				'CONTACT_NUMBER'=>$this->input->post('contact'),
-				'ADDRESS'=>$this->input->post('address'));
-			$this->account_model->update_user($this->session->userdata('username'),$data);
+			
 			if(!empty($_FILES['userfile']['name'])){
 				if(!$this->upload->do_upload()){
-					echo "<script>alert('Successfully Changed Your profile except the image(Not an image file)!');</script>";
+					echo "<script>alert('No Changes Made Because File Is Not An Image!');</script>";
 				}else{
+					$data=array('FIRST_NAME'=>$this->input->post('fname'),
+					'LAST_NAME'=>$this->input->post('lname'),
+					'CONTACT_NUMBER'=>$this->input->post('contact'),
+					'ADDRESS'=>$this->input->post('address'));
+					$this->account_model->update_user($this->session->userdata('username'),$data);
+					
 					$file_data=$this->upload->data();
 					$image=base_url().'assets/user_images/'.$file_data['file_name'];
 					$dat=array('USER_IMAGE'=>$image);
@@ -302,11 +304,15 @@ class Account_controller extends CI_Controller{
 					echo "<script>alert('Successfully Made Changes!');</script>";
 				}
 			}else{
+				$data=array('FIRST_NAME'=>$this->input->post('fname'),
+				'LAST_NAME'=>$this->input->post('lname'),
+				'CONTACT_NUMBER'=>$this->input->post('contact'),
+				'ADDRESS'=>$this->input->post('address'));
+				$this->account_model->update_user($this->session->userdata('username'),$data);
 				echo "<script>alert('Successfully Made Changes!');</script>";
 			}
 		}
-		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
-		
+		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";	
 	}
 
 

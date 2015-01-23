@@ -30,6 +30,11 @@ class Account_model extends CI_Model{
 		return $d->row();
 	}
 
+	public function update_image($data,$user){
+		$this->db->where('USERNAME',$user);
+		$this->db->update('user',$data);
+	}
+
 	public function update_user($user,$data){
 		$this->db->where('USERNAME',$user);
 		if($this->db->update('user',$data)){
