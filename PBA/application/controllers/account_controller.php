@@ -323,7 +323,7 @@ class Account_controller extends CI_Controller{
 				$this->account_model->update_user($this->session->userdata('username'),$data);
 				echo "<script>alert('Changing your password successful!');</script>";		
 			}else{
-				echo "<script>alert('Changing your password because current password is incorrect!');</script>";
+				echo "<script>alert('Changing your password failed because current password is incorrect!');</script>";
 			}
 		}
 		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
