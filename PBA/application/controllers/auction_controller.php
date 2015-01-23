@@ -65,7 +65,7 @@ class Auction_controller extends CI_Controller{
 						    	$arr[$count]=base_url().'assets/product_images/'.$dat['file_name'];
 						    	$count++;
 						    }else{
-						    	echo "<script>alert('File ".$files['userfile']['name'][$i]." is not an image.')</script>";
+						    	echo "<script>alert('File '".$files['userfile']['name'][$i]."'' is not an image.')</script>";
 						    }
 					    }else{
 					    	echo "<script>alert('More than 5 files selected');</script>";
