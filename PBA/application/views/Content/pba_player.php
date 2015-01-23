@@ -52,7 +52,7 @@
       			<p>Birth Date:<?php echo $info->PLAYER_BDATE;?></p>
       			<p>Age:<?php echo $info->PLAYER_AGE;?></p>
       			<p>Player Jersey No:<?php echo $info->PLAYER_JERSEY_NO;?></p>
-      			<p>Current Team:</p>
+      			<p>Latest Team:</p>
       			<p id="currentTeam"></p>
       			<p id="teamTime"></p>
           </li>

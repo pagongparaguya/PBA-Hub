@@ -36,8 +36,10 @@
             }else{
             if($product->PROD_STAT=='Closed'){?>
               <button class="button tiny round alert disabled">Status:Closed</button>
-            <?php }else if($product->PROD_STAT=='On-going'){?>
+            <?php }else if($product->PROD_STAT=='On-going'&&!empty($this->session->userdata('username'))){?>
               <button class="button tiny round success disabled">On going, place your bid.</button>
+            <?php }else if($product->PROD_STAT=='On-going'&&empty($this->session->userdata('username'))){?>
+            <button class="button tiny round success disabled">On going, please login to place your bid.</button>
             <?php }else{//pending?>
               <button class="button tiny round alert disabled">Not Ready</button>
             <?php }?>
@@ -67,7 +69,7 @@
     <!--- START PRODUCT BID-->
     <div class="row">
       <div class="large-12 columns">
-        <?php if($product->PROD_STAT=='On-going'&&$user->USERNAME!=$this->session->userdata('username')){?>
+        <?php if($product->PROD_STAT=='On-going'&&!empty($this->session->userdata('username'))&&$user->USERNAME!=$this->session->userdata('username')){?>
         <button class="success addBid">Add Bid</button>
         <form action="<?php echo base_url();?>auction_controller/addBid" method="post">
           <input type="hidden" name="prodId" id="forMax" value="<?php echo $product->PROD_ID;?>"/>

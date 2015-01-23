@@ -38,6 +38,13 @@ class Account_model extends CI_Model{
 			return false;
 		}
 	}
+
+	public function check_userPassword($user,$pass){
+		$this->db->where('USERNAME',$user);
+		$this->db->where('PASSWORD',$pass);
+		$d=$this->db->get('user');
+		return $d->row();
+	}
 	public function update_status($data,$user,$code){
 		$this->db->where('STATUS',$code);
 		$this->db->where('USERNAME',$user);

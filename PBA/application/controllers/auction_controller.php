@@ -15,34 +15,25 @@ class Auction_controller extends CI_Controller{
 	}
 
 	public function view_products(){
-		if(!empty($this->session->userdata('username'))){
-			$data['title']='Products Page';
-			$data['products']=$this->auction_model->getAllProducts();
-			$this->load->view('Template/header',$data);
-			$this->load->view('Content/products_page',$data);
-			$this->load->view('Template/login_footer');
-		}else{
-			echo "<script>alert('Login First!');</script>";
-			echo "<script>window.location='".base_url()."account_controller/view_login'</script>";
-		}
+		$data['title']='Products Page';
+		$data['products']=$this->auction_model->getAllProducts();
+		$this->load->view('Template/header',$data);
+		$this->load->view('Content/products_page',$data);
+		$this->load->view('Template/login_footer');
 	}
 
 	public function view_product($productid){
-		if(!empty($this->session->userdata('username'))){
-			$data['product']=$this->auction_model->getProductInfo($productid);
-			if(!empty($data['product'])){
-				$data['title']=$data['product']->PROD_NAME;
-				$data['user']=$this->account_model->get_user2($data['product']->USER_ID);
-				$data['bid']=$this->auction_model->getBid($productid);
-				$data['comment']=$this->auction_model->getComment($productid);
-				$this->load->view('Template/header',$data);
-				$this->load->view('Content/specific_product_page',$data);
-				$this->load->view('Template/footer');
-			}else{
-				redirect('auction_controller/view_products');
-			}
+		$data['product']=$this->auction_model->getProductInfo($productid);
+		if(!empty($data['product'])){
+			$data['title']=$data['product']->PROD_NAME;
+			$data['user']=$this->account_model->get_user2($data['product']->USER_ID);
+			$data['bid']=$this->auction_model->getBid($productid);
+			$data['comment']=$this->auction_model->getComment($productid);
+			$this->load->view('Template/header',$data);
+			$this->load->view('Content/specific_product_page',$data);
+			$this->load->view('Template/footer');
 		}else{
-			redirect('account_controller/view_login');
+			redirect('auction_controller/view_products');
 		}
 	}
 

@@ -286,12 +286,10 @@ class Account_controller extends CI_Controller{
 			$config['file_name']=$this->session->userdata('username');
 			$config['overwrite'] = TRUE;
 			$this->load->library('upload',$config);
-			$pass=do_hash($this->input->post('pass'),'md5');
 			$data=array('FIRST_NAME'=>$this->input->post('fname'),
 				'LAST_NAME'=>$this->input->post('lname'),
 				'CONTACT_NUMBER'=>$this->input->post('contact'),
-				'ADDRESS'=>$this->input->post('address'),
-				'PASSWORD'=>$pass);
+				'ADDRESS'=>$this->input->post('address'));
 			$this->account_model->update_user($this->session->userdata('username'),$data);
 			if(!empty($_FILES['userfile']['name'])){
 				if(!$this->upload->do_upload()){
@@ -306,11 +304,23 @@ class Account_controller extends CI_Controller{
 			}else{
 				echo "<script>alert('Successfully Made Changes!');</script>";
 			}
-			echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
-			//$this->view_user_profile();
-		}else{
-			redirect('account_controller/view_user_profile');
-		}	
+		}
+		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+		
+	}
+
+
+	public function edit_userPassword(){
+		if(!empty($this->session->userdata('username'))&&$this->input->post('oldpass')){
+			$data=array('PASSWORD'=>do_hash($this->input->post('pass'),'md5'));
+			if($this->account_model->check_userPassword($this->session->userdata('username'),do_hash($this->input->post('oldpass'),'md5'))){
+				$this->account_model->update_user($this->session->userdata('username'),$data);
+				echo "<script>alert('Changing your password successful!');</script>";		
+			}else{
+				echo "<script>alert('Changing your password because current password is incorrect!');</script>";
+			}
+		}
+		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
 	}
 
 	public function edit_otherUser(){

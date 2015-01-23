@@ -52,7 +52,7 @@
       			<p>Birth Date:<?php echo $info->COACH_BDATE;?></p>
             <p>Birth Place:<?php echo $info->COACH_BIRTHPLACE;?></p>
       			<p>Age:<?php echo $info->COACH_AGE;?></p>
-      			<p>Current Team:</p>
+      			<p>Latest Team:</p>
       			<p id="currentTeam"></p>
       			<p id="teamTime"></p>
           </li>

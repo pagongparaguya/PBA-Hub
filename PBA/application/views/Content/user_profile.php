@@ -14,6 +14,7 @@
         </div>
         <div class="right-content">
           <a href="#" data-reveal-id="questionProfileModal" class="radius button">Customize Profile</a>
+          <a href="#" data-reveal-id="passwordModal" class="radius button">Change Password</a>
             <div class="profile-text">
               <h3 style="color:white;">Username:<?php echo $info->USERNAME;?></h3>
               <h3 style="color:white;">Full Name:<?php echo $info->FIRST_NAME;?> <?php echo $info->LAST_NAME;?></h3>
@@ -84,7 +85,7 @@
             <h1>No Notifications To Display</h1>                  
           <?php }else{foreach($notification as $notif):?>
             <div class="panel">
-              <h4><?php echo $notif->MESSAGE;?> <?php echo $notif->TIMESTAMP;?></h4>
+              <h4><?php echo $notif->MESSAGE;?></h4>
             </div>
           <?php endforeach;}?>
         </div>
@@ -112,24 +113,43 @@
   <!--- END QUESTION USER -->
 
 <!--- START EDIT USER-->
-<div id="editProfileModal" class="reveal-modal" data-reveal>
+<div id="editProfileModal" class="reveal-modal small" data-reveal>
   <form action="<?php echo base_url();?>account_controller/edit_user" method="post" enctype='multipart/form-data'>      
     <fieldset>
       <legend style="color:blue;">Edit Profile</legend>  
-      <div class="small-12 large-6 medium-6 columns">
+      <div class="small-12 large-12 medium-12 columns">
         <h2>Personal Information</h2>
         <b>First Name: </b><input type="text" name="fname" value="<?php echo $info->FIRST_NAME;?>" aria-label="First Name" required pattern=".{4,40}" title="4 to 40 Characters" maxlength="40"/>
         <b>Last Name: </b><input type="text" name="lname" value="<?php echo $info->LAST_NAME;?>" aria-label="Last Name" required pattern=".{4,30}" title="4 to 30 Characters" maxlength="30"/>
         <b>Contact Number: </b><input type="text" name="contact" value="<?php echo $info->CONTACT_NUMBER;?>" aria-label="Contact Number" required pattern=".{11}" title="11 Characters" maxlength="11"/>
         <b>Address: </b><input type="text" name="address" value="<?php echo $info->ADDRESS;?>" aria-label=" Address" required maxlength="100"/>
-      </div>
-      <div class="small-12 large-6 medium-6 columns signup-account-info">
-        <h2>Account Information</h2>
-        <b>New Password: </b><input type="password" name="pass" id="pass" placeholder="New Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
-        <b>Confirm Password: </b><input type="password" name="cpass" id="cpass" placeholder="Confirm Password" aria-label="Confirm Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
         <label style="color:black;font-weight:700;font-size:16px;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
         <input type="file" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
-      </div>                      
+      </div>                     
+    </fieldset>
+    <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
+      <div class="btn">
+        <button type="submit" class="expand form-button button [tiny small large]">Submit</button>  
+      </div>   
+    </div>       
+  </form>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+<!--- END EDIT USER -->
+
+
+
+<!--- START CHANGE PASSWORD USER-->
+<div id="passwordModal" class="reveal-modal small" data-reveal>
+  <form action="<?php echo base_url();?>account_controller/edit_userPassword" method="post" enctype='multipart/form-data'>      
+    <fieldset>
+      <legend style="color:blue;">Change Password</legend>  
+      <div class="small-12 large-12 medium-12 columns signup-account-info">
+        <h2>Account Information</h2>
+        <b>Current Password: </b><input type="password" name="oldpass" placeholder="Current Password"  aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <b>New Password: </b><input type="password" name="pass" id="pass" placeholder="New Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <b>Confirm Password: </b><input type="password" name="cpass" id="cpass" placeholder="Confirm Password" aria-label="Confirm Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+      </div>                    
     </fieldset>
     <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
       <div class="submit-btn">
@@ -139,7 +159,8 @@
   </form>
   <a class="close-reveal-modal">&#215;</a>
 </div>
-<!--- END EDIT USER -->
+<!--- END CHANGE PASSWORD USER -->
+
 
 <!--- START ADD PRODUCT-->
 <div id="addProductModal" class="reveal-modal" data-reveal>
@@ -156,8 +177,6 @@
         <option value="Socks">Socks</option>
         <option value="Accessories">Accessories</option>
       </select>
-    </div>
-    <div class="small-12 large-6 medium-6 columns">
       <b>Age Of Product: </b><input type="number" name="page" required min="1"/>
       <select name="pagename">
         <option value="Day">Day/s</option>
@@ -165,9 +184,15 @@
         <option value="Month">Month/s</option>
         <option value="Year">Year/s</option>
       </select>
+    </div>
+    <div class="small-12 large-6 medium-6 columns">
       <b>Starting Bid: </b><input type="number" name="pbid" required min="1"/>
       <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files: (Only Accepts jpeg/jpg/png files)</label>
-      <input type="file" name="userfile[]" multiple class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
     </div>  
     <div class="small-12 large-12 medium-12 columns">
       <center> 

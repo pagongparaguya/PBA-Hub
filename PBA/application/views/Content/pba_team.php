@@ -50,7 +50,7 @@
           </li>
           <li>
       			<p>Year Started:<?php echo $info->TEAM_YEARSTARTED;?></p>
-            <p id="currentCoach">Current Head Coach: </p>
+            <p id="currentCoach">Latest Head Coach: </p>
             <p>Career Wins:<?php echo $info->TEAM_CAREERWINS;?></p>
             <p>Career Losses:<?php echo $info->TEAM_CAREERLOSSES;?></p>
           </li>
@@ -144,19 +144,19 @@
     var coach="";
     var coachID="";
 		$(".history-block").click(function(){
-			$(".history-team").slideToggle(2000);
+			$(".history-team").slideToggle(500);
 		});
     $(".achievement-block").click(function(){
-      $(".achievement-team").slideToggle(2000);
+      $(".achievement-team").slideToggle(500);
     });
 		$(".currentplayers-block").click(function(){
-			$(".currentplayers-team").slideToggle(2000);
+			$(".currentplayers-team").slideToggle(500);
 		});
 		$(".pastplayers-block").click(function(){
-			$(".pastplayers-team").slideToggle(2000);
+			$(".pastplayers-team").slideToggle(500);
 		});
     $(".notableplayers-block").click(function(){
-      $(".notableplayers-team").slideToggle(2000);
+      $(".notableplayers-team").slideToggle(500);
     });
     <?php foreach($player_bridge as $player_bridge):?>
     <?php $teamplayer=$this->page_model->get_playerInfo($player_bridge->PLAYER_ID);?>
