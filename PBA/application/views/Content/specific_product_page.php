@@ -1,5 +1,5 @@
 	<!--- START PRODUCT IMAGES-->
-	<meta http-equiv="refresh" content="180">
+	<meta http-equiv="refresh" content="30 ">
   <div class="row row-content">
       <ul class="team-row small-block-grid-1 medium-block-grid-1 large-block-grid-1 teams">
         <li>
