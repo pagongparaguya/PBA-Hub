@@ -76,7 +76,7 @@ class Account_controller extends CI_Controller{
 			$data['users']=$this->account_model->get_allUsers($this->session->userdata('username'));
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/admin_users',$data);
-			$this->load->view('Template/login_footer');
+			$this->load->view('Template/footer');
 		}
 	}
 
@@ -321,9 +321,9 @@ class Account_controller extends CI_Controller{
 			$data=array('PASSWORD'=>do_hash($this->input->post('pass'),'md5'));
 			if($this->account_model->check_userPassword($this->session->userdata('username'),do_hash($this->input->post('oldpass'),'md5'))){
 				$this->account_model->update_user($this->session->userdata('username'),$data);
-				echo "<script>alert('Changing your password successful!');</script>";		
+				echo "<script>alert('Password changed successfuly!');</script>";		
 			}else{
-				echo "<script>alert('Changing your password failed because current password is incorrect!');</script>";
+				echo "<script>alert('Password change has failed because current password inputted is incorrect!');</script>";
 			}
 		}
 		echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";

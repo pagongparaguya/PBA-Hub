@@ -1,21 +1,23 @@
-<div class="small-10 small-centered medium-8 medium-centered large-8 large-centered columns">
-  <h1>PRODUCTS</h1>
-    <table id="searchTable" class="display" cellspacing="0">
-      <thead>
-      <tr>
-        <th class="hide">ID</th>
-        <th class="table-content">PRODUCT NAME</th>
-        <th class="table-content">USERNAME</th>
-        <th class="table-content">PRODUCT CATEGORY</th>
-        <th class="table-content">PRODUCT STATUS</th>
-        <th class="table-content">START BID</th>
-        <th class="table-content">DELETE</th>
-      </tr>
-      </thead>
-      <tbody id="tbody">
-      </tbody>
-    </table>
-</div> 
+<div class="page-content list-pages">
+    <div class="small-10 small-centered medium-8 medium-centered large-12 large-centered columns">
+      <h1>PRODUCTS</h1>
+        <table id="searchTable" class="display" cellspacing="0">
+          <thead>
+          <tr>
+            <th class="hide">ID</th>
+            <th class="table-content">Product</th>
+            <th class="table-content">Owner</th>
+            <th class="table-content">Product Category</th>
+            <th class="table-content">Product Status</th>
+            <th class="table-content">Starting Bid</th>
+            <th class="table-content">Action</th>
+          </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+    </div> 
+</div>
 <style>
   .hide{
     visibility: hidden;

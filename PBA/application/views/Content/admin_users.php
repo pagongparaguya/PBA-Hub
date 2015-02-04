@@ -1,49 +1,51 @@
-<div class="small-10 small-centered medium-8 medium-centered large-8 large-centered columns">
-  <h1>USERS</h1>
-    <table id="searchTable" class="display" cellspacing="0">
-      <thead>
-      <tr>
-        <th class="table-content">USERNAME</th>
-        <th class="table-content">FULLNAME</th>
-        <th class="table-content">TYPE</th>
-        <th class="table-content">STATUS</th>
-        <th class="table-content">EMAIL</th>
-        <th class="table-content">CONTACT NO</th>
-        <th class="table-content">EDIT</th>
-      </tr>
-      </thead>
-      <tbody id="tbody">
-      </tbody>
-    </table>
-</div> 
-
-<!--Admin Modal-->
-<div id="adminModal" class="reveal-modal small" data-reveal>
-  <h2 id="name"></h2>
-  <hr/>
-  <div>
-    <form action="<?php echo base_url();?>account_controller/edit_otherUser" method="post">
-      <input type="hidden" name="user" id="user" value="" />
-      <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
-        <li><span style="color:blue;text-shadow:none;">TYPE: </span>
-          <select name="type" id="userType">
-            <option id="1" value="Admin">Admin</option>
-            <option id="2" value="Normal">Normal</option>
-          </select>
-        </li>
-        <li><span style="color:blue;text-shadow:none;">STATUS: </span>
-          <select name="status" id="userStatus">
-            <option id="3" value="Active">Active</option>
-            <option id="4" value="Deleted">Deleted</option>
-          </select>
-        </li>
-      </ul>
-      <button type="submit" class="button round" id="change">Change</button>
-    </form>
-  </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>  
-<!--Admin Modal-->
+<div class="page-content list-pages">
+      <div class="small-10 small-centered medium-8 medium-centered large-12 large-centered columns">
+        <h1>USERS</h1>
+          <table id="searchTable" class="display" cellspacing="0">
+            <thead>
+            <tr>
+              <th class="table-content">Username</th>
+              <th class="table-content">Fullname</th>
+              <th class="table-content">Account Type</th>
+              <th class="table-content">Account Status</th>
+              <th class="table-content">Email Address</th>
+              <th class="table-content">Contact Number</th>
+              <th class="table-content">Action</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+      </div> 
+  
+  <!--Admin Modal-->
+  <div id="adminModal" class="reveal-modal small" data-reveal>
+    <h2 id="name"></h2>
+    <hr/>
+    <div>
+      <form action="<?php echo base_url();?>account_controller/edit_otherUser" method="post">
+        <input type="hidden" name="user" id="user" value="" />
+        <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
+          <li><span style="color:blue;text-shadow:none;">TYPE: </span>
+            <select name="type" id="userType">
+              <option id="1" value="Admin">Admin</option>
+              <option id="2" value="Normal">Normal</option>
+            </select>
+          </li>
+          <li><span style="color:blue;text-shadow:none;">STATUS: </span>
+            <select name="status" id="userStatus">
+              <option id="3" value="Active">Active</option>
+              <option id="4" value="Deleted">Deleted</option>
+            </select>
+          </li>
+        </ul>
+        <button type="submit" class="button" id="change">Change</button>
+      </form>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>  
+  <!--Admin Modal-->
+</div>
 
 <script>
 $(document).ready(function(){

@@ -1,7 +1,6 @@
 <!--- START USER INFO-->
-<div class="site-content">
-  <div class="user-profile-content">
-    <div class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 profile-content">
+<div class="page-content">
+    <div class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 large-centered profile-content">
         <div class="left-content">
           <img style="border:3px solid black;" src="<?php echo $info->USER_IMAGE;?>" width="250" height="200" alt="<?php echo $info->USERNAME;?>-portrait" /><br/>
           <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" />
@@ -16,10 +15,10 @@
           <a href="#" data-reveal-id="questionProfileModal" class="radius button">Customize Profile</a>
           <a href="#" data-reveal-id="passwordModal" class="radius button">Change Password</a>
             <div class="profile-text">
-              <h3 style="color:white;">Username:<?php echo $info->USERNAME;?></h3>
-              <h3 style="color:white;">Full Name:<?php echo $info->FIRST_NAME;?> <?php echo $info->LAST_NAME;?></h3>
-              <h3 style="color:white;">Contact Number: <?php echo $info->CONTACT_NUMBER;?></h3>
-              <h3 style="color:white;">Address: <?php echo $info->ADDRESS;?></h3>
+              <h4 style="color:white;">Username:  <?php echo $info->USERNAME;?></h4>
+              <h4 style="color:white;">Full Name:  <?php echo $info->FIRST_NAME;?> <?php echo $info->LAST_NAME;?></h4>
+              <h4 style="color:white;">Contact Number: <?php echo $info->CONTACT_NUMBER;?></h4>
+              <h4 style="color:white;">Address: <?php echo $info->ADDRESS;?></h4>
             </div>
         </div>
     </div>
@@ -28,10 +27,10 @@
       <!--- START USER PRODUCTS-->
       <div class="row">
         <div class="large-12 columns header">     
-            <h1 class="header-content">
-              <img class="header-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
+            <h2 class="header-content">
+              <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Products</span>
-            </h1>
+            </h2>
         </div>
       </div>          
       <div class="row row-content">
@@ -39,19 +38,20 @@
           <?php if(empty($products)){?>
             <h1>No Products To Display</h1>                
           <?php }else{ echo "<div class='panel' id='productPanel'>"; foreach($products as $product):?>
-            <div id="individualProduct" style="border:1px solid black;text-align:center;height:255px;">
+            
+            <div class"individualProduct">
               <input type="hidden" class="prod_id" value="<?php echo $product->PROD_ID;?>"/>
-              <div style="height:120px;">
+              <div class="product-element">
                 <img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/>
               </div>
-              <h5 class="productName">
+              <h2 class="product-name">
                 <?php
                   $append="";
                   if(strlen($product->PROD_NAME)>25){
                     $append="...";
                   }
-                echo substr($product->PROD_NAME, 0,25).$append;?>
-              </h5>
+                echo substr($product->PROD_NAME, 0,20).$append;?>
+              </h2>
               <button class="button tiny disabled round">Starting Bid:<?php echo $product->START_BID;?></button>
               <?php if($product->PROD_STAT=='Closed'){?>
                <button class="button tiny round alert disabled">Status:<?php echo $product->PROD_STAT;?></button>
@@ -73,10 +73,10 @@
       <!--- START USER NOTIFICATIONS-->
       <div class="row">
         <div class="large-12 columns header">     
-            <h1 class="header-content">
-              <img class="header-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
+            <h2 class="header-content">
+              <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Notifications</span>
-            </h1>
+            </h2>
         </div>
       </div>
       <div class="row row-content">
@@ -90,8 +90,7 @@
           <?php endforeach;}?>
         </div>
       </div>
-      <!--- END USER NOTIFICATIONS-->
-  </div>
+      <!--- END USER NOTIFICATIONS-->  
 </div>      
 
   <!--- START QUESTON USER-->
@@ -102,7 +101,7 @@
               <h5><?php echo $info->SECRET_QUESTION;?></h5> 
               <center><span style="color:red;" id="notif"></span></center>
               <br> 
-              <input type="text" id="answer" name="answer" placeholder="Answer" aria-label="Answer" maxlength="20" required>
+              <input type="password" id="answer" name="answer" placeholder="Answer" aria-label="Answer" maxlength="20" required>
           </center>
           <div class="verify-btn">
             <button id="answerButton" class="expand button [tiny small large]">Answer</button>
@@ -140,15 +139,15 @@
 
 
 <!--- START CHANGE PASSWORD USER-->
-<div id="passwordModal" class="reveal-modal small" data-reveal>
+<div id="passwordModal" class="reveal-modal small small-12 medium-12 columns" data-reveal>
   <form action="<?php echo base_url();?>account_controller/edit_userPassword" method="post" enctype='multipart/form-data'>      
     <fieldset>
       <legend style="color:blue;">Change Password</legend>  
       <div class="small-12 large-12 medium-12 columns signup-account-info">
         <h2>Account Information</h2>
-        <b>Current Password: </b><input type="password" name="oldpass" placeholder="Current Password"  aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
-        <b>New Password: </b><input type="password" name="pass" id="pass" placeholder="New Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
-        <b>Confirm Password: </b><input type="password" name="cpass" id="cpass" placeholder="Confirm Password" aria-label="Confirm Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <b>Current Password: </b><input type="password" name="oldpass"  aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <b>New Password: </b><input type="password" name="pass" id="pass" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
+        <b>Confirm Password: </b><input type="password" name="cpass" id="cpass" aria-label="Confirm Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20"/>
       </div>                    
     </fieldset>
     <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
@@ -167,9 +166,9 @@
   <form action="<?php echo base_url();?>auction_controller/addProduct" method="post" enctype='multipart/form-data'>
     <h2>Product Information</h2>
     <div class="small-12 large-6 medium-6 columns">
-      <b>Product Name: </b><input type="text" name="pname" required maxlength="40" pattern=".{4,40}" title="4 to 40 Characters"/>
-      <b>Description: </b><textarea name="pdesc" required maxlength="200" rows="5"></textarea>
-      <b>Category: </b>
+      <b>Product Name </b><input type="text" name="pname" required maxlength="40" pattern=".{4,40}" title="4 to 40 Characters"/>
+      <b>Description </b><textarea name="pdesc" required maxlength="200" rows="5"></textarea>
+      <b>Category </b>
       <select name="pcat">
         <option value="Jersey">Jersey</option>
         <option value="Shoes">Shoes</option>
@@ -177,17 +176,25 @@
         <option value="Socks">Socks</option>
         <option value="Accessories">Accessories</option>
       </select>
-      <b>Age Of Product: </b><input type="number" name="page" required min="1"/>
-      <select name="pagename">
-        <option value="Day">Day/s</option>
-        <option value="Week">Week/s</option>
-        <option value="Month">Month/s</option>
-        <option value="Year">Year/s</option>
-      </select>
+      
+      <div class="small-12 medium-6 large-12">
+            <b>Age Of Product </b>
+            <div style="display: inline-flex">
+                  <input type="number" name="page" required min="1"/>          
+                  <div class="small-6 medium-3 large-6">
+                      <select name="pagename">
+                        <option value="Day">Day/s</option>
+                        <option value="Week">Week/s</option>
+                        <option value="Month">Month/s</option>
+                        <option value="Year">Year/s</option>
+                      </select>
+                  </div>
+            </div>
+      </div>
     </div>
     <div class="small-12 large-6 medium-6 columns">
-      <b>Starting Bid: </b><input type="number" name="pbid" required min="1"/>
-      <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files: (Only Accepts jpeg/jpg/png files)</label>
+      <b>Starting Bid </b><input type="number" name="pbid" required min="1"/>
+      <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files (Only Accepts jpeg/jpg/png files)</label>
       <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
       <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
       <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
@@ -196,8 +203,8 @@
     </div>  
     <div class="small-12 large-12 medium-12 columns">
       <center> 
-        <button type="submit" class="round form-button button [tiny small large] add-btn">Add</button> 
-        <button id="cancelButton" class="round alert button [tiny small large] cancel-btn">Cancel</button>  
+        <button type="submit" class="form-button button [tiny small large] add-btn">Add</button> 
+        <button id="cancelButton" class="alert button [tiny small large] cancel-btn">Cancel</button>  
       </center>
     </div>
   </form>

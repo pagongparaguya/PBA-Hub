@@ -1,25 +1,26 @@
-<!--- START OF FORMS -->
-  <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">
-      <form action="<?php echo base_url();?>account_controller/login" method="post">      
-          <fieldset>
-            <legend>ACCOUNT LOGIN</legend>  
-            <center><span style="color: white;text-shadow: 1px 1px 0px #000000;"><?php echo $message;?></span></center>
-              <br>
-                  <input type="text" name="user" placeholder="Username" aria-label="Username" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
-                  <input type="password" name="pass" placeholder="Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
-          </fieldset>
-  
-      <div class="small-12 large-6 columns fget-pword">    
-        <a href="#" data-reveal-id="forgotModal">Forgot Password?</a>
-      </div>
 
-      <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">      
-        <div class="login-btn">
-            <button type="submit" class="expand form-button button">Login</button>
+<!--- START OF FORMS -->
+    <div class="small-10 small-centered medium-6 medium-centered large-6 large-centered columns">
+        <form action="<?php echo base_url();?>account_controller/login" method="post">      
+            <fieldset>
+              <legend>ACCOUNT LOGIN</legend>  
+              <center><span style="color: white;text-shadow: 1px 1px 0px #000000;"><?php echo $message;?></span></center>
+                <br>
+                    <input type="text" name="user" placeholder="Username" aria-label="Username" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
+                    <input type="password" name="pass" placeholder="Password" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
+            </fieldset>
+    
+        <div class="small-12 large-6 columns fget-pword">    
+          <a href="#" data-reveal-id="forgotModal">Forgot Password?</a>
         </div>
-      </div>
-      </form>
-  </div>   
+  
+        <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">      
+          <div class="login-btn">
+              <button type="submit" class="expand form-button button">Login</button>
+          </div>
+        </div>
+        </form>
+    </div>   
 <!--- END OF FORMS -->
 
 <!--- MODAL FOR CODE -->
