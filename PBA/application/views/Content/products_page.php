@@ -1,4 +1,4 @@
-<div class="page-content list-pages">
+<div class="page-content">
     <div class="small-10 small-centered medium-10 medium-centered large-10 large-centered columns">
       <h1>PRODUCTs</h1>
         <table id="searchTable" class="display" cellspacing="0">

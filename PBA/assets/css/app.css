@@ -21,9 +21,10 @@ h1, h2 {
 
 .page-content {
 	width: 80%;
-	margin: 5px auto;
+	margin: 45px auto 70px auto;
 	padding: 12px;
 	background: rgba(255, 255, 255, 0.80);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.96);
 }
 
 .user-profile-content {
@@ -41,12 +42,12 @@ h1, h2 {
 		font-weight: bold;
 		text-transform: uppercase;
 		color: #ffffff;
-		text-shadow: 3px 2px 2px #000000;
+		text-shadow: 2px 2px 3px #000000;
 	}
 
 			.team-row span {
 				color: #000000;
-				text-shadow: 1px 1px 1px #009aff;
+				text-shadow: 1px 1px 1px #A2740C;
 			}
 	
 	/* SLIDER */
@@ -366,3 +367,10 @@ textarea{
 	background: none !important;
 }
 
+div.dataTables_length label, div.dataTables_filter label, div.dataTables_info, ul.pagination li.unavailable a, ul.pagination li.unavailable button, ul.pagination li a, ul.pagination li button {
+	color: 	#000000 !important;
+}
+
+ul.pagination li.current a {
+	color: 	#ffffff !important;
+}
