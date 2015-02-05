@@ -211,8 +211,7 @@
     });
 
 
-
-    $(".deleteBid").click(function(){
+    $("#individualProductBid").on("click",".deleteBid",function(){
       $("#bidName").text($(this).siblings().children(".bidAmount").text());
       $("#bidId").val($(this).siblings(".bid_id").val());
     });
