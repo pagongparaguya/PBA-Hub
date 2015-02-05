@@ -28,7 +28,7 @@ class Auction_controller extends CI_Controller{
 			$data['title']=$data['product']->PROD_NAME;
 			$data['user']=$this->account_model->get_user2($data['product']->USER_ID);
 			$data['bid']=$this->auction_model->getBid($productid);
-			$data['comment']=$this->auction_model->getComment($productid);
+			//$data['comment']=$this->auction_model->getComment($productid);
 			$this->load->view('Template/header',$data);
 			$this->load->view('Content/specific_product_page',$data);
 			$this->load->view('Template/footer');
@@ -44,34 +44,32 @@ class Auction_controller extends CI_Controller{
 			
 			if($this->auction_model->insertProduct($data)){
 				$prodID=mysql_insert_id();
+
 				if(!empty($_FILES['userfile']['name'][0])){
 					$arr=array("http://localhost/PBA/assets/product_images/sample.jpg","http://localhost/PBA/assets/product_images/sample.jpg","http://localhost/PBA/assets/product_images/sample.jpg","http://localhost/PBA/assets/product_images/sample.jpg","http://localhost/PBA/assets/product_images/sample.jpg");
 					$config=array('upload_path'=>'./assets/product_images/','allowed_types'=>'jpeg|jpg|png');
 					$this->load->library('upload',$config);
 				    $files = $_FILES;
-				    $cpt = count($_FILES['userfile']['name']);
 				    $count=0;
-				    for($i=0; $i<$cpt; $i++){
-				    	if($i<5){
-					        $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-					        $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-					        $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-					        $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-					        $_FILES['userfile']['size']= $files['userfile']['size'][$i];
 
-					        
+				    for($i=0;$i<5;$i++){
+				        $_FILES['userfile']['name']= $files['userfile']['name'][$i];
+				        $_FILES['userfile']['type']= $files['userfile']['type'][$i];
+				        $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
+				        $_FILES['userfile']['error']= $files['userfile']['error'][$i];
+				        $_FILES['userfile']['size']= $files['userfile']['size'][$i];
+				        
+				        if(!empty($_FILES['userfile']['size'])){
 						    if($this->upload->do_upload()){
 						    	$dat = $this->upload->data();
 						    	$arr[$count]=base_url().'assets/product_images/'.$dat['file_name'];
 						    	$count++;
 						    }else{
-						    	echo "<script>alert('File '".$files['userfile']['name'][$i]."'' is not an image.')</script>";
+						    	echo "<script>alert('File ".$files['userfile']['name'][$i]." is not an image.')</script>";
 						    }
-					    }else{
-					    	echo "<script>alert('More than 5 files selected');</script>";
-					    	$i=$cpt;
-					    }
+						}
 				    }
+					
 
 			    	$img=array('IMAGE1'=>$arr[0],'IMAGE2'=>$arr[1],'IMAGE3'=>$arr[2],'IMAGE4'=>$arr[3],'IMAGE5'=>$arr[4]);
 			    	$this->auction_model->insertImage($img,$prodID);
@@ -106,7 +104,7 @@ class Auction_controller extends CI_Controller{
 				}
 
 				if($this->auction_model->deleteProduct($prodid,$user->USER_ID)){
-					$this->auction_model->deleteComment($prodid);
+					//$this->auction_model->deleteComment($prodid);
 					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));
@@ -150,7 +148,7 @@ class Auction_controller extends CI_Controller{
 
 
 				if($this->auction_model->deleteProductAdmin($prodid)){
-					$this->auction_model->deleteComment($prodid);
+					//$this->auction_model->deleteComment($prodid);
 					$this->auction_model->deleteBid($prodid);
 					for($i=0;$i<5;$i++){
 						$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '', $arr[$i]));

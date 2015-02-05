@@ -85,7 +85,7 @@
             <h1>No Notifications To Display</h1>                  
           <?php }else{foreach($notification as $notif):?>
             <div class="panel">
-              <h4><?php echo $notif->MESSAGE;?></h4>
+              <h4><?php echo $notif->MESSAGE;?><br/><?php echo $notif->TIMESTAMP;?></h4>
             </div>
           <?php endforeach;}?>
         </div>
@@ -251,7 +251,7 @@
     });
 
     $("#productPanel").on('click','.deleteProduct',function(){
-      $("#delProdName").text($(this).parent().siblings(".productName").text());
+      $("#delProdName").text($(this).parent().siblings(".product-name").text());
       $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
     });
 

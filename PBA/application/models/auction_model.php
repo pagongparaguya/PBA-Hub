@@ -47,10 +47,10 @@ class Auction_model extends CI_Model{
 		}
 	}
 
-	public function deleteComment($prodid){
-		$this->db->where('PROD_ID',$prodid);
-		$this->db->delete('product_comment');
-	}
+	// public function deleteComment($prodid){
+	// 	$this->db->where('PROD_ID',$prodid);
+	// 	$this->db->delete('product_comment');
+	// }
 
 	public function deleteBid($prodid){
 		$this->db->where('PROD_ID',$prodid);
@@ -97,12 +97,12 @@ class Auction_model extends CI_Model{
 		return $ret->row();
 	}
 
-	public function getComment($prodid){
-		$this->db->where('PROD_ID',$prodid);
-		$this->db->order_by('TIMESTAMP','desc');
-		$d=$this->db->get('product_comment');
-		return $d->result();
-	}
+	// public function getComment($prodid){
+	// 	$this->db->where('PROD_ID',$prodid);
+	// 	$this->db->order_by('TIMESTAMP','desc');
+	// 	$d=$this->db->get('product_comment');
+	// 	return $d->result();
+	// }
 
 	public function insertBid($data){
 		if($this->db->insert('product_bid',$data)){

@@ -112,7 +112,7 @@
         </div>
       <!-- END PRODUCT BID-->
     
-       <!--- START PRODUCT COMMENT-->
+       <!-- START PRODUCT COMMENT
           <div class="row">
               <div class="large-12 columns header comment-block">
                     <h2 class="header-content">
@@ -138,7 +138,7 @@
           <button>Add Comment</button>
           </div>
         </div>
-      <!-- END PRODUCT COMMENT-->
+      END PRODUCT COMMENT-->
     
       <!--- START QUESTON CHANGE ONGOING STATUS PRODUCT-->
       <div id="changeStatOnModal" class="reveal-modal tiny" data-reveal>

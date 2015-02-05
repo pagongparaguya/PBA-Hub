@@ -321,7 +321,7 @@ class Account_controller extends CI_Controller{
 			$data=array('PASSWORD'=>do_hash($this->input->post('pass'),'md5'));
 			if($this->account_model->check_userPassword($this->session->userdata('username'),do_hash($this->input->post('oldpass'),'md5'))){
 				$this->account_model->update_user($this->session->userdata('username'),$data);
-				echo "<script>alert('Password changed successfuly!');</script>";		
+				echo "<script>alert('Password changed successfully!');</script>";		
 			}else{
 				echo "<script>alert('Password change has failed because current password inputted is incorrect!');</script>";
 			}
