@@ -145,7 +145,7 @@
         <div class="small-8 large-centered columns">
           <input type="hidden" name="prodIdOnModal" id="prodIdOnModal"/>
           <center> 
-            <h5>Begin bidding for <b id="prodOnName"></b></h5> 
+            <h5>Begin bidding for <b id="prodOnName"></b>?</h5> 
             <button id="yesOnButton" class="button tiny">Yes</button>
             <button id="noOnButton" class="button tiny alert">No</button>
           </center>
@@ -159,7 +159,7 @@
         <div class="small-8 large-centered columns">
           <input type="hidden" name="prodIdClModal" id="prodIdClModal"/>
           <center> 
-            <h5>Accept the latest bid for <b id="prodClName"></b>?</h5> 
+            <h5>Accept the latest bid for <b id="prodClName"></b><b id="highestBidder"></b>?</h5> 
             <button id="yesClButton" class="button tiny">Yes</button>
             <button id="noClButton" class="button tiny alert">No</button>
           </center>
@@ -261,6 +261,16 @@
     $(".closeBid").click(function(){
       $("#prodClName").text($(this).siblings(".productName").text());
       $("#prodIdClModal").val($(this).siblings(".prod_id").val());
+      $.ajax({
+        url: '<?php echo base_url();?>auction_controller/getMaximumBidder/',
+        type: 'post',
+        data: {'prodid': $(this).siblings(".prod_id").val()},
+        success: function(data, status) {
+          var x = data.toString();
+          var res=x.split("%");
+          $("#highestBidder").text(" from "+res[0]+" with a bid of "+res[1]);
+        }
+      });
     });
 
     $("#yesClButton").click(function(){
