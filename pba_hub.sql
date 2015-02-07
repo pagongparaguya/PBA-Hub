@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2015 at 03:46 PM
--- Server version: 5.6.11
--- PHP Version: 5.5.3
+-- Generation Time: Feb 07, 2015 at 04:04 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pba_hub`
 --
-CREATE DATABASE IF NOT EXISTS `pba_hub` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pba_hub`;
 
 -- --------------------------------------------------------
 
@@ -68,17 +66,20 @@ INSERT INTO `coach` (`COACH_ID`, `COACH_FULLNAME`, `COACH_AGE`, `COACH_BDATE`, `
 --
 
 CREATE TABLE IF NOT EXISTS `coach_award_won` (
+  `CAW_ID` int(6) NOT NULL AUTO_INCREMENT,
   `COACH_ID` int(6) NOT NULL,
   `AWARD_NAME` varchar(50) NOT NULL,
-  `YEAR_AWARDED` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR_AWARDED` int(4) NOT NULL,
+  PRIMARY KEY (`CAW_ID`),
+  UNIQUE KEY `CAW_ID` (`CAW_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `coach_award_won`
 --
 
-INSERT INTO `coach_award_won` (`COACH_ID`, `AWARD_NAME`, `YEAR_AWARDED`) VALUES
-(1, 'Coach Of The Year', 2014);
+INSERT INTO `coach_award_won` (`CAW_ID`, `COACH_ID`, `AWARD_NAME`, `YEAR_AWARDED`) VALUES
+(1, 1, 'Coach Of The Year', 2014);
 
 -- --------------------------------------------------------
 
@@ -87,31 +88,34 @@ INSERT INTO `coach_award_won` (`COACH_ID`, `AWARD_NAME`, `YEAR_AWARDED`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `coach_carousel_image` (
+  `CCI` int(6) NOT NULL AUTO_INCREMENT,
   `COACH_ID` int(6) NOT NULL,
   `IMAGE1` varchar(150) NOT NULL,
   `IMAGE2` varchar(150) NOT NULL,
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
-  `IMAGE5` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IMAGE5` varchar(150) NOT NULL,
+  PRIMARY KEY (`CCI`),
+  UNIQUE KEY `CCI` (`CCI`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `coach_carousel_image`
 --
 
-INSERT INTO `coach_carousel_image` (`COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+INSERT INTO `coach_carousel_image` (`CCI`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
+(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(3, 3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(4, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(5, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(6, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(7, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(8, 8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(9, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(10, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(11, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(12, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
 
 -- --------------------------------------------------------
 
@@ -120,18 +124,20 @@ INSERT INTO `coach_carousel_image` (`COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `I
 --
 
 CREATE TABLE IF NOT EXISTS `coach_championship_won` (
+  `CCW_ID` int(6) NOT NULL AUTO_INCREMENT,
   `COACH_ID` int(6) NOT NULL,
   `LEAGUE_NAME` varchar(50) NOT NULL,
-  `YEAR_WON` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR_WON` int(4) NOT NULL,
+  PRIMARY KEY (`CCW_ID`),
+  UNIQUE KEY `CCW_ID` (`CCW_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `coach_championship_won`
 --
 
-INSERT INTO `coach_championship_won` (`COACH_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
-(0, 'NBA', 2014),
-(1, 'NBA', 2014);
+INSERT INTO `coach_championship_won` (`CCW_ID`, `COACH_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
+(2, 1, 'NBA', 2014);
 
 -- --------------------------------------------------------
 
@@ -140,23 +146,26 @@ INSERT INTO `coach_championship_won` (`COACH_ID`, `LEAGUE_NAME`, `YEAR_WON`) VAL
 --
 
 CREATE TABLE IF NOT EXISTS `notification` (
+  `NOTI_ID` int(6) NOT NULL AUTO_INCREMENT,
   `USERNAME` varchar(20) NOT NULL,
   `MESSAGE` varchar(150) NOT NULL,
-  `TIMESTAMP` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `TIMESTAMP` datetime NOT NULL,
+  PRIMARY KEY (`NOTI_ID`),
+  UNIQUE KEY `NOTI_ID` (`NOTI_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUES
-('hihi', 'Your product ''Selling nike shoes barato lang'' has been deleted by the administrator.', '2015-01-24 17:28:03'),
-('Irvin', 'Your product ''Adidas Shoes '' has successfully been auctioned and the winner is superman with the # of 234234.', '2015-01-24 19:58:59'),
-('superman', 'The product ''Adidas Shoes '' auction finished and you won, please contact Irvin with the # of 09123121231.', '2015-01-24 19:58:59'),
-('Sam1', 'The product ''Adidas Shoes '' auction finished but your bid is not the highest.', '2015-01-24 19:58:59'),
-('hihi', 'Your product ''Selling reebok shoes'' has been deleted by the administrator.', '2015-01-24 20:04:18'),
-('Irvin', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
-('superman', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18');
+INSERT INTO `notification` (`NOTI_ID`, `USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUES
+(1, 'hihi', 'Your product ''Selling nike shoes barato lang'' has been deleted by the administrator.', '2015-01-24 17:28:03'),
+(2, 'Irvin', 'Your product ''Adidas Shoes '' has successfully been auctioned and the winner is superman with the # of 234234.', '2015-01-24 19:58:59'),
+(3, 'superman', 'The product ''Adidas Shoes '' auction finished and you won, please contact Irvin with the # of 09123121231.', '2015-01-24 19:58:59'),
+(4, 'Sam1', 'The product ''Adidas Shoes '' auction finished but your bid is not the highest.', '2015-01-24 19:58:59'),
+(5, 'hihi', 'Your product ''Selling reebok shoes'' has been deleted by the administrator.', '2015-01-24 20:04:18'),
+(6, 'Irvin', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
+(7, 'superman', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18');
 
 -- --------------------------------------------------------
 
@@ -219,20 +228,23 @@ INSERT INTO `player` (`PLAYER_ID`, `PLAYER_AGE`, `PLAYER_FULLNAME`, `PLAYER_BDAT
 --
 
 CREATE TABLE IF NOT EXISTS `player_award_won` (
+  `PAW_ID` int(6) NOT NULL AUTO_INCREMENT,
   `PLAYER_ID` int(6) NOT NULL,
   `AWARD_NAME` varchar(50) NOT NULL,
-  `AWARD_YEAR` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `AWARD_YEAR` int(4) NOT NULL,
+  PRIMARY KEY (`PAW_ID`),
+  UNIQUE KEY `PAW_ID` (`PAW_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `player_award_won`
 --
 
-INSERT INTO `player_award_won` (`PLAYER_ID`, `AWARD_NAME`, `AWARD_YEAR`) VALUES
-(1, 'MVP', 2008),
-(1, 'MVP', 2010),
-(2, 'MVP', 2012),
-(2, 'MVP', 2013);
+INSERT INTO `player_award_won` (`PAW_ID`, `PLAYER_ID`, `AWARD_NAME`, `AWARD_YEAR`) VALUES
+(1, 1, 'MVP', 2008),
+(2, 1, 'MVP', 2010),
+(3, 2, 'MVP', 2012),
+(4, 2, 'MVP', 2013);
 
 -- --------------------------------------------------------
 
@@ -241,32 +253,35 @@ INSERT INTO `player_award_won` (`PLAYER_ID`, `AWARD_NAME`, `AWARD_YEAR`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `player_carousel_image` (
+  `PCI_ID` int(6) NOT NULL AUTO_INCREMENT,
   `PLAYER_ID` int(6) NOT NULL,
   `IMAGE1` varchar(150) NOT NULL,
   `IMAGE2` varchar(150) NOT NULL,
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
-  `IMAGE5` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IMAGE5` varchar(150) NOT NULL,
+  PRIMARY KEY (`PCI_ID`),
+  UNIQUE KEY `PCI_ID` (`PCI_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `player_carousel_image`
 --
 
-INSERT INTO `player_carousel_image` (`PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(15, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+INSERT INTO `player_carousel_image` (`PCI_ID`, `PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
+(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(3, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(4, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(5, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(6, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(13, 15, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
 
 -- --------------------------------------------------------
 
@@ -275,18 +290,21 @@ INSERT INTO `player_carousel_image` (`PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, 
 --
 
 CREATE TABLE IF NOT EXISTS `player_championship_won` (
+  `PCW_ID` int(6) NOT NULL AUTO_INCREMENT,
   `PLAYER_ID` int(6) NOT NULL,
   `LEAGUE_NAME` varchar(50) NOT NULL,
-  `YEAR_WON` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR_WON` int(4) NOT NULL,
+  PRIMARY KEY (`PCW_ID`),
+  UNIQUE KEY `PCW_ID` (`PCW_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `player_championship_won`
 --
 
-INSERT INTO `player_championship_won` (`PLAYER_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
-(1, 'NBA', 2011),
-(1, 'NBA', 2012);
+INSERT INTO `player_championship_won` (`PCW_ID`, `PLAYER_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
+(1, 1, 'NBA', 2011),
+(2, 1, 'NBA', 2012);
 
 -- --------------------------------------------------------
 
@@ -355,21 +373,6 @@ INSERT INTO `product_bid` (`BID_ID`, `PROD_ID`, `USER_ID`, `BID_AMT`, `DATE_TIME
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_comment`
---
-
-CREATE TABLE IF NOT EXISTS `product_comment` (
-  `COMMENT_ID` int(6) NOT NULL AUTO_INCREMENT,
-  `PROD_ID` int(6) NOT NULL,
-  `USER_ID` int(6) NOT NULL,
-  `COMMENT` varchar(100) NOT NULL,
-  `TIMESTAMP` datetime NOT NULL,
-  PRIMARY KEY (`COMMENT_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `team`
 --
 
@@ -412,31 +415,34 @@ INSERT INTO `team` (`TEAM_ID`, `TEAM_NAME`, `TEAM_LOGO`, `TEAM_STAT`, `TEAM_YEAR
 --
 
 CREATE TABLE IF NOT EXISTS `team_carousel_image` (
+  `TCI_ID` int(6) NOT NULL AUTO_INCREMENT,
   `TEAM_ID` int(6) NOT NULL,
   `IMAGE1` varchar(150) NOT NULL,
   `IMAGE2` varchar(150) NOT NULL,
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
-  `IMAGE5` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `IMAGE5` varchar(150) NOT NULL,
+  PRIMARY KEY (`TCI_ID`),
+  UNIQUE KEY `TCI_ID` (`TCI_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `team_carousel_image`
 --
 
-INSERT INTO `team_carousel_image` (`TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+INSERT INTO `team_carousel_image` (`TCI_ID`, `TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
+(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(3, 3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(4, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(5, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(6, 8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
+(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
 
 -- --------------------------------------------------------
 
@@ -445,18 +451,21 @@ INSERT INTO `team_carousel_image` (`TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMA
 --
 
 CREATE TABLE IF NOT EXISTS `team_championship_won` (
+  `TCW_ID` int(6) NOT NULL AUTO_INCREMENT,
   `TEAM_ID` int(11) NOT NULL,
   `LEAGUE_NAME` varchar(50) NOT NULL,
-  `YEAR_WON` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR_WON` int(4) NOT NULL,
+  PRIMARY KEY (`TCW_ID`),
+  UNIQUE KEY `TCW_ID` (`TCW_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `team_championship_won`
 --
 
-INSERT INTO `team_championship_won` (`TEAM_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
-(1, 'NBA', 2009),
-(1, 'NBA', 2010);
+INSERT INTO `team_championship_won` (`TCW_ID`, `TEAM_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
+(1, 1, 'NBA', 2009),
+(2, 1, 'NBA', 2010);
 
 -- --------------------------------------------------------
 
@@ -465,35 +474,38 @@ INSERT INTO `team_championship_won` (`TEAM_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `team_coach_bridge` (
+  `TCB_ID` int(6) NOT NULL AUTO_INCREMENT,
   `TEAM_ID` int(6) NOT NULL,
   `COACH_ID` int(6) NOT NULL,
   `TYPE` varchar(150) NOT NULL,
-  `YEAR` varchar(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR` varchar(9) NOT NULL,
+  PRIMARY KEY (`TCB_ID`),
+  UNIQUE KEY `TCB_ID` (`TCB_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `team_coach_bridge`
 --
 
-INSERT INTO `team_coach_bridge` (`TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`) VALUES
-(3, 2, 'PRESENT', '1994'),
-(4, 4, 'PRESENT', '2014'),
-(7, 5, 'PRESENT', '2013'),
-(8, 6, 'PRESENT', '2014'),
-(9, 7, 'PRESENT', '2012'),
-(10, 8, 'PRESENT', '2014'),
-(11, 9, 'PRESENT', '2000'),
-(12, 10, 'PRESENT', '2008'),
-(2, 1, 'PRESENT', '1994'),
-(2, 3, 'PAST', '1993-1995'),
-(3, 3, 'PAST', '1995-1997'),
-(4, 3, 'PAST', '1997-2000'),
-(1, 3, 'PRESENT', '2001'),
-(7, 3, 'PAST', '1990-1991'),
-(8, 3, 'PAST', '1888-1889'),
-(9, 3, 'PAST', '1890-1895'),
-(5, 11, 'PRESENT', '2013'),
-(6, 12, 'PRESENT', '2013');
+INSERT INTO `team_coach_bridge` (`TCB_ID`, `TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`) VALUES
+(1, 3, 2, 'PRESENT', '1994'),
+(2, 4, 4, 'PRESENT', '2014'),
+(3, 7, 5, 'PRESENT', '2013'),
+(4, 8, 6, 'PRESENT', '2014'),
+(5, 9, 7, 'PRESENT', '2012'),
+(6, 10, 8, 'PRESENT', '2014'),
+(7, 11, 9, 'PRESENT', '2000'),
+(8, 12, 10, 'PRESENT', '2008'),
+(9, 2, 1, 'PRESENT', '1994'),
+(10, 2, 3, 'PAST', '1993-1995'),
+(11, 3, 3, 'PAST', '1995-1997'),
+(12, 4, 3, 'PAST', '1997-2000'),
+(13, 1, 3, 'PRESENT', '2001'),
+(14, 7, 3, 'PAST', '1990-1991'),
+(15, 8, 3, 'PAST', '1888-1889'),
+(16, 9, 3, 'PAST', '1890-1895'),
+(17, 5, 11, 'PRESENT', '2013'),
+(18, 6, 12, 'PRESENT', '2013');
 
 -- --------------------------------------------------------
 
@@ -502,39 +514,42 @@ INSERT INTO `team_coach_bridge` (`TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `team_player_bridge` (
+  `TPB_ID` int(6) NOT NULL AUTO_INCREMENT,
   `TEAM_ID` int(6) NOT NULL,
   `PLAYER_ID` int(6) NOT NULL,
   `TYPE` varchar(150) NOT NULL,
-  `YEAR` varchar(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `YEAR` varchar(9) NOT NULL,
+  PRIMARY KEY (`TPB_ID`),
+  UNIQUE KEY `TPB_ID` (`TPB_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `team_player_bridge`
 --
 
-INSERT INTO `team_player_bridge` (`TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEAR`) VALUES
-(1, 1, 'PRESENT', '1996'),
-(2, 1, 'PAST', '1800-1900'),
-(1, 2, 'PRESENT', '2010'),
-(2, 2, 'PAST', '2003-2009'),
-(1, 4, 'PRESENT', '1994'),
-(1, 5, 'PRESENT', '1994'),
-(1, 6, 'PRESENT', '1994'),
-(1, 7, 'PRESENT', '1994'),
-(1, 8, 'PRESENT', '1994'),
-(1, 9, 'PRESENT', '1994'),
-(1, 0, '', ''),
-(1, 10, 'PRESENT', '1994'),
-(1, 11, 'PRESENT', '1994'),
-(1, 12, 'PRESENT', '1994'),
-(1, 13, 'PRESENT', '1994'),
-(1, 14, 'PRESENT', '1994'),
-(1, 15, 'PRESENT', '1994'),
-(3, 1, 'PAST', '1885-1888'),
-(4, 1, 'PAST', '1888-1890'),
-(7, 1, 'PAST', '1895-1897'),
-(8, 1, 'PAST', '1793-1795'),
-(9, 1, 'PAST', '1795-1798');
+INSERT INTO `team_player_bridge` (`TPB_ID`, `TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEAR`) VALUES
+(1, 1, 1, 'PRESENT', '1996'),
+(2, 2, 1, 'PAST', '1800-1900'),
+(3, 1, 2, 'PRESENT', '2010'),
+(4, 2, 2, 'PAST', '2003-2009'),
+(5, 1, 4, 'PRESENT', '1994'),
+(6, 1, 5, 'PRESENT', '1994'),
+(7, 1, 6, 'PRESENT', '1994'),
+(8, 1, 7, 'PRESENT', '1994'),
+(9, 1, 8, 'PRESENT', '1994'),
+(10, 1, 9, 'PRESENT', '1994'),
+(11, 1, 0, '', ''),
+(12, 1, 10, 'PRESENT', '1994'),
+(13, 1, 11, 'PRESENT', '1994'),
+(14, 1, 12, 'PRESENT', '1994'),
+(15, 1, 13, 'PRESENT', '1994'),
+(16, 1, 14, 'PRESENT', '1994'),
+(17, 1, 15, 'PRESENT', '1994'),
+(18, 3, 1, 'PAST', '1885-1888'),
+(19, 4, 1, 'PAST', '1888-1890'),
+(20, 7, 1, 'PAST', '1895-1897'),
+(21, 8, 1, 'PAST', '1793-1795'),
+(22, 9, 1, 'PAST', '1795-1798');
 
 -- --------------------------------------------------------
 

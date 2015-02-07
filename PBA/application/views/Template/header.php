@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/app.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/DataTable/media/css/dataTables.foundation.css"/>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/slick/slick.css"/>
+    <!-- slideshow css -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/slideshow.css"/>
     <script src="<?php echo base_url();?>assets/js/vendor/modernizr.js"></script>
     <script src="<?php echo base_url();?>assets/js/vendor/jquery.js"></script>
     <script src="<?php echo base_url();?>assets/js/foundation.min.js"></script>
@@ -17,6 +19,9 @@
     <script src="<?php echo base_url();?>assets/js/DataTable/media/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/DataTable/media/js/dataTables.foundation.js"></script>
     <script src="<?php echo base_url();?>assets/js/foundation/foundation.dropdown.js"></script>
+    <!-- slideshow js -->
+    <script src="<?php echo base_url();?>assets/js/modernizr.custom.86080.js"></script>
+    
   </head>
 
   <body>
@@ -24,7 +29,7 @@
             <!--- START OF NAVBAR -->
             <div class="row row-content">
                     <div class="small-12">
-                            <div class="fixed">
+                            <div class="fixed contain-to-grid">
                                 <nav class="top-bar topbar-content" data-topbar role="navigation">
                                         <ul class="title-area">
                                           <li class="name pbahub-logo">

@@ -21,7 +21,7 @@ h1, h2 {
 
 .page-content {
 	width: 80%;
-	margin: 45px auto 70px auto;
+	margin: 25px auto 50px auto;
 	padding: 12px;
 	background: rgba(255, 255, 255, 0.80);
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.96);
@@ -33,21 +33,19 @@ h1, h2 {
 }
 
 
-/*----- HOMEPAGE -----*/
+/*----- HOMEPAGE ELEMENTS -----*/
 	.teams {
 		text-align: center;
 	}
 
 	.team-name {
 		font-weight: bold;
-		text-transform: uppercase;
-		color: #ffffff;
-		text-shadow: 2px 2px 3px #000000;
+		color: #046EB3;
+		letter-spacing: 1px;
 	}
 
 			.team-row span {
-				color: #000000;
-				text-shadow: 1px 1px 1px #A2740C;
+				color: #000000;				
 			}
 	
 	/* SLIDER */
@@ -65,6 +63,22 @@ h1, h2 {
 		margin: 0 auto 10px auto !important;
 	}
 
+	.homepage-elems {
+		margin: 700px 0 auto;
+		background-color: #ffffff;
+		position: relative;
+		z-index: 9999999 !important;
+		width: 100%;
+		opacity: 1 !important;
+	}
+
+		.homepage-elems img {
+			opacity: 1 !important;
+		}
+
+		.homepage-elems .panel {
+			margin: 0;
+		}
 /* NAVIGATION BAR CONTENTS */
 
 .site-title {
@@ -83,13 +97,12 @@ h1, h2 {
 }
 
 .topbar-content, .topbar-content li a, .footer {
-	background-color: #2D3030 !important;
-	/*background-color: rgba(45, 48, 48, 0.7) !important;*/
+	background-color: #008CBA !important;
 }
-/*
-.top-bar-section ul li {
-	background: rgba(45, 48, 48, 0.7) !important;
-}*/
+
+.contain-to-grid {
+	background-color: #008CBA !important;
+}
 
 /*----- PANEL -----*/
 fieldset {
@@ -165,9 +178,13 @@ fieldset {
 		max-width: 1300px;
 	}
 	
-	/* NAVBAR HOVER */
+	/* NAVBAR */
 	.top-bar-section li:not(.has-form) a:not(.button):hover {
 		background-color: #009aff !important;
+	}
+
+	.contain-to-grid .top-bar {
+		max-width: 70rem;
 	}
 
 	/* EXPANDED TOPBAR */
@@ -218,11 +235,10 @@ fieldset {
   	.topbar-content li a:hover {
 			background-color: #009aff !important;
 		}
-
 }
 
 
-.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment,.pastcoach-team{
+.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment{
 	display:none;
 }
 
@@ -310,10 +326,6 @@ textarea{
 	border-style: none;
 }
 
-.product-name {
-	color: #009aff !important;
-}
-
 .product-element {
 	height: 120px;
 	margin-bottom: 60px;
@@ -321,6 +333,33 @@ textarea{
 
 .slick-slide {
 	text-align: center;
+}
+
+.slick-slide img {
+	width: 	300px;
+	height: 300px;
+}
+
+/*-- User Profile page --*/
+.slick-slide .prof-prod-img {
+		width: 200px;
+		height: 200px;
+		margin: 5px auto;
+}
+
+h2.product-name {
+	color: #009aff !important;
+	margin-top: 90px;	
+}
+
+/*-- User Elements on a product page --*/
+.slick-slide .user-photo {
+	width: 75px;
+	height: 75px;
+}
+
+.slick-slide .userName {
+	margin-top: 10px;
 }
 
 /* BIDDING PAGE */
@@ -374,3 +413,5 @@ div.dataTables_length label, div.dataTables_filter label, div.dataTables_info, u
 ul.pagination li.current a {
 	color: 	#ffffff !important;
 }
+
+
