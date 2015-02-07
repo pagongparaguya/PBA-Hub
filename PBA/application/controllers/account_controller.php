@@ -361,6 +361,7 @@ class Account_controller extends CI_Controller{
 	        'smtp_pass' => '123456789Ten'
     	);
     	$this->load->library('email',$config);
+    	$this->email->set_newline("\r\n");
 		$this->email->from('pba.hub@gmail.com','PBA HUB MESSENGER');
 		$this->email->to($email);
 		$this->email->subject('Verification Code');
@@ -379,6 +380,7 @@ class Account_controller extends CI_Controller{
 	        'smtp_pass' => '123456789Ten'
     	);
     	$this->load->library('email',$config);
+    	$this->email->set_newline("\r\n");
 		$this->email->from('pba.hub@gmail.com','PBA HUB MESSENGER');
 		$this->email->to($email);
 		$this->email->subject('New Password');

@@ -85,7 +85,7 @@
             <h1>No Notifications To Display</h1>                  
           <?php }else{foreach($notification as $notif):?>
             <div class="panel">
-              <h4><?php echo $notif->MESSAGE;?><br/><?php echo $notif->TIMESTAMP;?></h4>
+              <h4><?php echo $notif->MESSAGE;?><br/><?php echo date('F j,Y h:m:s A', strtotime($notif->TIMESTAMP));?></h4>
             </div>
           <?php endforeach;}?>
         </div>
