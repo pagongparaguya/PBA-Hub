@@ -151,6 +151,23 @@
         </ul>
       </div>
     <!--- END TEAM NOTABLE PLAYERS-->
+
+    <!--- START TEAM NOTABLE PLAYERS-->
+      <div class="row">
+          <div class="large-12 columns header pastcoach-block">
+            <h2 class="header-content">
+              <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
+              <span>Past Head Coaches</span>
+            </h2>
+          </div>
+      </div>
+      <div class="row row-content pastcoach-team">
+        <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="pastcoaches">
+        </ul>
+      </div>
+    <!--- END TEAM NOTABLE PLAYERS-->
+
+
 </div>
 
 	<script>
@@ -160,6 +177,7 @@
     var notable="";
     var coach="";
     var coachID="";
+    var pastCoaches="";
 		$(".history-block").click(function(){
 			$(".history-team").slideToggle(500);
 		});
@@ -175,6 +193,11 @@
     $(".notableplayers-block").click(function(){
       $(".notableplayers-team").slideToggle(500);
     });
+
+    $(".pastcoach-block").click(function(){
+      $(".pastcoach-team").slideToggle(500);
+    });
+
     <?php foreach($player_bridge as $player_bridge):?>
     <?php $teamplayer=$this->page_model->get_playerInfo($player_bridge->PLAYER_ID);?>
       <?php if($player_bridge->TYPE=='PRESENT'){?>
@@ -193,6 +216,8 @@
           coach='<a href="<?php echo base_url();?>pages_controller/view_coach/'+coachID+'">'+data+'</a>';
           $("#currentCoach").append(coach);
         });
+      <?php }else{?>
+        pastCoaches+='<li><a href="<?php echo base_url().'pages_controller/view_coach/'.$coach_bridge->COACH_ID;?>"><img src="<?php echo base_url().'assets/img/coach/'.$coach_bridge->COACH_ID;?>.jpg" alt="past team"/></a><header class="team-name"><?php echo $coach_bridge->YEAR;?></header></li>';
       <?php }?>
     <?php endforeach;?>
 
@@ -211,6 +236,7 @@
     $("#currentplayers").html(present);
     $("#pastplayers").html(past);
     $("#notableplayers").html(notable);
+    $("#pastcoaches").html(pastCoaches);
   });
 	</script>
      

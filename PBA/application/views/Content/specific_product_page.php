@@ -27,8 +27,10 @@
               if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){
                 if($product->PROD_STAT=='Closed'){?>
                   <button class="button tiny alert disabled">Status:Closed</button>
-                <?php }else if($product->PROD_STAT=='On-going'){?>
-                  <button class="button tiny success closeBid" data-reveal-id="changeStatClModal">Bid is on-going, Close Bid?</button>
+                <?php }else if($product->PROD_STAT=='On-going'&&!empty($bid)){?>
+                  <button class="button tiny round success closeBid" data-reveal-id="changeStatClModal">Bid is on-going, Close Bid?</button>
+                <?php }else if($product->PROD_STAT=='On-going'&&empty($bid)){?>
+                  <button class="button tiny round success disabled">Cant Close Auction Because There Is No Bid.</button>
                 <?php }else{//pending?>
                   <button class="button startBid" data-reveal-id="changeStatOnModal">Start Bid?</button>
                 <?php }?>
@@ -39,7 +41,7 @@
                 <?php }else if($product->PROD_STAT=='On-going'&&!empty($this->session->userdata('username'))){?>
                   <button class="button tiny success disabled">On going, place your bid.</button>
                 <?php }else if($product->PROD_STAT=='On-going'&&empty($this->session->userdata('username'))){?>
-                <button class="button tiny success disabled">On going, please login to place your bid.</button>
+                  <button class="button tiny success disabled">On going, please login to place your bid.</button>
                 <?php }else{//pending?>
                   <button class="button tiny alert disabled">Not Ready</button>
                 <?php }?>
@@ -78,12 +80,12 @@
               <?php }?>
 
               <div class="row">
-                    <div class="large-12 columns header">
-                      <h2 class="header-content">
-                        <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
-                        <span>Product Bids</span>
-                      </h2>
-                    </div>
+                <div class="large-12 columns header">
+                  <h2 class="header-content">
+                    <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
+                    <span>Product Bids</span>
+                  </h2>
+                </div>
               </div>
           </div>          
         </div>
@@ -171,7 +173,7 @@
       <!--- START QUESTON DELETE BID-->
       <div id="deleteBidModal" class="reveal-modal tiny" data-reveal>
         <div class="small-8 large-centered columns">
-          <input type="type" name="bidId" id="bidId"/>
+          <input type="hidden" name="bidId" id="bidId"/>
           <center> 
             <h5>Delete bid with <b id="bidName"></b> value?</h5> 
             <button id="yesBidButton" class="button tiny">Yes</button>
@@ -211,7 +213,7 @@
     });
 
 
-    $("#individualProductBid").on("click",".deleteBid",function(){
+    $("#bidPanel").on("click",".deleteBid",function(){
       $("#bidName").text($(this).siblings().children(".bidAmount").text());
       $("#bidId").val($(this).siblings(".bid_id").val());
     });
@@ -266,9 +268,14 @@
         type: 'post',
         data: {'prodid': $(this).siblings(".prod_id").val()},
         success: function(data, status) {
-          var x = data.toString();
-          var res=x.split("%");
-          $("#highestBidder").text(" from "+res[0]+" with a bid of "+res[1]);
+          if(data==""){
+            alert('No Bid Yet!');
+            window.location.reload(true);
+          }else{
+            var x = data.toString();
+            var res=x.split("%-.");
+            $("#highestBidder").text(" from "+res[0]+" with a bid of "+res[1]);
+          }
         }
       });
     });

@@ -222,7 +222,7 @@ fieldset {
 }
 
 
-.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment{
+.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment,.pastcoach-team{
 	display:none;
 }
 

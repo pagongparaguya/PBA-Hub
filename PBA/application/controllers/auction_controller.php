@@ -343,8 +343,12 @@ class Auction_controller extends CI_Controller{
 	public function getMaximumBidder(){
 		if($this->input->post('prodid')){
 			$bid=$this->auction_model->getMaxBidder($this->input->post('prodid'));
-			$bidder=$this->account_model->get_user2($bid->USER_ID);
-			print $bidder->USERNAME."%".$bid->BID_AMT;
+			if(!empty($bid)){
+				$bidder=$this->account_model->get_user2($bid->USER_ID);
+				print $bidder->USERNAME."%-.".$bid->BID_AMT;
+			}else{
+				print "";
+			}
 		}else{
 			redirect('account_controller/view_user_profile');
 		}
