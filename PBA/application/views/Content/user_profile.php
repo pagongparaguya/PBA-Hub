@@ -1,4 +1,5 @@
 <!--- START USER INFO-->
+
 <div class="page-content">
     <div class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 large-centered profile-content">
         <div class="left-content">
@@ -163,7 +164,7 @@
 
 <!--- START ADD PRODUCT-->
 <div id="addProductModal" class="reveal-modal" data-reveal>
-  <form action="<?php echo base_url();?>auction_controller/addProduct" method="post" enctype='multipart/form-data'>
+  <form id="aprod" action="<?php echo base_url();?>auction_controller/addProduct" method="post" enctype='multipart/form-data'>
     <h2>Product Information</h2>
     <div class="small-12 large-6 medium-6 columns">
       <b>Product Name </b><input type="text" name="pname" required maxlength="40" pattern=".{4,40}" title="4 to 40 Characters"/>
@@ -178,9 +179,10 @@
       </select>
       
       <div class="small-12 medium-6 large-12">
-            <b>Age Of Product </b>
             <div style="display: inline-flex">
-                  <input type="number" name="page" required min="1"/>          
+            
+                  <b>Age Of Product </b><div><input type="number" name="page" required min="1"/> </div>        
+               
                   <div class="small-6 medium-3 large-6">
                       <select name="pagename">
                         <option value="Day">Day/s</option>
@@ -195,11 +197,11 @@
     <div class="small-12 large-6 medium-6 columns">
       <b>Starting Bid </b><input type="number" name="pbid" required min="1"/>
       <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files (Only Accepts jpeg/jpg/png files)</label>
-      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
     </div>  
     <div class="small-12 large-12 medium-12 columns">
       <center> 
@@ -276,6 +278,16 @@
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
+    });
+
+    
+    $( "#aprod" ).validate({
+      rules: {
+        field: {
+          required: true,
+          accept: "image/png, image/jpg, image/jpeg"
+        }
+      }
     });
 
   });
