@@ -14,9 +14,11 @@
         <div class="homepage-elems">
         <!--- START OF HISTORY CONTENT -->
           <div class="row">
-              <hr />
-              <div class="large-12 columns">
-                  <h1>The PBA League History</h1>
+              
+              <div class="small-12 columns">
+                  <hr />
+                  <h1>PBA League History</h1>
+                  <hr />  
               </div>
           </div>
               
@@ -33,9 +35,10 @@
           
           <!--- START OF CURRENT TEAMS CONTENT -->
           <div class="row">
-            <hr />    
-            <div class="large-12 columns">
+            <div class="small-12 columns">
+                <hr />
                 <h1 class="current-teams">PBA League Current Teams</h1>
+                <hr />
             </div>
           </div>
               

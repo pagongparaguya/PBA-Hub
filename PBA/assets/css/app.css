@@ -9,10 +9,53 @@ h1 {
 	text-align: center;
 }
 
-h1, h2 {
-	color: #009aff;
+h1, h2, h3, h4, h5, h6 {
+	color: rgb(240, 120, 24);
 	text-shadow: 2px 2px 2px #000000;
 }
+
+hr {
+	border: 1px dashed rgb(94, 65, 47);
+}
+
+/* NAVBAR ELEMENTS*/
+.top-bar-section ul li > a {
+	font-weight: bold;
+}
+
+.top-bar-section ul li > a:hover {
+	color: rgb(240, 120, 24) !important;
+}
+
+.top-bar-section .dropdown li a, .top-bar-section .has-dropdown {
+	font-weight: bold;
+}
+
+.top-bar-section .has-dropdown > a:after {
+	border-color: #ffffff transparent transparent transparent !important;
+}
+
+		.top-bar-section .has-dropdown > a:hover::after {
+				border-color: rgb(240, 120, 24) transparent transparent transparent !important;				
+		}
+
+/* EXPANDED TOPBAR */
+	.top-bar.expanded {
+	    height: auto;
+	    background: transparent; 
+	}   	  	
+      .top-bar.expanded .toggle-topbar a span::after {
+        box-shadow: 0 0px 0 1px rgb(240, 120, 24), 0 7px 0 1px rgb(240, 120, 24), 0 14px 0 1px rgb(240, 120, 24); 
+      }
+
+      		/* THE CARET FOR SMALL SCREEN */
+  		.top-bar.expanded .toggle-topbar .has-dropdown > a:after {
+			border-color: #ffffff transparent transparent transparent !important;		
+  		}
+	  		.top-bar.expanded .toggle-topbar .has-dropdown > a:hover::after {
+				border-color: rgb(94, 65, 47) transparent transparent transparent !important;		
+	  		}
+/* END OF NAVBAR ELEMENTS*/
 
 .site-content {
 	max-width: 1300px;
@@ -24,6 +67,8 @@ h1, h2 {
 	margin: 25px auto 50px auto;
 	padding: 12px;
 	background: rgba(255, 255, 255, 0.80);
+	-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.96);
+	-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.96);
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.96);
 }
 
@@ -37,8 +82,7 @@ h1, h2 {
 	.team-name {
 		font-weight: bold;
 		font-size: 120%;
-		color: #046EB3;
-		letter-spacing: 1px;
+		color: rgb(94, 65, 47);
 	}
 
 			.team-row span {
@@ -62,7 +106,7 @@ h1, h2 {
 
 	.homepage-elems {
 		margin: 700px 0 auto;
-		background-color: #ffffff;
+		background-color: rgb(237, 227, 198);
 		position: relative;
 		z-index: 100 !important;
 		width: 100%;
@@ -75,30 +119,18 @@ h1, h2 {
 
 		.homepage-elems .panel {
 			margin: 0;
+			border-color: transparent;
+			-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+			-moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 		}
-/* NAVIGATION BAR CONTENTS */
-
-.site-title {
-	font-weight: bold;
-	font-size: 20px !important;
-	text-shadow: none;
-	color: #ffffff;
-	/*margin: auto auto auto 14px;*/
-}
-	.site-title img {
-		margin-right: 3px;
-	}
-
-.pbahub-logo {
-	margin: auto 2px auto 10px !important;
-}
-
+/* NAVBAR CONTENTS */
 .topbar-content, .topbar-content li a, .footer {
-	background-color: #008CBA !important;
+	background-color: rgb(94, 65, 47) !important;
 }
 
 .contain-to-grid {
-	background-color: #008CBA !important;
+	background-color: rgb(94, 65, 47) !important;
 }
 
 /*----- PANEL -----*/
@@ -225,25 +257,9 @@ fieldset {
 		max-width: 1300px;
 	}
 	
-	/* NAVBAR */
-	.top-bar-section li:not(.has-form) a:not(.button):hover {
-		background-color: #009aff !important;
-	}
-
 	.contain-to-grid .top-bar {
 		max-width: 70rem;
 	}
-
-	/* EXPANDED TOPBAR */
-	.top-bar.expanded {
-	    height: auto;
-	    background: transparent; 
-	}   
-
-      .top-bar.expanded .toggle-topbar a span::after {
-        box-shadow: 0 0px 0 1px #009aff, 0 7px 0 1px #009aff, 0 14px 0 1px #009aff; }
-
-
 }
 
 @media only screen and (max-width: 21.125em) {
@@ -271,16 +287,18 @@ fieldset {
 
 	.top-bar.expanded .title-area {
       background: none !important; 
-  	  border-bottom: 1px solid #ffffff;
+  	  border-bottom: 1px solid rgb(240, 120, 24);
   	}
 
   	.top-bar.expanded .toggle-topbar a {
-  		color: #000000 !important;
+  		color: #ffffff !important;
   	}
 
-  	.topbar-content li a:hover {
-			background-color: #009aff !important;
-		}
+	.top-bar-section li:not(.has-form) a:not(.button):hover {
+		background-color: none !important;
+	}
+
+}
 
 	/* SLIDESHOW ELEMENTS */
 	.cb-slideshow, .cb-slideshow:after {
