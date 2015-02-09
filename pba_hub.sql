@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2015 at 04:04 PM
+-- Generation Time: Feb 09, 2015 at 05:35 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -88,22 +88,22 @@ INSERT INTO `coach_award_won` (`CAW_ID`, `COACH_ID`, `AWARD_NAME`, `YEAR_AWARDED
 --
 
 CREATE TABLE IF NOT EXISTS `coach_carousel_image` (
-  `CCI` int(6) NOT NULL AUTO_INCREMENT,
+  `CCI_ID` int(6) NOT NULL AUTO_INCREMENT,
   `COACH_ID` int(6) NOT NULL,
   `IMAGE1` varchar(150) NOT NULL,
   `IMAGE2` varchar(150) NOT NULL,
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
   `IMAGE5` varchar(150) NOT NULL,
-  PRIMARY KEY (`CCI`),
-  UNIQUE KEY `CCI` (`CCI`)
+  PRIMARY KEY (`CCI_ID`),
+  UNIQUE KEY `CCI` (`CCI_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `coach_carousel_image`
 --
 
-INSERT INTO `coach_carousel_image` (`CCI`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
+INSERT INTO `coach_carousel_image` (`CCI_ID`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
 (1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
 (2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
 (3, 3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
