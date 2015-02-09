@@ -124,7 +124,7 @@ class Account_controller extends CI_Controller{
 				}
 			}else{
 				$data['title']='Login';
-				$data['message']='Username/Password is incorrect!';
+				$data['message']='Invalid username or password. Please try again.';
 				$data['status']='no_check';
 				$this->load->view('Template/header',$data);
 				$this->load->view('Content/login',$data);
@@ -409,7 +409,7 @@ class Account_controller extends CI_Controller{
 		if($this->input->post('email')){
 			$res=$this->account_model->get_user3($this->input->post('email'));
 			if(empty($res)){
-				echo "<script>alert('No Such Email!');</script>";
+				echo "<script>alert('Email address does not exist. Please try again.');</script>";
 			}else{
 				$pass=random_string('alnum',6);
 				$this->sendPassword($this->input->post('email'),$pass);

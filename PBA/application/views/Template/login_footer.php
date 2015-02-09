@@ -1,7 +1,7 @@
 </div><!-- the closing tag for the div which controls the width of the pages -->
  <!--- START OF FOOTER -->
  
-    <!--- START OF FOOTER -->
+    <!--- START OF FOOTER 
      <div class="small-12 columns footer anchored-footer">
        <span> © Copyright 2014 - 2050 PBAHub.com | All Rights Reserved </span>
      </div>

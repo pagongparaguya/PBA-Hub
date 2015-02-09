@@ -1,5 +1,4 @@
-<!--  <div class="page-content"> -->
-</div>
+</div><!-- CLOSER TAG OF PAGE-CONTENT -->
         <!-- START OF IMAGE SLIDESHOW -->
         <ul class="cb-slideshow">
             <li><span>Image 01</span><div><h3>The PBA League</h3></div></li>
@@ -9,74 +8,8 @@
             <li><span>Image 05</span><div><h3>The PBA League</h3></div></li>
             <li><span>Image 06</span><div><h3>The PBA League</h3></div></li>
         </ul>
-<!-- 
-        <div class="container">
-            
-        </div> -->
         <!-- END OF IMAGE SLIDESHOW -->
-    
-        <!--- START OF SLIDER 
-        <div class="row row-content">
-             <div class="small-12 medium-12 large-12 columns">
-                   <ul data-orbit>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/San Miguel.jpg" alt="slide 3" />
-                      <div class="orbit-caption">
-                        San Miguel Beermen, 2009 PBA Finals Fiesta Cup Champions
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/San Mig.jpg" alt="slide 1" />
-                      <div class="orbit-caption">
-                        Back to Back Champions, The San Mig Coffee Mixers
-                      </div>
-                    </li>
-                    <li class="active">
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Alaska.jpg" alt="slide 2" />
-                      <div class="orbit-caption">
-                        Alaska Ace’s 14th PBA title
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Talk N Text.jpg" alt="slide 3" />
-                      <div class="orbit-caption">
-                        Talk ‘N’ Text, the 2011 PBA Philippine Cup Champions
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Rain or Shine.jpg" alt="slide 3" />
-                      <div class="orbit-caption">
-                        Rain or Shine wins the 2012 Governors Cup Finals Game 7 Against B-meg
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/San Mig.jpg" alt="slide 1" />
-                      <div class="orbit-caption">
-                        Back to Back Champions, The San Mig Coffee Mixers
-                      </div>
-                    </li>
-                    <li class="active">
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Alaska.jpg" alt="slide 2" />
-                      <div class="orbit-caption">
-                        Alaska Ace’s 14th PBA title
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Talk N Text.jpg" alt="slide 3" />
-                      <div class="orbit-caption">
-                        Talk ‘N’ Text, the 2011 PBA Philippine Cup Champions
-                      </div>
-                    </li>
-                    <li>
-                      <img src="<?php echo base_url();?>assets/img/homepage carousel/Rain or Shine.jpg" alt="slide 3" />
-                      <div class="orbit-caption">
-                        Rain or Shine wins the 2012 Governors Cup Finals Game 7 Against B-meg
-                      </div>
-                    </li>
-                  </ul>
-             </div>
-        </div> -->
-        <!--- END OF SLIDER -->   
+  
 
         <div class="homepage-elems">
         <!--- START OF HISTORY CONTENT -->
@@ -107,7 +40,7 @@
           </div>
               
           <div class="row row-content">
-            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 teams">
+            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 text-center">
                 <li>
                   <a href="<?php echo base_url();?>pages_controller/view_team/1"><img src="<?php echo base_url();?>assets/img/team/1.png" alt="Alaska Logo"></a>
                   <header class="team-name">Alaska Aces</header> 
@@ -132,7 +65,7 @@
           </div>
                
           <div class="row row-content">
-            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 teams">
+            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 text-center">
                 <li>
                   <a href="<?php echo base_url();?>pages_controller/view_team/5"><img src="<?php echo base_url();?>assets/img/team/5.png" alt="Alaska Logo"></a>
                   <header class="team-name">Globalport Batang Pier</header>
@@ -157,7 +90,7 @@
           </div>
               
           <div class="row row-content">
-            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 teams">
+            <ul class="team-row small-block-grid-2 medium-block-grid-4 large-block-grid-4 text-center">
                 <li>
                   <a href="<?php echo base_url();?>pages_controller/view_team/9"><img src="<?php echo base_url();?>assets/img/team/9.png" alt="Alaska Logo"></a>
                   <header class="team-name">Purefoods Star Hotshots</header>
