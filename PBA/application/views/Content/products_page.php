@@ -29,7 +29,7 @@
 $(document).ready(function(){
   var prod="";
   <?php foreach($products as $product):$user=$this->account_model->get_user2($product->USER_ID);?>
-    prod+="<tr onclick=\"document.location ='<?php echo base_url().'auction_controller/view_product/'.$product->PROD_ID;?>'\"><td class='table-content hide'><?php echo $product->PROD_ID;?></td><td><img src='<?php  echo $product->IMAGE1;?>' width='70'/><br/><?php echo $product->PROD_NAME;?></td><td><?php echo $product->PROD_STAT;?></td><td><?php echo $product->START_BID;?></td></tr>";
+    prod+="<tr><td class='table-content hide'><?php echo $product->PROD_ID;?></td><td><a href='<?php echo base_url().'auction_controller/view_product/'.$product->PROD_ID;?>'><img src='<?php  echo $product->IMAGE1;?>' width='70'/></a><br/><?php echo $product->PROD_NAME;?></td><td><?php echo $product->PROD_STAT;?></td><td><?php echo $product->START_BID;?></td></tr>";
   <?php endforeach;?>
   $("#tbody").append(prod);
   $('#searchTable').dataTable({
