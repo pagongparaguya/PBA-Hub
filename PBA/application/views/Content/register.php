@@ -27,7 +27,7 @@
                             </label>
                             <input type="text" name="answer" placeholder="Answer to Question" <?php if(!empty($answer)){?>value="<?php echo $answer?>" <?php } ?> aria-label="Answer to Question" required maxlength="20"/>
                             <label style="color:white;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
-                            <input type="file" name="userfile" value="Upload Photo" class="extend form-button button [tiny small large]"/>
+                            <input type="file" name="userfile" accept="image/jpg, image/jpeg, image/png" value="Upload Photo" class="extend form-button button [tiny small large]"/>
                         </div>
 
                           <div class="small-12 large-6 medium-6 columns signup-account-info">
