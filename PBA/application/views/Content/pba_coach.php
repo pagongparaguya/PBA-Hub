@@ -81,7 +81,7 @@
             </div>
       </div>
 
-      <div class="row row-content achievement">
+      <div class="row row-content achievement" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-1 large-block-grid-1 teams">
             <li>
               <p>Playoffs Appearance:  <?php echo $info->COACH_PLAYOFF_APPEAR;?></p>
@@ -124,7 +124,7 @@
               </h2>
             </div>
       </div>
-      <div class="row row-content pastteam">
+      <div class="row row-content pastteam" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="pastTeam">
         </ul>
       </div>

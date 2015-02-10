@@ -307,9 +307,6 @@ fieldset {
 }
 
 
-.achievement, .stat, .pastteam, .history-team, .achievement-team, .currentplayers-team, .pastplayers-team, .notableplayers-team,.prodcomment{
-	display:none;
-}
 
 /* USER PROFILE PAGE*/
 .user-profile {

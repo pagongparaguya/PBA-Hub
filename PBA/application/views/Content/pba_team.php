@@ -69,7 +69,7 @@
           </div>
       </div>
   
-      <div class="row row-content history-team">      
+      <div class="row row-content history-team" style="display:none;">      
         <div class="small-12 columns">
             <div class="panel">
               <p><?php echo $info->TEAM_HISTORY;?></p>
@@ -88,7 +88,7 @@
           </div>
       </div>
   
-      <div class="row row-content achievement-team">
+      <div class="row row-content achievement-team" style="display:none;">
         <ul class="team-row small-block-grid-1 medium-block-grid-1 large-block-grid-1 teams">
             <li>
               <p>Number of Playoffs Appearance:<?php echo $info->TEAM_PLAYOFF_APPEAR?></p>
@@ -116,7 +116,7 @@
             </h2>
           </div>
       </div>
-      <div class="row row-content currentplayers-team">
+      <div class="row row-content currentplayers-team" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="currentplayers">
         </ul>
       </div>
@@ -131,7 +131,7 @@
             </h2>
           </div>
       </div>
-      <div class="row row-content pastplayers-team">
+      <div class="row row-content pastplayers-team" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="pastplayers">
         </ul>
       </div>
@@ -146,7 +146,7 @@
             </h2>
           </div>
       </div>
-      <div class="row row-content notableplayers-team">
+      <div class="row row-content notableplayers-team" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="notableplayers">
         </ul>
       </div>
@@ -161,7 +161,7 @@
             </h2>
           </div>
       </div>
-      <div class="row row-content pastcoach-team">
+      <div class="row row-content pastcoach-team" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="pastcoaches">
         </ul>
       </div>
@@ -179,23 +179,23 @@
     var coachID="";
     var pastCoaches="";
 		$(".history-block").click(function(){
-			$(".history-team").slideToggle(500);
+			$(".history-team").slideToggle(1500);
 		});
     $(".achievement-block").click(function(){
-      $(".achievement-team").slideToggle(500);
+      $(".achievement-team").slideToggle(1500);
     });
 		$(".currentplayers-block").click(function(){
-			$(".currentplayers-team").slideToggle(500);
+			$(".currentplayers-team").slideToggle(1500);
 		});
 		$(".pastplayers-block").click(function(){
-			$(".pastplayers-team").slideToggle(500);
+			$(".pastplayers-team").slideToggle(1500);
 		});
     $(".notableplayers-block").click(function(){
-      $(".notableplayers-team").slideToggle(500);
+      $(".notableplayers-team").slideToggle(1500);
     });
 
     $(".pastcoach-block").click(function(){
-      $(".pastcoach-team").slideToggle(500);
+      $(".pastcoach-team").slideToggle(1500);
     });
 
     <?php foreach($player_bridge as $player_bridge):?>
@@ -231,6 +231,10 @@
 
     if(present==''){
       present='<h1>No Data To Display</h1>';
+    }
+
+    if(pastCoaches==''){
+      pastCoaches='<h1>No Data To Display</h1>';
     }
     
     $("#currentplayers").html(present);

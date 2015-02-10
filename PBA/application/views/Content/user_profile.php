@@ -124,7 +124,7 @@
         <b>Contact Number: </b><input type="text" name="contact" value="<?php echo $info->CONTACT_NUMBER;?>" aria-label="Contact Number" required pattern=".{11}" title="11 Characters" maxlength="11"/>
         <b>Address: </b><input type="text" name="address" value="<?php echo $info->ADDRESS;?>" aria-label=" Address" required maxlength="100"/>
         <label style="color:black;font-weight:700;font-size:16px;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
-        <input type="file" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
+        <input type="file" accept="image/jpg, image/jpeg, image/png" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
       </div>                     
     </fieldset>
     <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  

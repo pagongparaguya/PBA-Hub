@@ -71,14 +71,14 @@
   
       <!--- START PLAYER ACHIEVEMENTS-->      
       <div class="row">
-            <div class="large-12 columns header achievement-block">
+            <div class="large-12 columns header achievement-block" >
               <h2 class="header-content">
                 <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
                 <span>Achievements</span>
               </h2>
             </div>
       </div>
-      <div class="row row-content achievement">
+      <div class="row row-content achievement" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-1 large-block-grid-1 teams">
             <li>
               <p>Playoffs Appearance:  <?php echo $info->PLAYER_PLAYOFF_APPEAR;?></p>
@@ -117,7 +117,7 @@
             </div>
       </div>
 
-      <div class="row row-content stat">
+      <div class="row row-content stat" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
             <li>
               <p>Average Pointe Per Game:  <?php echo $info->PLAYER_PPG;?></p>
@@ -146,7 +146,7 @@
             </h2>
           </div>
       </div>
-      <div class="row row-content pastteam">
+      <div class="row row-content pastteam" style="display:none;">
         <ul class="team-row small-block-grid-2 medium-block-grid-3 large-block-grid-3 teams" id="pastTeam">
         </ul>
       </div>
