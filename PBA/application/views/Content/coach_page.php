@@ -20,7 +20,7 @@ $(document).ready(function(){
   <?php foreach($coach as $coach):?>
   <?php $tid = $this->page_model->get_coachTeam($coach->COACH_ID);
         $team = $this->page_model->get_teamInfo($tid->TEAM_ID);?>
-    cur+="<tr><td style='text-align: center;' class='table-content'><a href='<?php echo base_url().'pages_controller/view_coach/'.$coach->COACH_ID;?>'><img class='table-img' src='<?php echo base_url();?>assets/img/coach/<?php echo $coach->COACH_PORTRAIT_PHOTO?>'width='70'/></a> <?php echo $coach->COACH_FULLNAME;?></td><td style='text-align: center;' class='table-content'><img class='table-img' src='<?php echo base_url();?>assets/img/team/<?php echo $team->TEAM_LOGO?>' width='70'/><?php echo $team->TEAM_NAME;?></td></tr>";
+    cur+="<tr><td style='text-align: center;' class='table-content'><a href='<?php echo base_url().'pages_controller/view_coach/'.$coach->COACH_ID;?>'><img class='table-img' src='<?php echo base_url();?>assets/img/coach/<?php echo $coach->COACH_PORTRAIT_PHOTO?>'width='70'/></a> <?php echo $coach->COACH_FULLNAME;?></td><td style='text-align: center;' class='table-content'><a href='<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>'><img class='table-img' src='<?php echo base_url();?>assets/img/team/<?php echo $team->TEAM_LOGO?>' width='70'/></a><?php echo $team->TEAM_NAME;?></td></tr>";
   <?php endforeach;?>
   $("#tbody").append(cur);
   $('#searchTable').dataTable({
