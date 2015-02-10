@@ -27,7 +27,7 @@ $(document).ready(function(){
     cur+="<tr>";
   <?php }?>
 
-    cur+="<td onclick=\"window.location ='<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>'\"><img class='table-img' src='<?php echo base_url();?>assets/img/team/<?php echo $team->TEAM_LOGO?>' width='70'/><br/><?php echo $team->TEAM_NAME;?><br/><?php echo $team->TEAM_YEARSTARTED;?></td>";
+    cur+="<td><a href='<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>'><img class='table-img' src='<?php echo base_url();?>assets/img/team/<?php echo $team->TEAM_LOGO?>' width='70'/></a><br/><?php echo $team->TEAM_NAME;?><br/><?php echo $team->TEAM_YEARSTARTED;?></td>";
   
   <?php
   if($i==$count){
