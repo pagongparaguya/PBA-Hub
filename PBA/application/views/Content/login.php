@@ -1,33 +1,32 @@
-</div>
 <!--- START OF LOGIN FORM -->
-  <div class="small-12 medium-8 medium-centered large-6 large-centered columns">
-      <form action="<?php echo base_url();?>account_controller/login" method="post">      
-          <div class="medium-11 medium-10 medium-centered large-9 large-centered columns">                      
-              <div class="form-elems">
-                <h4 class="login-wlcm-msg">Welcome to <span>PBA Hub</span></h4>
-                <hr />   
-                  
-                <?php if(!empty($message)): ?>
-                  <div data-alert class="alert-box alert login-error">
-                    <?php echo $message;?>
-                    <a href="#" class="close">&times;</a>
-                  </div>
-                <?php endif; ?>
+    <div class="small-11 small-centered medium-7 medium-centered large-6 large-centered columns">
+        <form action="<?php echo base_url();?>account_controller/login" method="post">      
+            <div class="large-10 large-centered columns">                      
+                <div class="login-form">
+                  <h4 class="login-wlcm-msg">Welcome to <span>PBA Hub</span></h4>
+                  <hr />   
+                    
+                  <?php if(!empty($message)): ?>
+                    <div data-alert class="alert-box alert login-error">
+                      <?php echo $message;?>
+                      <a href="#" class="close">&times;</a>
+                    </div>
+                  <?php endif; ?>
 
-                <label for="username">Username</label>
-                <input class="text-center" id="username" class="login-input-flds" type="text" name="user" aria-label="Username" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
-                
-                <div class="pword-field">
-                  <label for="password">Password</label>                
-                  <input class="text-center" id="password" class="login-input-flds pwor d-field" type="password" name="pass" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
+                  <label for="username">Username</label>
+                  <input id="username" class="login-input-flds" type="text" name="user" aria-label="Username" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
+                  
+                  <div class="pword-field">
+                    <label for="password">Password</label>                
+                    <input id="password" class="login-input-flds pwor d-field" type="password" name="pass" aria-label="Password" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
+                  </div>
+                  
+                  <a href="#" class="fget-pword" data-reveal-id="forgotModal">Forgot Password?</a>
+                  <button type="submit" class="login-btn expand form-button button">Login</button> 
                 </div>
-                
-                <a href="#" class="fget-pword" data-reveal-id="forgotModal">Forgot Password?</a>
-                <button type="submit" class="login-btn expand form-button button">Login</button> 
-              </div>
-          </div>
-      </form>
-  </div>   
+            </div>
+        </form>
+    </div>   
 <!--- END OF LOGIN FORM -->
 <!--- MODAL FOR CODE -->
 <div id="myModal" class="reveal-modal" data-reveal>
