@@ -5,21 +5,22 @@
           <ul class="team-row small-block-grid-1 medium-block-grid-1 large-block-grid-1 teams">
             <li>
               <div class="imageProduct">
-                <div><img width="400" src="<?php echo $product->IMAGE1;?>" alt="1-portrait" /><?php if($this->session->userdata('username')){
+                <div><img width="400" src="<?php echo $product->IMAGE1;?>" alt="1-portrait" />
+                <?php if($this->session->userdata('username')){
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r1" class="btn" data-reveal-id="replaceProdModal1">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r1" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE2;?>" alt="2-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r2" class="btn" data-reveal-id="replaceProdModal2">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r2" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE3;?>" alt="3-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r3" class="btn" data-reveal-id="replaceProdModal3">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r3" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE4;?>" alt="4-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r4" class="btn" data-reveal-id="replaceProdModal4">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r4" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE5;?>" alt="5-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r5" class="btn" data-reveal-id="replaceProdModal5">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r5" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
               </div>
             </li>
           </ul>
@@ -55,17 +56,15 @@
                     <button class="button tiny alert disabled">Not Ready</button>
                   <?php }?>
                 <?php }
-                  }else{
-                    if($product->PROD_STAT=='Closed'){?>
-                      <button class="button tiny alert disabled">Status:Closed</button>
-                    <?php }else if($product->PROD_STAT=='On-going'){?>
-                      <button class="button tiny success disabled">Please login to place your bid.</button>
-                    <?php }else{//pending?>
-                      <button class="button tiny alert disabled">Not Ready</button>
-                    <?php }?>
-
-
-                  <?php }?>
+              }else{
+                if($product->PROD_STAT=='Closed'){?>
+                  <button class="button tiny alert disabled">Status:Closed</button>
+                <?php }else if($product->PROD_STAT=='On-going'){?>
+                  <button class="button tiny success disabled">Please login to place your bid.</button>
+                <?php }else{//pending?>
+                  <button class="button tiny alert disabled">Not Ready</button>
+                <?php }?>
+              <?php }?>
           </div>
         </div>
       </div>
@@ -109,116 +108,6 @@
               </div>
           </div>          
         </div>
-
-        <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal1" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
-                <input type="hidden" value="IMAGE1" name="imgnum"/>
-                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-              </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
-          </form>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-        <!-- END REPLACE IMAGE MODAL -->
-
-        <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal2" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
-                <input type="hidden" value="IMAGE2" name="imgnum"/>
-                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-              </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
-          </form>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-        <!-- END REPLACE IMAGE MODAL -->
-
-        <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal3" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
-                <input type="hidden" value="IMAGE3" name="imgnum"/>
-                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-              </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
-          </form>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-        <!-- END REPLACE IMAGE MODAL -->
-
-        <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal4" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
-                <input type="hidden" value="IMAGE4" name="imgnum"/>
-                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-              </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
-          </form>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-        <!-- END REPLACE IMAGE MODAL -->
-
-        <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal5" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
-                <input type="hidden" value="IMAGE5" name="imgnum"/>
-                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-              </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
-          </form>
-          <a class="close-reveal-modal">&#215;</a>
-        </div>
-        <!-- END REPLACE IMAGE MODAL -->
 
         <div class="row">
           <div class="large-12 columns">
@@ -313,6 +202,29 @@
         <a class="close-reveal-modal">&#215;</a>
       </div>
       <!--- END QUESTION DELETE BID-->
+
+      <!-- START REPLACE IMAGE MODAL -->
+        <div id="replaceProdModal" class="reveal-modal small small-12 medium-12 columns" data-reveal>
+          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
+            <fieldset>
+              <legend style="color:blue;">Replace Image</legend>  
+              <div class="small-12 large-12 medium-12 columns signup-account-info">
+                <h2>Select an image (png/jpg/jpeg)</h2>
+                <input type="hidden" name="imgnum" id="imgnum"/>
+                <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
+                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+              </div>                    
+            </fieldset>
+            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
+              <div class="submit-btn">
+                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
+              </div>   
+            </div>       
+          </form>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+        <!-- END REPLACE IMAGE MODAL -->
+
 </div>
   <script>
   $(document).ready(function(){
@@ -475,6 +387,24 @@
       }
     });
 
-    
+    $("#r1").click(function(){
+      $("#imgnum").val("IMAGE1");
+    });
+
+    $("#r2").click(function(){
+      $("#imgnum").val("IMAGE2");
+    });
+
+    $("#r3").click(function(){
+      $("#imgnum").val("IMAGE3");
+    });
+
+    $("#r4").click(function(){
+      $("#imgnum").val("IMAGE4");
+    });
+
+    $("#r5").click(function(){
+      $("#imgnum").val("IMAGE5");
+    });
   });
   </script>

@@ -280,25 +280,26 @@
       autoplaySpeed: 3000,
     });
 
-    
-    $( "#aprod" ).validate({
-      rules: {
-        test1: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test2:{
-          accept:"image/png, image/jpg, image/jpeg"
-        },
-        test3: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test4: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test5: {
-          accept: "image/png, image/jpg, image/jpeg"
+    $(".add-btn").click(function(){
+      $( "#aprod" ).validate({
+        rules: {
+          test1: {
+            accept: "image/png, image/jpg, image/jpeg"
+          },
+          test2:{
+            accept:"image/png, image/jpg, image/jpeg"
+          },
+          test3: {
+            accept: "image/png, image/jpg, image/jpeg"
+          },
+          test4: {
+            accept: "image/png, image/jpg, image/jpeg"
+          },
+          test5: {
+            accept: "image/png, image/jpg, image/jpeg"
+          }
         }
-      }
+      });
     });
 
     $( "#ep" ).validate({

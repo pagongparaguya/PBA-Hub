@@ -41,35 +41,43 @@ class Auction_controller extends CI_Controller{
 		if($this->session->userdata('username')){
 			$prodid = $this->input->post('prodid');
 			$cname = $this->input->post('imgnum');
+			$userInfo=$this->account_model->get_user($this->session->userdata('username'));
+			$product=$this->auction_model->getProductInfoWithUserId($prodid,$userInfo->USER_ID);
+			if(!empty($product)){
 
-			if(($_FILES['userfile']['name'])){
-				$config=array('upload_path'=>'./assets/product_images/','allowed_types'=>'jpeg|jpg|png');
-				$this->load->library('upload',$config);
-				$files = $_FILES;
+				if(($_FILES['userfile']['name'])){
+					$config=array('upload_path'=>'./assets/product_images/','allowed_types'=>'jpeg|jpg|png');
+					$this->load->library('upload',$config);
+					$files = $_FILES;
 
-				$_FILES['userfile']['name']= $files['userfile']['name'];
-				$_FILES['userfile']['type']= $files['userfile']['type'];
-				$_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'];
-				$_FILES['userfile']['error']= $files['userfile']['error'];
-			    $_FILES['userfile']['size']= $files['userfile']['size'];
+					$_FILES['userfile']['name']= $files['userfile']['name'];
+					$_FILES['userfile']['type']= $files['userfile']['type'];
+					$_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'];
+					$_FILES['userfile']['error']= $files['userfile']['error'];
+				    $_FILES['userfile']['size']= $files['userfile']['size'];
 
-			    if(!empty($_FILES['userfile']['size'])){
-				    if($this->upload->do_upload()){
-				    	$dat = $this->upload->data();
-				    	$arr=base_url().'assets/product_images/'.$dat['file_name'];
-				    }else{
-				    	echo "<script>alert('File ".$files['userfile']['name']." is not an image.')</script>";
-				    	echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
-				    }
+				    if(!empty($_FILES['userfile']['size'])){
+					    if($this->upload->do_upload()){
+					    	$dat = $this->upload->data();
+					    	$arr=base_url().'assets/product_images/'.$dat['file_name'];
+					    }else{
+					    	echo "<script>alert('File ".$files['userfile']['name']." is not an image.')</script>";
+					    	echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
+					    }
+					}
+					$img=array($cname=>$arr);
+				   	// echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+				}else{
+					$img=array($cname=>"http://localhost/PBA/assets/product_images/sample.jpg");
 				}
-				$img=array($cname=>$arr);
-			   	// echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
-			}else{
-				$img=array($cname=>"http://localhost/PBA/assets/product_images/sample.jpg");
-			}
-			$this->auction_model->insertImage($img,$prodid);
-			echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
+				$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '',$product->$cname));
+				$this->auction_model->insertImage($img,$prodid);
+				echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
 
+
+			}else{
+				echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+			}
 		}else{
 			echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
 		}
