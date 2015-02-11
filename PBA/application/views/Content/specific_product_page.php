@@ -23,29 +23,39 @@
               <h1 class="productName"><?php echo $product->PROD_NAME;?></h1>
               <input type="hidden" class="prod_id" value="<?php echo $product->PROD_ID;?>"/>
               <?php 
-              $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){
-                if($product->PROD_STAT=='Closed'){?>
-                  <button class="button tiny alert disabled">Status:Closed</button>
-                <?php }else if($product->PROD_STAT=='On-going'&&!empty($bid)){?>
-                  <button class="button tiny round success closeBid" data-reveal-id="changeStatClModal">Bid is on-going, Close Bid?</button>
-                <?php }else if($product->PROD_STAT=='On-going'&&empty($bid)){?>
-                  <button class="button tiny round success disabled">Cant Close Auction Because There Is No Bid.</button>
-                <?php }else{//pending?>
-                  <button class="button startBid" data-reveal-id="changeStatOnModal">Start Bid?</button>
-                <?php }?>
-              <?php 
-                }else{
-                if($product->PROD_STAT=='Closed'){?>
-                  <button class="button tiny alert disabled">Status:Closed</button>
-                <?php }else if($product->PROD_STAT=='On-going'&&!empty($this->session->userdata('username'))){?>
-                  <button class="button tiny success disabled">On going, place your bid.</button>
-                <?php }else if($product->PROD_STAT=='On-going'&&empty($this->session->userdata('username'))){?>
-                  <button class="button tiny success disabled">On going, please login to place your bid.</button>
-                <?php }else{//pending?>
-                  <button class="button tiny alert disabled">Not Ready</button>
-                <?php }?>
-              <?php }?>
+              if(!empty($this->session->userdata('username'))){
+                $userInfo=$this->account_model->get_user($this->session->userdata('username'));
+                if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){
+                  if($product->PROD_STAT=='Closed'){?>
+                    <button class="button tiny alert disabled">Status:Closed</button>
+                  <?php }else if($product->PROD_STAT=='On-going'&&!empty($bid)){?>
+                    <button class="button tiny round success closeBid" data-reveal-id="changeStatClModal">Bid is on-going, Close Bid?</button>
+                  <?php }else if($product->PROD_STAT=='On-going'&&empty($bid)){?>
+                    <button class="button tiny round success disabled">Cant Close Auction Because There Is No Bid.</button>
+                  <?php }else{//pending?>
+                    <button class="button startBid" data-reveal-id="changeStatOnModal">Start Bid?</button>
+                  <?php }?>
+                <?php 
+                  }else{
+                  if($product->PROD_STAT=='Closed'){?>
+                    <button class="button tiny alert disabled">Status:Closed</button>
+                  <?php }else if($product->PROD_STAT=='On-going'){?>
+                    <button class="button tiny success disabled">On going, place your bid.</button>
+                  <?php }else{//pending?>
+                    <button class="button tiny alert disabled">Not Ready</button>
+                  <?php }?>
+                <?php }
+                  }else{
+                    if($product->PROD_STAT=='Closed'){?>
+                      <button class="button tiny alert disabled">Status:Closed</button>
+                    <?php }else if($product->PROD_STAT=='On-going'){?>
+                      <button class="button tiny success disabled">Please login to place your bid.</button>
+                    <?php }else{//pending?>
+                      <button class="button tiny alert disabled">Not Ready</button>
+                    <?php }?>
+
+
+                  <?php }?>
           </div>
         </div>
       </div>

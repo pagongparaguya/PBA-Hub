@@ -396,7 +396,7 @@ class Account_controller extends CI_Controller{
 						'word'=>$random,
 						'img_path'=>'./assets/captcha/',
 						'img_url'=>base_url().'assets/captcha/',
-						'font_path'=>'./assets/font/ostrich-black.ttf',
+						'font_path'=>'./assets/font/Blueberry-Pie.ttf',
 						'img_width'=>'200',
 						'img_height'=>'80',
 						'expiration'=>'3600');
