@@ -1,6 +1,6 @@
  <!--- START OF FORMS -->
     <div class="row">
-        <form action="<?php echo base_url();?>account_controller/register" method="post" enctype='multipart/form-data'>      
+        <form id="reg" action="<?php echo base_url();?>account_controller/register" method="post" enctype='multipart/form-data'>      
                 <fieldset>
                     <legend>ACCOUNT CREATION</legend>  
                     <center><span style="color:white;"><?php echo $message;?></span></center>
@@ -9,7 +9,7 @@
                             <h2>Personal Information</h2>
                             <input type="text" name="fname" placeholder="First Name" <?php if(!empty($fname)){?>value="<?php echo $fname?>" <?php } ?> aria-label="First Name" required pattern=".{4,40}" title="4 to 40 Characters" maxlength="40"/>
                             <input type="text" name="lname" placeholder="Last Name" <?php if(!empty($lname)){?>value="<?php echo $lname?>" <?php } ?> aria-label="Last Name" required pattern=".{4,30}" title="4 to 30 Characters" maxlength="30"/>
-                            <input type="text" name="contact" placeholder="Contact Number" <?php if(!empty($contact)){?>value="<?php echo $contact?>" <?php } ?> aria-label="Contact Number" required maxlength="11" pattern=".{11}" title="11 Characters"/>
+                            <input type="text" name="contact" placeholder="Contact Number" <?php if(!empty($contact)){?>value="<?php echo $contact?>" <?php } ?> aria-label="Contact Number" required maxlength="11" pattern="[0][9][0-9]{9}" title="11 Characters"/>
                             <input type="email" name="email" placeholder="Email Address" <?php if(!empty($email)){?>value="<?php echo $email?>" <?php } ?> aria-label="Email Address" required maxlength="50"/>
                             <input type="text" name="address" placeholder="Address" <?php if(!empty($address)){?>value="<?php echo $address?>" <?php } ?> aria-label=" Address" required maxlength="100"/>
                             <label>Birthday:</label>
@@ -61,7 +61,16 @@
                 alert("Captcha Doesn't Match");
                 event.preventDefault();
             }
-        });        
+        });  
+
+        $( "#reg" ).validate({
+          rules: {
+            field: {
+              required: true,
+              accept: "image/png, image/jpg, image/jpeg"
+            }
+          }
+        });      
     });
     </script>
     <!--- END OF FORMS -->

@@ -37,6 +37,44 @@ class Auction_controller extends CI_Controller{
 		}
 	}
 
+	public function replace_prodImage(){	
+		if($this->session->userdata('username')){
+			$prodid = $this->input->post('prodid');
+			$cname = $this->input->post('imgnum');
+
+			if(($_FILES['userfile']['name'])){
+				$config=array('upload_path'=>'./assets/product_images/','allowed_types'=>'jpeg|jpg|png');
+				$this->load->library('upload',$config);
+				$files = $_FILES;
+
+				$_FILES['userfile']['name']= $files['userfile']['name'];
+				$_FILES['userfile']['type']= $files['userfile']['type'];
+				$_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'];
+				$_FILES['userfile']['error']= $files['userfile']['error'];
+			    $_FILES['userfile']['size']= $files['userfile']['size'];
+
+			    if(!empty($_FILES['userfile']['size'])){
+				    if($this->upload->do_upload()){
+				    	$dat = $this->upload->data();
+				    	$arr=base_url().'assets/product_images/'.$dat['file_name'];
+				    }else{
+				    	echo "<script>alert('File ".$files['userfile']['name']." is not an image.')</script>";
+				    	echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
+				    }
+				}
+				$img=array($cname=>$arr);
+			   	// echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+			}else{
+				$img=array($cname=>"http://localhost/PBA/assets/product_images/sample.jpg");
+			}
+			$this->auction_model->insertImage($img,$prodid);
+			echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
+
+		}else{
+			echo "<script>window.location='".base_url()."account_controller/view_user_profile'</script>";
+		}
+	}
+
 	public function addProduct(){
 		if(!empty($this->session->userdata('username'))&&$this->input->post('pname')){
 			$user=$this->account_model->get_user($this->session->userdata('username'));

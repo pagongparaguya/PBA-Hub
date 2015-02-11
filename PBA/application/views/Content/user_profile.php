@@ -114,14 +114,14 @@
 
 <!--- START EDIT USER-->
 <div id="editProfileModal" class="reveal-modal small" data-reveal>
-  <form action="<?php echo base_url();?>account_controller/edit_user" method="post" enctype='multipart/form-data'>      
+  <form id="ep" action="<?php echo base_url();?>account_controller/edit_user" method="post" enctype='multipart/form-data'>      
     <fieldset>
       <legend style="color:blue;">Edit Profile</legend>  
       <div class="small-12 large-12 medium-12 columns">
         <h2>Personal Information</h2>
         <b>First Name: </b><input type="text" name="fname" value="<?php echo $info->FIRST_NAME;?>" aria-label="First Name" required pattern=".{4,40}" title="4 to 40 Characters" maxlength="40"/>
         <b>Last Name: </b><input type="text" name="lname" value="<?php echo $info->LAST_NAME;?>" aria-label="Last Name" required pattern=".{4,30}" title="4 to 30 Characters" maxlength="30"/>
-        <b>Contact Number: </b><input type="text" name="contact" value="<?php echo $info->CONTACT_NUMBER;?>" aria-label="Contact Number" required pattern=".{11}" title="11 Characters" maxlength="11"/>
+        <b>Contact Number: </b><input type="text" name="contact" value="<?php echo $info->CONTACT_NUMBER;?>" aria-label="Contact Number" required pattern="[0][9][0-9]{9}" title="11 Characters" maxlength="11"/>
         <b>Address: </b><input type="text" name="address" value="<?php echo $info->ADDRESS;?>" aria-label=" Address" required maxlength="100"/>
         <label style="color:black;font-weight:700;font-size:16px;">Profile Photo File: (Only Accepts jpeg/jpg/png files)</label>
         <input type="file" accept="image/jpg, image/jpeg, image/png" name="userfile" value="Change Photo" class="extend form-button button [tiny small large]"/>
@@ -197,11 +197,11 @@
     <div class="small-12 large-6 medium-6 columns">
       <b>Starting Bid </b><input type="number" name="pbid" required min="1"/>
       <label style="color:black;font-weight:700;font-size:16px;">5 Product Photo Files (Only Accepts jpeg/jpg/png files)</label>
-      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
-      <input type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[] test1"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[] test2"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[] test3"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[] test4"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+      <input type="file" name="userfile[] test5"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
     </div>  
     <div class="small-12 large-12 medium-12 columns">
       <center> 
@@ -282,6 +282,26 @@
 
     
     $( "#aprod" ).validate({
+      rules: {
+        test1: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test2:{
+          accept:"image/png, image/jpg, image/jpeg"
+        },
+        test3: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test4: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test5: {
+          accept: "image/png, image/jpg, image/jpeg"
+        }
+      }
+    });
+
+    $( "#ep" ).validate({
       rules: {
         field: {
           required: true,

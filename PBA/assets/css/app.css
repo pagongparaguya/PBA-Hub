@@ -523,6 +523,9 @@ ul.pagination li.current a {
 		text-align: left;
 	}
 
+	label.error {
+  	color: #f04124; }
+
 .reveal-modal-bg {
 	z-index: 99999;
 	background-color: rgba(0, 0, 0, 0.8);

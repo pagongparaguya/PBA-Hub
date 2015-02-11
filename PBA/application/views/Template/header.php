@@ -21,6 +21,8 @@
     <script src="<?php echo base_url();?>assets/js/foundation/foundation.dropdown.js"></script>
     <!-- slideshow js -->
     <script src="<?php echo base_url();?>assets/js/modernizr.custom.86080.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/additional-methods.min.js"></script>
     
   </head>
 
