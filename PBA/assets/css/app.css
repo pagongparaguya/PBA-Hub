@@ -726,3 +726,13 @@ input[type="file"] {
 label.error {
 +  	color: #f04124; 
 }
+
+/* ADMIN PAGES */
+.admin-header {
+	border-bottom: 2px solid rgb(240, 120, 24);
+}
+
+.admin-page-img {
+	width: 100px;
+	height: 100px;
+}
