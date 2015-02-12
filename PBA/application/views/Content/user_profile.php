@@ -1,32 +1,30 @@
+</div>
 <!--- START USER INFO-->
-
 <div class="page-content">
-    <div class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 large-centered profile-content">
-        <div class="left-content">
-          <img style="border:3px solid black;" src="<?php echo $info->USER_IMAGE;?>" width="250" height="200" alt="<?php echo $info->USERNAME;?>-portrait" /><br/>
-          <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" />
-          <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" />
-          <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" />
-          <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" />
-          <img src="<?php echo base_url();?>assets/img/basketball.png" alt="PBA Hub Logo" /><br/>
-          <h2 style="color:white;">HALL OF FAME</h2>
-          <a href="#" data-reveal-id="addProductModal" class="radius button">Add Product</a>
-        </div>
-        <div class="right-content">
-          <a href="#" data-reveal-id="questionProfileModal" class="radius button">Customize Profile</a>
-          <a href="#" data-reveal-id="passwordModal" class="radius button">Change Password</a>
-            <div class="profile-text">
-              <h4 style="color:white;">Username:  <?php echo $info->USERNAME;?></h4>
-              <h4 style="color:white;">Full Name:  <?php echo $info->FIRST_NAME;?> <?php echo $info->LAST_NAME;?></h4>
-              <h4 style="color:white;">Contact Number: <?php echo $info->CONTACT_NUMBER;?></h4>
-              <h4 style="color:white;">Address: <?php echo $info->ADDRESS;?></h4>
-            </div>
-        </div>
-    </div>
+    <hr class="hr-dotted" />
+      <div class="small-10 small-centered medium-10 medium-centered large-7 large-centered columns">
+        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 profile-elem-content text-center">
+            <li>
+              <img class="frame" src="<?php echo $info->USER_IMAGE;?>" width="200" height="200" alt="<?php echo $info->USERNAME;?>-portrait" /><br/>            
+              <h1 class="user-name"><?php echo $info->FIRST_NAME;?> <?php echo $info->LAST_NAME;?></h1>  
+            </li>
+            <li class="user-elem-info user-elem-panel">            
+              <p><strong>Username</strong> <span class="profile-elem-bar">|</span> <?php echo $info->USERNAME;?></p>
+              <p><strong>Contact Number</strong> <span class="profile-elem-bar">|</span> <?php echo $info->CONTACT_NUMBER;?></p>
+              <p><strong>Address</strong> <span class="profile-elem-bar">|</span> <?php echo $info->ADDRESS;?></p>
+            </li>
+        </ul>
+      </div>
+    <hr class="hr-dotted" />    
 <!--- END USER INFO-->
     
       <!--- START USER PRODUCTS-->
       <div class="row">
+        <a href="#" data-reveal-id="addProductModal" class="radius button">Add product</a>
+        <div class="right">
+        <a href="#" data-reveal-id="questionProfileModal" class="radius button">Edit profile</a>
+        <a href="#" data-reveal-id="passwordModal" class="radius button">Change password</a>
+    </div>
         <div class="large-12 columns header">     
             <h2 class="header-content">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
@@ -40,10 +38,10 @@
             <h1>No Products To Display</h1>                
           <?php }else{ echo "<div class='panel' id='productPanel'>"; foreach($products as $product):?>
             
-            <div class"individualProduct">
+            <div class"individualProduct text-center">
               <input type="hidden" class="prod_id" value="<?php echo $product->PROD_ID;?>"/>
               <div class="product-element">
-                <img style="margin:5px auto;" src="<?php echo $product->IMAGE1;?>" width="200" height="120"/>
+                <img class="profile-elem-img" src="<?php echo $product->IMAGE1;?>" />
               </div>
               <h2 class="product-name">
                 <?php
@@ -73,20 +71,20 @@
     
       <!--- START USER NOTIFICATIONS-->
       <div class="row">
-        <div class="large-12 columns header">     
+        <div class="large-12 columns header notifs-block">     
             <h2 class="header-content">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Notifications</span>
             </h2>
         </div>
       </div>
-      <div class="row row-content">
-        <div class="large-12 columns">
+      <div class="row row-content notifs" style="display:none;">
+        <div class="small-11 small-centered medium-11 medium-centered large-11 large-centered columns">
           <?php if(empty($notification)){?>
             <h1>No Notifications To Display</h1>                  
           <?php }else{foreach($notification as $notif):?>
-            <div class="panel">
-              <h4><?php echo $notif->MESSAGE;?><br/><?php echo date('F j,Y h:m:s A', strtotime($notif->TIMESTAMP));?></h4>
+            <div class="panel user-profile-notif-panel">
+              <span><strong><?php echo $notif->MESSAGE;?></strong> <span class="profile-elem-bar">|</span> <?php echo date('F j,Y h:m:s A', strtotime($notif->TIMESTAMP));?></span>
             </div>
           <?php endforeach;}?>
         </div>
@@ -179,7 +177,7 @@
       </select>
       
       <div class="small-12 medium-6 large-12">
-            <div style="display: inline-flex">
+            <div style="display:inline-flex">
             
                   <b>Age Of Product </b><div><input type="number" name="page" required min="1"/> </div>        
                
@@ -228,88 +226,92 @@
   </div>
   <!--- END QUESTION USER DELETE PRODUCT-->
 
-  <script>
-  $(document).ready(function(){
-    $('#answerButton').click(function(){
-      $.getJSON("<?php echo base_url();?>account_controller/check_answer/",{answer:$("#answer").val()},success=function(data){
-        if(data=="1"){
-          $("#notif").html("");
-          $('#editProfileModal').foundation('reveal', 'open');
-        }else{
-          $("#notif").html("Wrong Answer!");
-        }
-      });
-    });
+<script>
+$(document).ready(function(){
+  $(".notifs-block").click(function(){
+    $(".notifs").slideToggle(1500);
+  });
 
-    $('.submit-btn').click(function(event){
-      if($('#pass').val()!=$('#cpass').val()){
-        alert("Password/Confirm Password Doesn't Match");
-        event.preventDefault();
+  $('#answerButton').click(function(){
+    $.getJSON("<?php echo base_url();?>account_controller/check_answer/",{answer:$("#answer").val()},success=function(data){
+      if(data=="1"){
+        $("#notif").html("");
+        $('#editProfileModal').foundation('reveal', 'open');
+      }else{
+        $("#notif").html("Wrong Answer!");
       }
     });
+  });
 
-    $('#cancelButton').click(function(){
-      $('#addProductModal').foundation('reveal', 'close');
+  $('.submit-btn').click(function(event){
+    if($('#pass').val()!=$('#cpass').val()){
+      alert("Password/Confirm Password Doesn't Match");
+      event.preventDefault();
+    }
+  });
+
+  $('#cancelButton').click(function(){
+    $('#addProductModal').foundation('reveal', 'close');
+  });
+
+  $("#productPanel").on('click','.deleteProduct',function(){
+    $("#delProdName").text($(this).parent().siblings(".product-name").text());
+    $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
+  });
+
+  $("#noButton").click(function(){
+    $('#deleteProdModal').foundation('reveal', 'close');
+  });
+
+  $("#yesButton").click(function(){
+    $.ajax({
+      url:'<?php echo base_url();?>auction_controller/delProduct/',
+      type:'post',
+      data:{'id':$(this).parent().siblings("#prodIdModal").val()},
+      success:function(data,status){
+        alert(data);
+        window.location.reload(true);
+      }
     });
+  });
 
-    $("#productPanel").on('click','.deleteProduct',function(){
-      $("#delProdName").text($(this).parent().siblings(".product-name").text());
-      $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
-    });
+  $('#productPanel').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  });
 
-    $("#noButton").click(function(){
-      $('#deleteProdModal').foundation('reveal', 'close');
-    });
-
-    $("#yesButton").click(function(){
-      $.ajax({
-        url:'<?php echo base_url();?>auction_controller/delProduct/',
-        type:'post',
-        data:{'id':$(this).parent().siblings("#prodIdModal").val()},
-        success:function(data,status){
-          alert(data);
-          window.location.reload(true);
-        }
-      });
-    });
-
-    $('#productPanel').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 3000,
-    });
-
-    $(".add-btn").click(function(){
-      $( "#aprod" ).validate({
-        rules: {
-          test1: {
-            accept: "image/png, image/jpg, image/jpeg"
-          },
-          test2:{
-            accept:"image/png, image/jpg, image/jpeg"
-          },
-          test3: {
-            accept: "image/png, image/jpg, image/jpeg"
-          },
-          test4: {
-            accept: "image/png, image/jpg, image/jpeg"
-          },
-          test5: {
-            accept: "image/png, image/jpg, image/jpeg"
-          }
-        }
-      });
-    });
-
-    $( "#ep" ).validate({
+  $(".add-btn").click(function(){
+    $( "#aprod" ).validate({
       rules: {
-        field: {
-          required: true,
+        test1: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test2:{
+          accept:"image/png, image/jpg, image/jpeg"
+        },
+        test3: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test4: {
+          accept: "image/png, image/jpg, image/jpeg"
+        },
+        test5: {
           accept: "image/png, image/jpg, image/jpeg"
         }
       }
     });
-
   });
-  </script>
+
+  $( "#ep" ).validate({
+    rules: {
+      field: {
+        required: true,
+        accept: "image/png, image/jpg, image/jpeg"
+      }
+    }
+  });
+
+});
+</script>
