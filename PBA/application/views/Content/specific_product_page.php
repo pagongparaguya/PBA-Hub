@@ -153,9 +153,9 @@
     
       <!--- START QUESTON CHANGE CLOSED STATUS PRODUCT-->
       <div id="changeStatClModal" class="reveal-modal small" data-reveal>
-        <div class="small-12 medium-12 large-12 columns">
+        <div class="small-12 medium-12 large-12 columns text-center">
           <input type="hidden" name="prodIdClModal" id="prodIdClModal"/> 
-            <span>Accept the largest bid for <strong id="prodClName"></strong> <b id="highestBidder"></b>?</span> 
+            <p>Accept the largest bid for <strong id="prodClName"></strong> <span id="highestBidder"></span>?</p> 
             <div class="small-12 medium-12 large-12 columns">
               <button id="yesClButton" class="button small radius">Yes</button>
               <button id="noClButton" class="button small radius alert">No</button>
