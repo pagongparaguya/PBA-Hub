@@ -2,25 +2,25 @@
   <!--- START PRODUCT IMAGES-->
     <meta http-equiv="refresh" content="30">
       <div class="row row-content">
-          <ul class="team-row small-block-grid-1 medium-block-grid-1 large-block-grid-1 teams">
+          <ul class="team-row small-block-grid-1 medium-block-grid-1 large-block-grid-1">
             <li>
               <div class="imageProduct">
                 <div><img width="400" src="<?php echo $product->IMAGE1;?>" alt="1-portrait" />
                 <?php if($this->session->userdata('username')){
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r1" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r1" class="button radius" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE2;?>" alt="2-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r2" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r2" class="button radius" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE3;?>" alt="3-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r3" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r3" class="button radius" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE4;?>" alt="4-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r4" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r4" class="button radius" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
                 <div><img width="400" src="<?php echo $product->IMAGE5;?>" alt="5-portrait" /><?php if($this->session->userdata('username')){  
               $userInfo=$this->account_model->get_user($this->session->userdata('username'));
-              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r5" class="btn" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
+              if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){?><button id="r5" class="button radius" data-reveal-id="replaceProdModal">Replace</button><?php }}?></div>
               </div>
             </li>
           </ul>
@@ -38,31 +38,31 @@
                 $userInfo=$this->account_model->get_user($this->session->userdata('username'));
                 if($this->auction_model->getProductInfoWithUserId($product->PROD_ID,$userInfo->USER_ID)){
                   if($product->PROD_STAT=='Closed'){?>
-                    <button class="button tiny alert disabled">Status:Closed</button>
+                    <button class="button small radius alert disabled"><strong>Status</strong> <span class="profile-elem-bar">|</span> Closed</button>
                   <?php }else if($product->PROD_STAT=='On-going'&&!empty($bid)){?>
-                    <button class="button tiny round success closeBid" data-reveal-id="changeStatClModal">Bid is on-going, Close Bid?</button>
+                    <button class="button small radius success closeBid" data-reveal-id="changeStatClModal">Bidding is still ON-GOING, close bidding?</button>
                   <?php }else if($product->PROD_STAT=='On-going'&&empty($bid)){?>
-                    <button class="button tiny round success disabled">Cant Close Auction Because There Is No Bid.</button>
+                    <button class="button small radius success disabled">Can't close the bidding because there are no bids to accept.</button>
                   <?php }else{//pending?>
-                    <button class="button startBid" data-reveal-id="changeStatOnModal">Start Bid?</button>
+                    <button class="button radius success startBid" data-reveal-id="changeStatOnModal">Start bidding?</button>
                   <?php }?>
                 <?php 
                   }else{
                   if($product->PROD_STAT=='Closed'){?>
-                    <button class="button tiny alert disabled">Status:Closed</button>
+                    <button class="button small radius alert disabled"><strong>Status</strong> <span class="profile-elem-bar">|</span> Closed</button>
                   <?php }else if($product->PROD_STAT=='On-going'){?>
-                    <button class="button tiny success disabled">On going, place your bid.</button>
+                    <button class="button small radius success disabled"><strong>Bidding is ON-GOING</strong> <span class="profile-elem-bar">|</span> Place your bid.</button>
                   <?php }else{//pending?>
-                    <button class="button tiny alert disabled">Not Ready</button>
+                    <button class="button small radius alert disabled">Not ready</button>
                   <?php }?>
                 <?php }
               }else{
                 if($product->PROD_STAT=='Closed'){?>
-                  <button class="button tiny alert disabled">Status:Closed</button>
+                  <button class="button small radius alert disabled"><strong>Status</strong> <span class="profile-elem-bar">|</span> Closed</button>
                 <?php }else if($product->PROD_STAT=='On-going'){?>
-                  <button class="button tiny success disabled">Please login to place your bid.</button>
+                  <button class="button small radius success disabled">Please login to place your bid.</button>
                 <?php }else{//pending?>
-                  <button class="button tiny alert disabled">Not Ready</button>
+                  <button class="button small radius alert disabled">Not ready</button>
                 <?php }?>
               <?php }?>
           </div>
@@ -72,18 +72,22 @@
     
       <!--- START PRODUCT INFO-->
       <div class="row row-content">
-        <ul class="team-row small-block-grid-1 medium-block-grid-2 large-block-grid-2 teams">
-          <li>
-            <p>Owner:  <a href="<?php echo base_url().'account_controller/view_otherUser/'.$user->USER_ID;?>"><?php echo $user->USERNAME;?></a></p>
-            <p>Product Description:  <?php echo $product->PROD_DES;?></p>
-            <p>Product Age:  <?php echo $product->PROD_AGE_VAL.' '.$product->PROD_AGE_NAME.'/s';?></p>
-          </li>
-          <li>
-            <p>Product Category:  <?php echo $product->PROD_CAT;?></p>
-            <p>Product Status:  <?php echo $product->PROD_STAT;?></p>
-            <p>Starting Bid:  <?php echo $product->START_BID;?></p>
-          </li>
-        </ul>
+        <div class="small-12 medium-12 large-10 large-centered columns">
+            <ul class="team-row small-block-grid-1 medium-block-grid-3 large-block-grid-3 text-center">
+              <li>
+                <p><strong>Product status</strong> <span class="profile-elem-bar">|</span> <?php echo $product->PROD_STAT;?></p>                
+                <p><strong>Owner</strong> <span class="profile-elem-bar">|</span> <a href="<?php echo base_url().'account_controller/view_otherUser/'.$user->USER_ID;?>"><?php echo $user->USERNAME;?></a></p>             
+                <p><strong>Product age</strong> <span class="profile-elem-bar">|</span> <?php echo $product->PROD_AGE_VAL.' '.$product->PROD_AGE_NAME.'(s)';?></p>
+              </li>
+              <li>
+                <p><strong>Starting bid</strong> <span class="profile-elem-bar">|</span> <span class="green-text"><?php echo $product->START_BID;?></span></p>
+                <p><strong>Product category</strong> <span class="profile-elem-bar">|</span> <?php echo $product->PROD_CAT;?></p>
+              </li>
+              <li>
+                <p><strong>Product description</strong> <span class="profile-elem-bar">|</span><br /><?php echo $product->PROD_DES;?></p>
+              </li>
+            </ul>
+        </div>
       </div>
         <!--- END PRODUCT INFO-->
     
@@ -91,7 +95,7 @@
         <div class="row">
           <div class="large-12 columns">
               <?php if($product->PROD_STAT=='On-going'&&!empty($this->session->userdata('username'))&&$user->USERNAME!=$this->session->userdata('username')){?>
-              <button class="success addBid">Add Bid</button>
+              <button class="success radius addBid">Add Bid</button>
               <form action="<?php echo base_url();?>auction_controller/addBid" method="post">
                 <input type="hidden" name="prodId" id="forMax" value="<?php echo $product->PROD_ID;?>"/>
                 <div class="addBidPanel"></div>
@@ -112,118 +116,93 @@
         <div class="row">
           <div class="large-12 columns">
             <?php if(empty($bid)){?>
-              <h1>No Bid To Display</h1>
-            <?php }else{ echo "<div class='panel' id='bidPanel' style='height:190px;'>"; $count=0; foreach($bid as $bid):
+              <h1>No Bids To Display</h1>
+            <?php }else{ echo "<div class='panel' id='bidPanel'>"; $count=0; foreach($bid as $bid):
               $userBid=$this->account_model->get_user2($bid->USER_ID);
               $count++;
             ?>
-              <div id="individualProductBid">
+              <div id="individualProductBid" class="text-center">
                 <input type="hidden" class="bid_id" value="<?php echo $bid->BID_ID;?>"/>
-                <center>
-                  <a href="<?php echo base_url().'account_controller/view_otherUser/'.$userBid->USER_ID;?>"><img src="<?php echo $userBid->USER_IMAGE;?>" width="70"/></a>
-                </center>
-                <h4 class="userName">Bidder <?php echo $count;?>:<?php echo $userBid->USERNAME;?></h4>
-                <button class="button tiny disabled">Bid:<b class="bidAmount"><?php echo $bid->BID_AMT;?></b></button>
+                
+                <a href="<?php echo base_url().'account_controller/view_otherUser/'.$userBid->USER_ID;?>"><img class="bidpage-bidder-img" src="<?php echo $userBid->USER_IMAGE;?>"/></a>
+                
+                <p><strong>Bidder <?php echo $count;?></strong> <span class="profile-elem-bar">|</span> <?php echo $userBid->USERNAME;?></p>
+                <button class="button radius small success disabled"><strong>Bid amount</strong> <span class="profile-elem-bar">|</span> <span class="bidAmount"><?php echo $bid->BID_AMT;?></span></button>
                 <?php if($userBid->USERNAME==$this->session->userdata('username')&&$product->PROD_STAT=='On-going'){?>
-                  <button class="button tiny alert deleteBid" data-reveal-id="deleteBidModal">Delete</button>
+                  <button class="button radius small alert deleteBid" data-reveal-id="deleteBidModal">Cancel bid</button>
                 <?php }?>
               </div>
             <?php endforeach; echo "</div>";}?>
          </div>
         </div>
       <!-- END PRODUCT BID-->
-    
-       <!-- START PRODUCT COMMENT
-          <div class="row">
-              <div class="large-12 columns header comment-block">
-                    <h2 class="header-content">
-                      <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
-                      <span>Product Comments</span>
-                    </h2>
-              </div>
-          </div>
-        
-        <div class="row row-content prodcomment">
-          <div class="large-12 columns">
-            <?php if(empty($comment)){?>
-              <h1>No Comments To Display</h1>                  
-            <?php }else{foreach($comment as $comment):
-              $userComment=$this->account_model->get_user2($comment->USER_ID);
-              ?>
-              <div class="panel">
-                <input type="hidden" class="comment_id" value="<?php echo $comment->COMMENT_ID;?>"/>
-                <p><b><?php echo $userComment->USERNAME;?>: </b><?php echo $comment->COMMENT;?> <?php echo $comment->TIMESTAMP;?></p><?php if($userComment->USERNAME==$this->session->userdata('username')){?><b>Edit </b><b>Delete</b><?php }?>
-              </div>
-            <?php endforeach;}?>
-          <textarea rows="4" placeholder="Comment..." maxlength="100"></textarea>
-          <button>Add Comment</button>
-          </div>
-        </div>
-      END PRODUCT COMMENT-->
-    
+
       <!--- START QUESTON CHANGE ONGOING STATUS PRODUCT-->
-      <div id="changeStatOnModal" class="reveal-modal tiny" data-reveal>
-        <div class="small-8 large-centered columns">
-          <input type="hidden" name="prodIdOnModal" id="prodIdOnModal"/>
-          <center> 
-            <h5>Begin bidding for <b id="prodOnName"></b>?</h5> 
-            <button id="yesOnButton" class="button tiny">Yes</button>
-            <button id="noOnButton" class="button tiny alert">No</button>
-          </center>
+      <div id="changeStatOnModal" class="reveal-modal small" data-reveal>
+        <div class="small-12 medium-12 large-7 large-centered columns text-center">
+            <input type="hidden" name="prodIdOnModal" id="prodIdOnModal"/> 
+            <span>Begin bidding for <b id="prodOnName"></b>?</span> 
+            <div class="small-12 medium-12 large-12 columns">
+              <button id="yesOnButton" class="button radius small">Yes</button>
+              <button id="noOnButton" class="button radius small alert">No</button>
+            </div>
         </div>
         <a class="close-reveal-modal">&#215;</a>
       </div>
       <!--- END QUESTION CHANGE ONGOING STATUS PRODUCT-->
     
       <!--- START QUESTON CHANGE CLOSED STATUS PRODUCT-->
-      <div id="changeStatClModal" class="reveal-modal tiny" data-reveal>
-        <div class="small-8 large-centered columns">
-          <input type="hidden" name="prodIdClModal" id="prodIdClModal"/>
-          <center> 
-            <h5>Accept the latest bid for <b id="prodClName"></b><b id="highestBidder"></b>?</h5> 
-            <button id="yesClButton" class="button tiny">Yes</button>
-            <button id="noClButton" class="button tiny alert">No</button>
-          </center>
+      <div id="changeStatClModal" class="reveal-modal small" data-reveal>
+        <div class="small-12 medium-12 large-12 columns">
+          <input type="hidden" name="prodIdClModal" id="prodIdClModal"/> 
+            <span>Accept the largest bid for <strong id="prodClName"></strong> <b id="highestBidder"></b>?</span> 
+            <div class="small-12 medium-12 large-12 columns">
+              <button id="yesClButton" class="button small radius">Yes</button>
+              <button id="noClButton" class="button small radius alert">No</button>
+            </div>
         </div>
         <a class="close-reveal-modal">&#215;</a>
       </div>
       <!--- END QUESTION CHANGE CLOSED STATUS PRODUCT-->
     
       <!--- START QUESTON DELETE BID-->
-      <div id="deleteBidModal" class="reveal-modal tiny" data-reveal>
-        <div class="small-8 large-centered columns">
+      <div id="deleteBidModal" class="reveal-modal small" data-reveal>
+        <div class="small-12 medium-12 large-12 columns text-center">
           <input type="hidden" name="bidId" id="bidId"/>
-          <center> 
-            <h5>Delete bid with <b id="bidName"></b> value?</h5> 
-            <button id="yesBidButton" class="button tiny">Yes</button>
-            <button id="noBidButton" class="button tiny alert">No</button>
-          </center>
+            <span>Cancel bid worth <strong id="bidName"></strong>?</span> 
+            <div class="small-12 medium-12 large-12 columns">
+              <button id="yesBidButton" class="button small radius">Yes</button>
+              <button id="noBidButton" class="button small radius alert">No</button>
+            </div>
         </div>
         <a class="close-reveal-modal">&#215;</a>
       </div>
       <!--- END QUESTION DELETE BID-->
 
       <!-- START REPLACE IMAGE MODAL -->
-        <div id="replaceProdModal" class="reveal-modal small small-12 medium-12 columns" data-reveal>
-          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>      
-            <fieldset>
-              <legend style="color:blue;">Replace Image</legend>  
-              <div class="small-12 large-12 medium-12 columns signup-account-info">
-                <h2>Select an image (png/jpg/jpeg)</h2>
+        <div id="replaceProdModal" class="reveal-modal medium" data-reveal>
+          <form id="rp" action="<?php echo base_url();?>auction_controller/replace_prodImage" method="post" enctype='multipart/form-data'>       
+              <div class="small-12 medium-12 large-8 large-centered columns">
                 <input type="hidden" name="imgnum" id="imgnum"/>
                 <input type="hidden" value="<?php echo $product->PROD_ID;?>" name="prodid"/>
-                <input type="file" name="userfile"  accept="image/jpg, image/jpeg, image/png" class="extend form-button button [tiny small large]"/>
+                <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-1">
+                  <li class="user-profile-answer-field">
+                    <label class="bidpage-replace-img">
+                      Select an image <span>(png/jpg/jpeg)</span>
+                      <input type="file" name="userfile" accept="image/jpg, image/jpeg, image/png" class="panel-orange form-button button small"/>
+                    </label>
+                  </li>
+                  <li>
+                    <div class="submit-btn">
+                      <button type="submit" class="expand button [small small large]">Submit</button>  
+                    </div>
+                  </li>
+                </ul>
               </div>                    
-            </fieldset>
-            <div class="small-10 small-centered medium-7 medium-centered large-6 large-centered columns">  
-              <div class="submit-btn">
-                <button type="submit" class="expand form-button button [tiny small large]" >Submit</button>  
-              </div>   
-            </div>       
           </form>
           <a class="close-reveal-modal">&#215;</a>
         </div>
-        <!-- END REPLACE IMAGE MODAL -->
+      <!-- END REPLACE IMAGE MODAL -->
 
 </div>
   <script>
@@ -245,7 +224,7 @@
             max=++data;
           }
           $(".addBidPanel").html("");
-          $(".addBidPanel").append("<div id='bids' class='yourbid'><input type='number' name='bidValue' required placeholder='Your Bid' min='"+max+"'/><button type='submit'>Submit</button><button class='alert cBid'>Cancel</button></div>");
+          $(".addBidPanel").append("<div id='bids' class='yourbid'><input class='addBid-input' type='number' name='bidValue' required placeholder='Input your bid' min='"+max+"'/><button class='radius small' type='submit'>Submit</button><button class='alert small radius cBid'>Cancel</button></div>");
         }
       });
     });

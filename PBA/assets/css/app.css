@@ -31,6 +31,14 @@ hr {
 	color: rgba(94, 65, 47, 1) !important;	
 }
 
+.green-text {
+	color: rgb(32, 207, 12);
+}
+
+.shadow {
+	text-shadow: 1px 1px 1px #000000;	
+}
+
 /* NAVBAR ELEMENTS*/
 .top-bar-section ul li > a {
 	font-weight: bold;
@@ -173,12 +181,8 @@ fieldset label {
     margin: 0 auto;    
 }
 
-button.disabled, button[disabled], .button.disabled, .button[disabled] {
-	background-color: rgba(158, 84, 37, 1);
-}
-
-button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-	background-color: rgba(158, 84, 37, 1);
+.bground-brown {
+	background-color: rgba(158, 84, 37, 1) !important;
 }
 
 /* LOGIN */
@@ -321,11 +325,6 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 @media only screen and (max-width: 655px) {}*/
 
 @media only screen and (max-width: 641px) {
-	/* SIGNUP ACCOUNT INFORMATION */
-	.signup-account-info {
-		margin-top: 38px;
-	}
-
 	/* TOPBAR */
 	.top-bar {
 		height: 65px;
@@ -370,12 +369,12 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 
 .slick-slide .prof-prod-img {
-		width: 200px;
-		height: 200px;
-		margin: 5px auto;
+	width: 200px;
+	height: 200px;
+	margin: 5px auto;
 }
 
-h2.product-name {
+h2.user-prof-product-name {
 	margin-top: 90px;	
 }
 
@@ -418,6 +417,11 @@ h2.product-name {
 
 .user-profile-answer-field {
 	margin-bottom: -9px !important;
+}
+
+.other-user-prod-name {
+	margin: 20px 0;
+	text-shadow: 1px 1px 1px #000000;
 }
 
 /* CONTENT HEADER */
@@ -479,7 +483,6 @@ textarea {
 
 #individualProductBid {
 	text-align:center;
-	height:150px;	
 }
 
 
@@ -519,6 +522,14 @@ textarea {
 
 /* BIDDING PAGE */
 
+.addBid-input {
+	margin-bottom: 5px !important;
+}
+
+.bidpage-replace-img {
+	margin-bottom: -28px !important;	
+}
+
 .product-info {
 		color: #ffffff;
 		text-shadow: 2px 2px 2px #000000;
@@ -530,6 +541,11 @@ textarea {
 
 .yourbid {
 	width: 250px;
+}
+
+.bidpage-bidder-img {
+	width: 75px !important;
+	height: 75px !important;
 }
 
 /* TEAMS PAGE */
@@ -627,7 +643,7 @@ ul.pagination li.current a {
 	margin-top: -14px !important;
 }
 
-.panel-orange {
+.panel-orange, .panel-orange:hover, .panel-orange:focus, .panel-orange:visited {
 	border-style: none;
 	background-color: #F07818;
 }
