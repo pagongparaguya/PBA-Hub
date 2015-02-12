@@ -1,4 +1,4 @@
-</div>
+</div><!-- closing tag for the container-->
 <!--- START USER INFO-->
 <div class="page-content">
     <hr class="hr-dotted" />

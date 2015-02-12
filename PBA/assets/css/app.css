@@ -138,18 +138,14 @@ hr {
 }
 
 /*----- PANEL -----*/
-fieldset {
-	margin-bottom: 0;
+fieldset legend {
+	background: none;
+	color: #ffffff;
 }
 
-		fieldset legend {
-			background: none;
-			color: #ffffff;
-		}
-
-		fieldset label {
-			color: #ffffff;
-		}
+fieldset label {
+	color: #ffffff;
+}
 
 /*----- FOOTER -----*/
 .footer { 
