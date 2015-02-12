@@ -19,12 +19,16 @@ h1.user-name {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: rgb(240, 120, 24);
+	color: rgb(240, 120, 24) !important;
 	text-shadow: 2px 2px 2px #000000;
 }
 
 hr {
 	border: 1px dashed rgb(94, 65, 47);
+}
+
+.form-text {
+	color: rgba(94, 65, 47, 1) !important;	
 }
 
 /* NAVBAR ELEMENTS*/
@@ -173,6 +177,14 @@ fieldset {
     margin: 0 auto;    
 }
 
+button.disabled, button[disabled], .button.disabled, .button[disabled] {
+	background-color: rgba(158, 84, 37, 1);
+}
+
+button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
+	background-color: rgba(158, 84, 37, 1);
+}
+
 /* LOGIN */
 .login-wlcm-msg {
 		color: #ffffff;
@@ -237,6 +249,11 @@ fieldset {
 
 	.form-elems label, .reveal-modal label {
 		color: #ffffff;
+		font-weight: bold;
+	}
+
+	.form-notif {
+		color: rgb(236, 21, 21);
 		font-weight: bold;
 	}
 
@@ -352,6 +369,20 @@ fieldset {
 }
 
 /* USER PROFILE PAGE*/
+.secret-question {
+	font-weight: bold;
+}
+
+.slick-slide .prof-prod-img {
+		width: 200px;
+		height: 200px;
+		margin: 5px auto;
+}
+
+h2.product-name {
+	margin-top: 90px;	
+}
+
 .user-profile {
 	max-width: 1024px;	
 	margin-top: 10px;
@@ -383,6 +414,14 @@ fieldset {
 	box-shadow: 1px 1px 5px #000000;
 	margin: 0 0 40px 0;
 	padding: 20px 0 0 0 !important;
+}
+
+.verify-btn {
+	margin-top: 9px;
+}
+
+.user-profile-answer-field {
+	margin-bottom: -9px !important;
 }
 
 /* CONTENT HEADER */
@@ -468,16 +507,8 @@ textarea {
 	margin: 0 auto;
 }
 
-/*-- User Profile page --*/
-.slick-slide .prof-prod-img {
-		width: 200px;
-		height: 200px;
-		margin: 5px auto;
-}
-
-h2.product-name {
-	color: #009aff !important;
-	margin-top: 90px;	
+.product-age-cat {
+	margin-left: -10px;
 }
 
 /*-- User Elements on a product page --*/
@@ -524,7 +555,6 @@ h2.product-name {
 }
 
 /* PROFILE PAGES */
-
 .profile-page p {
 	font-size: 110%;
 }
@@ -580,7 +610,9 @@ ul.pagination li.current a {
 /* MODAL ELEMENTS */
 .reveal-modal {
 	position: absolute;
+	top: 100px !important;
 	z-index: 999999;
+	min-height: 10px;
 }
 
 	.reveal-modal label {
@@ -602,6 +634,10 @@ ul.pagination li.current a {
 .panel-orange {
 	border-style: none;
 	background-color: #F07818;
+}
+
+.choose-img-panel {
+	padding: 5px;
 }
 
 label span {
