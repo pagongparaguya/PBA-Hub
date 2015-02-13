@@ -294,7 +294,7 @@ $(document).ready(function(){
   });
 
   $("#productPanel").on('click','.deleteProduct',function(){
-    $("#delProdName").text($(this).parent().siblings(".product-name").text());
+    $("#delProdName").text($(this).parent().siblings(".user-prof-product-name").text());
     $("#prodIdModal").val($(this).parent().siblings(".prod_id").val());
   });
 

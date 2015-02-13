@@ -70,6 +70,7 @@ class Auction_controller extends CI_Controller{
 				}else{
 					$img=array($cname=>"http://localhost/PBA/assets/product_images/sample.jpg");
 				}
+				echo "<script>alert('"+$product->$cname+"')</script>";
 				$this->deleteFile(str_replace("http://localhost/PBA/assets/product_images/", '',$product->$cname));
 				$this->auction_model->insertImage($img,$prodid);
 				echo "<script>window.location='".base_url()."auction_controller/view_product/".$prodid."'</script>";
