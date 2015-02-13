@@ -53,24 +53,18 @@
 <!--- END MODAL FOR CODE -->
 <!--- MODAL FOR FORGOT PASSWORD -->
 <div id="forgotModal" class="reveal-modal medium" data-reveal>
-  <div class="small-12 small-centered medium-12 medium-centered large-8 large-centered columns text-center">    
-    <form action="<?php echo base_url();?>account_controller/forgot_password" method="post">
-            
-            <h2>Password Resend</h2>
-            <hr class="hr-dotted">
-            <center><span style="color:red;" id="notif"></span></center>
-            <?php if(!empty($message)): ?>
-                <div data-alert class="alert-box alert login-error">
-                  <?php echo $message;?>
-                  <a href="#" class="close">&times;</a>
-                </div>
-            <?php endif; ?> 
+  <div class="small-12 small-centered medium-12 medium-centered large-8 large-centered columns">    
+        <center> 
+          <fieldset>
+            <legend><h2>Password Resend</h2></legend>
             <label for="email">Email address</label>            
-            <input class="email-input" type="email" name="email" id="email" maxlength="50" required aria-label="Email Address" />
-            <div class="forgot-btn">
-              <button id="forgotButton" class="expand button [tiny small large]">Send new password</button>
-            </div>          
-    </form>  
+            <input type="text" name="email" id="email" maxlength="50" pattern="" required aria-label="Email Address" />
+            <small class="error" id="notif"></small>
+          </fieldset>
+        </center>
+        <div class="forgot-btn input-topmargin-small">
+          <button id="forgotButton" class="expand button [tiny small large]">Send new password</button>
+        </div>          
   </div>
   <a class="close-reveal-modal">&#215;</a>
 </div>
@@ -82,6 +76,28 @@ $(document).ready(function(){
       $('#myModal').foundation('reveal', 'open');
     });
   <?php }?>
+
+  $(".fget-pword").click(function(){
+    $("#notif").attr("style","display:none;");
+    $("#email").val("");
+  });
+
+  $("#forgotButton").click(function(){
+    $("#notif").removeAttr("style");
+    if($(this).parent().siblings().find("#email").val()!=""){
+      $("#notif").html("Please Wait. Checking ~");
+      $.ajax({
+        url:'<?php echo base_url();?>account_controller/forgot_password',
+        type:'post',
+        data:{'email':$(this).parent().siblings().find("#email").val()},
+        success:function(data,status){
+          $("#notif").text(data);
+        }
+      });
+    }else{
+      $("#notif").html("Please Input Valid Email Address.");
+    }
+  });
 });
 </script>
 <!--- END MODAL FOR CODE -->

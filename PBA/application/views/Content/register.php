@@ -17,7 +17,7 @@
                         </label>    
                         <label>
                             Contact number
-                        <input class="text-center" type="text" name="contact" <?php if(!empty($contact)){?>value="<?php echo $contact?>" <?php } ?> aria-label="contact Number" required maxlength="11" pattern="[0][9][0-9]{9}" title="11 Characters"/>
+                        <input class="text-center" type="text" name="contact" <?php if(!empty($contact)){?>value="<?php echo $contact?>" <?php } ?> aria-label="contact Number" required maxlength="11" pattern="[0][9][0-9]{9}" title="11 Characters in 09********* format"/>
                         </label>
                         <label>
                             Email address
@@ -30,7 +30,7 @@
                         <label>
                             Birthday
                             <div class="panel panel-orange">
-                                <input class="text-center" type="date" name="birthday" class="span2" <?php if(!empty($birthday)){?>value="<?php echo $birthday?>" <?php } ?> placeholder="mm-dd-yyyy" id="dp1" />
+                                <input id="date" class="text-center" type="date" name="birthday" class="span2" <?php if(!empty($birthday)){?>value="<?php echo $birthday?>" <?php } ?> required placeholder="mm-dd-yyyy" id="dp1" />
                             </div>
                         </label>
 
@@ -41,13 +41,13 @@
                             <option value="Who is your favorite PBA team?">Which is your favorite PBA team?</option>
                             <option value="Who is your favorite PBA coach?">Who is your favorite PBA coach?</option>
                           </select>
-                          <input class="text-center input-topmargin-small" type="text" name="answer" placeholder="Answer to question" <?php if(!empty($answer)){?>value="<?php echo $answer?>" <?php } ?> aria-label="Answer to Question" required maxlength="20"/>
+                          <input class="text-center secret-answer" type="text" name="answer" placeholder="Answer to question" <?php if(!empty($answer)){?>value="<?php echo $answer?>" <?php } ?> aria-label="Answer to Question" required maxlength="20"/>
                         </label>
                         
                         <label>
                             Choose profile photo <span>(accepted file formats: jpeg/jpg/png)</span>
                             <div class="panel panel-orange">
-                                <input class="text-center" type="file" name="userfile" value="Upload Photo" />
+                                <input class="text-center" type="file" name="userfile" accept="image/jpg, image/jpeg, image/png" value="Upload Photo" />
                             </div>
                         </label>
                     </div>
@@ -69,14 +69,14 @@
                         </label>
                         <label>
                             Captcha code
-                            <input class="text-center" type="text" name="captcha" id="captcha" placeholder="Input code below" aria-label="Input code below" required maxlength="6"/>
+                            <input class="text-center" type="text" name="captcha" id="captcha" placeholder="Input code below" aria-label="Input code below" required maxlength="6" pattern=".{6}" title="6 Characters"/>
                             <div class="input-topmargin-small captcha-img"><?php echo $image;?></div>
                         </label>
                     </div>
                     <hr class="hr-dotted" />
                     <div class="small-12 medium-12 large-12 columns">
                         <div class="small-12 medium-6 medium-centered large-6 large-centered columns">  
-                                <button type="submit" class="expand form-button button [tiny small large]">Submit</button>  
+                                <button type="submit" class="expand form-button button [tiny small large]" id="1">Submit</button>  
                         </div>
                     </div>                               
             </fieldset>                            
@@ -84,27 +84,35 @@
 </div>      
 <script>
 $(document).ready(function(){
-    $('.submit-btn').click(function(event){
-    var captcha="<?php echo $this->session->userdata('captcha')?>";
+    $('#1').click(function(event){
+        var todaysDate = new Date();
+        formatDate = (todaysDate.getFullYear() -18) + '-' + 
+                         (todaysDate.getMonth() + 1) + '-' + 
+                         todaysDate.getDate();
+        var captcha="<?php echo $this->session->userdata('captcha')?>";
         if($('#captcha').val()!=captcha && $('#pass').val()!=$('#cpass').val()){
-            alert("Password/Confirm Password and Captcha Doesn't Match");
+            alert("Password/confirm password and Captcha code don't match");
             event.preventDefault();
         }else if($('#pass').val()!=$('#cpass').val()){
-            alert("Password/Confirm Password Doesn't Match");
+            alert("Password/confirm password don't match");
             event.preventDefault();
         }else if($('#captcha').val()!=captcha){
-            alert("Captcha Doesn't Match");
+            alert("Captcha code does not match the image");
             event.preventDefault();
+        }else if(formatDate<$('#date').val()){
+            alert("You must be atleast 18 years old to register");
+            event.preventDefault();
+        }else{
+            $( "#reg" ).validate({
+                rules: {
+                    field: {
+                        required: true,
+                        accept: "image/png, image/jpg, image/jpeg"
+                    }
+                }
+            });
         }
-    }); 
-    
-    $( "#reg" ).validate({
-+          rules: {
-+            field: {
-+              required: true,
-+              accept: "image/png, image/jpg, image/jpeg"
-+            }
-+   }
+    });     
 });
 </script>
 <!--- END OF FORMS -->

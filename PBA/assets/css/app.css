@@ -675,6 +675,10 @@ input[type="file"] {
 	margin: 0 0 10px 0;
 }
 
+.secret-answer {
+	margin-top: 10px; 
+}
+
 /* PLAYERS/COACHES PAGE */
 .pages-elem-img {
 		margin: 10px auto;
