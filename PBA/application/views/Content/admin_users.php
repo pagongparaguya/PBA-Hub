@@ -26,7 +26,7 @@
   <hr class="hr-dotted" />
   <div>
     <form action="<?php echo base_url();?>account_controller/edit_otherUser" method="post">
-      <input type="hidden" name="user" id="user" value="" />
+      <input type="text" name="user" id="user" value="" />
       <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
         <li>  
           <label>
@@ -58,7 +58,7 @@
 $(document).ready(function(){
   var users="";
   <?php foreach($users as $users):?>
-    users+="<tr><td class='text-center username' onclick=\"window.location ='<?php echo base_url().'account_controller/view_otherUser/'.$users->USER_ID;?>'\"><img class='admin-page-img' src='<?php echo $users->USER_IMAGE;?>'/><br/><?php echo $users->FIRST_NAME.' '.$users->LAST_NAME;?></td><td class='text-center'><?php echo $users->USERNAME;?></td><td class='text-center aType'><?php echo $users->ACCOUNT_TYPE;?></td><td class='text-center aStatus'><?php echo $users->STATUS;?></td><td class='text-center'><?php echo $users->EMAIL_ADDRESS;?></td><td class='text-center'><?php echo $users->CONTACT_NUMBER;?></td><td class='text-center'><button class='button tiny edit form-button' data-reveal-id='adminModal'>Update</button></td></tr>";
+    users+="<tr><td class='text-center username' onclick=\"window.location ='<?php echo base_url().'account_controller/view_otherUser/'.$users->USER_ID;?>'\"><img class='admin-page-img' src='<?php echo $users->USER_IMAGE;?>'/><br/><?php echo $users->FIRST_NAME.' '.$users->LAST_NAME;?></td><td class='text-center username1'><?php echo $users->USERNAME;?></td><td class='text-center aType'><?php echo $users->ACCOUNT_TYPE;?></td><td class='text-center aStatus'><?php echo $users->STATUS;?></td><td class='text-center'><?php echo $users->EMAIL_ADDRESS;?></td><td class='text-center'><?php echo $users->CONTACT_NUMBER;?></td><td class='text-center'><button class='button tiny edit form-button' data-reveal-id='adminModal'>Update</button></td></tr>";
   <?php endforeach;?>
   $("#tbody").append(users);
   $('#searchTable').dataTable({
@@ -75,7 +75,8 @@ $(document).ready(function(){
   });
 
   $("#tbody").on('click','.edit',function(){
-    var name = $(this).parent().siblings(".username").text();
+    $("#adminModal").focus();
+    var name = $(this).parent().siblings(".username1").text();
     var type = $(this).parent().siblings(".aType").text();
     var status = $(this).parent().siblings(".aStatus").text();
     $('#user').val(name);

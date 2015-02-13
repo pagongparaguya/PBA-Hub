@@ -256,7 +256,7 @@
 <!--- END ADD PRODUCT -->
 
 <!--- START QUESTON USER DELETE PRODUCT-->
-<div id="deleteProdModal" class="reveal-modal small text-center" data-reveal>
+<div id="deleteProdModal" class="reveal-modal small text-center lower-bid-modal" data-reveal>
   <input type="hidden" name="prodIdModal" id="prodIdModal"/>
   <p>Are you sure you want to delete <strong id="delProdName"></strong>?</p> 
   <button id="yesButton" class="button small">Yes</button>
