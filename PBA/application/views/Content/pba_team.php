@@ -39,14 +39,18 @@
         <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
           <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2 profile-elem-content text-center">              
               <li>
-                  <img class="frame" src="<?php echo base_url().'assets/img/team/'.$info->TEAM_LOGO;?>" alt="<?php echo $info->TEAM_NAME;?>-photo"/>
+                  <img class="frame" src="<?php echo base_url().'assets/img/team/'.$info->TEAM_LOGO;?>" alt="<?php echo $info-
+
+>TEAM_NAME;?>-photo"/>
                   <h1><?php echo $info->TEAM_NAME;?></h1>
               </li>
               <li class="profile-elem-right-content">
                     <p><strong>Year started</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_YEARSTARTED;?></p>
                     <p id="currentCoach"><strong>Latest head coach</strong> <span class="profile-elem-bar">|</span> </p>
                     <p><strong>Career wins</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_CAREERWINS;?></p>
-                    <p><strong>Career losses</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_CAREERLOSSES;?></p>
+                    <p><strong>Career losses</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_CAREERLOSSES;?
+
+></p>
               </li>
           </ul>
         </div>
@@ -56,7 +60,9 @@
     <!--- START OF HISTORY CONTENT -->
        <div class="row">
           <div class="small-12 columns header history-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img"  src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>History</span>
             </h2>
@@ -72,7 +78,9 @@
     <!--- START TEAM ACHIEVEMENTS-->
       <div class="row">
           <div class="small-12 columns header achievement-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Achievements</span>
             </h2>
@@ -81,11 +89,17 @@
       <div class="row row-content achievement-team" style="display:none;">
         <div class="small-11 small-centered medium-11 medium-centered large-11 large-centered columns">
           <div class="small-11 small-centered medium-11 medium-centered large-11 large-centered text-center profile-page">
-                <p><strong>Number of playoffs appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_PLAYOFF_APPEAR?></p>
-                <p><strong>Number of finals appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_FINALS_APPEAR;?></p>
+                <p><strong>Number of playoffs appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info-
+
+>TEAM_PLAYOFF_APPEAR?></p>
+                <p><strong>Number of finals appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info-
+
+>TEAM_FINALS_APPEAR;?></p>
     
                 <?php if(!empty($champ)){?>
-                  <strong><span class="profile-elem-bar">|</span> <strong>Championships won</strong> <span class="profile-elem-bar">|</span></strong>
+                  <strong><span class="profile-elem-bar">|</span> <strong>Championships won</strong> <span class="profile-elem-bar">|
+
+</span></strong>
                 <?php }?>
                 
                 <?php foreach($champ as $champ):?>
@@ -100,7 +114,9 @@
     <!--- START TEAM CURRENT PLAYERS-->
       <div class="row">
           <div class="small-12 columns header currentplayers-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Current Players</span>
             </h2>
@@ -117,7 +133,9 @@
     <!--- START TEAM PAST PLAYERS-->
       <div class="row">
           <div class="small-12 columns header pastplayers-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Past Players</span>
             </h2>
@@ -134,7 +152,9 @@
     <!--- START TEAM NOTABLE PLAYERS-->
       <div class="row">
           <div class="small-12 columns header notableplayers-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Notable Players</span>
             </h2>
@@ -151,7 +171,9 @@
     <!--- START TEAM NOTABLE PLAYERS-->
       <div class="row">
           <div class="small-12 columns header pastcoach-block">
-            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to view my content, press me again to hide my content.">
+            <h2 class="header-content has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me 
+
+to view my content, press me again to hide my content.">
               <img class="header-content-img" src="<?php echo base_url();?>assets/img/basketball.png" alt="basketball" />
               <span>Past Head Coaches</span>
             </h2>
@@ -173,18 +195,18 @@ $(document).ready(function(){
   var coach="";
   var coachID="";
   var pastCoaches="";
-	$(".history-block").click(function(){
-		$(".history-team").slideToggle(1500);
-	});
+  $(".history-block").click(function(){
+    $(".history-team").slideToggle(1500);
+  });
   $(".achievement-block").click(function(){
     $(".achievement-team").slideToggle(1500);
   });
-	$(".currentplayers-block").click(function(){
-		$(".currentplayers-team").slideToggle(1500);
-	});
-	$(".pastplayers-block").click(function(){
-		$(".pastplayers-team").slideToggle(1500);
-	});
+  $(".currentplayers-block").click(function(){
+    $(".currentplayers-team").slideToggle(1500);
+  });
+  $(".pastplayers-block").click(function(){
+    $(".pastplayers-team").slideToggle(1500);
+  });
   $(".notableplayers-block").click(function(){
     $(".notableplayers-team").slideToggle(1500);
   });
@@ -196,11 +218,29 @@ $(document).ready(function(){
   <?php foreach($player_bridge as $player_bridge):?>
   <?php $teamplayer=$this->page_model->get_playerInfo($player_bridge->PLAYER_ID);?>
     <?php if($player_bridge->TYPE=='PRESENT'){?>
-      present+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-img" src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR,'-PRESENT';?></span></li>';
+      present+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-
+
+img" src="<?php echo base_url().'assets/img/player/'.$teamplayer->PLAYER_PORTRAIT_PHOTO;?>" width="200" height="200" alt="past 
+
+team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge-
+
+>YEAR,'-PRESENT';?></span></li>';
     <?php }else if($player_bridge->TYPE=='PAST'){?>
-      past+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-img" src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR;?></span></li>';
+      past+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-img" 
+
+src="<?php echo base_url().'assets/img/player/'.$teamplayer->PLAYER_PORTRAIT_PHOTO;?>" width="200" height="200" alt="past 
+
+team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge-
+
+>YEAR;?></span></li>';
     <?php }else if($player_bridge->TYPE=='NOTABLE'){?>
-      notable+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-img" src="<?php echo base_url().'assets/img/player/'.$player_bridge->PLAYER_ID;?>.jpg" width="200" height="200" alt="past team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge->YEAR;?></span></li>';
+      notable+='<li><a href="<?php echo base_url().'pages_controller/view_player/'.$player_bridge->PLAYER_ID;?>"><img class="profile-elem-
+
+img" src="<?php echo base_url().'assets/img/player/'.$teamplayer->PLAYER_PORTRAIT_PHOTO;?>" width="200" height="200" alt="past 
+
+team"/></a><header class="team-name"><?php echo $teamplayer->PLAYER_FULLNAME;?></header><span><?php echo $player_bridge-
+
+>YEAR;?></span></li>';
     <?php }?>
   <?php endforeach;?>
 
@@ -211,8 +251,14 @@ $(document).ready(function(){
         coach='<strong><a href="<?php echo base_url();?>pages_controller/view_coach/'+coachID+'">'+data+'</a></strong>';
         $("#currentCoach").append(coach);
       });
-    <?php }else{?>
-      pastCoaches+='<li><a href="<?php echo base_url().'pages_controller/view_coach/'.$coach_bridge->COACH_ID;?>"><img class="profile-elem-img" src="<?php echo base_url().'assets/img/coach/'.$coach_bridge->COACH_ID;?>.jpg" alt="past team"/></a><header class="team-name"><?php echo $coach_bridge->YEAR;?></header></li>';
+    <?php }else{
+      $coachInfo=$this->page_model->get_coachInfo($coach_bridge->COACH_ID);
+      ?>
+      pastCoaches+='<li><a href="<?php echo base_url().'pages_controller/view_coach/'.$coach_bridge->COACH_ID;?>"><img class="profile-
+
+elem-img" src="<?php echo base_url().'assets/img/coach/'.$coachInfo->COACH_PORTRAIT_PHOTO;?>" alt="past team"/></a><header 
+
+class="team-name"><?php echo $coachInfo->COACH_FULLNAME;?></header><span><?php echo $coach_bridge->YEAR;?></span></li>';
     <?php }?>
   <?php endforeach;?>
 

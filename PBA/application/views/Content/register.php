@@ -122,7 +122,12 @@ $(document).ready(function(){
                         required: true,
                         accept: "image/png, image/jpg, image/jpeg"
                     }
-                }
+                },
+                messages:{
+                    userfile: { 
+                      accept: "Only accepts png / jpg / jpeg files"
+                    }
+                } 
             });
         }
     });     

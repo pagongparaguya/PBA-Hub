@@ -233,11 +233,11 @@
                         </div>
                         <label>
                             5 product images <span>(only accepts jpeg/jpg/png files)</span>                  
-                                <input type="file" name="userfile[] test1"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>
-                                <input type="file" name="userfile[] test2"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>
-                                <input type="file" name="userfile[] test3"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>
-                                <input type="file" name="userfile[] test4"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>
-                                <input type="file" name="userfile[] test5"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>
+                                <input id="test1" type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel mfile1"/>
+                                <input id="test2" type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel mfile2"/>
+                                <input id="test3" type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel mfile"/>
+                                <input id="test4" type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel mfile"/>
+                                <input id="test5" type="file" name="userfile[]"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel mfile"/>
                         </label>
                     </div>
                   </li>
@@ -324,22 +324,16 @@ $(document).ready(function(){
   $(".add-btn").click(function(){
     $( "#aprod" ).validate({
       rules: {
-        test1: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test2:{
-          accept:"image/png, image/jpg, image/jpeg"
-        },
-        test3: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test4: {
-          accept: "image/png, image/jpg, image/jpeg"
-        },
-        test5: {
+        "userfile[]": { 
           accept: "image/png, image/jpg, image/jpeg"
         }
-      }
+      },
+
+      messages:{
+        "userfile[]": { 
+          accept: "Only accepts png / jpg / jpeg files"
+        }
+      } 
     });
   });
 
@@ -349,7 +343,12 @@ $(document).ready(function(){
         required: true,
         accept: "image/png, image/jpg, image/jpeg"
       }
-    }
+    },
+    messages:{
+      userfile: { 
+        accept: "Only accepts png / jpg / jpeg files"
+      }
+    } 
   });
 
 });
