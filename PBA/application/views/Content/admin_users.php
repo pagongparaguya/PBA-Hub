@@ -21,7 +21,7 @@
   </div>
 </div>  
 <!--Admin Modal-->
-<div id="adminModal" class="reveal-modal small" data-reveal>
+<div id="adminModal" class="reveal-modal small lower-bid-modal" data-reveal>
   <h2 id="name"></h2>
   <hr class="hr-dotted" />
   <div>

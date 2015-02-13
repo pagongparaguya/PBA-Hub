@@ -630,8 +630,7 @@ ul.pagination li.current a {
 }
 
 .lower-bid-modal {
-	position: absolute !important; 
-	top: 564px !important;
+	position: fixed !important; 
 }
 
 	.reveal-modal label {
