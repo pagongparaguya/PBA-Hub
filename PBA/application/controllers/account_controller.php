@@ -405,21 +405,32 @@ class Account_controller extends CI_Controller{
 		return $img['image'];
 	}
 
+	public function refresh_captcha(){
+		$random=strtoupper(random_string('alnum',6));
+		$captcha=array(
+						'word'=>$random,
+						'img_path'=>'./assets/captcha/',
+						'img_url'=>base_url().'assets/captcha/',
+						'font_path'=>'./assets/font/Blueberry-Pie.ttf',
+						'img_width'=>'200',
+						'img_height'=>'80',
+						'expiration'=>'3600');
+		$img=create_captcha($captcha);
+		print $img['image']."%".$img['word'];
+	}
+
 	public function forgot_password(){
 		if($this->input->post('email')){
 			$res=$this->account_model->get_user3($this->input->post('email'));
 			if(empty($res)){
-				echo "<script>alert('Email address does not exist. Please try again.');</script>";
+				print "Email address does not exist. Please try again!";
 			}else{
 				$pass=random_string('alnum',6);
 				$this->sendPassword($this->input->post('email'),$pass);
 				$data=array('PASSWORD'=>do_hash($pass,'md5'));
 				$this->account_model->update_user($res->USERNAME,$data);
-				echo "<script>alert('Email Sent!');</script>";
+				print "Email Sent to ".$this->input->post('email')."!";
 			}
-			echo "<script>window.location='".base_url()."account_controller/view_login'</script>";
-		}else{
-			redirect('account_controller/view_login');
 		}
 	}
 

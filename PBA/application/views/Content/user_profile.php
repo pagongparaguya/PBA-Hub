@@ -306,7 +306,7 @@ $(document).ready(function(){
     $.ajax({
       url:'<?php echo base_url();?>auction_controller/delProduct/',
       type:'post',
-      data:{'id':$(this).parent().siblings("#prodIdModal").val()},
+      data:{'id':$(this).siblings("#prodIdModal").val()},
       success:function(data,status){
         alert(data);
         window.location.reload(true);

@@ -70,7 +70,8 @@
                         <label>
                             Captcha code
                             <input class="text-center" type="text" name="captcha" id="captcha" placeholder="Input code below" aria-label="Input code below" required maxlength="6" pattern=".{6}" title="6 Characters"/>
-                            <div class="input-topmargin-small captcha-img"><?php echo $image;?></div>
+                            <br/>
+                            <div class="input-topmargin-small captcha-img"><?php echo $image;?></div><img id="refresh" src="<?php echo base_url();?>assets/img/refresh.png" width="100" height="80"/>
                         </label>
                     </div>
                     <hr class="hr-dotted" />
@@ -84,12 +85,24 @@
 </div>      
 <script>
 $(document).ready(function(){
+    var captcha="<?php echo $this->session->userdata('captcha')?>";
+
+    $("#refresh").click(function(){
+        $.ajax({
+            url:'<?php echo base_url();?>account_controller/refresh_captcha',
+            success:function(data,status){
+                var res=data.split("%");
+                $(".captcha-img").html(res[0]);
+                captcha=res[1];
+            }
+        });
+    });
+
     $('#1').click(function(event){
         var todaysDate = new Date();
         formatDate = (todaysDate.getFullYear() -18) + '-' + 
                          (todaysDate.getMonth() + 1) + '-' + 
                          todaysDate.getDate();
-        var captcha="<?php echo $this->session->userdata('captcha')?>";
         if($('#captcha').val()!=captcha && $('#pass').val()!=$('#cpass').val()){
             alert("Password/confirm password and Captcha code don't match");
             event.preventDefault();

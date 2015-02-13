@@ -6,14 +6,18 @@
               <div class="form-elems">
                 <h4 class="login-wlcm-msg">Welcome to <span>PBA Hub</span></h4>
                 <hr />   
-                  
-                <?php if(!empty($message)): ?>
+                <?php if(!empty($message)){
+                        if(strpos($message,'Successfully')===false){?>
                   <div data-alert class="alert-box alert login-error">
                     <?php echo $message;?>
                     <a href="#" class="close">&times;</a>
                   </div>
-                <?php endif; ?>
-
+                <?php }else{?>
+                  <div data-alert class="alert-box success radius">
+                    <?php echo $message;?>
+                    <a href="#" class="close">&times;</a>
+                  </div>
+                <?php }}?>
                 <label for="username">Username</label>
                 <input class="text-center" id="username" class="login-input-flds" type="text" name="user" aria-label="Username" required pattern=".{4,20}" title="4 to 20 Characters" maxlength="20" />
                 
@@ -62,7 +66,7 @@
             <small class="error" id="notif"></small>
           </fieldset>
         </center>
-        <div class="forgot-btn input-topmargin-small">
+        <div class="forgot-btn">
           <button id="forgotButton" class="expand button [tiny small large]">Send new password</button>
         </div>          
   </div>
@@ -83,6 +87,7 @@ $(document).ready(function(){
   });
 
   $("#forgotButton").click(function(){
+    alert($(this).parent().siblings().find("#email").val());
     $("#notif").removeAttr("style");
     if($(this).parent().siblings().find("#email").val()!=""){
       $("#notif").html("Please Wait. Checking ~");
