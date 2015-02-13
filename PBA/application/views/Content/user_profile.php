@@ -1,4 +1,4 @@
-</div><!-- closing tag for the container-->
+</div>
 <!--- START USER INFO-->
 <div class="page-content">
     <hr class="hr-dotted" />
@@ -43,14 +43,14 @@
               <div class="product-element">
                 <img class="profile-elem-img" src="<?php echo $product->IMAGE1;?>" />
               </div>
-              <h2 class="product-name">
+              <h4 class="user-prof-product-name">
                 <?php
                   $append="";
                   if(strlen($product->PROD_NAME)>25){
                     $append="...";
                   }
                 echo substr($product->PROD_NAME, 0,20).$append;?>
-              </h2>
+              </h4>
               <button class="button small disabled radius"><strong>Starting bid</strong> <span class="profile-elem-bar">|</span> <?php echo $product->START_BID;?></button>
               <?php if($product->PROD_STAT=='Closed'){?>
                <button class="button radius alert disabled"><strong>Status</strong> <span class="profile-elem-bar">|</span> <?php echo $product->PROD_STAT;?></button>
@@ -222,16 +222,15 @@
                               </ul>
                           </label>
                         </div>
-
+                  </li>
+                  <li class="text-center">                    
+                    <div class="small-12 medium-12 large-12 columns">
                         <div class="small-8 small-centered medium-8 medium-centered large-8 large-centered columns">
                           <label>
                             Starting bid      
                             <input type="number" name="pbid" required min="1"/>
                           </label>
                         </div>
-                  </li>
-                  <li class="text-center">                    
-                    <div class="small-12 medium-12 large-12 columns">
                         <label>
                             5 product images <span>(only accepts jpeg/jpg/png files)</span>                  
                                 <input type="file" name="userfile[] test1"  accept="image/jpg, image/jpeg, image/png" class="panel-orange choose-img-panel"/>

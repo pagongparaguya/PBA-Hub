@@ -53,11 +53,11 @@
 <!--- END MODAL FOR CODE -->
 <!--- MODAL FOR FORGOT PASSWORD -->
 <div id="forgotModal" class="reveal-modal medium" data-reveal>
-  <div class="small-12 small-centered medium-12 medium-centered large-8 large-centered columns">    
+  <div class="small-12 small-centered medium-12 medium-centered large-8 large-centered columns text-center">    
     <form action="<?php echo base_url();?>account_controller/forgot_password" method="post">
-        <center> 
-          <fieldset>
-            <legend><h2>Password Resend</h2></legend> 
+            
+            <h2>Password Resend</h2>
+            <hr class="hr-dotted">
             <center><span style="color:red;" id="notif"></span></center>
             <?php if(!empty($message)): ?>
                 <div data-alert class="alert-box alert login-error">
@@ -66,16 +66,10 @@
                 </div>
             <?php endif; ?> 
             <label for="email">Email address</label>            
-            <input type="email" name="email" id="email" maxlength="50" required aria-label="Email Address" />
-            
-                <small class="error">Sorry the email address does not exist.<?php echo $message;?></small>
-            
-            
-          </fieldset>
-        </center>
-        <div class="forgot-btn">
-          <button id="forgotButton" class="expand button [tiny small large]">Send new password</button>
-        </div>          
+            <input class="email-input" type="email" name="email" id="email" maxlength="50" required aria-label="Email Address" />
+            <div class="forgot-btn">
+              <button id="forgotButton" class="expand button [tiny small large]">Send new password</button>
+            </div>          
     </form>  
   </div>
   <a class="close-reveal-modal">&#215;</a>

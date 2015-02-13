@@ -166,7 +166,7 @@
       <!--- END QUESTION CHANGE CLOSED STATUS PRODUCT-->
     
       <!--- START QUESTON DELETE BID-->
-      <div id="deleteBidModal" class="reveal-modal small" data-reveal>
+      <div id="deleteBidModal" class="reveal-modal small lower-bid-modal" data-reveal>
         <div class="small-12 medium-12 large-12 columns text-center">
           <input type="hidden" name="bidId" id="bidId"/>
             <span>Cancel bid worth <strong id="bidName"></strong>?</span> 

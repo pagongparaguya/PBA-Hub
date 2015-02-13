@@ -8,9 +8,9 @@
           <thead>
           <tr>
             <th class="hide">ID</th>
-            <th class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle between sorting of product names in ascending/descending order" width="35%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>PRODUCT</span></th>
-            <th class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle between sorting of product statuses from pending -> closed / closed -> pending" width="35%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>PRODUCT STATUS</span></th>
-            <th class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle between sorting of product bids in ascending/descending order" width="30%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>STARTING BID</span></th>
+            <th class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle the sorting of product names in ascending or descending order" width="35%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>PRODUCT</span></th>
+            <th class="table-header text-center" width="35%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>PRODUCT STATUS</span></th>
+            <th class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle the sorting of product bids in ascending or descending order" width="30%"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>STARTING BID</span></th>
           </tr>
           </thead>
           <tbody id="tbody">
@@ -26,7 +26,13 @@ $(document).ready(function(){
   <?php endforeach;?>
   $("#tbody").append(prod);
   $('#searchTable').dataTable({
-    "order": [ 0, 'desc' ]
+    "order": [ 0, 'desc' ],
+    "aoColumns": [
+      null,
+      null,
+      { "bSortable": false },
+      null
+    ]
   });
 });
 </script>

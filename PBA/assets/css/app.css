@@ -40,6 +40,10 @@ hr {
 }
 
 /* NAVBAR ELEMENTS*/
+.top-bar {
+	height: 65px !important;
+}
+
 .top-bar-section ul li > a {
 	font-weight: bold;
 }
@@ -233,6 +237,14 @@ fieldset label {
 	margin: 20px 0 0;
 }
 
+.forgot-btn {
+	margin-top: -9px !important;
+}
+
+ .email-input {
+	margin-bottom: 9px !important;
+ }
+
 .submit-btn {
 		margin: 20px auto 20px auto;
 }
@@ -318,18 +330,8 @@ fieldset label {
 }
 
 /* NAVBAR BREAKPOINT */
-/*.top-bar-js-breakpoint {
-	width: 655px! important;
-}
-  Specific Breakpoint Topbar That You can customize 
-@media only screen and (max-width: 655px) {}*/
 
 @media only screen and (max-width: 641px) {
-	/* TOPBAR */
-	.top-bar {
-		height: 65px;
-	}
-
 	.top-bar.expanded .title-area {
       background: none !important; 
   	  border-bottom: 1px solid rgb(240, 120, 24);
@@ -625,6 +627,11 @@ ul.pagination li.current a {
 	top: 100px !important;
 	z-index: 999999;
 	min-height: 10px;
+}
+
+.lower-bid-modal {
+	position: absolute !important; 
+	top: 564px !important;
 }
 
 	.reveal-modal label {

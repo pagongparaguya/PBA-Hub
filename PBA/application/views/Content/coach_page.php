@@ -7,8 +7,8 @@
         <table id="searchTable" class="display" cellspacing="0" width="100%">
           <thead>
           <tr>
-            <th width="50%" style="text-align: center;" class="table-header"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>COACH</span></th>
-            <th width="50%" style="text-align: center;" class="table-header"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>TEAM</span></th>
+            <th width="50%" class="table-header text-center has-tip tip-top radius" data-options="disable_for_touch:true" data-tooltip aria-haspopup="true" title="Press me to toggle the sorting of coach names in ascending or descending order"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>COACH</span></th>
+            <th width="50%" class="table-header text-center"><img src="<?php echo base_url();?>/assets/img/basketball.png" /><span>TEAM</span></th>
           </tr>
           </thead>
           <tbody id="tbody">
@@ -27,7 +27,12 @@ $(document).ready(function(){
   <?php endforeach;?>
   $("#tbody").append(cur);
   $('#searchTable').dataTable({
-    "order": [ 0, 'asc' ]
+    "order": [ 0, 'asc' ], 
+    "aoColumns":
+    [
+      null,
+      { "bSortable": false }
+    ]
   });
 });
 </script>
