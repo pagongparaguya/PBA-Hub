@@ -188,7 +188,7 @@
                 <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-1">
                   <li class="user-profile-answer-field">
                     <label class="bidpage-replace-img">
-                      Select an image <span>(png/jpg/jpeg)</span>
+                      Select an image <span>(accepted file formats: jpeg/jpg/png)</span>
                       <input type="file" name="userfile" accept="image/jpg, image/jpeg, image/png" class="panel-orange form-button button small"/>
                     </label>
                   </li>
@@ -363,7 +363,12 @@
           required: true,
           accept: "image/png, image/jpg, image/jpeg"
         }
-      }
+      },
+      messages:{
+        userfile: { 
+          accept: "Only accepts png / jpg / jpeg files"
+        }
+      } 
     });
 
     $("#r1").click(function(){
