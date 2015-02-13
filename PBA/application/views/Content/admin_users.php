@@ -75,7 +75,6 @@ $(document).ready(function(){
   });
 
   $("#tbody").on('click','.edit',function(){
-    $("#adminModal").focus();
     var name = $(this).parent().siblings(".username1").text();
     var type = $(this).parent().siblings(".aType").text();
     var status = $(this).parent().siblings(".aStatus").text();
