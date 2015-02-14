@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2015 at 04:53 PM
+-- Generation Time: Feb 14, 2015 at 06:08 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `TIMESTAMP` datetime NOT NULL,
   PRIMARY KEY (`NOTI_ID`),
   UNIQUE KEY `NOTI_ID` (`NOTI_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `notification`
@@ -165,7 +165,15 @@ INSERT INTO `notification` (`NOTI_ID`, `USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUE
 (4, 'Sam1', 'The product ''Adidas Shoes '' auction finished but your bid is not the highest.', '2015-01-24 19:58:59'),
 (5, 'hihi', 'Your product ''Selling reebok shoes'' has been deleted by the administrator.', '2015-01-24 20:04:18'),
 (6, 'Irvin', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
-(7, 'superman', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18');
+(7, 'superman', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
+(8, 'hihi', 'Your product ''AIR JORDAN'' has been deleted by the administrator.', '2015-02-14 02:04:07'),
+(9, 'superman', 'The product ''AIR JORDAN'' you had a bid on has been deleted by the administrator.', '2015-02-14 02:04:08'),
+(10, 'Sam1', 'The product ''AIR JORDAN'' you had a bid on has been deleted by the administrator.', '2015-02-14 02:04:08'),
+(11, 'hihi', 'Your product ''1994 Basketball Jersey'' has been deleted by the administrator.', '2015-02-14 02:04:26'),
+(12, 'Irvin', 'Your product ''Adidas Shoes '' has been deleted by the administrator.', '2015-02-14 02:04:29'),
+(13, 'superman', 'Your product ''stolen shoes'' has been deleted by the administrator.', '2015-02-14 02:04:31'),
+(14, 'superman', 'Your product ''hello'' has been deleted by the administrator.', '2015-02-14 02:04:37'),
+(15, 'hihi', 'Your product ''1231231'' has been deleted by the administrator.', '2015-02-14 02:05:10');
 
 -- --------------------------------------------------------
 
@@ -328,18 +336,14 @@ CREATE TABLE IF NOT EXISTS `product` (
   `IMAGE4` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   `IMAGE5` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   PRIMARY KEY (`PROD_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`PROD_ID`, `USER_ID`, `START_BID`, `PROD_NAME`, `PROD_CAT`, `PROD_DES`, `PROD_AGE_NAME`, `PROD_AGE_VAL`, `PROD_STAT`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 4, 1000, 'AIR JORDAN', 'Shoes', 'Very nice comfortable shoes!', 'Day', 12, 'On-going', 'http://localhost/PBA/assets/product_images/LONG_HORN_STEER.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg'),
-(2, 4, 20000, '1994 Basketball Jersey', 'Jersey', 'Very old jersey!', 'Year', 20, 'On-going', 'http://localhost/PBA/assets/product_images/Pagong!.png', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg'),
-(7, 5, 100, 'Adidas Shoes ', 'Jersey', 'Nice shoes ni!', 'Day', 12, 'Closed', 'http://localhost/PBA/assets/product_images/Koala.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg'),
-(10, 15, 1, 'stolen shoes', 'Jersey', 'kinawat gani', 'Day', 1, 'Pending', 'http://localhost/PBA/assets/product_images/ab_exercise.jpg', 'http://localhost/PBA/assets/product_images/5_years_before.jpg', 'http://localhost/PBA/assets/product_images/5_years_from_now.jpg', 'http://localhost/PBA/assets/product_images/BE_CREATIVE.jpg', 'http://localhost/PBA/assets/product_images/padulong_chapel.jpg'),
-(11, 15, 200, 'hello', 'Shoes', 'haha', 'Week', 15, 'On-going', 'http://localhost/PBA/assets/product_images/eyes.jpg', 'http://localhost/PBA/assets/product_images/fiesta.jpg', 'http://localhost/PBA/assets/product_images/huawei.jpg', 'http://localhost/PBA/assets/product_images/padulong_chapel1.jpg', 'http://localhost/PBA/assets/product_images/tuslob-buwa.jpg');
+(17, 4, 1, '1234', 'Jersey', '123', 'Day', 1, 'Pending', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
 
 -- --------------------------------------------------------
 
@@ -354,21 +358,7 @@ CREATE TABLE IF NOT EXISTS `product_bid` (
   `BID_AMT` double NOT NULL,
   `DATE_TIME_ADDED` datetime NOT NULL,
   PRIMARY KEY (`BID_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
-
---
--- Dumping data for table `product_bid`
---
-
-INSERT INTO `product_bid` (`BID_ID`, `PROD_ID`, `USER_ID`, `BID_AMT`, `DATE_TIME_ADDED`) VALUES
-(9, 7, 7, 100, '2015-01-24 19:53:13'),
-(11, 7, 15, 201, '2015-01-24 19:54:54'),
-(12, 7, 15, 300, '2015-01-24 19:57:03'),
-(13, 7, 15, 400, '2015-01-24 19:57:12'),
-(14, 7, 15, 600, '2015-01-24 19:57:20'),
-(15, 1, 15, 2000, '2015-02-07 16:32:42'),
-(16, 1, 7, 3000, '2015-02-07 16:33:06'),
-(17, 1, 15, 4000, '2015-02-07 16:35:35');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -431,18 +421,18 @@ CREATE TABLE IF NOT EXISTS `team_carousel_image` (
 --
 
 INSERT INTO `team_carousel_image` (`TCI_ID`, `TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(3, 3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(5, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(6, 8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+(1, 1, 'Alaska/5.jpg', 'Alaska/1.jpg', 'Alaska/2.jpg', 'Alaska/3.jpg', 'Alaska/4.jpg'),
+(2, 2, 'Barako Bulls/5.jpg', 'Barako Bulls/1.jpg', 'Barako Bulls/2.jpg', 'Barako Bulls/3.jpg', 'Barako Bulls/4.jpg'),
+(3, 4, 'Blackwater/5.jpg', 'Blackwater/1.jpg', 'Blackwater/2.jpg', 'Blackwater/3.jpg', 'Blackwater/4.jpg'),
+(4, 3, 'Ginebra/5.jpg', 'Ginebra/1.jpg', 'Ginebra/2.jpg', 'Ginebra/3.jpg', 'Ginebra/4.jpg'),
+(5, 5, 'Globalport/5.jpg', 'Globalport/1.jpg', 'Globalport/2.jpg', 'Globalport/3.jpg', 'Globalport/4.jpg'),
+(6, 6, 'Kia/5.jpg', 'Kia/1.jpg', 'Kia/2.jpg', 'Kia/3.jpg', 'Kia/4.jpg'),
+(7, 7, 'Meralco/5.jpg', 'Meralco/1.jpg', 'Meralco/2.jpg', 'Meralco/3.jpg', 'Meralco/4.jpg'),
+(8, 8, 'NLEX/5.jpg', 'NLEX/1.jpg', 'NLEX/2.jpg', 'NLEX/3.jpg', 'NLEX/4.jpg'),
+(9, 9, 'Purefoods/5.jpg', 'Purefoods/1.jpg', 'Purefoods/2.jpg', 'Purefoods/3.jpg', 'Purefoods/4.jpg'),
+(10, 10, 'Rain or Shine/5.jpg', 'Rain or Shine/1.jpg', 'Rain or Shine/2.jpg', 'Rain or Shine/3.jpg', 'Rain or Shine/4.jpg'),
+(11, 11, 'San Miguel/5.jpg', 'San Miguel/1.jpg', 'San Miguel/2.jpg', 'San Miguel/3.jpg', 'San Miguel/4.jpg'),
+(12, 12, 'Talk n Text/5.jpg', 'Talk n Text/1.jpg', 'Talk n Text/2.jpg', 'Talk n Text/3.jpg', 'Talk n Text/4.jpg');
 
 -- --------------------------------------------------------
 
@@ -490,31 +480,7 @@ CREATE TABLE IF NOT EXISTS `team_coach_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TCB_ID`),
   UNIQUE KEY `TCB_ID` (`TCB_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
-
---
--- Dumping data for table `team_coach_bridge`
---
-
-INSERT INTO `team_coach_bridge` (`TCB_ID`, `TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`) VALUES
-(1, 3, 2, 'PRESENT', '1994'),
-(2, 4, 4, 'PRESENT', '2014'),
-(3, 7, 5, 'PRESENT', '2013'),
-(4, 8, 6, 'PRESENT', '2014'),
-(5, 9, 7, 'PRESENT', '2012'),
-(6, 10, 8, 'PRESENT', '2014'),
-(7, 11, 9, 'PRESENT', '2000'),
-(8, 12, 10, 'PRESENT', '2008'),
-(9, 2, 1, 'PRESENT', '1994'),
-(10, 2, 3, 'PAST', '1993-1995'),
-(11, 3, 3, 'PAST', '1995-1997'),
-(12, 4, 3, 'PAST', '1997-2000'),
-(13, 1, 3, 'PRESENT', '2001'),
-(14, 7, 3, 'PAST', '1990-1991'),
-(15, 8, 3, 'PAST', '1888-1889'),
-(16, 9, 3, 'PAST', '1890-1895'),
-(17, 5, 11, 'PRESENT', '2013'),
-(18, 6, 12, 'PRESENT', '2013');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -530,35 +496,7 @@ CREATE TABLE IF NOT EXISTS `team_player_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TPB_ID`),
   UNIQUE KEY `TPB_ID` (`TPB_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
-
---
--- Dumping data for table `team_player_bridge`
---
-
-INSERT INTO `team_player_bridge` (`TPB_ID`, `TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEAR`) VALUES
-(1, 1, 1, 'PRESENT', '1996'),
-(2, 2, 1, 'PAST', '1800-1900'),
-(3, 1, 2, 'PRESENT', '2010'),
-(4, 2, 2, 'PAST', '2003-2009'),
-(5, 1, 4, 'PRESENT', '1994'),
-(6, 1, 5, 'PRESENT', '1994'),
-(7, 1, 6, 'PRESENT', '1994'),
-(8, 1, 7, 'PRESENT', '1994'),
-(9, 1, 8, 'PRESENT', '1994'),
-(10, 1, 9, 'PRESENT', '1994'),
-(11, 1, 0, '', ''),
-(12, 1, 10, 'PRESENT', '1994'),
-(13, 1, 11, 'PRESENT', '1994'),
-(14, 1, 12, 'PRESENT', '1994'),
-(15, 1, 13, 'PRESENT', '1994'),
-(16, 1, 14, 'PRESENT', '1994'),
-(17, 1, 15, 'PRESENT', '1994'),
-(18, 3, 1, 'PAST', '1885-1888'),
-(19, 4, 1, 'PAST', '1888-1890'),
-(20, 7, 1, 'PAST', '1895-1897'),
-(21, 8, 1, 'PAST', '1793-1795'),
-(22, 9, 1, 'PAST', '1795-1798');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -595,7 +533,7 @@ INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMA
 (5, 'lILTONG', 'Abellanosa', '09123121231', 'asda@yahoo.com', '102 kaon kaon', '2012-12-31', 'Who is your favorite PBA team?', 'IDK', 'Irvin', '4e4d6c332b6fe62a63afe56171fd3725', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/Irvin.jpg'),
 (7, 'Samsam', 'Abellanosa', '02321312312', 'asda1@yahoo.com', '12312 12asda ', '2014-07-02', 'Who is your favorite PBA player?', 'KB', 'Sam1', '490bd89bcdc4e9f01d1a33899736f7a3', 'Active', 'Admin', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
 (9, 'Kobe', 'Bryant', '09121123121', 'mictest12345678910@gmail.com', '102 kamuning', '2014-12-31', 'Who is your favorite PBA coach?', '12@', 'irvin1', 'c225a8f46e8453d72875fa6231f52cad', 'Active', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
-(10, 'Woohoo', 'weeehee', '12312312311', 'iii@yahoo.com', '12312 asoodaa', '2014-12-31', 'Who is your favorite PBA player?', '1234', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/1234.png'),
+(10, 'Woohoo', 'weeehee', '12312312311', 'iii@yahoo.com', '12312 asoodaa', '2014-12-31', 'Who is your favorite PBA player?', '1234', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/1234.png'),
 (12, '12345', '1234', '12312312311', 'aishdias@yahoo.com', 'asdsa', '2013-12-31', 'Who is your favorite PBA team?', 'KB', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f', 'Durplu', 'Normal', 'http://localhost/PBA/assets/user_images/abcd.png'),
 (13, 'Jacob', 'Abellanosa', '09123121231', 'asdasd@yahoo.com', '102 kaon kaon', '2012-12-31', 'Who is your favorite PBA team?', 'IDK', 'hello', 'hello', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/Irvin.jpg'),
 (14, 'haha', 'haha', '01923123', 'asdf@haha.com', 'sdfsdf', '2015-01-01', 'Hello', 'HI', 'haha', 'haha', 'Active', 'Admin', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
