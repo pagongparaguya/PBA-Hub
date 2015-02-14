@@ -1,38 +1,19 @@
 </div> <!--- closing tag for the container -->
 <div class="page-content profile-page">
-  <!--- START OF SLIDER -->
-     <div class="row row-content">
-       <div class="small-12 medium-12 large-12 columns">
-             <ul data-orbit>
-              <li>
-                <img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE1;?>" alt="slide 1" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li class="active">
-                <img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE2;?>" alt="slide 2" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE3;?>" alt="slide 3" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE4;?>" alt="slide 4" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE5;?>" alt="slide 5" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-            </ul>
-       </div>
-     </div>
-  <!--- END OF SLIDER -->   
+    <!-- OWL CAROUSEL  -->
+      <div id="carousel-elems">          
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE1;?>" alt="slide 1" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE2;?>" alt="slide 2" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE3;?>" alt="slide 3" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE4;?>" alt="slide 4" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE5;?>" alt="slide 5" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE6;?>" alt="slide 6" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE7;?>" alt="slide 7" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE8;?>" alt="slide 8" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/playercarousel/'.$image->IMAGE9;?>" alt="slide 9" /></div>
+      </div> 
+    <!-- END OF OWL CAROUSEL -->     
+         
     <!--- START PLAYER INFO-->
       <div class="row row-content">
           <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3 profile-elem-content text-center">
@@ -141,37 +122,44 @@
     <!--- END PLAYER PAST TEAMS-->
 </div>
 
-	<script>
-	$(document).ready(function(){
-    var past="";
-    var present="";
-    var presentTime="";
-		$(".achievement-block").click(function(){
-			$(".achievement").slideToggle(1500);
-		});
-		$(".stat-block").click(function(){
-			$(".stat").slideToggle(1500);
-		});
-		$(".pastteam-block").click(function(){
-			$(".pastteam").slideToggle(1500);
-		});
-    <?php foreach($team_bridge as $team):?>
-      
-      <?php if($team->TYPE=='PRESENT'){?>
-        present+='<a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
-        presentTime='<?php echo $team->YEAR.'-'.$team->TYPE;?>';
-      
-      <?php }else if($team->TYPE=='PAST'){?>
-        past+='<li><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" alt="past team"/></a><header class="team-name profile-elem-teamdur"><?php echo $team->YEAR;?></header></li>';
-      <?php }?>
-      
-    <?php endforeach;?>
-    
-    if(past==''){
-      past='<h1>No Data To Display</h1>';
-    }
-    $("#pastTeam").html(past);
-    $("#teamTime").append(presentTime);
-    $("#currentTeam").append(present);
+<script>
+$(document).ready(function(){
+  var past="";
+  var present="";
+  var presentTime="";
+	$(".achievement-block").click(function(){
+		$(".achievement").slideToggle(1500);
 	});
-	</script>
+	$(".stat-block").click(function(){
+		$(".stat").slideToggle(1500);
+	});
+	$(".pastteam-block").click(function(){
+		$(".pastteam").slideToggle(1500);
+	});
+  <?php foreach($team_bridge as $team):?>
+    
+    <?php if($team->TYPE=='PRESENT'){?>
+      present+='<a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
+      presentTime='<?php echo $team->YEAR.'-'.$team->TYPE;?>';
+    
+    <?php }else if($team->TYPE=='PAST'){?>
+      past+='<li><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" alt="past team"/></a><header class="team-name profile-elem-teamdur"><?php echo $team->YEAR;?></header></li>';
+    <?php }?>
+    
+  <?php endforeach;?>
+  
+  if(past==''){
+    past='<h1>No Data To Display</h1>';
+  }
+  $("#pastTeam").html(past);
+  $("#teamTime").append(presentTime);
+  $("#currentTeam").append(present);
+
+  $("#carousel-elems").owlCarousel({
+    autoPlay: 5000, //Set AutoPlay to 5 seconds
+    items : 3,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [979,3]
+  });
+});
+</script>

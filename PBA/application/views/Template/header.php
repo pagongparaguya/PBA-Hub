@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/app.css" />
     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/DataTable/media/css/dataTables.foundation.css"/>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/js/slick/slick.css"/>
-    <!-- slideshow css -->
+    <!-- slideshow css for homepage -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/slideshow.css"/>
+    <!--  owl carousel css -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.css"/>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.theme.css"/>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.transitions.css"/>
+
     <script src="<?php echo base_url();?>assets/js/vendor/modernizr.js"></script>
     <script src="<?php echo base_url();?>assets/js/vendor/jquery.js"></script>
     <script src="<?php echo base_url();?>assets/js/foundation.min.js"></script>
@@ -23,6 +28,10 @@
     <script src="<?php echo base_url();?>assets/js/modernizr.custom.86080.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/additional-methods.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="<?php echo base_url();?>assets/js/owl.carousel.js"></script>
+    <script src="<?php echo base_url();?>assets/js/owl.carousel.min.js"></script>
+
     
   </head>
 

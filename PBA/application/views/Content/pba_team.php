@@ -1,39 +1,19 @@
 </div> <!--- closing tag for the container -->
-<div class="page-content profile-page">
-   <!--- START OF SLIDER -->
-     <div class="row row-content">
-       <div class="small-12 medium-12 large-12 columns">
-             <ul data-orbit>
-              <li>
-                <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 1" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li class="active">
-                <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 2" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 3" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 4" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-              <li>
-                <img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE5;?>" alt="slide 5" />
-                <div class="orbit-caption">
-                </div>
-              </li>
-            </ul>
-       </div>
-     </div>
-   <!--- END OF SLIDER -->   
-  
+<div class="page-content profile-page">    
+    <!-- OWL CAROUSEL  -->
+      <div id="carousel-elems">          
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 1" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 2" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 3" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 4" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE5;?>" alt="slide 5" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 6" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 7" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 8" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 9" /></div>
+      </div> 
+    <!-- END OF OWL CAROUSEL -->
+
     <!--- START OF TEAM INFO CONTENT -->
       <div class="row row-content">
         <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
@@ -238,5 +218,12 @@ $(document).ready(function(){
   $("#pastplayers").html(past);
   $("#notableplayers").html(notable);
   $("#pastcoaches").html(pastCoaches);
+
+  $("#carousel-elems").owlCarousel({
+      autoPlay: 5000, //Set AutoPlay to 5 seconds
+      items : 3,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3]
+  });
 });
 </script>
