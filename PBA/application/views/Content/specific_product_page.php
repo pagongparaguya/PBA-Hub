@@ -224,7 +224,7 @@
             max=++data;
           }
           $(".addBidPanel").html("");
-          $(".addBidPanel").append("<div id='bids' class='yourbid'><input class='addBid-input' type='number' name='bidValue' required placeholder='Input your bid' min='"+max+"'/><button class='radius small' type='submit'>Submit</button><button class='alert small radius cBid'>Cancel</button></div>");
+          $(".addBidPanel").append("<div id='bids' class='yourbid'><input class='addBid-input' type='number' name='bidValue' max='9999999' title='7 Digits Maximum' required placeholder='Input your bid' min='"+max+"'/><button class='radius small' type='submit'>Submit</button><button class='alert small radius cBid'>Cancel</button></div>");
         }
       });
     });

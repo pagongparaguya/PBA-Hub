@@ -228,7 +228,7 @@
                         <div class="small-8 small-centered medium-8 medium-centered large-8 large-centered columns">
                           <label>
                             Starting bid      
-                            <input type="number" name="pbid" required min="1"/>
+                            <input type="number" name="pbid" required min="1" max="9999999"/>
                           </label>
                         </div>
                         <label>

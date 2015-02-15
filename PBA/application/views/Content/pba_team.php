@@ -7,10 +7,10 @@
           <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 3" /></div>
           <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 4" /></div>
           <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE5;?>" alt="slide 5" /></div>
-          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE1;?>" alt="slide 6" /></div>
-          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE2;?>" alt="slide 7" /></div>
-          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE3;?>" alt="slide 8" /></div>
-          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE4;?>" alt="slide 9" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE6;?>" alt="slide 6" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE7;?>" alt="slide 7" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE8;?>" alt="slide 8" /></div>
+          <div class="item"><img src="<?php echo base_url().'assets/img/teamcarousel/'.$image->IMAGE9;?>" alt="slide 9" /></div>
       </div> 
     <!-- END OF OWL CAROUSEL -->
 
