@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2015 at 06:08 PM
+-- Generation Time: Feb 15, 2015 at 10:11 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -95,6 +95,10 @@ CREATE TABLE IF NOT EXISTS `coach_carousel_image` (
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
   `IMAGE5` varchar(150) NOT NULL,
+  `IMAGE6` varchar(150) NOT NULL,
+  `IMAGE7` varchar(150) NOT NULL,
+  `IMAGE8` varchar(150) NOT NULL,
+  `IMAGE9` varchar(150) NOT NULL,
   PRIMARY KEY (`CCI_ID`),
   UNIQUE KEY `CCI` (`CCI_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
@@ -103,19 +107,19 @@ CREATE TABLE IF NOT EXISTS `coach_carousel_image` (
 -- Dumping data for table `coach_carousel_image`
 --
 
-INSERT INTO `coach_carousel_image` (`CCI_ID`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(3, 3, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(5, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(6, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(8, 8, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+INSERT INTO `coach_carousel_image` (`CCI_ID`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`, `IMAGE6`, `IMAGE7`, `IMAGE8`, `IMAGE9`) VALUES
+(1, 1, 'Koy Banal/1.jpg', 'Koy Banal/2.jpg', 'Koy Banal/3.jpg', 'Koy Banal/4.jpg', 'Koy Banal/5.jpg', 'Koy Banal/6.jpg', 'Koy Banal/7.jpg', 'Koy Banal/8.jpg', 'Koy Banal/9.jpg'),
+(2, 2, 'Ato Agustin/1.jpg', 'Ato Agustin/2.jpg', 'Ato Agustin/3.jpg', 'Ato Agustin/4.jpg', 'Ato Agustin/5.jpg', 'Ato Agustin/6.jpg', 'Ato Agustin/7.jpg', 'Ato Agustin/8.jpg', 'Ato Agustin/9.jpg'),
+(3, 3, 'Alex Compton/1.jpg', 'Alex Compton/2.jpg', 'Alex Compton/3.jpg', 'Alex Compton/4.jpg', 'Alex Compton/5.jpg', 'Alex Compton/6.jpg', 'Alex Compton/7.jpg', 'Alex Compton/8.jpg', 'Alex Compton/9.jpg'),
+(4, 4, 'Leo Isaac/1.jpg', 'Leo Isaac/2.jpg', 'Leo Isaac/3.jpg', 'Leo Isaac/4.jpg', 'Leo Isaac/5.jpg', 'Leo Isaac/6.jpg', 'Leo Isaac/7.jpg', 'Leo Isaac/8.jpg', 'Leo Isaac/9.jpg'),
+(5, 5, 'Eric Gonzales/1.jpg', 'Eric Gonzales/2.jpg', 'Eric Gonzales/3.jpg', 'Eric Gonzales/4.jpg', 'Eric Gonzales/5.jpg', 'Eric Gonzales/6.jpg', 'Eric Gonzales/7.jpg', 'Eric Gonzales/8.jpg', 'Eric Gonzales/9.jpg'),
+(6, 6, 'Manny Pacquiao/1.jpg', 'Manny Pacquiao/2.jpg', 'Manny Pacquiao/3.jpg', 'Manny Pacquiao/4.jpg', 'Manny Pacquiao/5.jpg', 'Manny Pacquiao/6.jpg', 'Manny Pacquiao/7.jpg', 'Manny Pacquiao/8.jpg', 'Manny Pacquiao/9.jpg'),
+(7, 7, 'Norman Black/1.jpg', 'Norman Black/2.jpg', 'Norman Black/3.jpg', 'Norman Black/4.jpg', 'Norman Black/5.jpg', 'Norman Black/6.jpg', 'Norman Black/7.jpg', 'Norman Black/8.jpg', 'Norman Black/9.jpg'),
+(8, 8, 'Boyet Fernandez/1.jpg', 'Boyet Fernandez/2.jpg', 'Boyet Fernandez/3.jpg', 'Boyet Fernandez/4.jpg', 'Boyet Fernandez/5.jpg', 'Boyet Fernandez/6.jpg', 'Boyet Fernandez/7.jpg', 'Boyet Fernandez/8.jpg', 'Boyet Fernandez/9.jpg'),
+(9, 9, 'Tim Cone/1.jpg', 'Tim Cone/2.jpg', 'Tim Cone/3.jpg', 'Tim Cone/4.jpg', 'Tim Cone/5.jpg', 'Tim Cone/6.jpg', 'Tim Cone/7.jpg', 'Tim Cone/8.jpg', 'Tim Cone/9.jpg'),
+(10, 10, 'Yeng Guiao/1.jpg', 'Yeng Guiao/2.jpg', 'Yeng Guiao/3.jpg', 'Yeng Guiao/4.jpg', 'Yeng Guiao/5.jpg', 'Yeng Guiao/6.jpg', 'Yeng Guiao/7.jpg', 'Yeng Guiao/8.jpg', 'Yeng Guiao/9.jpg'),
+(11, 11, 'Leo Austria/1.jpg', 'Leo Austria/2.jpg', 'Leo Austria/3.jpg', 'Leo Austria/4.jpg', 'Leo Austria/5.jpg', 'Leo Austria/6.jpg', 'Leo Austria/7.jpg', 'Leo Austria/8.jpg', 'Leo Austria/9.jpg'),
+(12, 12, 'Jong Uichico/1.jpg', 'Jong Uichico/2.jpg', 'Jong Uichico/3.jpg', 'Jong Uichico/4.jpg', 'Jong Uichico/5.jpg', 'Jong Uichico/6.jpg', 'Jong Uichico/7.jpg', 'Jong Uichico/8.jpg', 'Jong Uichico/9.jpg');
 
 -- --------------------------------------------------------
 
@@ -268,6 +272,10 @@ CREATE TABLE IF NOT EXISTS `player_carousel_image` (
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
   `IMAGE5` varchar(150) NOT NULL,
+  `IMAGE6` varchar(150) NOT NULL,
+  `IMAGE7` varchar(150) NOT NULL,
+  `IMAGE8` varchar(150) NOT NULL,
+  `IMAGE9` varchar(150) NOT NULL,
   PRIMARY KEY (`PCI_ID`),
   UNIQUE KEY `PCI_ID` (`PCI_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
@@ -276,20 +284,20 @@ CREATE TABLE IF NOT EXISTS `player_carousel_image` (
 -- Dumping data for table `player_carousel_image`
 --
 
-INSERT INTO `player_carousel_image` (`PCI_ID`, `PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(3, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(4, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(5, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(6, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg'),
-(13, 15, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg');
+INSERT INTO `player_carousel_image` (`PCI_ID`, `PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`, `IMAGE6`, `IMAGE7`, `IMAGE8`, `IMAGE9`) VALUES
+(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(3, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(4, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(5, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(6, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
+(13, 15, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -343,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`PROD_ID`, `USER_ID`, `START_BID`, `PROD_NAME`, `PROD_CAT`, `PROD_DES`, `PROD_AGE_NAME`, `PROD_AGE_VAL`, `PROD_STAT`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(17, 4, 1, '1234', 'Jersey', '123', 'Day', 1, 'Pending', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
+(17, 4, 1, '1234', 'Jersey', '123', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
 
 -- --------------------------------------------------------
 
@@ -358,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `product_bid` (
   `BID_AMT` double NOT NULL,
   `DATE_TIME_ADDED` datetime NOT NULL,
   PRIMARY KEY (`BID_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -374,7 +382,7 @@ CREATE TABLE IF NOT EXISTS `team` (
   `TEAM_YEARSTARTED` smallint(4) NOT NULL,
   `TEAM_CAREERWINS` smallint(5) NOT NULL,
   `TEAM_CAREERLOSSES` smallint(5) NOT NULL,
-  `TEAM_HISTORY` varchar(250) DEFAULT NULL,
+  `TEAM_HISTORY` varchar(1000) DEFAULT NULL,
   `TEAM_PLAYOFF_APPEAR` smallint(5) NOT NULL,
   `TEAM_FINALS_APPEAR` smallint(5) NOT NULL,
   PRIMARY KEY (`TEAM_ID`)
@@ -385,18 +393,18 @@ CREATE TABLE IF NOT EXISTS `team` (
 --
 
 INSERT INTO `team` (`TEAM_ID`, `TEAM_NAME`, `TEAM_LOGO`, `TEAM_STAT`, `TEAM_YEARSTARTED`, `TEAM_CAREERWINS`, `TEAM_CAREERLOSSES`, `TEAM_HISTORY`, `TEAM_PLAYOFF_APPEAR`, `TEAM_FINALS_APPEAR`) VALUES
-(1, 'Alaska Aces', 'alaska.jpg', 1, 1986, 848, 698, 'The Alaska Aces is a professional basketball team in the Philippine Basketball Association since 1986 under the ownership of the Alaska Milk Corporation and the owner of 14 PBA championships with the 2013 PBA Commissioner''s Cup as their latest. ', 20, 28),
-(2, 'Barako Bull Energy', 'barako.jpg', 1, 2002, 215, 300, 'The Barako Bull Energy is a Philippine Basketball Association team that began in 2002.\nBarako Bull is owned by Energy Food and Drinks Inc., a subsidiary of the Linaheim Corporate Services, owners of the defunct Laguna Lakers of the Metropolitan Baske', 10, 1),
-(3, 'Barangay Ginebra San Miguel', 'ginebra.jpg', 1, 1979, 867, 907, 'The Barangay Ginebra San Miguel is a professional basketball team playing in the Philippine Basketball Association (PBA) since 1979. It is the most popular PBA team and currently holds eight PBA titles. The team is owned by Ginebra San Miguel, Inc. (', 20, 16),
-(4, 'Blackwater Elite', 'blackwater.jpg', 1, 2014, 1, 10, 'Blackwater Elite is a professional basketball team owned by Ever Bilena Cosmetics, Inc. that is playing in the Philippine Basketball Association (PBA) beginning in the 2014-2015 season. The franchise began in the PBA Developmental League as one of it', 0, 0),
-(5, 'Globalport Batang Pier ', 'globalport.jpg', 1, 2012, 14, 57, 'The GlobalPort Batang Pier is a Philippine Basketball Association (PBA) team that first played in the 2012–13 PBA season. The team took over the franchise of the Powerade Tigers in 2012 after it was sold to Sultan 900 Capital, Inc. Besides GlobalPort', 2, 0),
-(6, 'Kia Sorento', 'kia.jpg', 1, 2014, 1, 11, 'The Kia Carnival are a professional basketball team that plays in the Philippine Basketball Association. The team was formed as an expansion team prior to the start of the 2014–15 PBA season. The team is owned by Columbian Autocar Corporation, the ex', 0, 0),
-(7, 'Meralco Bolts', 'meralco.jpg', 1, 2010, 70, 89, 'The MERALCO Bolts are a professional basketball team playing in the Philippine Basketball Association. The franchise began in 2010 when the Manila Electric Company (MERALCO) acquired the PBA franchise of the Sta. Lucia Realtors. The team is one of th', 9, 0),
-(8, 'NLEX Road Warriors', 'nlex.jpg', 1, 2014, 1, 7, 'The NLEX Road Warriors are a professional basketball team owned by Manila North Tollways Corporation that is playing in the Philippine Basketball Association (PBA) beginning the 2014-2015 season.\nThe Road Warriors began in the PBA Developmental Leagu', 0, 0),
-(9, 'Purefoods Star Hotshots', 'purefoods.jpg', 1, 1988, 753, 699, 'The Purefoods Star Hotshots is a professional basketball team currently playing in the Philippine Basketball Association since 1988. The team is owned by San Miguel Pure Foods Company, Inc. (formerly, Pure Foods Corporation), a subsidiary of San Migu', 70, 27),
+(1, 'Alaska Aces', 'alaska.jpg', 1, 1986, 848, 698, 'The Alaska Aces is a professional basketball team in the Philippine Basketball Association since 1986 under the ownership of the Alaska Milk Corporation and the owner of 14 PBA championships with the 2013 PBA Commissioner''s Cup as their latest. They are one of the most popular teams in the league and the Philippines.\nThe Aces won nine PBA championships in the 1990s, including a rare grand slam (winning three championships in one season) during the 1996 season, joining the Crispa Redmanizers (1976, 1983), San Miguel Beermen (1989), and the Purefoods Star Hotshots (2013-14) as one of only four franchises to achieve the feat.', 20, 28),
+(2, 'Barako Bull Energy', 'barako.jpg', 1, 2002, 215, 300, 'The Barako Bull Energy is a Philippine Basketball Association team that began in 2002.\nBarako Bull is owned by Energy Food and Drinks Inc., a subsidiary of the Linaheim Corporate Services, owners of the defunct Laguna Lakers of the Metropolitan Basketball Association. The franchise bought the former Tanduay team after the 2001 season.\nFrom its first season until 2005, the team was dubbed as the FedEx Express before changing to Air21 Express. From the 2009 PBA Fiesta Conference until the 2009–10 PBA Philippine Cup, it became known as the Burger King Titans. However, when manager Mikee Romero decided to pull out of the team, they were reorganized and renamed the Burger King Whoppers before returning to their original name starting the 2010 PBA Fiesta Conference.', 10, 1),
+(3, 'Barangay Ginebra San Miguel', 'ginebra.jpg', 1, 1979, 867, 907, 'The Barangay Ginebra San Miguel is a professional basketball team playing in the Philippine Basketball Association (PBA) since 1979. It is the most popular PBA team[1] and currently holds eight PBA titles. The team is owned by Ginebra San Miguel, Inc. (formerly, La Tondeña Distillers, Inc.), a subsidiary of the San Miguel Corporation (SMC). The team is one of three PBA ball clubs currently owned by the SMC group of companies, along with the Purefoods Star Hotshots and the San Miguel Beermen.', 20, 16),
+(4, 'Blackwater Elite', 'blackwater.jpg', 1, 2014, 1, 10, 'Blackwater Elite is a professional basketball team owned by Ever Bilena Cosmetics, Inc. that is playing in the Philippine Basketball Association (PBA) beginning in the 2014-2015 season. The franchise began in the PBA Developmental League as one of its founding teams. The franchise transferred to the PBA after being accepted as an expansion team. The team is named after the Ever Bilena''s brand of men''s fragrances.', 0, 0),
+(5, 'Globalport Batang Pier ', 'globalport.jpg', 1, 2012, 14, 57, 'The GlobalPort Batang Pier is a Philippine Basketball Association (PBA) team that first played in the 2012–13 PBA season. The team took over the franchise of the Powerade Tigers in 2012 after it was sold to Sultan 900 Capital, Inc. Besides GlobalPort, team owner Mikee Romero also co-owned the AirAsia Philippine Patriots of the ASEAN Basketball League.', 2, 0),
+(6, 'Kia Sorento', 'kia.jpg', 1, 2014, 1, 11, 'The Kia Carnival are a professional basketball team that plays in the Philippine Basketball Association. The team was formed as an expansion team prior to the start of the 2014–15 PBA season. The team is owned by Columbian Autocar Corporation, the exclusive distributor of Kia automobiles in the Philippines.', 0, 0),
+(7, 'Meralco Bolts', 'meralco.jpg', 1, 2010, 70, 89, 'The MERALCO Bolts are a professional basketball team playing in the Philippine Basketball Association. The franchise began in 2010 when the Manila Electric Company (MERALCO) acquired the PBA franchise of the Sta. Lucia Realtors. The team is one of three PBA teams under the control of businessman Manuel V. Pangilinan - the other teams being the Talk ''N Text Tropang Texters and the NLEX Road Warriors.', 9, 0),
+(8, 'NLEX Road Warriors', 'nlex.jpg', 1, 2014, 1, 7, 'The NLEX Road Warriors are a professional basketball team owned by Manila North Tollways Corporation that is playing in the Philippine Basketball Association (PBA) beginning the 2014-2015 season.\nThe Road Warriors began in the PBA Developmental League (PBA D-League) as one its founding teams, winning a total of six championships. The franchise transferred to the PBA after the Manila North Tollways Corporation (a subsidiary of Metro Pacific Investments Corporation) acquired the PBA franchise of the Air21 Express in June 2014. It is one of three PBA teams currently under the control of businessman Manuel V. Pangilinan (the other teams are the Talk ''N Text Tropang Texters and the MERALCO Bolts).', 0, 0),
+(9, 'Purefoods Star Hotshots', 'purefoods.jpg', 1, 1988, 753, 699, 'The Purefoods Star Hotshots is a professional basketball team currently playing in the Philippine Basketball Association since 1988. The team is owned by San Miguel Pure Foods Company, Inc. (formerly, Pure Foods Corporation), a subsidiary of San Miguel Corporation (SMC). The team is one of three PBA ball clubs currently owned by the SMC group of companies, along with Barangay Ginebra San Miguel and the San Miguel Beermen.\nThe franchise remains as one of the most popular teams in the PBA[1] and currently holds thirteen PBA titles. The player most identified with the Purefoods franchise was Alvin Patrimonio, who led the franchise (playing as Purefoods) to six championships in the 1990s and early 2000s, and was named Most Valuable Player four times. Patrimonio retired in 2004 to concentrate more on his duties as team manager for his team.', 70, 27),
 (10, 'Rain or Shine Elasto Painters', 'rain or shine.jpg', 1, 2006, 137, 177, 'The Rain or Shine Elasto Painters are a professional basketball team in the Philippine Basketball Association owned by Asian Coatings Philippines, Inc. It debuted in the league in the 2006-07 PBA season after acquiring the franchise rights of the She', 11, 3),
-(11, 'San Miguel Beermen', 'san miguel.jpg', 1, 1975, 1147, 919, 'The San Miguel Beermen are a professional basketball team playing in the Philippine Basketball Association (PBA). The franchise is owned by San Miguel Corporation (SMC) since 1975 and holds the most number of PBA titles (currently at 20).\nSan Miguel ', 101, 31),
-(12, 'Talk ''N Text Tropang Texters', 'talk n text.jpg', 1, 1990, 563, 542, 'The Talk ''N Text Tropang Texters are a professional basketball team currently owned by Smart Communications, a subsidiary of the Philippine Long Distance Telephone Company (PLDT), playing in the Philippine Basketball Association (PBA) since 1990.\nThe', 65, 15);
+(11, 'San Miguel Beermen', 'san miguel.jpg', 1, 1975, 1147, 919, 'The San Miguel Beermen are a professional basketball team playing in the Philippine Basketball Association (PBA). The franchise is owned by San Miguel Corporation (SMC) since 1975 and holds the most number of PBA titles (currently at 20).\nSan Miguel is one of three PBA ball clubs owned by the SMC group of companies, along with the Purefoods Star Hotshots and Barangay Ginebra San Miguel.\nIt is the remaining original franchise in the PBA (the team first played as Royal Tru-Orange in 1975).', 101, 31),
+(12, 'Talk ''N Text Tropang Texters', 'talk n text.jpg', 1, 1990, 563, 542, 'The Talk ''N Text Tropang Texters are a professional basketball team currently owned by Smart Communications, a subsidiary of the Philippine Long Distance Telephone Company (PLDT), playing in the Philippine Basketball Association (PBA) since 1990.\nThe franchise began in 1990 when Pepsi-Cola Products Philippines, Inc. (PCPPI) acquired a PBA franchise. Under PCPPI, the franchise played under the names Pepsi and 7 Up. In 1996, the franchise came under the control of Pilipino Telephone Corporation (Piltel) and played under the name Mobiline. In 2001, the franchise was renamed Talk ''N Text after the operations of Piltel was absorbed by Smart Communications.', 65, 15);
 
 -- --------------------------------------------------------
 
@@ -412,6 +420,10 @@ CREATE TABLE IF NOT EXISTS `team_carousel_image` (
   `IMAGE3` varchar(150) NOT NULL,
   `IMAGE4` varchar(150) NOT NULL,
   `IMAGE5` varchar(150) NOT NULL,
+  `IMAGE6` varchar(150) NOT NULL,
+  `IMAGE7` varchar(150) NOT NULL,
+  `IMAGE8` varchar(150) NOT NULL,
+  `IMAGE9` varchar(150) NOT NULL,
   PRIMARY KEY (`TCI_ID`),
   UNIQUE KEY `TCI_ID` (`TCI_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
@@ -420,19 +432,19 @@ CREATE TABLE IF NOT EXISTS `team_carousel_image` (
 -- Dumping data for table `team_carousel_image`
 --
 
-INSERT INTO `team_carousel_image` (`TCI_ID`, `TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 1, 'Alaska/5.jpg', 'Alaska/1.jpg', 'Alaska/2.jpg', 'Alaska/3.jpg', 'Alaska/4.jpg'),
-(2, 2, 'Barako Bulls/5.jpg', 'Barako Bulls/1.jpg', 'Barako Bulls/2.jpg', 'Barako Bulls/3.jpg', 'Barako Bulls/4.jpg'),
-(3, 4, 'Blackwater/5.jpg', 'Blackwater/1.jpg', 'Blackwater/2.jpg', 'Blackwater/3.jpg', 'Blackwater/4.jpg'),
-(4, 3, 'Ginebra/5.jpg', 'Ginebra/1.jpg', 'Ginebra/2.jpg', 'Ginebra/3.jpg', 'Ginebra/4.jpg'),
-(5, 5, 'Globalport/5.jpg', 'Globalport/1.jpg', 'Globalport/2.jpg', 'Globalport/3.jpg', 'Globalport/4.jpg'),
-(6, 6, 'Kia/5.jpg', 'Kia/1.jpg', 'Kia/2.jpg', 'Kia/3.jpg', 'Kia/4.jpg'),
-(7, 7, 'Meralco/5.jpg', 'Meralco/1.jpg', 'Meralco/2.jpg', 'Meralco/3.jpg', 'Meralco/4.jpg'),
-(8, 8, 'NLEX/5.jpg', 'NLEX/1.jpg', 'NLEX/2.jpg', 'NLEX/3.jpg', 'NLEX/4.jpg'),
-(9, 9, 'Purefoods/5.jpg', 'Purefoods/1.jpg', 'Purefoods/2.jpg', 'Purefoods/3.jpg', 'Purefoods/4.jpg'),
-(10, 10, 'Rain or Shine/5.jpg', 'Rain or Shine/1.jpg', 'Rain or Shine/2.jpg', 'Rain or Shine/3.jpg', 'Rain or Shine/4.jpg'),
-(11, 11, 'San Miguel/5.jpg', 'San Miguel/1.jpg', 'San Miguel/2.jpg', 'San Miguel/3.jpg', 'San Miguel/4.jpg'),
-(12, 12, 'Talk n Text/5.jpg', 'Talk n Text/1.jpg', 'Talk n Text/2.jpg', 'Talk n Text/3.jpg', 'Talk n Text/4.jpg');
+INSERT INTO `team_carousel_image` (`TCI_ID`, `TEAM_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`, `IMAGE6`, `IMAGE7`, `IMAGE8`, `IMAGE9`) VALUES
+(1, 1, 'Alaska/1.jpg', 'Alaska/2.jpg', 'Alaska/3.jpg', 'Alaska/4.jpg', 'Alaska/5.jpg', 'Alaska/6.jpg', 'Alaska/7.jpg', 'Alaska/8.jpg', 'Alaska/9.jpg'),
+(2, 2, 'Barako Bulls/1.jpg', 'Barako Bulls/2.jpg', 'Barako Bulls/3.jpg', 'Barako Bulls/4.jpg', 'Barako Bulls/5.jpg', 'Barako Bulls/6.jpg', 'Barako Bulls/7.jpg', 'Barako Bulls/8.jpg', 'Barako Bulls/9.jpg'),
+(3, 3, 'Ginebra/1.jpg', 'Ginebra/2.jpg', 'Ginebra/3.jpg', 'Ginebra/4.jpg', 'Ginebra/5.jpg', 'Ginebra/6.jpg', 'Ginebra/7.jpg', 'Ginebra/8.jpg', 'Ginebra/9.jpg'),
+(4, 4, 'Blackwater/1.jpg', 'Blackwater/2.jpg', 'Blackwater/3.jpg', 'Blackwater/4.jpg', 'Blackwater/5.jpg', 'Blackwater/6.jpg', 'Blackwater/7.jpg', 'Blackwater/8.jpg', 'Blackwater/9.jpg'),
+(5, 5, 'Globalport/1.jpg', 'Globalport/2.jpg', 'Globalport/3.jpg', 'Globalport/4.jpg', 'Globalport/5.jpg', 'Globalport/6.jpg', 'Globalport/7.jpg', 'Globalport/8.jpg', 'Globalport/9.jpg'),
+(6, 6, 'Kia/1.jpg', 'Kia/2.jpg', 'Kia/3.jpg', 'Kia/4.jpg', 'Kia/5.jpg', 'Kia/6.jpg', 'Kia/7.jpg', 'Kia/8.jpg', 'Kia/9.jpg'),
+(7, 7, 'Meralco/1.jpg', 'Meralco/2.jpg', 'Meralco/3.jpg', 'Meralco/4.jpg', 'Meralco/5.jpg', 'Meralco/6.jpg', 'Meralco/7.jpg', 'Meralco/8.jpg', 'Meralco/9.jpg'),
+(8, 8, 'NLEX/1.jpg', 'NLEX/2.jpg', 'NLEX/3.jpg', 'NLEX/4.jpg', 'NLEX/5.jpg', 'NLEX/6.jpg', 'NLEX/7.jpg', 'NLEX/8.jpg', 'NLEX/9.jpg'),
+(9, 9, 'Purefoods/1.jpg', 'Purefoods/2.jpg', 'Purefoods/3.jpg', 'Purefoods/4.jpg', 'Purefoods/5.jpg', 'Purefoods/6.jpg', 'Purefoods/7.jpg', 'Purefoods/8.jpg', 'Purefoods/9.jpg'),
+(10, 10, 'Rain or Shine/1.jpg', 'Rain or Shine/2.jpg', 'Rain or Shine/3.jpg', 'Rain or Shine/4.jpg', 'Rain or Shine/5.jpg', 'Rain or Shine/6.jpg', 'Rain or Shine/7.jpg', 'Rain or Shine/8.jpg', 'Rain or Shine/9.jpg'),
+(11, 11, 'San Miguel/1.jpg', 'San Miguel/2.jpg', 'San Miguel/3.jpg', 'San Miguel/4.jpg', 'San Miguel/5.jpg', 'San Miguel/6.jpg', 'San Miguel/7.jpg', 'San Miguel/8.jpg', 'San Miguel/9.jpg'),
+(12, 12, 'Talk n Text/1.jpg', 'Talk n Text/2.jpg', 'Talk n Text/3.jpg', 'Talk n Text/4.jpg', 'Talk n Text/5.jpg', 'Talk n Text/6.jpg', 'Talk n Text/7.jpg', 'Talk n Text/8.jpg', 'Talk n Text/9.jpg');
 
 -- --------------------------------------------------------
 
@@ -447,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `team_championship_won` (
   `YEAR_WON` int(4) NOT NULL,
   PRIMARY KEY (`TCW_ID`),
   UNIQUE KEY `TCW_ID` (`TCW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `team_championship_won`
@@ -464,7 +476,9 @@ INSERT INTO `team_championship_won` (`TCW_ID`, `TEAM_ID`, `LEAGUE_NAME`, `YEAR_W
 (8, 11, 'Fiesta Conference', 2004),
 (9, 11, 'Fiesta Conference', 2008),
 (10, 12, 'Governors Cup', 1998),
-(11, 12, 'Commissioner''s Cup', 2013);
+(11, 12, 'Commissioner''s Cup', 2013),
+(12, 3, 'Governors Cup', 2009),
+(13, 3, 'All-Filipino Cup', 2012);
 
 -- --------------------------------------------------------
 
