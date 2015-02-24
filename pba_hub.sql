@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2015 at 10:11 AM
+-- Generation Time: Feb 24, 2015 at 11:03 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -219,19 +219,21 @@ CREATE TABLE IF NOT EXISTS `player` (
 --
 
 INSERT INTO `player` (`PLAYER_ID`, `PLAYER_AGE`, `PLAYER_FULLNAME`, `PLAYER_BDATE`, `PLAYER_PORTRAIT_PHOTO`, `PLAYER_STAT`, `PLAYER_YEARSTARTED`, `PLAYER_JERSEY_NO`, `PLAYER_POSITION`, `PLAYER_YEARS_PLAYED`, `PLAYER_HEIGHT`, `PLAYER_WEIGHT`, `PLAYER_PLAYOFF_APPEAR`, `PLAYER_FINALS_APPEAR`, `PLAYER_ALLSTAR_APPEAR`, `PLAYER_PPG`, `PLAYER_APG`, `PLAYER_RPG`, `PLAYER_BPG`, `PLAYER_SPG`, `PLAYER_TPG`, `PLAYER_FPG`, `PLAYER_FTP`, `PLAYER_FGP`, `PLAYER_TPP`) VALUES
-(1, 36, 'Calvin Abueva', 'August 31, 1976', '1.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(2, 32, 'Junmar Fajardo', 'December 9, 1985', '2.jpg', 1, 2003, 6, 'SF', 11, '6''8', '110 kg', 9, 6, 10, 23.4, 5.5, 6.7, 2.2, 2.1, 3.5, 3.7, 77.8, 45.8, 39.9),
-(4, 36, 'Rome Adler Dela Rosa', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(5, 36, 'Christopher Guerrero Banchero', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(6, 36, 'Christopher Exciminiano', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(7, 36, 'Erik Menk', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(9, 36, 'Vic Manuel', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(10, 36, 'Joseph Evans Casio', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(11, 36, 'Tony Dela Cruz', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(12, 36, 'Rafael Joey Jazul', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(13, 36, 'Gabriel Espinas', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(14, 36, 'Paolo Bugia', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9),
-(15, 36, 'Donaldo Hontiveros', 'August 31, 1976', '3.jpg', 1, 1996, 24, 'SG', 18, '6''6', '96 kg', 11, 8, 16, 30, 5.5, 3.9, 0.8, 2.2, 3.4, 3.2, 11.5, 45.9, 39.9);
+(1, 33, 'Joachim Thoss', 'December 7,1981', '1.jpg', 1, 2004, 7, 'C', 11, '6''7', '93 kg', 10, 5, 10, 15.5, 3.2, 8.9, 2.1, 0.8, 2.5, 2.4, 69.8, 48.3, 16.1),
+(2, 29, 'Joseph Casio', 'August 7,1986', '1.jpg', 1, 2011, 42, 'PG', 4, '5''10', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
+(3, 37, 'Donaldo Hontiveros', 'June 1,1977', '1.jpg', 1, 1998, 25, 'SG', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
+(4, 34, 'Cyrus Baguio', 'August 19,1980', '1.jpg', 1, 2003, 3, 'SF', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
+(5, 33, 'Gabriel Espinas', 'January 3,1982', '1.jpg', 1, 2006, 27, 'SF', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
+(6, 26, 'Solomon Alabi', 'March 21,1988', '1.jpg', 1, 2014, 32, 'C', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
+(7, 31, 'J.C Intal', 'November 18,1983', '1.jpg', 1, 2007, 7, 'SF', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
+(8, 35, 'Chico Lanete', 'August 1,1979', '1.jpg', 1, 2007, 26, 'PG', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
+(9, 35, 'William Joel Wilson', 'January 30,1980', '1.jpg', 1, 2004, 28, 'PF', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
+(10, 25, 'Justin Shaun Chua', 'July 13,1989', '1.jpg', 1, 2013, 18, 'PG', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
+(11, 26, 'Gregory William Slaughter', 'May 19,1988', '1.jpg', 1, 2013, 20, 'C', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
+(12, 28, 'Japeth Paul Aguilar', 'January 25,1987', '1.jpg', 1, 2009, 25, 'PF', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
+(13, 35, 'Mark Anthony Caguioa', 'November 19,1979', '1.jpg', 1, 2001, 47, 'SG', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
+(14, 25, 'James Patrick Forrester', 'September 3,1989', '1.jpg', 1, 2013, 1, 'SG', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
+(15, 30, 'Leo Tenorio', 'July 9,1984', '1.jpg', 1, 2006, 5, 'PG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9);
 
 -- --------------------------------------------------------
 
@@ -246,17 +248,22 @@ CREATE TABLE IF NOT EXISTS `player_award_won` (
   `AWARD_YEAR` int(4) NOT NULL,
   PRIMARY KEY (`PAW_ID`),
   UNIQUE KEY `PAW_ID` (`PAW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `player_award_won`
 --
 
 INSERT INTO `player_award_won` (`PAW_ID`, `PLAYER_ID`, `AWARD_NAME`, `AWARD_YEAR`) VALUES
-(1, 1, 'MVP', 2008),
-(2, 1, 'MVP', 2010),
-(3, 2, 'MVP', 2012),
-(4, 2, 'MVP', 2013);
+(1, 15, 'All-Rookie Team', 2007),
+(2, 15, 'Finals MVP', 2012),
+(3, 1, 'Sportsmanship Award', 2011),
+(4, 1, 'Commissioner''s Cup Finals MVP', 2013),
+(5, 3, 'Sportsmanship Award', 2005),
+(6, 3, '3-Point Shootout Champion', 2007),
+(7, 4, 'Slam Dunk Champion', 2004),
+(8, 4, 'Most Improved Player', 2008),
+(9, 11, 'Rookie Of The Year', 2013);
 
 -- --------------------------------------------------------
 
@@ -312,15 +319,7 @@ CREATE TABLE IF NOT EXISTS `player_championship_won` (
   `YEAR_WON` int(4) NOT NULL,
   PRIMARY KEY (`PCW_ID`),
   UNIQUE KEY `PCW_ID` (`PCW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `player_championship_won`
---
-
-INSERT INTO `player_championship_won` (`PCW_ID`, `PLAYER_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
-(1, 1, 'NBA', 2011),
-(2, 1, 'NBA', 2012);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -366,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `product_bid` (
   `BID_AMT` double NOT NULL,
   `DATE_TIME_ADDED` datetime NOT NULL,
   PRIMARY KEY (`BID_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -494,7 +493,31 @@ CREATE TABLE IF NOT EXISTS `team_coach_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TCB_ID`),
   UNIQUE KEY `TCB_ID` (`TCB_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `team_coach_bridge`
+--
+
+INSERT INTO `team_coach_bridge` (`TCB_ID`, `TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`) VALUES
+(1, 2, 1, 'PRESENT', '2014'),
+(2, 3, 2, 'PRESENT', '2015'),
+(3, 1, 3, 'PRESENT', '2014'),
+(4, 4, 4, 'PRESENT', '2014'),
+(5, 5, 5, 'PRESENT', '2014'),
+(6, 6, 6, 'PRESENT', '2014'),
+(7, 7, 7, 'PRESENT', '2014'),
+(8, 12, 7, 'PAST', '2012-2014'),
+(9, 11, 7, 'PAST', '1985-1996'),
+(10, 2, 4, 'PAST', '2009-2010'),
+(11, 8, 8, 'PRESENT', '2014'),
+(12, 9, 1, 'PAST', '1989-2011'),
+(13, 9, 9, 'PRESENT', '2011'),
+(14, 10, 10, 'PRESENT', '2010'),
+(15, 11, 11, 'PRESENT', '2014'),
+(16, 11, 12, 'PAST', '1999-2006'),
+(17, 3, 12, 'PAST', '2006-2012'),
+(18, 12, 12, 'PRESENT', '2014');
 
 -- --------------------------------------------------------
 
@@ -510,7 +533,40 @@ CREATE TABLE IF NOT EXISTS `team_player_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TPB_ID`),
   UNIQUE KEY `TPB_ID` (`TPB_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+
+--
+-- Dumping data for table `team_player_bridge`
+--
+
+INSERT INTO `team_player_bridge` (`TPB_ID`, `TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEAR`) VALUES
+(1, 1, 1, 'PRESENT', '2004'),
+(2, 1, 2, 'PRESENT', '2012'),
+(3, 11, 3, 'PAST', '2002-2011'),
+(4, 1, 3, 'PRESENT', '2012'),
+(5, 1, 4, 'PRESENT', '2010'),
+(6, 1, 5, 'PRESENT', '2012'),
+(7, 2, 6, 'PRESENT', '2014'),
+(8, 2, 7, 'PRESENT', '2013'),
+(9, 2, 8, 'PRESENT', '2014'),
+(10, 11, 8, 'PAST', '2012-2014'),
+(11, 7, 8, 'PAST', '2011-2012'),
+(12, 2, 8, 'PAST', '2012'),
+(13, 1, 9, 'PAST', '2004-2006'),
+(14, 11, 9, 'PAST', '2006-2008'),
+(15, 3, 9, 'PAST', '2008-2013'),
+(16, 2, 9, 'PRESENT', '2013'),
+(17, 5, 10, 'PAST', '2013-2014'),
+(18, 11, 10, 'PAST', '2014-2015'),
+(19, 2, 10, 'PRESENT', '2015'),
+(20, 3, 11, 'PRESENT', '2013'),
+(21, 12, 12, 'PAST', '2011-2012'),
+(22, 5, 12, 'PAST', '2012-2013'),
+(23, 3, 12, 'PRESENT', '2013'),
+(24, 3, 13, 'PRESENT', '2001'),
+(25, 3, 14, 'PRESENT', '2013'),
+(26, 1, 15, 'PAST', '2008-2012'),
+(27, 3, 15, 'PRESENT', '2012');
 
 -- --------------------------------------------------------
 
