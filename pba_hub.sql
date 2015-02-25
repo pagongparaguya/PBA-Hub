@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2015 at 11:03 AM
+-- Generation Time: Feb 25, 2015 at 09:05 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -156,28 +156,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `TIMESTAMP` datetime NOT NULL,
   PRIMARY KEY (`NOTI_ID`),
   UNIQUE KEY `NOTI_ID` (`NOTI_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`NOTI_ID`, `USERNAME`, `MESSAGE`, `TIMESTAMP`) VALUES
-(1, 'hihi', 'Your product ''Selling nike shoes barato lang'' has been deleted by the administrator.', '2015-01-24 17:28:03'),
-(2, 'Irvin', 'Your product ''Adidas Shoes '' has successfully been auctioned and the winner is superman with the # of 234234.', '2015-01-24 19:58:59'),
-(3, 'superman', 'The product ''Adidas Shoes '' auction finished and you won, please contact Irvin with the # of 09123121231.', '2015-01-24 19:58:59'),
-(4, 'Sam1', 'The product ''Adidas Shoes '' auction finished but your bid is not the highest.', '2015-01-24 19:58:59'),
-(5, 'hihi', 'Your product ''Selling reebok shoes'' has been deleted by the administrator.', '2015-01-24 20:04:18'),
-(6, 'Irvin', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
-(7, 'superman', 'The product ''Selling reebok shoes'' you had a bid on has been deleted by the administrator.', '2015-01-24 20:04:18'),
-(8, 'hihi', 'Your product ''AIR JORDAN'' has been deleted by the administrator.', '2015-02-14 02:04:07'),
-(9, 'superman', 'The product ''AIR JORDAN'' you had a bid on has been deleted by the administrator.', '2015-02-14 02:04:08'),
-(10, 'Sam1', 'The product ''AIR JORDAN'' you had a bid on has been deleted by the administrator.', '2015-02-14 02:04:08'),
-(11, 'hihi', 'Your product ''1994 Basketball Jersey'' has been deleted by the administrator.', '2015-02-14 02:04:26'),
-(12, 'Irvin', 'Your product ''Adidas Shoes '' has been deleted by the administrator.', '2015-02-14 02:04:29'),
-(13, 'superman', 'Your product ''stolen shoes'' has been deleted by the administrator.', '2015-02-14 02:04:31'),
-(14, 'superman', 'Your product ''hello'' has been deleted by the administrator.', '2015-02-14 02:04:37'),
-(15, 'hihi', 'Your product ''1231231'' has been deleted by the administrator.', '2015-02-14 02:05:10');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -212,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `player` (
   `PLAYER_FGP` float NOT NULL,
   `PLAYER_TPP` float NOT NULL,
   PRIMARY KEY (`PLAYER_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `player`
@@ -220,20 +199,65 @@ CREATE TABLE IF NOT EXISTS `player` (
 
 INSERT INTO `player` (`PLAYER_ID`, `PLAYER_AGE`, `PLAYER_FULLNAME`, `PLAYER_BDATE`, `PLAYER_PORTRAIT_PHOTO`, `PLAYER_STAT`, `PLAYER_YEARSTARTED`, `PLAYER_JERSEY_NO`, `PLAYER_POSITION`, `PLAYER_YEARS_PLAYED`, `PLAYER_HEIGHT`, `PLAYER_WEIGHT`, `PLAYER_PLAYOFF_APPEAR`, `PLAYER_FINALS_APPEAR`, `PLAYER_ALLSTAR_APPEAR`, `PLAYER_PPG`, `PLAYER_APG`, `PLAYER_RPG`, `PLAYER_BPG`, `PLAYER_SPG`, `PLAYER_TPG`, `PLAYER_FPG`, `PLAYER_FTP`, `PLAYER_FGP`, `PLAYER_TPP`) VALUES
 (1, 33, 'Joachim Thoss', 'December 7,1981', '1.jpg', 1, 2004, 7, 'C', 11, '6''7', '93 kg', 10, 5, 10, 15.5, 3.2, 8.9, 2.1, 0.8, 2.5, 2.4, 69.8, 48.3, 16.1),
-(2, 29, 'Joseph Casio', 'August 7,1986', '1.jpg', 1, 2011, 42, 'PG', 4, '5''10', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
-(3, 37, 'Donaldo Hontiveros', 'June 1,1977', '1.jpg', 1, 1998, 25, 'SG', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
-(4, 34, 'Cyrus Baguio', 'August 19,1980', '1.jpg', 1, 2003, 3, 'SF', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
-(5, 33, 'Gabriel Espinas', 'January 3,1982', '1.jpg', 1, 2006, 27, 'SF', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
-(6, 26, 'Solomon Alabi', 'March 21,1988', '1.jpg', 1, 2014, 32, 'C', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
-(7, 31, 'J.C Intal', 'November 18,1983', '1.jpg', 1, 2007, 7, 'SF', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
-(8, 35, 'Chico Lanete', 'August 1,1979', '1.jpg', 1, 2007, 26, 'PG', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
-(9, 35, 'William Joel Wilson', 'January 30,1980', '1.jpg', 1, 2004, 28, 'PF', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
-(10, 25, 'Justin Shaun Chua', 'July 13,1989', '1.jpg', 1, 2013, 18, 'PG', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
-(11, 26, 'Gregory William Slaughter', 'May 19,1988', '1.jpg', 1, 2013, 20, 'C', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
-(12, 28, 'Japeth Paul Aguilar', 'January 25,1987', '1.jpg', 1, 2009, 25, 'PF', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
-(13, 35, 'Mark Anthony Caguioa', 'November 19,1979', '1.jpg', 1, 2001, 47, 'SG', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
-(14, 25, 'James Patrick Forrester', 'September 3,1989', '1.jpg', 1, 2013, 1, 'SG', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
-(15, 30, 'Leo Tenorio', 'July 9,1984', '1.jpg', 1, 2006, 5, 'PG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9);
+(2, 29, 'Joseph Casio', 'August 7,1986', '4.jpg', 1, 2011, 42, 'PG', 4, '5''10', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
+(3, 37, 'Donaldo Hontiveros', 'June 1,1977', '2.jpg', 1, 1998, 25, 'SG', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
+(4, 34, 'Cyrus Baguio', 'August 19,1980', '3.jpg', 1, 2003, 3, 'SF', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
+(5, 33, 'Gabriel Espinas', 'January 3,1982', '9.jpg', 1, 2006, 27, 'SF', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
+(6, 26, 'Solomon Alabi', 'March 21,1988', '10.jpg', 1, 2014, 32, 'C', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
+(7, 31, 'J.C Intal', 'November 18,1983', '15.jpg', 1, 2007, 7, 'SF', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
+(8, 35, 'Chico Lanete', 'August 1,1979', '19.jpg', 1, 2007, 26, 'PG', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
+(9, 35, 'William Joel Wilson', 'January 30,1980', '22.jpg', 1, 2004, 28, 'PF', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
+(10, 25, 'Justin Shaun Chua', 'July 13,1989', '23.jpg', 1, 2013, 18, 'PG', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
+(11, 26, 'Gregory William Slaughter', 'May 19,1988', '38.jpg', 1, 2013, 20, 'C', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
+(12, 28, 'Japeth Paul Aguilar', 'January 25,1987', '43.jpg', 1, 2009, 25, 'PF', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
+(13, 35, 'Mark Anthony Caguioa', 'November 19,1979', '25.jpg', 1, 2001, 47, 'SG', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
+(14, 25, 'James Patrick Forrester', 'September 3,1989', '14.jpg', 1, 2013, 1, 'SG', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
+(15, 30, 'Leo Tenorio', 'July 9,1984', '6.jpg', 1, 2006, 5, 'PG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9),
+(16, 33, 'Jireh Ibanez', 'December 7,1981', '10.jpg', 1, 2004, 6, 'SF', 11, '6''7', '93 kg', 10, 5, 10, 15.5, 3.2, 8.9, 2.1, 0.8, 2.5, 2.4, 69.8, 48.3, 16.1),
+(17, 29, 'Beau Belga', 'August 7,1986', '27.jpg', 1, 2011, 30, 'C', 4, '6''6', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
+(18, 37, 'Ryan Arana', 'June 1,1977', '23.jpg', 1, 1998, 18, 'SG', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
+(19, 34, 'Tyrone Tang', 'August 19,1980', '32.jpg', 1, 2003, 11, 'PG', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
+(20, 33, 'Jervy Cruz', 'January 3,1982', '36.jpg', 1, 2006, 20, 'PF', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
+(21, 26, 'Ronald Tubid', 'March 21,1988', '41.jpg', 1, 2014, 71, 'SG', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
+(22, 31, 'Jay-R Reyes', 'November 18,1983', '11.jpg', 1, 2007, 22, 'C', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
+(23, 35, 'Arwind Santos', 'August 1,1979', '19.jpg', 1, 2007, 29, 'F', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
+(24, 35, 'Alex Cabagnot', 'January 30,1980', '25.jpg', 1, 2004, 5, 'PG', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
+(25, 25, 'Nelbert Omolon', 'July 13,1989', '33.jpg', 1, 2013, 21, 'SF', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
+(26, 26, 'Elmer Espiritu', 'May 19,1988', '42.jpg', 1, 2013, 23, 'SF', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
+(27, 28, 'Jayson Castro', 'January 25,1987', '8.jpg', 1, 2009, 17, 'PG', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
+(28, 35, 'Kelly Williams', 'November 19,1979', '15.jpg', 1, 2001, 21, 'PF', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
+(29, 25, 'Jay Washington', 'September 3,1989', '13.jpg', 1, 2013, 2, 'C', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
+(30, 30, 'Ryan Reyes', 'July 9,1984', '17.jpg', 1, 2006, 10, 'SG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9),
+(31, 33, 'Bryan Faundo', 'December 7,1981', '25.jpg', 1, 2004, 0, 'C', 11, '6''7', '93 kg', 10, 5, 10, 15.5, 3.2, 8.9, 2.1, 0.8, 2.5, 2.4, 69.8, 48.3, 16.1),
+(32, 29, 'Jerick Canada', 'August 7,1986', '29.jpg', 1, 2011, 1, 'PG', 4, '6''6', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
+(33, 37, 'Alex Nuyles', 'June 1,1977', '34.jpg', 1, 1998, 6, 'F', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
+(34, 34, 'Sunday Salvacion', 'August 19,1980', '11.jpg', 1, 2003, 80, 'F', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
+(35, 33, 'Larry Rodriguez', 'January 3,1982', '1.jpg', 1, 2006, 55, 'F', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
+(36, 26, 'Dennis Miranda', 'March 21,1988', '2.jpg', 1, 2014, 2, 'G', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
+(37, 31, 'Anthony Semerad', 'November 18,1983', '37.jpg', 1, 2007, 6, 'F', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
+(38, 35, 'Yancy De Ocampo', 'August 1,1979', '22.jpg', 1, 2007, 95, 'C', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
+(39, 35, 'Mark Isip', 'January 30,1980', '17.jpg', 1, 2004, 12, 'PF', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
+(40, 25, 'Terrence Romeo', 'July 13,1989', '43.jpg', 1, 2013, 7, 'PG', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
+(41, 26, 'LA Revilla', 'May 19,1988', '31.jpg', 1, 2013, 2, 'PG', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
+(42, 28, 'Mark Yee', 'January 25,1987', '5.jpg', 1, 2009, 27, 'F', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
+(43, 35, 'Rich Alvarez', 'November 19,1979', '2.jpg', 1, 2001, 21, 'PF', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
+(44, 25, 'JR Buensuceso', 'September 3,1989', '16.jpg', 1, 2013, 24, 'G', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
+(45, 30, 'Manny Pacquiao', 'July 9,1984', '21.jpg', 1, 2006, 17, 'PG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9),
+(46, 33, 'Gary David', 'December 7,1981', '29.jpg', 1, 2004, 28, 'G', 11, '6''7', '93 kg', 10, 5, 10, 15.5, 3.2, 8.9, 2.1, 0.8, 2.5, 2.4, 69.8, 48.3, 16.1),
+(47, 29, 'John Ferriols', 'August 7,1986', '38.jpg', 1, 2011, 22, 'F', 4, '6''6', '79 kg', 2, 0, 1, 12.1, 4.6, 3.3, 0.1, 0.8, 2, 2.1, 81.4, 40.1, 40.6),
+(48, 37, 'Reynel Hugnatan', 'June 1,1977', '42.jpg', 1, 1998, 21, 'PF', 17, '6''2', '82 kg', 12, 7, 12, 16.5, 4.3, 4.5, 0.8, 1.2, 2.6, 2.9, 85.1, 39.9, 42.1),
+(49, 34, 'James Cena', 'August 19,1980', '1.jpg', 1, 2003, 15, 'C', 12, '6''2', '82 kg', 8, 2, 8, 11.2, 2.6, 3.2, 0.5, 0.9, 2.7, 1.8, 70.5, 45.7, 34.9),
+(50, 33, 'Jai Reyes', 'January 3,1982', '3.jpg', 1, 2006, 5, 'PG', 9, '6''4', '91 kg', 5, 0, 1, 8.9, 1.5, 6.7, 1.6, 0.6, 1.9, 2.4, 65.9, 43.9, 36.8),
+(51, 26, 'Mark Borboran', 'March 21,1988', '9.jpg', 1, 2014, 16, 'F', 1, '7''1', '113 kg', 0, 0, 0, 8.5, 2.9, 9.2, 2.3, 0.8, 2.9, 3, 39.9, 45.8, 18.9),
+(52, 31, 'Mark Cardona', 'November 18,1983', '22.jpg', 1, 2007, 3, 'G', 8, '6''4', '88 kg', 3, 0, 3, 6.5, 1.2, 3.2, 0.4, 0.5, 2.1, 1.9, 64.4, 35.4, 26.4),
+(53, 35, 'Enrico Villanueva', 'August 1,1979', '15.jpg', 1, 2007, 14, 'C', 8, '6''0', '82 kg', 4, 0, 0, 7.3, 4.5, 1.8, 0.2, 1.7, 2, 2.5, 70, 40, 37.5),
+(54, 35, 'Jonas Villanueva', 'January 30,1980', '35.jpg', 1, 2004, 11, 'PG', 11, '6''3', '91 kg', 5, 2, 0, 5.9, 1.1, 5.5, 1.6, 0.4, 2, 2.1, 56.5, 42.1, 35.9),
+(55, 25, 'Nino Canaleta', 'July 13,1989', '40.jpg', 1, 2013, 9, 'F', 2, '6''6', '111 kg', 1, 1, 0, 3.2, 0.3, 2.9, 1, 0.6, 1.1, 0.9, 60.9, 39.9, 33.9),
+(56, 26, 'Peter June Simon', 'May 19,1988', '12.jpg', 1, 2013, 8, 'G', 2, '7''0', '117 kg', 2, 1, 0, 14.8, 1.3, 9.9, 1.5, 0.2, 2.5, 2.2, 66.5, 52.1, 0),
+(57, 28, 'Mark Barroca', 'January 25,1987', '32.jpg', 1, 2009, 14, 'PG', 6, '6''9', '102 kg', 4, 2, 3, 9.2, 0.8, 5.9, 1.8, 0.3, 2.2, 2.2, 66, 46.1, 24.3),
+(58, 35, 'Marc Pingris', 'November 19,1979', '19.jpg', 1, 2001, 15, 'PF', 14, '6''1', '86 kg', 9, 4, 7, 16.7, 2.5, 5, 0.1, 0.8, 2.8, 2.4, 75.9, 43.8, 31.7),
+(59, 25, 'Yousef Taha', 'September 3,1989', '25.jpg', 1, 2013, 0, 'C', 2, '6''2', '86 kg', 0, 0, 0, 5.9, 2.2, 3, 1.1, 1.1, 2, 1.6, 74.4, 39.9, 39.7),
+(60, 30, 'James Yap', 'July 9,1984', '7.jpg', 1, 2006, 18, 'SG', 14, '5''9', '70 kg', 9, 6, 3, 11.3, 4.4, 4, 0.1, 1.2, 2.3, 2.9, 79.8, 41.5, 31.9);
 
 -- --------------------------------------------------------
 
@@ -248,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `player_award_won` (
   `AWARD_YEAR` int(4) NOT NULL,
   PRIMARY KEY (`PAW_ID`),
   UNIQUE KEY `PAW_ID` (`PAW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `player_award_won`
@@ -285,26 +309,73 @@ CREATE TABLE IF NOT EXISTS `player_carousel_image` (
   `IMAGE9` varchar(150) NOT NULL,
   PRIMARY KEY (`PCI_ID`),
   UNIQUE KEY `PCI_ID` (`PCI_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `player_carousel_image`
 --
 
 INSERT INTO `player_carousel_image` (`PCI_ID`, `PLAYER_ID`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`, `IMAGE6`, `IMAGE7`, `IMAGE8`, `IMAGE9`) VALUES
-(1, 1, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(2, 2, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(3, 4, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(4, 5, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(5, 6, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(6, 7, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(7, 9, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(8, 10, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(9, 11, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(10, 12, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(11, 13, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(12, 14, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', ''),
-(13, 15, 'Alaska.jpg', 'Rain or Shine.jpg', 'San Mig.jpg', 'San Miguel.jpg', 'Talk N Text.jpg', '', '', '', '');
+(1, 1, 'Alaska/1/1.jpg', 'Alaska/1/2.jpg', 'Alaska/1/3.jpg', 'Alaska/1/4.jpg', 'Alaska/1/5.jpg', 'Alaska/1/6.jpg', 'Alaska/1/7.jpg', 'Alaska/1/8.jpg', 'Alaska/1/9.jpg'),
+(2, 2, 'Alaska/1/1.jpg', 'Alaska/1/2.jpg', 'Alaska/1/3.jpg', 'Alaska/1/4.jpg', 'Alaska/1/5.jpg', 'Alaska/1/6.jpg', 'Alaska/1/7.jpg', 'Alaska/1/8.jpg', 'Alaska/1/9.jpg'),
+(3, 3, 'Alaska/1/1.jpg', 'Alaska/1/2.jpg', 'Alaska/1/3.jpg', 'Alaska/1/4.jpg', 'Alaska/1/5.jpg', 'Alaska/1/6.jpg', 'Alaska/1/7.jpg', 'Alaska/1/8.jpg', 'Alaska/1/9.jpg'),
+(4, 4, 'Alaska/2/1.jpg', 'Alaska/2/2.jpg', 'Alaska/2/3.jpg', 'Alaska/2/4.jpg', 'Alaska/2/5.jpg', 'Alaska/2/6.jpg', 'Alaska/2/7.jpg', 'Alaska/2/8.jpg', 'Alaska/2/9.jpg'),
+(5, 5, 'Alaska/2/1.jpg', 'Alaska/2/2.jpg', 'Alaska/2/3.jpg', 'Alaska/2/4.jpg', 'Alaska/2/5.jpg', 'Alaska/2/6.jpg', 'Alaska/2/7.jpg', 'Alaska/2/8.jpg', 'Alaska/2/9.jpg'),
+(6, 6, 'Alaska/2/1.jpg', 'Alaska/2/2.jpg', 'Alaska/2/3.jpg', 'Alaska/2/4.jpg', 'Alaska/2/5.jpg', 'Alaska/2/6.jpg', 'Alaska/2/7.jpg', 'Alaska/2/8.jpg', 'Alaska/2/9.jpg'),
+(7, 7, 'Alaska/3/1.jpg', 'Alaska/3/2.jpg', 'Alaska/3/3.jpg', 'Alaska/3/4.jpg', 'Alaska/3/5.jpg', 'Alaska/3/6.jpg', 'Alaska/3/7.jpg', 'Alaska/3/8.jpg', 'Alaska/3/9.jpg'),
+(8, 8, 'Alaska/3/1.jpg', 'Alaska/3/2.jpg', 'Alaska/3/3.jpg', 'Alaska/3/4.jpg', 'Alaska/3/5.jpg', 'Alaska/3/6.jpg', 'Alaska/3/7.jpg', 'Alaska/3/8.jpg', 'Alaska/3/9.jpg'),
+(9, 9, 'Alaska/3/1.jpg', 'Alaska/3/2.jpg', 'Alaska/3/3.jpg', 'Alaska/3/4.jpg', 'Alaska/3/5.jpg', 'Alaska/3/6.jpg', 'Alaska/3/7.jpg', 'Alaska/3/8.jpg', 'Alaska/3/9.jpg'),
+(10, 10, 'Alaska/4/1.jpg', 'Alaska/4/2.jpg', 'Alaska/4/3.jpg', 'Alaska/4/4.jpg', 'Alaska/4/5.jpg', 'Alaska/4/6.jpg', 'Alaska/4/7.jpg', 'Alaska/4/8.jpg', 'Alaska/4/9.jpg'),
+(11, 11, 'Alaska/4/1.jpg', 'Alaska/4/2.jpg', 'Alaska/4/3.jpg', 'Alaska/4/4.jpg', 'Alaska/4/5.jpg', 'Alaska/4/6.jpg', 'Alaska/4/7.jpg', 'Alaska/4/8.jpg', 'Alaska/4/9.jpg'),
+(12, 12, 'Alaska/4/1.jpg', 'Alaska/4/2.jpg', 'Alaska/4/3.jpg', 'Alaska/4/4.jpg', 'Alaska/4/5.jpg', 'Alaska/4/6.jpg', 'Alaska/4/7.jpg', 'Alaska/4/8.jpg', 'Alaska/4/9.jpg'),
+(13, 13, 'Alaska/5/1.jpg', 'Alaska/5/2.jpg', 'Alaska/5/3.jpg', 'Alaska/5/4.jpg', 'Alaska/5/5.jpg', 'Alaska/5/6.jpg', 'Alaska/5/7.jpg', 'Alaska/5/8.jpg', 'Alaska/5/9.jpg'),
+(14, 14, 'Alaska/5/1.jpg', 'Alaska/5/2.jpg', 'Alaska/5/3.jpg', 'Alaska/5/4.jpg', 'Alaska/5/5.jpg', 'Alaska/5/6.jpg', 'Alaska/5/7.jpg', 'Alaska/5/8.jpg', 'Alaska/5/9.jpg'),
+(15, 15, 'Alaska/5/1.jpg', 'Alaska/5/2.jpg', 'Alaska/5/3.jpg', 'Alaska/5/4.jpg', 'Alaska/5/5.jpg', 'Alaska/5/6.jpg', 'Alaska/5/7.jpg', 'Alaska/5/8.jpg', 'Alaska/5/9.jpg'),
+(16, 16, 'Barako Bulls/1/1.jpg', 'Barako Bulls/1/2.jpg', 'Barako Bulls/1/3.jpg', 'Barako Bulls/1/4.jpg', 'Barako Bulls/1/5.jpg', 'Barako Bulls/1/6.jpg', 'Barako Bulls/1/7.jpg', 'Barako Bulls/1/8.jpg', 'Barako Bulls/1/9.jpg'),
+(17, 17, 'Barako Bulls/1/1.jpg', 'Barako Bulls/1/2.jpg', 'Barako Bulls/1/3.jpg', 'Barako Bulls/1/4.jpg', 'Barako Bulls/1/5.jpg', 'Barako Bulls/1/6.jpg', 'Barako Bulls/1/7.jpg', 'Barako Bulls/1/8.jpg', 'Barako Bulls/1/9.jpg'),
+(18, 18, 'Barako Bulls/1/1.jpg', 'Barako Bulls/1/2.jpg', 'Barako Bulls/1/3.jpg', 'Barako Bulls/1/4.jpg', 'Barako Bulls/1/5.jpg', 'Barako Bulls/1/6.jpg', 'Barako Bulls/1/7.jpg', 'Barako Bulls/1/8.jpg', 'Barako Bulls/1/9.jpg'),
+(19, 19, 'Barako Bulls/2/1.jpg', 'Barako Bulls/2/2.jpg', 'Barako Bulls/2/3.jpg', 'Barako Bulls/2/4.jpg', 'Barako Bulls/2/5.jpg', 'Barako Bulls/2/6.jpg', 'Barako Bulls/2/7.jpg', 'Barako Bulls/2/8.jpg', 'Barako Bulls/2/9.jpg'),
+(20, 20, 'Barako Bulls/2/1.jpg', 'Barako Bulls/2/2.jpg', 'Barako Bulls/2/3.jpg', 'Barako Bulls/2/4.jpg', 'Barako Bulls/2/5.jpg', 'Barako Bulls/2/6.jpg', 'Barako Bulls/2/7.jpg', 'Barako Bulls/2/8.jpg', 'Barako Bulls/2/9.jpg'),
+(21, 21, 'Barako Bulls/2/1.jpg', 'Barako Bulls/2/2.jpg', 'Barako Bulls/2/3.jpg', 'Barako Bulls/2/4.jpg', 'Barako Bulls/2/5.jpg', 'Barako Bulls/2/6.jpg', 'Barako Bulls/2/7.jpg', 'Barako Bulls/2/8.jpg', 'Barako Bulls/2/9.jpg'),
+(22, 22, 'Barako Bulls/3/1.jpg', 'Barako Bulls/3/2.jpg', 'Barako Bulls/3/3.jpg', 'Barako Bulls/3/4.jpg', 'Barako Bulls/3/5.jpg', 'Barako Bulls/3/6.jpg', 'Barako Bulls/3/7.jpg', 'Barako Bulls/3/8.jpg', 'Barako Bulls/3/9.jpg'),
+(23, 23, 'Barako Bulls/3/1.jpg', 'Barako Bulls/3/2.jpg', 'Barako Bulls/3/3.jpg', 'Barako Bulls/3/4.jpg', 'Barako Bulls/3/5.jpg', 'Barako Bulls/3/6.jpg', 'Barako Bulls/3/7.jpg', 'Barako Bulls/3/8.jpg', 'Barako Bulls/3/9.jpg'),
+(24, 24, 'Barako Bulls/3/1.jpg', 'Barako Bulls/3/2.jpg', 'Barako Bulls/3/3.jpg', 'Barako Bulls/3/4.jpg', 'Barako Bulls/3/5.jpg', 'Barako Bulls/3/6.jpg', 'Barako Bulls/3/7.jpg', 'Barako Bulls/3/8.jpg', 'Barako Bulls/3/9.jpg'),
+(25, 25, 'Barako Bulls/4/1.jpg', 'Barako Bulls/4/2.jpg', 'Barako Bulls/4/3.jpg', 'Barako Bulls/4/4.jpg', 'Barako Bulls/4/5.jpg', 'Barako Bulls/4/6.jpg', 'Barako Bulls/4/7.jpg', 'Barako Bulls/4/8.jpg', 'Barako Bulls/4/9.jpg'),
+(26, 26, 'Barako Bulls/4/1.jpg', 'Barako Bulls/4/2.jpg', 'Barako Bulls/4/3.jpg', 'Barako Bulls/4/4.jpg', 'Barako Bulls/4/5.jpg', 'Barako Bulls/4/6.jpg', 'Barako Bulls/4/7.jpg', 'Barako Bulls/4/8.jpg', 'Barako Bulls/4/9.jpg'),
+(27, 27, 'Barako Bulls/4/1.jpg', 'Barako Bulls/4/2.jpg', 'Barako Bulls/4/3.jpg', 'Barako Bulls/4/4.jpg', 'Barako Bulls/4/5.jpg', 'Barako Bulls/4/6.jpg', 'Barako Bulls/4/7.jpg', 'Barako Bulls/4/8.jpg', 'Barako Bulls/4/9.jpg'),
+(28, 28, 'Barako Bulls/5/1.jpg', 'Barako Bulls/5/2.jpg', 'Barako Bulls/5/3.jpg', 'Barako Bulls/5/4.jpg', 'Barako Bulls/5/5.jpg', 'Barako Bulls/5/6.jpg', 'Barako Bulls/5/7.jpg', 'Barako Bulls/5/8.jpg', 'Barako Bulls/5/9.jpg'),
+(29, 29, 'Barako Bulls/5/1.jpg', 'Barako Bulls/5/2.jpg', 'Barako Bulls/5/3.jpg', 'Barako Bulls/5/4.jpg', 'Barako Bulls/5/5.jpg', 'Barako Bulls/5/6.jpg', 'Barako Bulls/5/7.jpg', 'Barako Bulls/5/8.jpg', 'Barako Bulls/5/9.jpg'),
+(30, 30, 'Barako Bulls/5/1.jpg', 'Barako Bulls/5/2.jpg', 'Barako Bulls/5/3.jpg', 'Barako Bulls/5/4.jpg', 'Barako Bulls/5/5.jpg', 'Barako Bulls/5/6.jpg', 'Barako Bulls/5/7.jpg', 'Barako Bulls/5/8.jpg', 'Barako Bulls/5/9.jpg'),
+(31, 31, 'Blackwater/1/1.jpg', 'Blackwater/1/2.jpg', 'Blackwater/1/3.jpg', 'Blackwater/1/4.jpg', 'Blackwater/1/5.jpg', 'Blackwater/1/6.jpg', 'Blackwater/1/7.jpg', 'Blackwater/1/8.jpg', 'Blackwater/1/9.jpg'),
+(32, 32, 'Blackwater/1/1.jpg', 'Blackwater/1/2.jpg', 'Blackwater/1/3.jpg', 'Blackwater/1/4.jpg', 'Blackwater/1/5.jpg', 'Blackwater/1/6.jpg', 'Blackwater/1/7.jpg', 'Blackwater/1/8.jpg', 'Blackwater/1/9.jpg'),
+(33, 33, 'Blackwater/1/1.jpg', 'Blackwater/1/2.jpg', 'Blackwater/1/3.jpg', 'Blackwater/1/4.jpg', 'Blackwater/1/5.jpg', 'Blackwater/1/6.jpg', 'Blackwater/1/7.jpg', 'Blackwater/1/8.jpg', 'Blackwater/1/9.jpg'),
+(34, 34, 'Blackwater/2/1.jpg', 'Blackwater/2/2.jpg', 'Blackwater/2/3.jpg', 'Blackwater/2/4.jpg', 'Blackwater/2/5.jpg', 'Blackwater/2/6.jpg', 'Blackwater/2/7.jpg', 'Blackwater/2/8.jpg', 'Blackwater/2/9.jpg'),
+(35, 35, 'Blackwater/2/1.jpg', 'Blackwater/2/2.jpg', 'Blackwater/2/3.jpg', 'Blackwater/2/4.jpg', 'Blackwater/2/5.jpg', 'Blackwater/2/6.jpg', 'Blackwater/2/7.jpg', 'Blackwater/2/8.jpg', 'Blackwater/2/9.jpg'),
+(36, 36, 'Blackwater/2/1.jpg', 'Blackwater/2/2.jpg', 'Blackwater/2/3.jpg', 'Blackwater/2/4.jpg', 'Blackwater/2/5.jpg', 'Blackwater/2/6.jpg', 'Blackwater/2/7.jpg', 'Blackwater/2/8.jpg', 'Blackwater/2/9.jpg'),
+(37, 37, 'Blackwater/3/1.jpg', 'Blackwater/3/2.jpg', 'Blackwater/3/3.jpg', 'Blackwater/3/4.jpg', 'Blackwater/3/5.jpg', 'Blackwater/3/6.jpg', 'Blackwater/3/7.jpg', 'Blackwater/3/8.jpg', 'Blackwater/3/9.jpg'),
+(38, 38, 'Blackwater/3/1.jpg', 'Blackwater/3/2.jpg', 'Blackwater/3/3.jpg', 'Blackwater/3/4.jpg', 'Blackwater/3/5.jpg', 'Blackwater/3/6.jpg', 'Blackwater/3/7.jpg', 'Blackwater/3/8.jpg', 'Blackwater/3/9.jpg'),
+(39, 39, 'Blackwater/3/1.jpg', 'Blackwater/3/2.jpg', 'Blackwater/3/3.jpg', 'Blackwater/3/4.jpg', 'Blackwater/3/5.jpg', 'Blackwater/3/6.jpg', 'Blackwater/3/7.jpg', 'Blackwater/3/8.jpg', 'Blackwater/3/9.jpg'),
+(40, 40, 'Blackwater/4/1.jpg', 'Blackwater/4/2.jpg', 'Blackwater/4/3.jpg', 'Blackwater/4/4.jpg', 'Blackwater/4/5.jpg', 'Blackwater/4/6.jpg', 'Blackwater/4/7.jpg', 'Blackwater/4/8.jpg', 'Blackwater/4/9.jpg'),
+(41, 41, 'Blackwater/4/1.jpg', 'Blackwater/4/2.jpg', 'Blackwater/4/3.jpg', 'Blackwater/4/4.jpg', 'Blackwater/4/5.jpg', 'Blackwater/4/6.jpg', 'Blackwater/4/7.jpg', 'Blackwater/4/8.jpg', 'Blackwater/4/9.jpg'),
+(42, 42, 'Blackwater/4/1.jpg', 'Blackwater/4/2.jpg', 'Blackwater/4/3.jpg', 'Blackwater/4/4.jpg', 'Blackwater/4/5.jpg', 'Blackwater/4/6.jpg', 'Blackwater/4/7.jpg', 'Blackwater/4/8.jpg', 'Blackwater/4/9.jpg'),
+(43, 43, 'Blackwater/5/1.jpg', 'Blackwater/5/2.jpg', 'Blackwater/5/3.jpg', 'Blackwater/5/4.jpg', 'Blackwater/5/5.jpg', 'Blackwater/5/6.jpg', 'Blackwater/5/7.jpg', 'Blackwater/5/8.jpg', 'Blackwater/5/9.jpg'),
+(44, 44, 'Blackwater/5/1.jpg', 'Blackwater/5/2.jpg', 'Blackwater/5/3.jpg', 'Blackwater/5/4.jpg', 'Blackwater/5/5.jpg', 'Blackwater/5/6.jpg', 'Blackwater/5/7.jpg', 'Blackwater/5/8.jpg', 'Blackwater/5/9.jpg'),
+(45, 45, 'Blackwater/5/1.jpg', 'Blackwater/5/2.jpg', 'Blackwater/5/3.jpg', 'Blackwater/5/4.jpg', 'Blackwater/5/5.jpg', 'Blackwater/5/6.jpg', 'Blackwater/5/7.jpg', 'Blackwater/5/8.jpg', 'Blackwater/5/9.jpg'),
+(46, 46, 'Ginebra/1/1.jpg', 'Ginebra/1/2.jpg', 'Ginebra/1/3.jpg', 'Ginebra/1/4.jpg', 'Ginebra/1/5.jpg', 'Ginebra/1/6.jpg', 'Ginebra/1/7.jpg', 'Ginebra/1/8.jpg', 'Ginebra/1/9.jpg'),
+(47, 47, 'Ginebra/1/1.jpg', 'Ginebra/1/2.jpg', 'Ginebra/1/3.jpg', 'Ginebra/1/4.jpg', 'Ginebra/1/5.jpg', 'Ginebra/1/6.jpg', 'Ginebra/1/7.jpg', 'Ginebra/1/8.jpg', 'Ginebra/1/9.jpg'),
+(48, 48, 'Ginebra/1/1.jpg', 'Ginebra/1/2.jpg', 'Ginebra/1/3.jpg', 'Ginebra/1/4.jpg', 'Ginebra/1/5.jpg', 'Ginebra/1/6.jpg', 'Ginebra/1/7.jpg', 'Ginebra/1/8.jpg', 'Ginebra/1/9.jpg'),
+(49, 49, 'Ginebra/2/1.jpg', 'Ginebra/2/2.jpg', 'Ginebra/2/3.jpg', 'Ginebra/2/4.jpg', 'Ginebra/2/5.jpg', 'Ginebra/2/6.jpg', 'Ginebra/2/7.jpg', 'Ginebra/2/8.jpg', 'Ginebra/1/9.jpg'),
+(50, 50, 'Ginebra/2/1.jpg', 'Ginebra/2/2.jpg', 'Ginebra/2/3.jpg', 'Ginebra/2/4.jpg', 'Ginebra/2/5.jpg', 'Ginebra/2/6.jpg', 'Ginebra/2/7.jpg', 'Ginebra/2/8.jpg', 'Ginebra/1/9.jpg'),
+(51, 51, 'Ginebra/2/1.jpg', 'Ginebra/2/2.jpg', 'Ginebra/2/3.jpg', 'Ginebra/2/4.jpg', 'Ginebra/2/5.jpg', 'Ginebra/2/6.jpg', 'Ginebra/2/7.jpg', 'Ginebra/2/8.jpg', 'Ginebra/1/9.jpg'),
+(52, 52, 'Ginebra/3/1.jpg', 'Ginebra/3/2.jpg', 'Ginebra/3/3.jpg', 'Ginebra/3/4.jpg', 'Ginebra/3/5.jpg', 'Ginebra/3/6.jpg', 'Ginebra/3/7.jpg', 'Ginebra/3/8.jpg', 'Ginebra/3/9.jpg'),
+(53, 53, 'Ginebra/3/1.jpg', 'Ginebra/3/2.jpg', 'Ginebra/3/3.jpg', 'Ginebra/3/4.jpg', 'Ginebra/3/5.jpg', 'Ginebra/3/6.jpg', 'Ginebra/3/7.jpg', 'Ginebra/3/8.jpg', 'Ginebra/3/9.jpg'),
+(54, 54, 'Ginebra/3/1.jpg', 'Ginebra/3/2.jpg', 'Ginebra/3/3.jpg', 'Ginebra/3/4.jpg', 'Ginebra/3/5.jpg', 'Ginebra/3/6.jpg', 'Ginebra/3/7.jpg', 'Ginebra/3/8.jpg', 'Ginebra/3/9.jpg'),
+(55, 55, 'Ginebra/4/1.jpg', 'Ginebra/4/2.jpg', 'Ginebra/4/3.jpg', 'Ginebra/4/4.jpg', 'Ginebra/4/5.jpg', 'Ginebra/4/6.jpg', 'Ginebra/4/7.jpg', 'Ginebra/4/8.jpg', 'Ginebra/4/9.jpg'),
+(56, 56, 'Ginebra/4/1.jpg', 'Ginebra/4/2.jpg', 'Ginebra/4/3.jpg', 'Ginebra/4/4.jpg', 'Ginebra/4/5.jpg', 'Ginebra/4/6.jpg', 'Ginebra/4/7.jpg', 'Ginebra/4/8.jpg', 'Ginebra/4/9.jpg'),
+(57, 57, 'Ginebra/4/1.jpg', 'Ginebra/4/2.jpg', 'Ginebra/4/3.jpg', 'Ginebra/4/4.jpg', 'Ginebra/4/5.jpg', 'Ginebra/4/6.jpg', 'Ginebra/4/7.jpg', 'Ginebra/4/8.jpg', 'Ginebra/4/9.jpg'),
+(58, 58, 'Ginebra/5/1.jpg', 'Ginebra/5/2.jpg', 'Ginebra/5/3.jpg', 'Ginebra/5/4.jpg', 'Ginebra/5/5.jpg', 'Ginebra/5/6.jpg', 'Ginebra/5/7.jpg', 'Ginebra/5/8.jpg', 'Ginebra/5/9.jpg'),
+(59, 59, 'Ginebra/5/1.jpg', 'Ginebra/5/2.jpg', 'Ginebra/5/3.jpg', 'Ginebra/5/4.jpg', 'Ginebra/5/5.jpg', 'Ginebra/5/6.jpg', 'Ginebra/5/7.jpg', 'Ginebra/5/8.jpg', 'Ginebra/5/9.jpg'),
+(60, 60, 'Ginebra/5/1.jpg', 'Ginebra/5/2.jpg', 'Ginebra/5/3.jpg', 'Ginebra/5/4.jpg', 'Ginebra/5/5.jpg', 'Ginebra/5/6.jpg', 'Ginebra/5/7.jpg', 'Ginebra/5/8.jpg', 'Ginebra/5/9.jpg');
 
 -- --------------------------------------------------------
 
@@ -343,14 +414,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `IMAGE4` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   `IMAGE5` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   PRIMARY KEY (`PROD_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
-
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`PROD_ID`, `USER_ID`, `START_BID`, `PROD_NAME`, `PROD_CAT`, `PROD_DES`, `PROD_AGE_NAME`, `PROD_AGE_VAL`, `PROD_STAT`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(17, 4, 1, '1234', 'Jersey', '123', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -533,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `team_player_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TPB_ID`),
   UNIQUE KEY `TPB_ID` (`TPB_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
 
 --
 -- Dumping data for table `team_player_bridge`
@@ -566,7 +630,52 @@ INSERT INTO `team_player_bridge` (`TPB_ID`, `TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEA
 (24, 3, 13, 'PRESENT', '2001'),
 (25, 3, 14, 'PRESENT', '2013'),
 (26, 1, 15, 'PAST', '2008-2012'),
-(27, 3, 15, 'PRESENT', '2012');
+(27, 3, 15, 'PRESENT', '2012'),
+(28, 4, 16, 'PRESENT', '2001'),
+(29, 4, 17, 'PRESENT', '2010'),
+(30, 4, 18, 'PRESENT', '2005'),
+(31, 4, 19, 'PRESENT', '2006'),
+(32, 4, 20, 'PRESENT', '1999'),
+(33, 5, 21, 'PRESENT', '2009'),
+(34, 5, 22, 'PRESENT', '2005'),
+(35, 5, 23, 'PRESENT', '2001'),
+(36, 5, 24, 'PRESENT', '2003'),
+(37, 5, 25, 'PRESENT', '2010'),
+(38, 6, 26, 'PRESENT', '2013'),
+(39, 6, 27, 'PRESENT', '1995'),
+(40, 6, 28, 'PRESENT', '1996'),
+(41, 6, 29, 'PRESENT', '2006'),
+(42, 6, 30, 'PRESENT', '2008'),
+(43, 7, 31, 'PRESENT', '2009'),
+(44, 7, 32, 'PRESENT', '2011'),
+(45, 7, 33, 'PRESENT', '2012'),
+(46, 7, 34, 'PRESENT', '2013'),
+(47, 7, 35, 'PRESENT', '2000'),
+(48, 8, 36, 'PRESENT', '2002'),
+(49, 8, 37, 'PRESENT', '2003'),
+(50, 8, 38, 'PRESENT', '2004'),
+(51, 8, 39, 'PRESENT', '2005'),
+(52, 8, 40, 'PRESENT', '2006'),
+(53, 9, 41, 'PRESENT', '2007'),
+(54, 9, 42, 'PRESENT', '2008'),
+(55, 9, 43, 'PRESENT', '2009'),
+(56, 9, 44, 'PRESENT', '2010'),
+(57, 9, 45, 'PRESENT', '1997'),
+(58, 10, 46, 'PRESENT', '2000'),
+(59, 10, 47, 'PRESENT', '2001'),
+(60, 10, 48, 'PRESENT', '2002'),
+(61, 10, 49, 'PRESENT', '2004'),
+(62, 10, 50, 'PRESENT', '2005'),
+(63, 11, 51, 'PRESENT', '2003'),
+(64, 11, 52, 'PRESENT', '2009'),
+(65, 11, 53, 'PRESENT', '2009'),
+(66, 11, 54, 'PRESENT', '2008'),
+(67, 11, 55, 'PRESENT', '2005'),
+(68, 12, 56, 'PRESENT', '2006'),
+(69, 12, 57, 'PRESENT', '2003'),
+(70, 12, 58, 'PRESENT', '2004'),
+(71, 12, 59, 'PRESENT', '2000'),
+(72, 12, 60, 'PRESENT', '2001');
 
 -- --------------------------------------------------------
 
@@ -599,15 +708,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
-(4, 'Abcdef', 'Defe123', '09123123222', 'tae@yahoo.com', 'asdsa', '2014-12-30', 'Who is your favorite PBA player?', 'KB', 'hihi', 'e9f5713dec55d727bb35392cec6190ce', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/hihi.jpg'),
-(5, 'lILTONG', 'Abellanosa', '09123121231', 'asda@yahoo.com', '102 kaon kaon', '2012-12-31', 'Who is your favorite PBA team?', 'IDK', 'Irvin', '4e4d6c332b6fe62a63afe56171fd3725', 'Active', 'Normal', 'http://localhost/PBA/assets/user_images/Irvin.jpg'),
-(7, 'Samsam', 'Abellanosa', '02321312312', 'asda1@yahoo.com', '12312 12asda ', '2014-07-02', 'Who is your favorite PBA player?', 'KB', 'Sam1', '490bd89bcdc4e9f01d1a33899736f7a3', 'Active', 'Admin', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
-(9, 'Kobe', 'Bryant', '09121123121', 'mictest12345678910@gmail.com', '102 kamuning', '2014-12-31', 'Who is your favorite PBA coach?', '12@', 'irvin1', 'c225a8f46e8453d72875fa6231f52cad', 'Active', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
-(10, 'Woohoo', 'weeehee', '12312312311', 'iii@yahoo.com', '12312 asoodaa', '2014-12-31', 'Who is your favorite PBA player?', '1234', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/1234.png'),
-(12, '12345', '1234', '12312312311', 'aishdias@yahoo.com', 'asdsa', '2013-12-31', 'Who is your favorite PBA team?', 'KB', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f', 'Durplu', 'Normal', 'http://localhost/PBA/assets/user_images/abcd.png'),
-(13, 'Jacob', 'Abellanosa', '09123121231', 'asdasd@yahoo.com', '102 kaon kaon', '2012-12-31', 'Who is your favorite PBA team?', 'IDK', 'hello', 'hello', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/Irvin.jpg'),
-(14, 'haha', 'haha', '01923123', 'asdf@haha.com', 'sdfsdf', '2015-01-01', 'Hello', 'HI', 'haha', 'haha', 'Active', 'Admin', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
-(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '6068ea25d64976e6e0e44da9e29e0e41', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.png');
+(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

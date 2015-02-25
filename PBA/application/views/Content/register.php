@@ -71,7 +71,10 @@
                             Captcha code
                             <input class="text-center" type="text" name="captcha" id="captcha" placeholder="Input code below" aria-label="Input code below" required maxlength="6" pattern=".{6}" title="6 Characters"/>
                             <br/>
-                            <div class="input-topmargin-small captcha-img"><?php echo $image;?></div><img id="refresh" src="<?php echo base_url();?>assets/img/refresh.png" width="100" height="80"/>
+                            <div class="input-topmargin-small" style="display:inline-flex">
+                                <div class="captcha-img" style="height:60px"><?php echo $image;?></div>
+                                <img id="refresh" style="width:60px; height:60px; margin:10px 0" src="<?php echo base_url();?>assets/img/refresh.png" />
+</div>                      </div>
                         </label>
                     </div>
                     <hr class="hr-dotted" />
