@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2015 at 09:05 AM
+-- Generation Time: Feb 25, 2015 at 09:49 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -47,15 +47,15 @@ CREATE TABLE IF NOT EXISTS `coach` (
 
 INSERT INTO `coach` (`COACH_ID`, `COACH_FULLNAME`, `COACH_AGE`, `COACH_BDATE`, `COACH_BIRTHPLACE`, `COACH_PORTRAIT_PHOTO`, `COACH_STAT`, `COACH_YEARSTARTED`, `COACH_CAREERWINS`, `COACH_PLAYOFF_APPEAR`, `COACH_FINALS_APPEAR`) VALUES
 (1, 'Koy Banal', 39, 'September 9,1975', 'Philippines', '1.jpg', 1, 2014, 50, 0, 0),
-(2, 'Ato Agustin', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
-(3, 'Alex Compton', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 1100, 8, 8),
-(4, 'Leo Isaac', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
-(5, 'Eric Gonzales', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
-(6, 'Manny Pacquiao', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
-(7, 'Norman Black', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 1100, 8, 8),
-(8, 'Boyet Fernandez', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
-(9, 'Tim Cone', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 1100, 8, 8),
-(10, 'Yeng Guiao', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 1100, 8, 8),
+(2, 'Ato Agustin', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 300, 8, 8),
+(3, 'Alex Compton', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 190, 8, 8),
+(4, 'Leo Isaac', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 211, 8, 8),
+(5, 'Eric Gonzales', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 99, 8, 8),
+(6, 'Manny Pacquiao', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 576, 8, 8),
+(7, 'Norman Black', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 123, 8, 8),
+(8, 'Boyet Fernandez', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 321, 8, 8),
+(9, 'Tim Cone', 65, 'October 9, 1950', 'United States', '2.jpg', 1, 1980, 211, 8, 8),
+(10, 'Yeng Guiao', 65, 'October 9, 1950', 'Philippines', '2.jpg', 1, 1980, 900, 8, 8),
 (11, 'Leo Austria', 39, 'September 9,1975', 'Philippines', '1.jpg', 1, 2014, 50, 0, 0),
 (12, 'Jong Uichico', 39, 'September 9,1975', 'Philippines', '1.jpg', 1, 2014, 50, 0, 0);
 
@@ -72,14 +72,24 @@ CREATE TABLE IF NOT EXISTS `coach_award_won` (
   `YEAR_AWARDED` int(4) NOT NULL,
   PRIMARY KEY (`CAW_ID`),
   UNIQUE KEY `CAW_ID` (`CAW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `coach_award_won`
 --
 
 INSERT INTO `coach_award_won` (`CAW_ID`, `COACH_ID`, `AWARD_NAME`, `YEAR_AWARDED`) VALUES
-(1, 1, 'Coach Of The Year', 2014);
+(1, 1, 'Coach Of The Year', 2014),
+(2, 1, 'Coach of the Year', 2014),
+(3, 2, 'Coach of the Year', 2010),
+(4, 3, 'Coach of the Year', 2011),
+(5, 3, 'Coach of the Year', 2012),
+(6, 9, 'Coach of the Year', 2008),
+(7, 9, 'Coach of the Year', 2009),
+(8, 9, 'Coach of the Year', 2010),
+(9, 7, 'Coach of the Year', 2007),
+(10, 10, 'Coach of the Year', 2006),
+(11, 10, 'Coach of the Year', 2002);
 
 -- --------------------------------------------------------
 
@@ -134,14 +144,21 @@ CREATE TABLE IF NOT EXISTS `coach_championship_won` (
   `YEAR_WON` int(4) NOT NULL,
   PRIMARY KEY (`CCW_ID`),
   UNIQUE KEY `CCW_ID` (`CCW_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `coach_championship_won`
 --
 
 INSERT INTO `coach_championship_won` (`CCW_ID`, `COACH_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
-(2, 1, 'NBA', 2014);
+(3, 9, 'All-Filipino Cup', 2012),
+(4, 9, 'All-Filipino Cup', 2013),
+(5, 3, 'All-Filipino Cup', 2011),
+(6, 10, 'All-Filipino Cup', 2010),
+(7, 9, 'Commissioner''s Cup', 2014),
+(8, 9, 'Governors Cup', 2014),
+(9, 10, 'Governors Cup', 2011),
+(10, 10, 'Governors Cup', 2012);
 
 -- --------------------------------------------------------
 
@@ -390,7 +407,25 @@ CREATE TABLE IF NOT EXISTS `player_championship_won` (
   `YEAR_WON` int(4) NOT NULL,
   PRIMARY KEY (`PCW_ID`),
   UNIQUE KEY `PCW_ID` (`PCW_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `player_championship_won`
+--
+
+INSERT INTO `player_championship_won` (`PCW_ID`, `PLAYER_ID`, `LEAGUE_NAME`, `YEAR_WON`) VALUES
+(1, 1, 'Governors Cup', 2009),
+(2, 1, 'Governors Cup', 2010),
+(3, 1, 'Governors Cup', 2011),
+(4, 2, 'Governors Cup', 2009),
+(5, 3, 'Commissioner''s Cup', 2009),
+(6, 4, 'Commissioner''s Cup', 2009),
+(7, 3, 'Commissioner''s Cup', 2010),
+(8, 4, 'Commissioner''s Cup', 2010),
+(9, 60, 'Commissioner''s Cup', 2012),
+(10, 60, 'Commissioner''s Cup', 2013),
+(11, 60, 'Governors Cup', 2013),
+(12, 60, 'Governors Cup', 2014);
 
 -- --------------------------------------------------------
 
@@ -708,7 +743,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
-(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.png');
+(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
