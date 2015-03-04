@@ -370,6 +370,32 @@ class Account_controller extends CI_Controller{
 		return $this->email->print_debugger();
 	}
 
+	//resends mail through gmail
+	public function resendmail(){
+		$config = array(
+	        'protocol' => 'smtp',
+	        'smtp_host' => 'ssl://smtp.googlemail.com',
+	        'smtp_port' => 465,
+	        'smtp_user' => 'pba.hub@gmail.com',
+	        'smtp_pass' => '123456789Ten'
+    	);
+		$userData = $this->account_model->get_user($this->input->post('user'));
+    	$email = $userData->EMAIL_ADDRESS;
+    	$code = $userData->STATUS;
+    	$this->load->library('email',$config);
+    	$this->email->set_newline("\r\n");
+		$this->email->from('pba.hub@gmail.com','PBA HUB MESSENGER');
+		$this->email->to($email);
+		$this->email->subject('Verification Code');
+		$this->email->message('Verify your account with the six letter verification code "'.$code.'" to gain access in PBA HUB.');
+		if($this->email->send()){
+			print "Email Sent!";
+		}else{
+			print "Email Not Sent!";
+		}
+		
+	}
+
 	//Sends mail through gmail
 	public function sendPassword($email,$pass){
 		$config = array(

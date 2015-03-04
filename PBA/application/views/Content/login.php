@@ -35,7 +35,7 @@
 <!--- END OF LOGIN FORM -->
 <!--- MODAL FOR CODE -->
 <div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Verify Your Account, <?php echo $user;?>!</h2>
+  <h2>Verify Your Account, <b id="resendUser"/><?php echo $user;?></b>!</h2>
     <div class="small-6 large-centered columns">
       <form action="<?php echo base_url();?>account_controller/check_code" method="post">
         <center> 
@@ -51,6 +51,7 @@
           <button type="submit" class="expand form-button button [tiny small large]">Verify</button>
         </div>
       </form>
+      <button class="expand form-button button [tiny small large] resendCode">Resend Code</button>
       <a class="close-reveal-modal">&#215;</a>
     </div>  
 </div>
@@ -84,6 +85,17 @@ $(document).ready(function(){
   $(".fget-pword").click(function(){
     $("#notif").attr("style","display:none;");
     $("#email").val("");
+  });
+
+  $(".resendCode").click(function(){
+    $.ajax({
+      url:'<?php echo base_url();?>account_controller/resendmail',
+      type:'post',
+      data:{'user':$(this).parent().siblings().find("#resendUser").text()},
+      success:function(data){
+        alert(data);
+      }
+    });
   });
 
   $("#forgotButton").click(function(){
