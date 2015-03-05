@@ -55,8 +55,10 @@
               <p><strong>Playoffs Appearance</strong> <span class="profile-elem-bar">|</span>  <?php echo $info->COACH_PLAYOFF_APPEAR;?></p>
               <p><strong>Finals Appearance</strong> <span class="profile-elem-bar">|</span>  <?php echo $info->COACH_FINALS_APPEAR;?></p>
 
-              <?php if(!empty($award)){?>
-                <strong><span class="profile-elem-bar">o</span> <strong>AWARDS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              
+              <strong><span class="profile-elem-bar">o</span> <strong>AWARDS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              <?php if(empty($award)){?>
+                <h1>No Awards To Display</h1>
               <?php }?>
 
               <?php foreach($award as $award):?>
@@ -64,8 +66,9 @@
                 <strong>Year won</strong> <span class="profile-elem-bar">|</span> <?php echo $award->YEAR_AWARDED;?></p>
               <?php endforeach;?>
     
-              <?php if(!empty($champ)){?>
-                <strong><span class="profile-elem-bar">o</span> <strong>CHAMPIONSHIPS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              <strong><span class="profile-elem-bar">o</span> <strong>CHAMPIONSHIPS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              <?php if(empty($champ)){?>
+                <h1>No Championships To Display</h1>
               <?php }?>
               
               <?php foreach($champ as $champ):?>

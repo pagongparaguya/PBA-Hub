@@ -56,16 +56,20 @@
               <p><strong>Finals appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->PLAYER_FINALS_APPEAR;?></p>
               <p><strong>Allstar appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->PLAYER_ALLSTAR_APPEAR;?></p>
   
-              <?php if(!empty($award)){?>
+              
                 <p><strong><span class="profile-elem-bar">o</span> <strong>AWARDS WON</strong> <span class="profile-elem-bar">o</span></strong></p>
+              <?php if(empty($award)){?>
+                <h1>No Awards To Display</h1>
               <?php }?>
               
                 <?php foreach($award as $award):?>
                   <p><strong><?php echo $award->AWARD_NAME;?></strong> <span class="profile-elem-bar">|</span> <?php echo $award->AWARD_YEAR;?> <br/>
                 <?php endforeach;?>
     
-              <?php if(!empty($champ)){?>
+              
                 <p><strong><span class="profile-elem-bar">o</span> <strong>CHAMPIONSHIPS WON</strong> <span class="profile-elem-bar">o</span></strong></p>
+              <?php if(empty($champ)){?>
+                <h1>No Awards To Display</h1>
               <?php }?>
   
                 <?php foreach($champ as $champ):?>
@@ -138,8 +142,10 @@ $(document).ready(function(){
 	});
   <?php foreach($team_bridge as $team):?>
     
-    <?php if($team->TYPE=='PRESENT'){?>
-      present+='<a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
+    <?php if($team->TYPE=='PRESENT'){
+      $teamInfo=$this->page_model->get_teamInfo($team->TEAM_ID);
+      ?>
+      present+='<span><?php echo $teamInfo->TEAM_NAME;?></span><br/><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
       presentTime='<?php echo $team->YEAR.'-'.$team->TYPE;?>';
     
     <?php }else if($team->TYPE=='PAST'){?>

@@ -1,4 +1,3 @@
-</div><!-- CLOSER TAG OF PAGE-CONTENT -->
 <!-- START OF IMAGE SLIDESHOW -->
   <ul class="cb-slideshow">
       <li><span>Image 01</span><div><h3>The PBA League</h3></div></li>

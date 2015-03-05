@@ -41,7 +41,7 @@
         <center> 
           <fieldset>
             <legend style="color:blue;">ACCOUNT VERIFICATION</legend> 
-            <center><span style="color:red;"><?php echo $verification;?></span></center>
+            <center><span style="color:red;" id="errorMsg"><?php echo $verification;?></span></center>
             <br> 
             <input type="hidden" name="user" value="<?php echo $user;?>" placeholder="Username" aria-label="Username">
             <input type="text" name="code" placeholder="Code" maxlength="6" required pattern=".{6}" title="6 Characters" aria-label="Code">
@@ -88,12 +88,13 @@ $(document).ready(function(){
   });
 
   $(".resendCode").click(function(){
+    $("#errorMsg").text("Please Wait For Awhile.");
     $.ajax({
       url:'<?php echo base_url();?>account_controller/resendmail',
       type:'post',
       data:{'user':$(this).parent().siblings().find("#resendUser").text()},
       success:function(data){
-        alert(data);
+        $("#errorMsg").text(data);
       }
     });
   });

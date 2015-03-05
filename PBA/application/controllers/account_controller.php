@@ -247,7 +247,7 @@ class Account_controller extends CI_Controller{
 	}
 
 	public function view_otherUser($userid){
-		if(!empty($this->session->userdata('username'))){
+		if(!empty($userid)){
 			$data['info']=$this->account_model->get_user2($userid);
 			if(!empty($data['info'])){
 				$data['title']=$data['info']->USERNAME."'s Profile";

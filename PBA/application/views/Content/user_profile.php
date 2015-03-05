@@ -109,7 +109,7 @@
 <!--- END QUESTION USER -->
 
 <!--- START EDIT USER-->
-<div id="editProfileModal" class="reveal-modal small" data-reveal>
+<div id="editProfileModal" class="reveal-modal medium" data-reveal>
   <form id="ep" action="<?php echo base_url();?>account_controller/edit_user" method="post" enctype='multipart/form-data'>       
       <div class="small-12 medium-12 large-12 columns form-text">
         <h2>Personal Information</h2>
