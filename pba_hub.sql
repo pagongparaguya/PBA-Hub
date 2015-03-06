@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2015 at 09:49 AM
+-- Generation Time: Mar 06, 2015 at 07:29 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -449,7 +449,14 @@ CREATE TABLE IF NOT EXISTS `product` (
   `IMAGE4` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   `IMAGE5` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   PRIMARY KEY (`PROD_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`PROD_ID`, `USER_ID`, `START_BID`, `PROD_NAME`, `PROD_CAT`, `PROD_DES`, `PROD_AGE_NAME`, `PROD_AGE_VAL`, `PROD_STAT`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
+(1, 16, 1000, '1234', 'Jersey', '123412', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
 
 -- --------------------------------------------------------
 
@@ -632,7 +639,7 @@ CREATE TABLE IF NOT EXISTS `team_player_bridge` (
   `YEAR` varchar(9) NOT NULL,
   PRIMARY KEY (`TPB_ID`),
   UNIQUE KEY `TPB_ID` (`TPB_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
 
 --
 -- Dumping data for table `team_player_bridge`
@@ -710,7 +717,45 @@ INSERT INTO `team_player_bridge` (`TPB_ID`, `TEAM_ID`, `PLAYER_ID`, `TYPE`, `YEA
 (69, 12, 57, 'PRESENT', '2003'),
 (70, 12, 58, 'PRESENT', '2004'),
 (71, 12, 59, 'PRESENT', '2000'),
-(72, 12, 60, 'PRESENT', '2001');
+(72, 12, 60, 'PRESENT', '2001'),
+(73, 1, 10, 'NOTABLE', '2000'),
+(74, 1, 45, 'NOTABLE', '2008'),
+(75, 1, 49, 'NOTABLE', '2008'),
+(76, 1, 33, 'NOTABLE', '2008'),
+(77, 2, 54, 'NOTABLE', '2011'),
+(78, 2, 59, 'NOTABLE', '2011'),
+(79, 2, 11, 'NOTABLE', '2012'),
+(80, 2, 3, 'NOTABLE', '2013'),
+(81, 3, 15, 'NOTABLE', '1999'),
+(82, 3, 24, 'NOTABLE', '2003'),
+(83, 3, 41, 'NOTABLE', '2009'),
+(84, 3, 47, 'NOTABLE', '2012'),
+(85, 5, 4, 'NOTABLE', '2012'),
+(86, 5, 10, 'NOTABLE', '2012'),
+(87, 7, 11, 'NOTABLE', '2010'),
+(88, 7, 16, 'NOTABLE', '2010'),
+(89, 7, 22, 'NOTABLE', '2011'),
+(90, 7, 29, 'NOTABLE', '2011'),
+(91, 9, 15, 'NOTABLE', '1990'),
+(92, 9, 22, 'NOTABLE', '1995'),
+(93, 9, 31, 'NOTABLE', '1997'),
+(94, 9, 34, 'NOTABLE', '1999'),
+(95, 9, 40, 'NOTABLE', '2001'),
+(96, 9, 43, 'NOTABLE', '2005'),
+(97, 9, 56, 'NOTABLE', '2010'),
+(98, 10, 16, 'NOTABLE', '2006'),
+(99, 10, 23, 'NOTABLE', '2006'),
+(100, 10, 25, 'NOTABLE', '2008'),
+(101, 11, 3, 'NOTABLE', '1975'),
+(102, 11, 9, 'NOTABLE', '1977'),
+(103, 11, 15, 'NOTABLE', '1980'),
+(104, 11, 21, 'NOTABLE', '1985'),
+(105, 11, 29, 'NOTABLE', '1989'),
+(106, 11, 31, 'NOTABLE', '1994'),
+(107, 12, 49, 'NOTABLE', '2000'),
+(108, 12, 52, 'NOTABLE', '2002'),
+(109, 12, 56, 'NOTABLE', '2010'),
+(110, 12, 57, 'NOTABLE', '2012');
 
 -- --------------------------------------------------------
 
@@ -736,14 +781,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`USER_ID`),
   UNIQUE KEY `USERNAME` (`USERNAME`),
   UNIQUE KEY `EMAIL_ADDRESS` (`EMAIL_ADDRESS`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
-(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.jpg');
+(15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.jpg'),
+(16, 'King', 'Flakers', '09123123123', 'flakersking@gmail.com', 'Kamo kamo', '1997-12-31', 'Who is your favorite PBA player?', 'IDK', 'king', 'b1a30a650048a2a6e23e77e59123d878', 'fsVjFv', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
