@@ -57,7 +57,7 @@
               <p><strong>Allstar appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->PLAYER_ALLSTAR_APPEAR;?></p>
   
               
-                <p><strong><span class="profile-elem-bar">o</span> <strong>AWARDS WON</strong> <span class="profile-elem-bar">o</span></strong></p>
+                <p><strong><strong style="font-size:22px;">AWARDS WON</strong></strong></p>
               <?php if(empty($award)){?>
                 <h1>No Awards To Display</h1>
               <?php }?>
@@ -67,7 +67,7 @@
                 <?php endforeach;?>
     
               
-                <p><strong><span class="profile-elem-bar">o</span> <strong>CHAMPIONSHIPS WON</strong> <span class="profile-elem-bar">o</span></strong></p>
+                <p><strong><strong style="font-size:22px;">CHAMPIONSHIPS WON</strong></strong></p>
               <?php if(empty($champ)){?>
                 <h1>No Awards To Display</h1>
               <?php }?>

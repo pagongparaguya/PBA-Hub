@@ -56,7 +56,7 @@
               <p><strong>Finals Appearance</strong> <span class="profile-elem-bar">|</span>  <?php echo $info->COACH_FINALS_APPEAR;?></p>
 
               
-              <strong><span class="profile-elem-bar">o</span> <strong>AWARDS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              <strong><strong style="font-size:22px;">AWARDS WON</strong></strong>
               <?php if(empty($award)){?>
                 <h1>No Awards To Display</h1>
               <?php }?>
@@ -66,7 +66,7 @@
                 <strong>Year won</strong> <span class="profile-elem-bar">|</span> <?php echo $award->YEAR_AWARDED;?></p>
               <?php endforeach;?>
     
-              <strong><span class="profile-elem-bar">o</span> <strong>CHAMPIONSHIPS WON</strong> <span class="profile-elem-bar">o</span></strong>
+              <strong><strong style="font-size:22px;">CHAMPIONSHIPS WON</strong></strong>
               <?php if(empty($champ)){?>
                 <h1>No Championships To Display</h1>
               <?php }?>
