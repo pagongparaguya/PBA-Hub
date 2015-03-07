@@ -26,7 +26,7 @@
   <hr class="hr-dotted" />
   <div>
     <form action="<?php echo base_url();?>account_controller/edit_otherUser" method="post">
-      <input type="text" name="user" id="user" value="" />
+      <input type="hidden" name="user" id="user" value="" />
       <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2 teams">
         <li>  
           <label>
