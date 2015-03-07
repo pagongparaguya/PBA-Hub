@@ -109,8 +109,10 @@ $(document).ready(function(){
 	});
 
   <?php foreach($team_bridge as $team):?>
-    <?php if($team->TYPE=='PRESENT'){?>
-      present+='<a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
+    <?php if($team->TYPE=='PRESENT'){
+        $teamInfo=$this->page_model->get_teamInfo($team->TEAM_ID);
+      ?>
+      present+='<span><?php echo $teamInfo->TEAM_NAME;?></span><br/><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" width="200" height="200"/></a>';
       presentTime='<?php echo $team->YEAR.'-'.$team->TYPE;?>';
     <?php }else if($team->TYPE=='PAST'){?>
       past+='<li><a href="<?php echo base_url().'pages_controller/view_team/'.$team->TEAM_ID;?>"><img src="<?php echo base_url().'assets/img/team/'.$team->TEAM_ID;?>.png" alt="past team"/></a><header class="team-name profile-elem-teamdur"><?php echo $team->YEAR;?></header></li>';
