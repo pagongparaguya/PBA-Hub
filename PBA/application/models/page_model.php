@@ -14,12 +14,14 @@ class Page_model extends CI_Model{
 	}
 
 	public function get_playerAward($id){
+		$this->db->order_by("AWARD_YEAR", "asc"); 
 		$this->db->where('player_id',$id);
 		$d=$this->db->get('player_award_won');
 		return $d->result();
 	}
 
 	public function get_playerChampionship($id){
+		$this->db->order_by("YEAR_WON", "asc"); 
 		$this->db->where('player_id',$id);
 		$d=$this->db->get('player_championship_won');
 		return $d->result();
@@ -76,6 +78,7 @@ class Page_model extends CI_Model{
 	}
 
 	public function get_teamChampionship($id){
+		$this->db->order_by("YEAR_WON", "asc"); 
 		$this->db->where('team_id',$id);
 		$d=$this->db->get('team_championship_won');
 		return $d->result();
@@ -116,12 +119,14 @@ class Page_model extends CI_Model{
 	}
 
 	public function get_coachAward($id){
+		$this->db->order_by("YEAR_AWARDED", "asc"); 
 		$this->db->where('coach_id',$id);
 		$d=$this->db->get('coach_award_won');
 		return $d->result();
 	}
 
 	public function get_coachChampionship($id){
+		$this->db->order_by("YEAR_WON", "asc"); 
 		$this->db->where('coach_id',$id);
 		$d=$this->db->get('coach_championship_won');
 		return $d->result();

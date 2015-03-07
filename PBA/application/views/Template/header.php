@@ -31,8 +31,6 @@
     <!-- owl carousel js -->
     <script src="<?php echo base_url();?>assets/js/owl.carousel.js"></script>
     <script src="<?php echo base_url();?>assets/js/owl.carousel.min.js"></script>
-
-    
   </head>
 
   <body>
