@@ -64,8 +64,10 @@
                 <p><strong>Number of playoffs appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_PLAYOFF_APPEAR?></p>
                 <p><strong>Number of finals appearance</strong> <span class="profile-elem-bar">|</span> <?php echo $info->TEAM_FINALS_APPEAR;?></p>
     
-                <?php if(!empty($champ)){?>
+                
                   <strong><span class="profile-elem-bar">|</span> <strong>Championships won</strong> <span class="profile-elem-bar">|</span></strong>
+                <?php if(empty($champ)){?>
+                  <h1>No Championships To Display</h1>
                 <?php }?>
                 
                 <?php foreach($champ as $champ):?>

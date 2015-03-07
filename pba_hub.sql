@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2015 at 07:29 AM
+-- Generation Time: Mar 07, 2015 at 01:18 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -129,7 +129,7 @@ INSERT INTO `coach_carousel_image` (`CCI_ID`, `COACH_ID`, `IMAGE1`, `IMAGE2`, `I
 (9, 9, 'Tim Cone/1.jpg', 'Tim Cone/2.jpg', 'Tim Cone/3.jpg', 'Tim Cone/4.jpg', 'Tim Cone/5.jpg', 'Tim Cone/6.jpg', 'Tim Cone/7.jpg', 'Tim Cone/8.jpg', 'Tim Cone/9.jpg'),
 (10, 10, 'Yeng Guiao/1.jpg', 'Yeng Guiao/2.jpg', 'Yeng Guiao/3.jpg', 'Yeng Guiao/4.jpg', 'Yeng Guiao/5.jpg', 'Yeng Guiao/6.jpg', 'Yeng Guiao/7.jpg', 'Yeng Guiao/8.jpg', 'Yeng Guiao/9.jpg'),
 (11, 11, 'Leo Austria/1.jpg', 'Leo Austria/2.jpg', 'Leo Austria/3.jpg', 'Leo Austria/4.jpg', 'Leo Austria/5.jpg', 'Leo Austria/6.jpg', 'Leo Austria/7.jpg', 'Leo Austria/8.jpg', 'Leo Austria/9.jpg'),
-(12, 12, 'Jong Uichico/1.jpg', 'Jong Uichico/2.jpg', 'Jong Uichico/3.jpg', 'Jong Uichico/4.jpg', 'Jong Uichico/5.jpg', 'Jong Uichico/6.jpg', 'Jong Uichico/7.jpg', 'Jong Uichico/8.jpg', 'Jong Uichico/9.jpg');
+(12, 12, 'Jong Uichico/9.jpg', 'Jong Uichico/2.jpg', 'Jong Uichico/3.jpg', 'Jong Uichico/4.jpg', 'Jong Uichico/5.jpg', 'Jong Uichico/6.jpg', 'Jong Uichico/7.jpg', 'Jong Uichico/8.jpg', 'Jong Uichico/9.jpg');
 
 -- --------------------------------------------------------
 
@@ -449,14 +449,15 @@ CREATE TABLE IF NOT EXISTS `product` (
   `IMAGE4` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   `IMAGE5` varchar(100) NOT NULL DEFAULT 'http://localhost/PBA/assets/product_images/sample.jpg',
   PRIMARY KEY (`PROD_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`PROD_ID`, `USER_ID`, `START_BID`, `PROD_NAME`, `PROD_CAT`, `PROD_DES`, `PROD_AGE_NAME`, `PROD_AGE_VAL`, `PROD_STAT`, `IMAGE1`, `IMAGE2`, `IMAGE3`, `IMAGE4`, `IMAGE5`) VALUES
-(1, 16, 1000, '1234', 'Jersey', '123412', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
+(1, 16, 1000, '1234', 'Jersey', '123412', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg'),
+(2, 15, 1000, '1234', 'Jersey', 'hahaha', 'Day', 1, 'On-going', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg', 'http://localhost/PBA/assets/product_images/sample.jpg');
 
 -- --------------------------------------------------------
 
@@ -509,7 +510,7 @@ INSERT INTO `team` (`TEAM_ID`, `TEAM_NAME`, `TEAM_LOGO`, `TEAM_STAT`, `TEAM_YEAR
 (9, 'Purefoods Star Hotshots', 'purefoods.jpg', 1, 1988, 753, 699, 'The Purefoods Star Hotshots is a professional basketball team currently playing in the Philippine Basketball Association since 1988. The team is owned by San Miguel Pure Foods Company, Inc. (formerly, Pure Foods Corporation), a subsidiary of San Miguel Corporation (SMC). The team is one of three PBA ball clubs currently owned by the SMC group of companies, along with Barangay Ginebra San Miguel and the San Miguel Beermen.\nThe franchise remains as one of the most popular teams in the PBA[1] and currently holds thirteen PBA titles. The player most identified with the Purefoods franchise was Alvin Patrimonio, who led the franchise (playing as Purefoods) to six championships in the 1990s and early 2000s, and was named Most Valuable Player four times. Patrimonio retired in 2004 to concentrate more on his duties as team manager for his team.', 70, 27),
 (10, 'Rain or Shine Elasto Painters', 'rain or shine.jpg', 1, 2006, 137, 177, 'The Rain or Shine Elasto Painters are a professional basketball team in the Philippine Basketball Association owned by Asian Coatings Philippines, Inc. It debuted in the league in the 2006-07 PBA season after acquiring the franchise rights of the She', 11, 3),
 (11, 'San Miguel Beermen', 'san miguel.jpg', 1, 1975, 1147, 919, 'The San Miguel Beermen are a professional basketball team playing in the Philippine Basketball Association (PBA). The franchise is owned by San Miguel Corporation (SMC) since 1975 and holds the most number of PBA titles (currently at 20).\nSan Miguel is one of three PBA ball clubs owned by the SMC group of companies, along with the Purefoods Star Hotshots and Barangay Ginebra San Miguel.\nIt is the remaining original franchise in the PBA (the team first played as Royal Tru-Orange in 1975).', 101, 31),
-(12, 'Talk ''N Text Tropang Texters', 'talk n text.jpg', 1, 1990, 563, 542, 'The Talk ''N Text Tropang Texters are a professional basketball team currently owned by Smart Communications, a subsidiary of the Philippine Long Distance Telephone Company (PLDT), playing in the Philippine Basketball Association (PBA) since 1990.\nThe franchise began in 1990 when Pepsi-Cola Products Philippines, Inc. (PCPPI) acquired a PBA franchise. Under PCPPI, the franchise played under the names Pepsi and 7 Up. In 1996, the franchise came under the control of Pilipino Telephone Corporation (Piltel) and played under the name Mobiline. In 2001, the franchise was renamed Talk ''N Text after the operations of Piltel was absorbed by Smart Communications.', 65, 15);
+(12, 'Talk N Text Tropang Texters', 'talk n text.jpg', 1, 1990, 563, 542, 'The Talk ''N Text Tropang Texters are a professional basketball team currently owned by Smart Communications, a subsidiary of the Philippine Long Distance Telephone Company (PLDT), playing in the Philippine Basketball Association (PBA) since 1990.\nThe franchise began in 1990 when Pepsi-Cola Products Philippines, Inc. (PCPPI) acquired a PBA franchise. Under PCPPI, the franchise played under the names Pepsi and 7 Up. In 1996, the franchise came under the control of Pilipino Telephone Corporation (Piltel) and played under the name Mobiline. In 2001, the franchise was renamed Talk ''N Text after the operations of Piltel was absorbed by Smart Communications.', 65, 15);
 
 -- --------------------------------------------------------
 
@@ -623,7 +624,7 @@ INSERT INTO `team_coach_bridge` (`TCB_ID`, `TEAM_ID`, `COACH_ID`, `TYPE`, `YEAR`
 (15, 11, 11, 'PRESENT', '2014'),
 (16, 11, 12, 'PAST', '1999-2006'),
 (17, 3, 12, 'PAST', '2006-2012'),
-(18, 12, 12, 'PRESENT', '2014');
+(18, 12, 12, 'PRESENT', '2012');
 
 -- --------------------------------------------------------
 
@@ -781,7 +782,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`USER_ID`),
   UNIQUE KEY `USERNAME` (`USERNAME`),
   UNIQUE KEY `EMAIL_ADDRESS` (`EMAIL_ADDRESS`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `user`
@@ -789,7 +790,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`USER_ID`, `FIRST_NAME`, `LAST_NAME`, `CONTACT_NUMBER`, `EMAIL_ADDRESS`, `ADDRESS`, `BIRTHDAY`, `SECRET_QUESTION`, `SECRET_ANSWER`, `USERNAME`, `PASSWORD`, `STATUS`, `ACCOUNT_TYPE`, `USER_IMAGE`) VALUES
 (15, 'andres', 'paraguyas', '09059217526', 'sdfs@hi.com', 'Nasipit, Talamban', '2015-01-02', 'Hello', 'Hi', 'superman', '84d961568a65073a3bcf0eb216b2a576', 'Active', 'Admin', 'http://localhost/PBA/assets/user_images/superman.jpg'),
-(16, 'King', 'Flakers', '09123123123', 'flakersking@gmail.com', 'Kamo kamo', '1997-12-31', 'Who is your favorite PBA player?', 'IDK', 'king', 'b1a30a650048a2a6e23e77e59123d878', 'fsVjFv', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg');
+(16, 'King', 'Flakers', '09123123123', 'flakersking@gmail.com', 'Kamo kamo', '1997-12-31', 'Who is your favorite PBA player?', 'IDK', 'king', 'b1a30a650048a2a6e23e77e59123d878', 'fsVjFv', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
+(17, 'Irvin', 'Abellanosa', '09221231231', 'i@yahoo', 'hello hello', '1994-12-31', 'Who is your favorite PBA player?', 'IDK', 'irvin', '6b5a0bcc9624f402d93ac5bc05213db2', '0', 'Admin', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg'),
+(18, 'Lilton', 'Gungob', '09123123123', 'iii@yahoo.com', 'asdsa', '1994-12-31', 'Who is your favorite PBA player?', 'KB', 'lilton', '1e424d87c6969c2fba6d6a7e124678f4', 'PJ7m80', 'Normal', 'http://localhost/PBA/assets/default_images/defaultuser12345.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

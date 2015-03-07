@@ -69,7 +69,7 @@
               
                 <p><strong><strong style="font-size:22px;">CHAMPIONSHIPS WON</strong></strong></p>
               <?php if(empty($champ)){?>
-                <h1>No Awards To Display</h1>
+                <h1>No Championships To Display</h1>
               <?php }?>
   
                 <?php foreach($champ as $champ):?>
